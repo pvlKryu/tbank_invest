@@ -1,0 +1,7 @@
+# Dart
+.dart_tool/
+.packages
+build/
+
+# Опционально для библиотеки: не коммитить lock
+# pubspec.lock

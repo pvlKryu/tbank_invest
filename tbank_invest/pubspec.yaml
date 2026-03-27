@@ -1,0 +1,17 @@
+name: tbank_invest
+description: >
+  Dart-клиент для T-Invest REST API (все сервисы из OpenAPI) и WebSocket-стримов.
+  Официальная документация: https://developer.tbank.ru/invest/api
+version: 0.1.0
+license: Apache-2.0
+
+environment:
+  sdk: ^3.3.0
+
+dependencies:
+  dio: ^5.7.0
+  meta: ^1.11.0
+
+dev_dependencies:
+  lints: ^4.0.0
+  test: ^1.25.0
