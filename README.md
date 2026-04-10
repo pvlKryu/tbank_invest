@@ -50,7 +50,7 @@ Dart client for T‑Invest:
 
 ```yaml
 dependencies:
-  tbank_invest: ^0.1.0
+  tbank_invest: ^0.1.1
 ```
 
 Path dependency during development:
@@ -180,7 +180,7 @@ dart run --define=TBANK_TOKEN=t.xxx example/example.dart
 
 ### License
 
-Apache 2.0 — see [`LICENSE`](LICENSE).
+MIT — see [`LICENSE`](LICENSE).
 
 ---
 
@@ -230,7 +230,7 @@ Apache 2.0 — see [`LICENSE`](LICENSE).
 
 ```yaml
 dependencies:
-  tbank_invest: ^0.1.0
+  tbank_invest: ^0.1.1
 ```
 
 Локально из пути:
@@ -334,4 +334,4 @@ dart run --define=TBANK_TOKEN=t.xxx example/example.dart
 
 ### Лицензия
 
-Apache 2.0 — файл [`LICENSE`](LICENSE).
+MIT — файл [`LICENSE`](LICENSE).

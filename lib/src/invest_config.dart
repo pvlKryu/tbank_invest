@@ -70,7 +70,7 @@ class InvestConfig {
   String get wsBaseUrl => switch (environment) {
         InvestEnvironment.production => 'wss://invest-public-api.tbank.ru/ws',
         InvestEnvironment.sandbox =>
-            'wss://sandbox-invest-public-api.tbank.ru/ws',
+          'wss://sandbox-invest-public-api.tbank.ru/ws',
       };
 
   /// Builds the full WSS URI for a streaming channel.
