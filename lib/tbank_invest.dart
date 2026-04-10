@@ -1,7 +1,7 @@
-/// Dart-клиент для [T-Invest REST API](https://developer.tbank.ru/invest/api)
-/// и WebSocket-стримов.
+/// Dart client for the [T-Invest REST API](https://developer.tbank.ru/invest/api)
+/// and WebSocket streams.
 ///
-/// Основной класс — [TinvestClient]. Пути методов — [InvestApiPaths].
+/// Main entry: [TinvestClient]. Method paths: [InvestApiPaths].
 library tbank_invest;
 
 export 'src/api_paths.dart';

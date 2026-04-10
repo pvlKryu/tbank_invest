@@ -1,52 +1,105 @@
 # tbank_invest
 
-Dart-клиент для [**T-Invest API**](https://developer.tbank.ru/invest/api) (Т-Банк): REST-методы по [официальному OpenAPI](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/swagger-ui/openapi.yaml), плюс подключение к **WebSocket**-стримам.
+**Languages:** [English](#english) · [Русский](#русский)
 
-## Возможности
+Unofficial Dart client for **[T‑Invest (T‑Bank) Invest API](https://developer.tbank.ru/invest/api)** — REST (Dio) + `dart:io` WebSocket helpers. Not an official SDK.
 
-- Все REST-сервисы из OpenAPI **1.43**: инструменты, рынок, операции, заявки, песочница, стопы, пользователь, сигналы.
-- Типизированные обёртки `JsonMap` → удобно мапить в свои модели позже.
-- Модели `MoneyValue` и `Quotation` для частых полей.
-- `InvestWebSocket` для WSS с заголовком `Authorization` (через `dart:io`).
-- Ошибки `InvestApiException` с HTTP/gRPC/бизнес-кодами и `x-tracking-id`, где доступно.
+---
 
-## Установка
+## English
 
-В `pubspec.yaml`:
+Dart client for T‑Invest:
+
+- **REST** — thin wrappers over every method from the official [OpenAPI](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/swagger-ui/openapi.yaml) (POST + JSON), using [Dio](https://pub.dev/packages/dio).
+- **WebSocket** — [`WebSocket`](https://api.dart.dev/stable/dart-io/WebSocket-class.html) helper with `Authorization` and the `json` subprotocol for streaming endpoints.
+
+### Table of contents (EN)
+
+- [Features](#features)
+- [Installation](#installation)
+- [Quick start (REST)](#quick-start-rest)
+- [Configuration](#configuration)
+- [WebSocket](#websocket)
+- [Errors](#errors)
+- [Package layout](#package-layout)
+- [Limitations](#limitations)
+- [Example app](#example-app)
+- [License](#license)
+
+### Features
+
+| Area | Notes |
+|------|--------|
+| REST | One class per gRPC/OpenAPI service (`InvestUsersApi`, `InvestMarketDataApi`, …). Each method maps 1:1 to a path in `InvestApiPaths`. |
+| JSON | Responses are [`JsonMap`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/JsonMap.html) — map to your own models as needed. |
+| Auth | Bearer token on every request; optional `x-app-name` via `InvestConfig.appName`. |
+| WebSocket | `InvestWebSocket.connect` builds `wss://…` URLs from `InvestConfig` + `InvestApiPaths`. |
+| Helpers | `MoneyValue`, `Quotation`, `InvestApiException` (HTTP status, gRPC code, `x-tracking-id` when present). |
+
+### Installation
+
+```yaml
+dependencies:
+  tbank_invest: ^0.1.0
+```
+
+Path dependency during development:
 
 ```yaml
 dependencies:
   tbank_invest:
-    path: ../tbank_invest  # или версия с pub.dev, когда опубликуете
+    path: packages/tbank_invest
 ```
 
-## Быстрый старт
+### Quick start (REST)
 
 ```dart
 import 'package:tbank_invest/tbank_invest.dart';
 
-final client = TinvestClient(
-  InvestConfig(
-    token: 't.ВАШ_ТОКЕН',
-    environment: InvestEnvironment.sandbox,
-  ),
-);
+Future<void> main() async {
+  final client = TinvestClient(
+    InvestConfig(
+      token: 't.your_token_here',
+      environment: InvestEnvironment.sandbox,
+    ),
+  );
 
-try {
-  final accounts = await client.users.getAccounts({});
-  // тело ответа — JsonMap по схеме OpenAPI
-} on InvestApiException catch (e) {
-  print(e);
-} finally {
-  client.close();
+  try {
+    final json = await client.users.getAccounts({});
+    final accounts = json['accounts'];
+  } on InvestApiException catch (e) {
+    print(e);
+  } finally {
+    client.close();
+  }
 }
 ```
 
-Пример с `--define` для токена: см. `example/example.dart`.
+Token via CLI:
 
-## WebSocket
+```bash
+dart run --define=TBANK_TOKEN=t.xxx bin/your_app.dart
+```
 
-Для стримов котировок и заявок предпочтительно **WSS** (см. [asyncapi.yaml](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/ws/asyncapi.yaml)):
+```dart
+const token = String.fromEnvironment('TBANK_TOKEN', defaultValue: '');
+```
+
+### Configuration
+
+| Field | Purpose |
+|--------|---------|
+| `token` | API token (`t.…`), without `Bearer `. |
+| `environment` | `production` or `sandbox` — REST/WSS base URLs. |
+| `appName` | Optional `x-app-name` if registered with T‑Bank. |
+| `logHttpTraffic` | If `true`, Dio logs bodies (not `Authorization`). Default `false`. |
+| Timeouts | `connectTimeout`, `receiveTimeout`, `sendTimeout`. |
+
+### WebSocket
+
+Same path segments as REST (`InvestApiPaths`), `wss://`, subprotocol `json`, `Authorization: Bearer <token>`. Payloads: official WebSocket / protobuf JSON ([asyncapi](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/ws/asyncapi.yaml), [WS docs](https://tinkoff.github.io/investAPI/ws/)).
+
+Last-price subscribe example:
 
 ```dart
 import 'dart:convert';
@@ -54,33 +107,209 @@ import 'dart:io' show WebSocket;
 
 import 'package:tbank_invest/tbank_invest.dart';
 
-Future<void> streamExample(InvestConfig cfg) async {
+Future<void> lastPriceExample(InvestConfig config) async {
   final ws = await InvestWebSocket.connect(
-    config: cfg,
+    config: config,
     apiPath: InvestApiPaths.marketDataStreamServiceMarketDataStream,
   );
-  // далее — отправка/приём JSON-сообщений по протоколу API
-  ws.listen((Object? data) {
-    if (data is String) {
-      print(data);
-    } else if (data is List<int>) {
-      print(utf8.decode(data));
-    }
-  });
+
+  ws.add(jsonEncode({
+    'subscribeLastPriceRequest': {
+      'subscriptionAction': 'SUBSCRIPTION_ACTION_SUBSCRIBE',
+      'instruments': [
+        {'instrumentId': '<instrument-uuid>'},
+      ],
+    },
+  }));
+
+  await for (final data in ws) {
+    final text = data is String ? data : utf8.decode(data as List<int>);
+    print(text);
+  }
 }
 ```
 
-Реализация использует `dart:io` и подходит для **Flutter mobile/desktop**; для Web может понадобиться прокси или другой транспорт.
+**Platforms:** `dart:io` WebSocket works on Flutter **iOS, Android, desktop**; **Flutter Web** needs another transport.
 
-## Стриминг через REST
+### Errors
 
-Методы `MarketDataServerSideStream`, `MarketDataStream` и аналоги в OpenAPI помечены как streaming; для потоковой обработки на практике чаще используют **WebSocket**, а не длительный HTTP-ответ.
+- `InvestApiException` — optional `httpStatusCode`, `grpcCode`, `businessCode`, `trackingId`.
+- `InvestDecodeException` — unexpected JSON.
+- `InvestException` — generic client error.
 
-## Ссылки
+### Package layout
 
-- [Документация T-Bank Invest API](https://developer.tbank.ru/invest/api)
-- [OpenAPI (источник путей)](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/swagger-ui/openapi.yaml)
+```
+lib/
+  tbank_invest.dart
+  src/
+    invest_config.dart
+    invest_http_client.dart
+    invest_websocket.dart
+    invest_exception.dart
+    api_paths.dart
+    json_types.dart
+    models/
+    services/
+    tinvest_client.dart
+example/
+  example.dart
+```
 
-## Лицензия
+### Limitations
 
-BSD-3-Clause (см. файл `LICENSE`).
+- No codegen for all DTOs — use `JsonMap` or your models.
+- Quotas and stream rules are enforced by T‑Bank.
+
+### Example app
+
+```bash
+dart run --define=TBANK_TOKEN=t.xxx example/example.dart
+```
+
+### License
+
+Apache 2.0 — see [`LICENSE`](LICENSE).
+
+---
+
+## Русский
+
+Неофициальный Dart-клиент для **[API Т‑Инвест (Т‑Банк)](https://developer.tbank.ru/invest/api)**:
+
+- **REST** — обёртки над методами из [OpenAPI](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/swagger-ui/openapi.yaml) (`POST` + JSON), транспорт [Dio](https://pub.dev/packages/dio).
+- **WebSocket** — помощник на базе [`WebSocket`](https://api.dart.dev/stable/dart-io/WebSocket-class.html) из `dart:io` с заголовком `Authorization` и подпротоколом `json`.
+
+Официальным SDK пакет **не является**; контракты и лимиты — в документации Т‑Банка.
+
+### Содержание (RU)
+
+- [Возможности](#возможности)
+- [Установка](#установка)
+- [Быстрый старт (REST)](#быстрый-старт-rest)
+- [Конфигурация](#конфигурация)
+- [WebSocket (стримы)](#websocket-стримы)
+- [Ошибки](#ошибки)
+- [Структура пакета](#структура-пакета)
+- [Ограничения](#ограничения)
+- [Пример](#пример)
+- [Лицензия](#лицензия)
+
+### Возможности
+
+| Область | Описание |
+|---------|----------|
+| REST | Один класс на сервис OpenAPI (`InvestUsersApi`, `InvestMarketDataApi`, …), путь 1:1 с `InvestApiPaths`. |
+| JSON | Ответы — [`JsonMap`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/JsonMap.html); модели можно навесить сами. |
+| Авторизация | Bearer на каждый запрос; опционально `x-app-name` через `InvestConfig.appName`. |
+| WebSocket | `InvestWebSocket.connect` собирает `wss://…` из `InvestConfig` и `InvestApiPaths`. |
+| Утилиты | `MoneyValue`, `Quotation`, `InvestApiException`. |
+
+### Установка
+
+```yaml
+dependencies:
+  tbank_invest: ^0.1.0
+```
+
+Локально из пути:
+
+```yaml
+dependencies:
+  tbank_invest:
+    path: packages/tbank_invest
+```
+
+### Быстрый старт (REST)
+
+```dart
+import 'package:tbank_invest/tbank_invest.dart';
+
+Future<void> main() async {
+  final client = TinvestClient(
+    InvestConfig(
+      token: 't.ВАШ_ТОКЕН',
+      environment: InvestEnvironment.sandbox,
+    ),
+  );
+
+  try {
+    final json = await client.users.getAccounts({});
+    final accounts = json['accounts'];
+  } on InvestApiException catch (e) {
+    print(e);
+  } finally {
+    client.close();
+  }
+}
+```
+
+Токен без хардкода:
+
+```bash
+dart run --define=TBANK_TOKEN=t.xxx bin/your_app.dart
+```
+
+```dart
+const token = String.fromEnvironment('TBANK_TOKEN', defaultValue: '');
+```
+
+### Конфигурация
+
+| Поле | Назначение |
+|------|------------|
+| `token` | Токен API (`t.…`), без префикса `Bearer `. |
+| `environment` | `production` или `sandbox` — базовые URL REST/WSS. |
+| `appName` | Опционально, заголовок `x-app-name`, если зарегистрировано в Т‑Банке. |
+| `logHttpTraffic` | При `true` Dio пишет тела запросов/ответов (заголовок `Authorization` не логируется). По умолчанию `false`. |
+| Таймауты | `connectTimeout`, `receiveTimeout`, `sendTimeout`. |
+
+### WebSocket (стримы)
+
+Те же сегменты пути, что и у REST (`InvestApiPaths`), схема `wss://`, подпротокол `json`, `Authorization: Bearer <token>`. Формат тел сообщений — как в [asyncapi](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/ws/asyncapi.yaml) и [документации WS](https://tinkoff.github.io/investAPI/ws/).
+
+Пример подписки на последнюю цену — см. раздел **English → WebSocket** (тот же код).
+
+**Платформы:** для Flutter подходят **iOS, Android, desktop**; **веб** — другой транспорт.
+
+### Ошибки
+
+- `InvestApiException` — тело ошибки API, при необходимости `httpStatusCode`, `grpcCode`, `trackingId`.
+- `InvestDecodeException` — неожиданная форма JSON.
+- `InvestException` — прочие ошибки клиента.
+
+### Структура пакета
+
+```
+lib/
+  tbank_invest.dart      # Экспорт
+  src/
+    invest_config.dart
+    invest_http_client.dart
+    invest_websocket.dart
+    invest_exception.dart
+    api_paths.dart       # Константы путей (генерация)
+    json_types.dart
+    models/
+    services/
+    tinvest_client.dart
+example/
+  example.dart
+```
+
+### Ограничения
+
+- Нет сгенерированных DTO для всех ответов — работа с `JsonMap` или своими моделями.
+- Лимиты API и правила стримов задаёт Т‑Банк.
+
+### Пример
+
+Из корня пакета:
+
+```bash
+dart run --define=TBANK_TOKEN=t.xxx example/example.dart
+```
+
+### Лицензия
+
+Apache 2.0 — файл [`LICENSE`](LICENSE).

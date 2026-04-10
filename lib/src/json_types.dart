@@ -1,11 +1,9 @@
-/// Типы JSON для тел запросов и ответов T-Invest REST API.
-///
-/// Сервер принимает и возвращает JSON, совместимый с protobuf JSON mapping
-/// (см. [официальный OpenAPI](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/swagger-ui/openapi.yaml)).
+/// JSON types for T-Invest REST request/response bodies (protobuf JSON mapping;
+/// see [official OpenAPI](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/swagger-ui/openapi.yaml)).
 library json_types;
 
-/// Декодированный JSON-объект (ключи — строки, значения — произвольные).
+/// Decoded JSON object (string keys, dynamic values).
 typedef JsonMap = Map<String, dynamic>;
 
-/// Список JSON-значений (используется редко в верхнем уровне ответов).
+/// List of JSON values (rare at the top level of responses).
 typedef JsonList = List<dynamic>;

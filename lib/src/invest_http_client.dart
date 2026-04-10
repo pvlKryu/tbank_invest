@@ -4,16 +4,16 @@ import 'invest_config.dart';
 import 'invest_exception.dart';
 import 'json_types.dart';
 
-/// Низкоуровневый HTTP-клиент: POST JSON, Bearer-авторизация, разбор ошибок.
+/// Low-level HTTP client: JSON POST, Bearer auth, error mapping.
 ///
-/// Все методы T-Invest REST в OpenAPI описаны как `POST` с телом `application/json`.
+/// All T-Invest REST methods in OpenAPI use `POST` with `application/json` body.
 class InvestHttpClient {
   InvestHttpClient._(this._dio, this._config);
 
   final Dio _dio;
   final InvestConfig _config;
 
-  /// Создаёт клиент с базовым URL из [config] и стандартными заголовками.
+  /// Creates a client using [config] base URL and default headers.
   factory InvestHttpClient.create(InvestConfig config) {
     final dio = Dio(
       BaseOptions(
@@ -39,16 +39,32 @@ class InvestHttpClient {
       ),
     );
 
+    if (config.logHttpTraffic) {
+      dio.interceptors.add(
+        LogInterceptor(
+          requestBody: true,
+          responseBody: true,
+          requestHeader: false,
+          responseHeader: false,
+          error: true,
+          logPrint: (Object object) {
+            // ignore: avoid_print
+            print('[T-Invest HTTP] $object');
+          },
+        ),
+      );
+    }
+
     return InvestHttpClient._(dio, config);
   }
 
-  /// Конфигурация (токен не логируется).
+  /// Configuration (token is not logged by the traffic logger).
   InvestConfig get config => _config;
 
-  /// Выполняет `POST` на относительный путь [path] (как в [InvestApiPaths]).
+  /// Sends `POST` to [path] relative to the base URL (see [InvestApiPaths]).
   ///
-  /// Возвращает декодированный JSON-объект верхнего уровня.
-  /// При ошибке выбрасывает [InvestApiException] или [InvestException].
+  /// Returns the top-level decoded JSON object.
+  /// On failure throws [InvestApiException] or [InvestException].
   Future<JsonMap> post(String path, JsonMap body) async {
     try {
       final response = await _dio.post<Object>(path, data: body);
@@ -67,7 +83,7 @@ class InvestHttpClient {
     }
   }
 
-  /// Закрывает соединения [Dio] (вызывайте при завершении приложения / изолята).
+  /// Closes the underlying [Dio] instance.
   void close({bool force = false}) {
     _dio.close(force: force);
   }

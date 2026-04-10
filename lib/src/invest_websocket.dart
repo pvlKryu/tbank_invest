@@ -1,26 +1,25 @@
-/// WebSocket-подключение к T-Invest (стримы котировок, портфеля, заявок).
+/// WebSocket connection helpers for T-Invest (quotes, portfolio, orders streams).
 library invest_websocket;
 
 import 'dart:io' show WebSocket;
 
 import 'invest_config.dart';
 
-/// Подключение к WebSocket API T-Invest (стримы котировок, портфеля, заявок).
+/// T-Invest WebSocket API (streams for quotes, portfolio, orders).
 ///
-/// Спецификация каналов: [asyncapi.yaml](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/ws/asyncapi.yaml).
+/// Channel spec: [asyncapi.yaml](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/ws/asyncapi.yaml).
 ///
-/// **Платформы:** используется `dart:io` [WebSocket] — доступно на Android, iOS,
-/// desktop; в чистом `dart compile js` / Flutter Web потребуется другой транспорт.
+/// **Platforms:** uses `dart:io` [WebSocket] — works on Android, iOS, desktop;
+/// plain `dart compile js` / Flutter Web needs a different transport.
 ///
-/// После подключения обмен сообщениями идёт в формате JSON (protobuf JSON mapping),
-/// как в официальных SDK на других языках.
+/// After connect, messages use JSON (protobuf JSON mapping), like other official SDKs.
 class InvestWebSocket {
   InvestWebSocket._();
 
-  /// Устанавливает WSS-соединение с заголовком `Authorization: Bearer …`.
+  /// Opens a WSS connection with `Authorization: Bearer …`.
   ///
-  /// [apiPath] — полный путь метода, тот же что для REST, например
-  /// `InvestApiPaths.marketDataStreamServiceMarketDataStream`.
+  /// [apiPath] — full method path, same as REST, e.g.
+  /// [InvestApiPaths.marketDataStreamServiceMarketDataStream].
   static Future<WebSocket> connect({
     required InvestConfig config,
     required String apiPath,
@@ -28,6 +27,7 @@ class InvestWebSocket {
     final uri = config.buildWssUri(apiPath);
     return WebSocket.connect(
       uri.toString(),
+      protocols: const <String>['json'],
       headers: <String, dynamic>{
         'Authorization': 'Bearer ${config.token}',
       },

@@ -1,4 +1,4 @@
-// Методы T-Invest REST API (OpenAPI 1.43). Тела запросов/ответов — см. официальную схему.
+// T-Invest REST API methods (OpenAPI 1.43). Request/response bodies match the official schema.
 
 import '../invest_http_client.dart';
 import '../json_types.dart';
@@ -6,50 +6,50 @@ import '../api_paths.dart';
 
 /// gRPC service: `tinkoff.public.invest.api.contract.v1.OperationsService`.
 ///
-/// Каждый метод выполняет `POST` с JSON-телом и возвращает разобранный JSON.
+/// Each method sends a `POST` with a JSON body and returns parsed JSON.
 class InvestOperationsApi {
-  /// Создаёт группу методов с общим HTTP-клиентом.
+  /// Creates this API group with a shared HTTP client.
   InvestOperationsApi(this._http);
 
   final InvestHttpClient _http;
 
-  /// GetBrokerReport — брокерский отчет.
+  /// GetBrokerReport — broker report.
   ///
   /// REST path: [InvestApiPaths.operationsServiceGetBrokerReport]
   Future<JsonMap> getBrokerReport(JsonMap request) =>
       _http.post(InvestApiPaths.operationsServiceGetBrokerReport, request);
 
-  /// GetDividendsForeignIssuer — отчет «Справка о доходах за пределами РФ»
+  /// GetDividendsForeignIssuer — foreign income certificate report.
   ///
   /// REST path: [InvestApiPaths.operationsServiceGetDividendsForeignIssuer]
   Future<JsonMap> getDividendsForeignIssuer(JsonMap request) => _http.post(
       InvestApiPaths.operationsServiceGetDividendsForeignIssuer, request);
 
-  /// GetOperations — список операций по счету
+  /// GetOperations — operations for an account.
   ///
   /// REST path: [InvestApiPaths.operationsServiceGetOperations]
   Future<JsonMap> getOperations(JsonMap request) =>
       _http.post(InvestApiPaths.operationsServiceGetOperations, request);
 
-  /// GetOperationsByCursor — список операций по счету с пагинацией
+  /// GetOperationsByCursor — paginated operations.
   ///
   /// REST path: [InvestApiPaths.operationsServiceGetOperationsByCursor]
   Future<JsonMap> getOperationsByCursor(JsonMap request) => _http.post(
       InvestApiPaths.operationsServiceGetOperationsByCursor, request);
 
-  /// GetPortfolio — портфель по счету
+  /// GetPortfolio — portfolio for an account.
   ///
   /// REST path: [InvestApiPaths.operationsServiceGetPortfolio]
   Future<JsonMap> getPortfolio(JsonMap request) =>
       _http.post(InvestApiPaths.operationsServiceGetPortfolio, request);
 
-  /// GetPositions — список позиций по счету
+  /// GetPositions — positions for an account.
   ///
   /// REST path: [InvestApiPaths.operationsServiceGetPositions]
   Future<JsonMap> getPositions(JsonMap request) =>
       _http.post(InvestApiPaths.operationsServiceGetPositions, request);
 
-  /// GetWithdrawLimits — доступный остаток для вывода средств
+  /// GetWithdrawLimits — available amount for withdrawal.
   ///
   /// REST path: [InvestApiPaths.operationsServiceGetWithdrawLimits]
   Future<JsonMap> getWithdrawLimits(JsonMap request) =>

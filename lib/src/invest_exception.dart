@@ -1,23 +1,23 @@
-/// Исключения клиента T-Invest API.
+/// Exceptions for the T-Invest API client.
 library invest_exception;
 
 import 'package:dio/dio.dart';
 
-/// Базовая ошибка при работе с API.
+/// Base error when calling the API.
 class InvestException implements Exception {
-  /// Создаёт ошибку с текстом [message].
+  /// Creates an error with [message].
   const InvestException(this.message);
 
-  /// Человекочитаемое описание.
+  /// Human-readable description.
   final String message;
 
   @override
   String toString() => 'InvestException: $message';
 }
 
-/// Ответ API с полями `code`, `message`, `description` (см. OpenAPI `ErrorResponse`).
+/// API response with `code`, `message`, `description` (OpenAPI `ErrorResponse`).
 class InvestApiException extends InvestException {
-  /// Создаёт ошибку из полей ответа сервера.
+  /// Creates an error from server fields.
   const InvestApiException({
     required String message,
     this.httpStatusCode,
@@ -26,16 +26,16 @@ class InvestApiException extends InvestException {
     this.businessCode,
   }) : super(message);
 
-  /// HTTP-статус (например 401, 429).
+  /// HTTP status (e.g. 401, 429).
   final int? httpStatusCode;
 
-  /// gRPC-код из тела ошибки (`code`), если есть.
+  /// gRPC `code` from the error body, if present.
   final int? grpcCode;
 
-  /// Заголовок `x-tracking-id`, если передан в ответе.
+  /// `x-tracking-id` response header, if present.
   final String? trackingId;
 
-  /// Бизнес-код ошибки (`description` в ErrorResponse), если есть.
+  /// Business error code (`description` in ErrorResponse), if present.
   final int? businessCode;
 
   @override
@@ -52,13 +52,13 @@ class InvestApiException extends InvestException {
   }
 }
 
-/// Ошибка разбора JSON (неожиданная форма ответа).
+/// JSON decode/parsing error (unexpected response shape).
 class InvestDecodeException extends InvestException {
-  /// Создаёт ошибку декодирования.
+  /// Creates a decode error.
   const InvestDecodeException(super.message);
 }
 
-/// Преобразует [DioException] в [InvestException] / [InvestApiException].
+/// Maps [DioException] to [InvestException] / [InvestApiException].
 InvestException investExceptionFromDio(DioException e) {
   final response = e.response;
   final status = response?.statusCode;

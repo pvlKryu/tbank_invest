@@ -1,27 +1,27 @@
 import '../json_types.dart';
 
-/// Денежная сумма в валюте (`v1MoneyValue` в OpenAPI).
+/// Monetary amount with currency (`v1MoneyValue` in OpenAPI).
 ///
-/// Целая часть [units] и дробная [nano] передаются как в protobuf JSON:
-/// строка для `units`, целое для `nano` (наносотые доли).
+/// [units] and [nano] follow protobuf JSON: `units` as string, `nano` as int
+/// (fractional nanounits).
 class MoneyValue {
-  /// Создаёт значение из полей API.
+  /// Creates a value from API fields.
   const MoneyValue({
     required this.currency,
     required this.units,
     required this.nano,
   });
 
-  /// ISO-код валюты (например `rub`, `usd`).
+  /// ISO currency code (e.g. `rub`, `usd`).
   final String currency;
 
-  /// Целая часть суммы (в JSON приходит строкой).
+  /// Whole part of the amount (often a string in JSON).
   final String units;
 
-  /// Дробная часть в наносотых долях.
+  /// Fractional part in nanounits.
   final int nano;
 
-  /// Разбор из JSON-объекта ответа.
+  /// Parses from a JSON object in a response.
   factory MoneyValue.fromJson(JsonMap json) {
     return MoneyValue(
       currency: json['currency'] as String? ?? '',
@@ -30,8 +30,8 @@ class MoneyValue {
     );
   }
 
-  /// Сериализация в JSON для тела запроса.
-  JsonMap toJson() => <String, dynamic>{
+  /// Serializes to JSON for a request body.
+  JsonMap toJson() => {
         'currency': currency,
         'units': units,
         'nano': nano,

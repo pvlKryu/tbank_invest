@@ -1,57 +1,62 @@
 import 'package:meta/meta.dart';
 
-/// Окружение T-Invest API: продакшен или песочница.
+/// T-Invest API environment: production or sandbox.
 ///
-/// Базовые URL совпадают с [официальной OpenAPI-спецификацией](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/swagger-ui/openapi.yaml).
+/// Base URLs match the [official OpenAPI spec](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/swagger-ui/openapi.yaml).
 enum InvestEnvironment {
-  /// Боевой контур: реальные сделки и деньги.
+  /// Live trading and real funds.
   production,
 
-  /// Песочница: виртуальные счета и тестовые операции.
+  /// Sandbox: virtual accounts and test operations.
   sandbox,
 }
 
-/// Настройки подключения: токен, окружение, опциональные таймауты и заголовки.
+/// Connection settings: token, environment, optional timeouts and headers.
 ///
-/// Токен выдаётся в личном кабинете T-Invest / T-Bank Dev Portal.
-/// Передавайте его только по защищённым каналам и не коммитьте в репозиторий.
+/// Obtain tokens from the T-Invest / T-Bank developer portal.
+/// Never commit tokens to source control.
 @immutable
 class InvestConfig {
-  /// Создаёт конфигурацию клиента.
+  /// Creates client configuration.
   ///
-  /// [token] — строка вида `t.xxx...` (Bearer).
-  /// [appName] — зарегистрированное имя приложения для заголовка `x-app-name`
-  /// (рекомендуется для публичных продуктов; см. документацию T-Invest).
+  /// [token] — API token string `t.xxx...` (used as Bearer).
+  /// [appName] — optional registered app name for the `x-app-name` header
+  /// (recommended for public apps; see T-Invest docs).
+  /// [logHttpTraffic] — when `true`, log REST request/response bodies via Dio.
   const InvestConfig({
     required this.token,
     this.environment = InvestEnvironment.production,
     this.appName,
+    this.logHttpTraffic = false,
     this.connectTimeout = const Duration(seconds: 30),
     this.receiveTimeout = const Duration(seconds: 60),
     this.sendTimeout = const Duration(seconds: 30),
   });
 
-  /// Токен доступа (без префикса `Bearer `).
+  /// Access token (without the `Bearer ` prefix).
   final String token;
 
-  /// Продакшен или песочница.
+  /// Production or sandbox.
   final InvestEnvironment environment;
 
-  /// Необязательное имя приложения для заголовка `x-app-name`.
+  /// Optional application name for the `x-app-name` header.
   final String? appName;
 
-  /// Таймаут установки соединения.
+  /// Log outgoing/incoming REST JSON (Authorization header is not logged).
+  final bool logHttpTraffic;
+
+  /// Connection establishment timeout.
   final Duration connectTimeout;
 
-  /// Таймаут ожидания ответа.
+  /// Response wait timeout.
   final Duration receiveTimeout;
 
-  /// Таймаут отправки тела запроса.
+  /// Request body send timeout.
   final Duration sendTimeout;
 
-  /// Базовый URL REST API (без завершающего `/`).
+  /// REST API base URL (no trailing `/`).
   ///
-  /// Пример: `https://invest-public-api.tbank.ru/rest`
+  /// Example: `https://invest-public-api.tbank.ru/rest`
   String get restBaseUrl => switch (environment) {
         InvestEnvironment.production =>
           'https://invest-public-api.tbank.ru/rest',
@@ -59,18 +64,18 @@ class InvestConfig {
           'https://sandbox-invest-public-api.tbank.ru/rest',
       };
 
-  /// Базовый URL WebSocket API (схема `wss:`, без завершающего `/`).
+  /// WebSocket API base URL (`wss:` scheme, no trailing `/`).
   ///
-  /// Пример: `wss://invest-public-api.tbank.ru/ws`
+  /// Example: `wss://invest-public-api.tbank.ru/ws`
   String get wsBaseUrl => switch (environment) {
         InvestEnvironment.production => 'wss://invest-public-api.tbank.ru/ws',
         InvestEnvironment.sandbox =>
-          'wss://sandbox-invest-public-api.tbank.ru/ws',
+            'wss://sandbox-invest-public-api.tbank.ru/ws',
       };
 
-  /// Собирает полный WSS URI для канала стриминга.
+  /// Builds the full WSS URI for a streaming channel.
   ///
-  /// [apiPath] — тот же путь, что в [InvestApiPaths], например
+  /// [apiPath] — same path as in [InvestApiPaths], e.g.
   /// [InvestApiPaths.marketDataStreamServiceMarketDataStream].
   Uri buildWssUri(String apiPath) {
     final trimmed = apiPath.startsWith('/') ? apiPath.substring(1) : apiPath;

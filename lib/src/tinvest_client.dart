@@ -12,9 +12,9 @@ import 'services/signal_api.dart';
 import 'services/stop_orders_api.dart';
 import 'services/users_api.dart';
 
-/// Точка входа: один объект на [InvestConfig], общий [InvestHttpClient], все сервисы API.
+/// Facade: one [InvestConfig], one [InvestHttpClient], all REST service groups.
 ///
-/// Пример:
+/// Example:
 /// ```dart
 /// final cfg = InvestConfig(
 ///   token: 't....',
@@ -24,7 +24,7 @@ import 'services/users_api.dart';
 /// final accounts = await client.users.getAccounts({});
 /// ```
 class TinvestClient {
-  /// Собирает [InvestHttpClient] и все REST-группы ([InvestInstrumentsApi] и т.д.).
+  /// Builds [InvestHttpClient] and all REST groups ([InvestInstrumentsApi], …).
   factory TinvestClient(InvestConfig config) {
     final http = InvestHttpClient.create(config);
     return TinvestClient._(config, http);
@@ -43,45 +43,45 @@ class TinvestClient {
         stopOrders = InvestStopOrdersApi(http),
         users = InvestUsersApi(http);
 
-  /// Копия конфигурации не хранится — держите ссылку снаружи при необходимости.
+  /// Configuration snapshot (immutable).
   final InvestConfig config;
 
-  /// Низкоуровневый HTTP-клиент (для продвинутых сценариев и закрытия соединений).
+  /// Low-level HTTP client (advanced use, closing connections).
   final InvestHttpClient http;
 
-  /// Справочники и инструменты.
+  /// Instruments and reference data.
   final InvestInstrumentsApi instruments;
 
-  /// Рыночные данные (свечи, стакан, последние цены).
+  /// Market data (candles, order book, last prices).
   final InvestMarketDataApi marketData;
 
-  /// REST-методы стримов (см. также [InvestWebSocket] для WSS).
+  /// REST streaming-related methods (prefer [InvestWebSocket] for WSS).
   final InvestMarketDataStreamApi marketDataStream;
 
-  /// Портфель, операции, позиции.
+  /// Portfolio, operations, positions.
   final InvestOperationsApi operations;
 
-  /// REST-методы стримов портфеля/позиций.
+  /// REST streaming for portfolio/positions.
   final InvestOperationsStreamApi operationsStream;
 
-  /// Заявки.
+  /// Orders.
   final InvestOrdersApi orders;
 
-  /// REST-методы стримов заявок и сделок.
+  /// REST streaming for orders and trades.
   final InvestOrdersStreamApi ordersStream;
 
-  /// Песочница (виртуальные счета и заявки).
+  /// Sandbox (virtual accounts and orders).
   final InvestSandboxApi sandbox;
 
-  /// Сигналы и стратегии.
+  /// Signals and strategies.
   final InvestSignalApi signals;
 
-  /// Стоп-заявки.
+  /// Stop orders.
   final InvestStopOrdersApi stopOrders;
 
-  /// Пользователь и счета.
+  /// User and accounts.
   final InvestUsersApi users;
 
-  /// Освобождает HTTP-клиент.
+  /// Closes the HTTP client.
   void close({bool force = false}) => http.close(force: force);
 }

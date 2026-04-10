@@ -1,20 +1,21 @@
 import '../json_types.dart';
 
-/// Котировка без валюты (`v1Quotation` в OpenAPI) — цена инструмента и т.п.
+/// Price quotation without currency (`v1Quotation` in OpenAPI) — instrument price, etc.
+
 class Quotation {
-  /// Создаёт котировку из целой и дробной части.
+  /// Creates a quotation from whole and fractional parts.
   const Quotation({
     required this.units,
     required this.nano,
   });
 
-  /// Целая часть (в JSON — строка).
+  /// Whole part (string in JSON).
   final String units;
 
-  /// Дробная часть в наносотых долях.
+  /// Fractional part in nanounits.
   final int nano;
 
-  /// Разбор из JSON.
+  /// Parses from JSON.
   factory Quotation.fromJson(JsonMap json) {
     return Quotation(
       units: json['units']?.toString() ?? '0',
@@ -22,8 +23,8 @@ class Quotation {
     );
   }
 
-  /// Сериализация в JSON.
-  JsonMap toJson() => <String, dynamic>{
+  /// Serializes to JSON.
+  JsonMap toJson() => {
         'units': units,
         'nano': nano,
       };
