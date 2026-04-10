@@ -2,6 +2,7 @@ name: tbank_invest
 description: >
   Dart client for T-Bank T-Invest API: full OpenAPI REST (Dio) and WebSocket
   streaming helpers. Unofficial wrapper; see https://developer.tbank.ru/invest/api
+  Does not support Flutter Web / browser (dart:io WebSocket in the default export).
 version: 0.1.0
 license: Apache-2.0
 repository: https://github.com/pvlKryu/tbank_invest

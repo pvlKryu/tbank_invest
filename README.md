@@ -4,6 +4,8 @@
 
 Unofficial Dart client for **[T‑Invest (T‑Bank) Invest API](https://developer.tbank.ru/invest/api)** — REST (Dio) + `dart:io` WebSocket helpers. Not an official SDK.
 
+**Flutter Web / browser:** not supported — the main import pulls in `dart:io` (see [Platform support](#platform-support)).
+
 ---
 
 ## English
@@ -13,8 +15,16 @@ Dart client for T‑Invest:
 - **REST** — thin wrappers over every method from the official [OpenAPI](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/swagger-ui/openapi.yaml) (POST + JSON), using [Dio](https://pub.dev/packages/dio).
 - **WebSocket** — [`WebSocket`](https://api.dart.dev/stable/dart-io/WebSocket-class.html) helper with `Authorization` and the `json` subprotocol for streaming endpoints.
 
+### Platform support
+
+| Where | What to expect |
+|-------|----------------|
+| **Flutter** on iOS, Android, macOS, Windows, and **Dart CLI** on the same desktop OSes | Use the package as documented: REST (`TinvestClient`) and `InvestWebSocket` both work. |
+| **Flutter Web**, **dart2js**, or other **browser / JS** targets | **Unsupported today.** The default barrel file `tbank_invest.dart` exports `invest_websocket.dart`, which imports `dart:io`, so the project **will not compile** for web — not only streaming, but the **entire** `import 'package:tbank_invest/tbank_invest.dart'` graph. A web-capable build would need a separate entry point without `dart:io` (not shipped in this version). |
+
 ### Table of contents (EN)
 
+- [Platform support](#platform-support)
 - [Features](#features)
 - [Installation](#installation)
 - [Quick start (REST)](#quick-start-rest)
@@ -158,6 +168,7 @@ example/
 
 ### Limitations
 
+- **No Flutter Web / browser** — default import includes `dart:io` WebSocket; see [Platform support](#platform-support).
 - No codegen for all DTOs — use `JsonMap` or your models.
 - Quotas and stream rules are enforced by T‑Bank.
 
@@ -182,8 +193,18 @@ Apache 2.0 — see [`LICENSE`](LICENSE).
 
 Официальным SDK пакет **не является**; контракты и лимиты — в документации Т‑Банка.
 
+**Flutter Web / браузер:** не поддерживается — основной импорт тянет `dart:io` (см. [Поддержка платформ](#поддержка-платформ)).
+
+### Поддержка платформ
+
+| Где | Что ждать |
+|-----|-----------|
+| **Flutter** на iOS, Android, macOS, Windows и **Dart CLI** на тех же ОС | Полный сценарий: REST (`TinvestClient`) и `InvestWebSocket`. |
+| **Flutter Web**, **dart2js**, **браузер / JS** | **Сейчас не поддерживается.** Файл `tbank_invest.dart` реэкспортирует `invest_websocket.dart` с `dart:io`, поэтому сборка под веб **не проходит** — страдает не только стрим, но и **любой** `import 'package:tbank_invest/tbank_invest.dart'`. Отдельная точка входа без `dart:io` в этой версии не поставляется. |
+
 ### Содержание (RU)
 
+- [Поддержка платформ](#поддержка-платформ)
 - [Возможности](#возможности)
 - [Установка](#установка)
 - [Быстрый старт (REST)](#быстрый-старт-rest)
@@ -299,6 +320,7 @@ example/
 
 ### Ограничения
 
+- **Нет Flutter Web / браузера** — в дефолтном импорте есть WebSocket на `dart:io`; см. [Поддержка платформ](#поддержка-платформ).
 - Нет сгенерированных DTO для всех ответов — работа с `JsonMap` или своими моделями.
 - Лимиты API и правила стримов задаёт Т‑Банк.
 
