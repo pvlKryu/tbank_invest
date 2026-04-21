@@ -7,7 +7,7 @@
 
 **Languages:** [English](#english) · [Русский](#русский)
 
-Unofficial Dart client for **[T‑Invest (T‑Bank) Invest API](https://developer.tbank.ru/invest/api)** — REST (Dio) + `dart:io` WebSocket, **OpenAPI code‑generated** request/response models (`V1*` in `lib/src/generated/`, exported from the package) plus hand-written helpers. Not an official SDK.
+Unofficial Dart client for **[T‑Invest (T‑Bank) Invest API](https://developer.tbank.ru/invest/api)** — REST (Dio) + `dart:io` WebSocket, **OpenAPI code‑generated** request/response models (`V1*` in `lib/src/generated/`) plus hand-written helpers. Not an official SDK.
 
 **More docs (full package):** [doc/README.md](doc/README.md) — structure, config, all REST services, WSS, errors/retry, models, platforms, and OpenAPI codegen (EN + RU).
 

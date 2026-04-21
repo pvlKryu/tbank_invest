@@ -10,7 +10,7 @@ T-Invest в пакете — **POST** и **`application/json`**. Формат т
 Future<V1*Response> methodName(V1*Request request)
 ```
 
-Типы в **`lib/src/generated/t_invest.swagger.dart`**, реэкспорт в `package:tbank_invest/tbank_invest.dart`. Для редких схем встречаются **не** `V1*`, а например **`Contractv1OrderState`**, **`StreamResultOf*`** — см. сгенерированный код.
+Типы в **`lib/src/generated/t_invest.swagger.dart`** (при необходимости импортируйте напрямую: `package:tbank_invest/src/generated/t_invest.swagger.dart`). Для редких схем встречаются **не** `V1*`, а например **`Contractv1OrderState`**, **`StreamResultOf*`** — см. сгенерированный код.
 
 Старые вызовы с **`JsonMap`** в сигнатурах `Invest*Api` и `*Typed` **убраны** (релиз **0.6.2**). Телом и ответом идут **`V1*Request` / `V1*Response`**, кодирование тела в HTTP-слое — DTO с `toJson()` или `JsonMap` (см. `postDto` / `postRequest`).
 

@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.6.3
+
+- **Pub score / packaging:** moved package docs directory to `doc/` (pub layout convention), updated links in README/CHANGELOG/docs, and set `pubspec.documentation` to `.../tree/main/doc`.
+- **Public API cleanup:** stopped re-exporting `src/generated/t_invest.swagger.dart` from the main barrel to reduce accidental public API surface for generated internals and improve doc coverage scoring. DTOs remain available via direct import: `package:tbank_invest/src/generated/t_invest.swagger.dart`.
+
 ## 0.6.2
 
 - **Breaking: REST is fully on generated DTOs.** Every `Invest*Api` method now takes a `V1*Request` (or equivalent generated request) and returns `V1*Response` / `Contractv1OrderState` / `StreamResultOf*` as emitted by the OpenAPI code generator. The previous `Future<JsonMap>` signatures and `*Typed` helpers (`getAccountsTyped`, `getOrdersTyped`, `findInstrumentTyped`, etc.) are **removed**.

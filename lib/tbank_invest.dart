@@ -12,7 +12,6 @@ export 'src/invest_retry_policy.dart';
 export 'src/invest_stream_manager.dart';
 export 'src/invest_websocket.dart';
 export 'src/json_types.dart';
-export 'src/generated/t_invest.swagger.dart';
 export 'src/models/money_value.dart';
 export 'src/models/instruments_models.dart';
 export 'src/models/orders_models.dart';

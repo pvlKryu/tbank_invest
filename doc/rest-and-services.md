@@ -10,7 +10,7 @@ Each method on `InvestUsersApi`, `InvestInstrumentsApi`, … has the shape:
 Future<V1*Response> methodName(V1*Request request)
 ```
 
-`V1*Request` / `V1*Response` (and a few other generated names, e.g. `Contractv1OrderState` for `getOrderState`, `StreamResultOf…` for REST stream endpoints) are defined in **`lib/src/generated/t_invest.swagger.dart`** and re-exported from `package:tbank_invest/tbank_invest.dart`. The client passes a **request DTO** (or a raw `JsonMap`) into **`InvestHttpClient.postDto`** / **`postRequest`**, which encode the body (via `toJson()` when needed) and decode the **response** into a `V1*Response` (or other generated type) with `fromJson`.
+`V1*Request` / `V1*Response` (and a few other generated names, e.g. `Contractv1OrderState` for `getOrderState`, `StreamResultOf…` for REST stream endpoints) are defined in **`lib/src/generated/t_invest.swagger.dart`** (import directly from `package:tbank_invest/src/generated/t_invest.swagger.dart` when needed). The client passes a **request DTO** (or a raw `JsonMap`) into **`InvestHttpClient.postDto`** / **`postRequest`**, which encode the body (via `toJson()` when needed) and decode the **response** into a `V1*Response` (or other generated type) with `fromJson`.
 
 The old **`JsonMap` + `*Typed` helpers** on the service classes are **removed** as of 0.6.2: use the generated request/response types only.
 

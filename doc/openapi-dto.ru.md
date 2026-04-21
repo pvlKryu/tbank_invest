@@ -12,7 +12,7 @@
 | `lib/src/generated/t_invest.enums.swagger.dart` | Перечисления. |
 | `build.yaml` | Настройка `swagger_dart_code_generator` (только модели, без отдельного Chopper-клиента в пакете). |
 
-Баррель `package:tbank_invest/tbank_invest.dart` реэкспортирует `src/generated/t_invest.swagger.dart`, поэтому достаточно одного импорта, например: `V1GetAccountsResponse`.
+Сгенерированные DTO доступны по `package:tbank_invest/src/generated/t_invest.swagger.dart` (и используются прямо в сигнатурах `Invest*Api`).
 
 **Имена:** к операциям сопоставляются классы вроде `V1GetAccountsRequest` / `V1GetAccountsResponse`. Отдельного суффикса `*Dto` нет — ориентируйтесь на имя в OpenAPI и в [официальной доке](https://developer.tbank.ru/invest/api).
 

@@ -7,6 +7,7 @@
 library;
 
 import 'package:tbank_invest/tbank_invest.dart';
+import 'package:tbank_invest/src/generated/t_invest.swagger.dart';
 
 Future<void> main() async {
   const token = String.fromEnvironment('TBANK_TOKEN', defaultValue: '');

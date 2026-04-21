@@ -12,7 +12,7 @@ The package embeds **machine-generated** Dart models for **all** request/respons
 | `lib/src/generated/t_invest.enums.swagger.dart` | Enums. |
 | `build.yaml` | Configures `swagger_dart_code_generator` (models only, no extra Chopper client in this package). |
 
-The barrel export `package:tbank_invest/tbank_invest.dart` re-exports `src/generated/t_invest.swagger.dart`, so you can `import 'package:tbank_invest/tbank_invest.dart';` and use `V1GetAccountsResponse`, etc.
+Generated DTOs are available at `package:tbank_invest/src/generated/t_invest.swagger.dart` (and are used directly in `Invest*Api` method signatures).
 
 **Naming:** OpenAPI operation schemas map to class names like `V1GetAccountsRequest` / `V1GetAccountsResponse`. There is no separate `*Dto` suffix; search by operation name or by schema name in the official docs.
 
