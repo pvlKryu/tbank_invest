@@ -15,6 +15,7 @@ void main() {
           InvestConfig(token: 'x', environment: InvestEnvironment.sandbox);
       expect(c.restBaseUrl, 'https://sandbox-invest-public-api.tbank.ru/rest');
       expect(c.wsBaseUrl, 'wss://sandbox-invest-public-api.tbank.ru/ws');
+      expect(c.allowInsecureSandboxTls, isFalse);
     });
 
     test('buildWssUri joins path', () {

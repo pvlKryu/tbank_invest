@@ -25,6 +25,8 @@ class InvestConfig {
   /// [appName] — optional registered app name for the `x-app-name` header
   /// (recommended for public apps; see T-Invest docs).
   /// [logHttpTraffic] — when `true`, log REST request/response bodies via Dio.
+  /// [allowInsecureSandboxTls] — debug-only flag to bypass TLS certificate
+  /// verification for sandbox REST calls. Ignored in production.
   const InvestConfig({
     required this.token,
     this.environment = InvestEnvironment.production,
@@ -34,6 +36,7 @@ class InvestConfig {
     this.receiveTimeout = const Duration(seconds: 60),
     this.sendTimeout = const Duration(seconds: 30),
     this.retryPolicy = const InvestRetryPolicy.disabled(),
+    this.allowInsecureSandboxTls = false,
   });
 
   /// Access token (without the `Bearer ` prefix).
@@ -59,6 +62,11 @@ class InvestConfig {
 
   /// Retry policy for idempotent REST methods.
   final InvestRetryPolicy retryPolicy;
+
+  /// Debug-only bypass for sandbox TLS certificate verification.
+  ///
+  /// Applied only for [InvestEnvironment.sandbox]. Never enable in production.
+  final bool allowInsecureSandboxTls;
 
   /// REST API base URL (no trailing `/`).
   ///

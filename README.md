@@ -67,7 +67,7 @@ Dart client for T‑Invest:
 
 ```yaml
 dependencies:
-  tbank_invest: ^0.1.1
+  tbank_invest: ^0.5.1
 ```
 
 Path dependency is intended for local development of this package only:
@@ -120,6 +120,7 @@ const token = String.fromEnvironment('TBANK_TOKEN', defaultValue: '');
 | `environment` | `production` or `sandbox` — REST/WSS base URLs. |
 | `appName` | Optional `x-app-name` if registered with T‑Bank. |
 | `logHttpTraffic` | If `true`, Dio logs bodies (not `Authorization`). Default `false`. |
+| `allowInsecureSandboxTls` | Debug-only TLS bypass for `sandbox` REST calls. Ignored in `production`. Default `false`. |
 | Timeouts | `connectTimeout`, `receiveTimeout`, `sendTimeout`. |
 
 ### WebSocket
@@ -263,7 +264,7 @@ MIT — see [`LICENSE`](LICENSE).
 
 ```yaml
 dependencies:
-  tbank_invest: ^0.1.1
+  tbank_invest: ^0.5.1
 ```
 
 Локальная зависимость по пути нужна только при разработке самого пакета:
@@ -316,6 +317,7 @@ const token = String.fromEnvironment('TBANK_TOKEN', defaultValue: '');
 | `environment` | `production` или `sandbox` — базовые URL REST/WSS. |
 | `appName` | Опционально, заголовок `x-app-name`, если зарегистрировано в Т‑Банке. |
 | `logHttpTraffic` | При `true` Dio пишет тела запросов/ответов (заголовок `Authorization` не логируется). По умолчанию `false`. |
+| `allowInsecureSandboxTls` | Отладочный bypass TLS для REST в `sandbox`. В `production` игнорируется. По умолчанию `false`. |
 | Таймауты | `connectTimeout`, `receiveTimeout`, `sendTimeout`. |
 
 ### WebSocket (стримы)

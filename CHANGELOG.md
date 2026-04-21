@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.1
+
+- Added optional `InvestConfig.allowInsecureSandboxTls` for debug-only sandbox REST troubleshooting when local TLS verification fails.
+- Added full integration smoke suite `test/all_api_methods_integration_test.dart` with separate `TBANK_PROD_TOKEN` and `TBANK_SANDBOX_TOKEN` groups.
+- Added sandbox integration env toggle `TBANK_SANDBOX_INSECURE_TLS=1` for local runs that require insecure TLS bypass.
+
 ## 0.4.0
 
 - Added reliability primitives: `InvestRetryPolicy`, automatic retries for idempotent REST calls, and typed `InvestRateLimitException` with `retryAfter`.

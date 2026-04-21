@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
+import 'package:dio/io.dart';
 
 import 'invest_config.dart';
 import 'invest_exception.dart';
@@ -53,6 +56,18 @@ class InvestHttpClient {
           },
         ),
       );
+    }
+
+    if (config.allowInsecureSandboxTls &&
+        config.environment == InvestEnvironment.sandbox &&
+        dio.httpClientAdapter is IOHttpClientAdapter) {
+      final adapter = dio.httpClientAdapter as IOHttpClientAdapter;
+      adapter.createHttpClient = () {
+        final client = HttpClient();
+        client.badCertificateCallback =
+            (X509Certificate cert, String host, int port) => true;
+        return client;
+      };
     }
 
     return InvestHttpClient._(dio, config);

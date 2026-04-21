@@ -2,7 +2,7 @@ name: tbank_invest
 description: >
   Dart client for T-Bank T-Invest: REST (Dio) + WebSocket (dart:io). Unofficial;
   not for Flutter Web.
-version: 0.4.0
+version: 0.4.1
 license: MIT
 repository: https://github.com/pvlKryu/tbank_invest
 issue_tracker: https://github.com/pvlKryu/tbank_invest/issues
