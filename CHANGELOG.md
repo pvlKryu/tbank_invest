@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1
+
+- No API changes. Republishes changelog state correction and repository metadata alignment after the 0.3.0 release.
+
 ## 0.3.0
 
 - Added typed DTOs and typed helper methods for core Users/Instruments/Orders/Sandbox flows while keeping raw `JsonMap` APIs.
