@@ -1,151 +1,128 @@
-// T-Invest REST API methods (OpenAPI 1.43). Request/response bodies match the official schema.
+// ignore_for_file: public_member_api_docs
+// T-Invest REST (OpenAPI). Request/response: generated types (V1*…, StreamResult*, etc.).
 
 import '../invest_http_client.dart';
-import '../json_types.dart';
 import '../api_paths.dart';
-import '../models/orders_models.dart';
-import '../models/sandbox_models.dart';
+import '../generated/t_invest.swagger.dart';
 
-/// gRPC service: `tinkoff.public.invest.api.contract.v1.SandboxService`.
-///
-/// Each method sends a `POST` with a JSON body and returns parsed JSON.
+/// gRPC: `tinkoff.public.invest.api.contract.v1.SandboxService`.
+/// Each method: POST; body from [request] (DTO / JsonMap via [InvestHttpClient.postDto]).
 class InvestSandboxApi {
-  /// Creates this API group with a shared HTTP client.
   InvestSandboxApi(this._http);
 
   final InvestHttpClient _http;
 
-  /// CancelSandboxOrder — cancel an order.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceCancelSandboxOrder]
-  Future<JsonMap> cancelSandboxOrder(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceCancelSandboxOrder, request);
+  Future<V1CancelOrderResponse> cancelSandboxOrder(
+          V1CancelOrderRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceCancelSandboxOrder, request,
+          V1CancelOrderResponse.fromJson);
 
-  /// CancelSandboxStopOrder — cancel a stop order.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceCancelSandboxStopOrder]
-  Future<JsonMap> cancelSandboxStopOrder(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceCancelSandboxStopOrder, request);
+  Future<V1CancelStopOrderResponse> cancelSandboxStopOrder(
+          V1CancelStopOrderRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceCancelSandboxStopOrder,
+          request, V1CancelStopOrderResponse.fromJson);
 
-  /// CloseSandboxAccount — close sandbox account.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceCloseSandboxAccount]
-  Future<JsonMap> closeSandboxAccount(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceCloseSandboxAccount, request);
+  Future<V1CloseSandboxAccountResponse> closeSandboxAccount(
+          V1CloseSandboxAccountRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceCloseSandboxAccount, request,
+          V1CloseSandboxAccountResponse.fromJson);
 
-  /// GetSandboxAccounts — sandbox accounts.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceGetSandboxAccounts]
-  Future<JsonMap> getSandboxAccounts(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceGetSandboxAccounts, request);
+  Future<V1GetAccountsResponse> getSandboxAccounts(
+          V1GetAccountsRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceGetSandboxAccounts, request,
+          V1GetAccountsResponse.fromJson);
 
-  /// Typed helper for [getSandboxAccounts].
-  Future<InvestSandboxAccountsResponse> getSandboxAccountsTyped(
-    JsonMap request,
-  ) async =>
-      InvestSandboxAccountsResponse.fromJson(await getSandboxAccounts(request));
-
-  /// GetSandboxMaxLots — max lots for buy/sell in sandbox.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceGetSandboxMaxLots]
-  Future<JsonMap> getSandboxMaxLots(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceGetSandboxMaxLots, request);
+  Future<V1GetMaxLotsResponse> getSandboxMaxLots(V1GetMaxLotsRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceGetSandboxMaxLots, request,
+          V1GetMaxLotsResponse.fromJson);
 
-  /// GetSandboxOperations — operations for an account.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceGetSandboxOperations]
-  Future<JsonMap> getSandboxOperations(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceGetSandboxOperations, request);
+  Future<V1OperationsResponse> getSandboxOperations(
+          V1OperationsRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceGetSandboxOperations, request,
+          V1OperationsResponse.fromJson);
 
-  /// GetSandboxOperationsByCursor — paginated operations.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceGetSandboxOperationsByCursor]
-  Future<JsonMap> getSandboxOperationsByCursor(JsonMap request) => _http.post(
-      InvestApiPaths.sandboxServiceGetSandboxOperationsByCursor, request);
+  Future<V1GetOperationsByCursorResponse> getSandboxOperationsByCursor(
+          V1GetOperationsByCursorRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceGetSandboxOperationsByCursor,
+          request, V1GetOperationsByCursorResponse.fromJson);
 
-  /// GetSandboxOrderPrice — estimated limit order cost.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceGetSandboxOrderPrice]
-  Future<JsonMap> getSandboxOrderPrice(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceGetSandboxOrderPrice, request);
+  Future<V1GetOrderPriceResponse> getSandboxOrderPrice(
+          V1GetOrderPriceRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceGetSandboxOrderPrice, request,
+          V1GetOrderPriceResponse.fromJson);
 
-  /// GetSandboxOrderState — order state.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceGetSandboxOrderState]
-  Future<JsonMap> getSandboxOrderState(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceGetSandboxOrderState, request);
+  Future<Contractv1OrderState> getSandboxOrderState(
+          V1GetOrderStateRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceGetSandboxOrderState, request,
+          Contractv1OrderState.fromJson);
 
-  /// Typed helper for [getSandboxOrderState].
-  Future<InvestOrderState> getSandboxOrderStateTyped(JsonMap request) async =>
-      InvestOrderState.fromJson(await getSandboxOrderState(request));
-
-  /// GetSandboxOrders — active orders for an account.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceGetSandboxOrders]
-  Future<JsonMap> getSandboxOrders(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceGetSandboxOrders, request);
+  Future<V1GetOrdersResponse> getSandboxOrders(V1GetOrdersRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceGetSandboxOrders, request,
+          V1GetOrdersResponse.fromJson);
 
-  /// Typed helper for [getSandboxOrders].
-  Future<InvestOrdersResponse> getSandboxOrdersTyped(JsonMap request) async =>
-      InvestOrdersResponse.fromJson(await getSandboxOrders(request));
-
-  /// GetSandboxPortfolio — portfolio for an account.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceGetSandboxPortfolio]
-  Future<JsonMap> getSandboxPortfolio(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceGetSandboxPortfolio, request);
+  Future<V1PortfolioResponse> getSandboxPortfolio(V1PortfolioRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceGetSandboxPortfolio, request,
+          V1PortfolioResponse.fromJson);
 
-  /// GetSandboxPositions — positions for an account.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceGetSandboxPositions]
-  Future<JsonMap> getSandboxPositions(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceGetSandboxPositions, request);
+  Future<V1PositionsResponse> getSandboxPositions(V1PositionsRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceGetSandboxPositions, request,
+          V1PositionsResponse.fromJson);
 
-  /// GetSandboxStopOrders — active stop orders.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceGetSandboxStopOrders]
-  Future<JsonMap> getSandboxStopOrders(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceGetSandboxStopOrders, request);
+  Future<V1GetStopOrdersResponse> getSandboxStopOrders(
+          V1GetStopOrdersRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceGetSandboxStopOrders, request,
+          V1GetStopOrdersResponse.fromJson);
 
-  /// GetSandboxWithdrawLimits — available withdrawal amount.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceGetSandboxWithdrawLimits]
-  Future<JsonMap> getSandboxWithdrawLimits(JsonMap request) => _http.post(
-      InvestApiPaths.sandboxServiceGetSandboxWithdrawLimits, request);
+  Future<V1WithdrawLimitsResponse> getSandboxWithdrawLimits(
+          V1WithdrawLimitsRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceGetSandboxWithdrawLimits,
+          request, V1WithdrawLimitsResponse.fromJson);
 
-  /// OpenSandboxAccount — open sandbox account.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceOpenSandboxAccount]
-  Future<JsonMap> openSandboxAccount(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceOpenSandboxAccount, request);
+  Future<V1OpenSandboxAccountResponse> openSandboxAccount(
+          V1OpenSandboxAccountRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceOpenSandboxAccount, request,
+          V1OpenSandboxAccountResponse.fromJson);
 
-  /// PostSandboxOrder — place an order.
-  ///
   /// REST path: [InvestApiPaths.sandboxServicePostSandboxOrder]
-  Future<JsonMap> postSandboxOrder(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServicePostSandboxOrder, request);
+  Future<V1PostOrderResponse> postSandboxOrder(V1PostOrderRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServicePostSandboxOrder, request,
+          V1PostOrderResponse.fromJson);
 
-  /// PostSandboxOrderAsync — place an order (async).
-  ///
   /// REST path: [InvestApiPaths.sandboxServicePostSandboxOrderAsync]
-  Future<JsonMap> postSandboxOrderAsync(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServicePostSandboxOrderAsync, request);
+  Future<V1PostOrderAsyncResponse> postSandboxOrderAsync(
+          V1PostOrderAsyncRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServicePostSandboxOrderAsync, request,
+          V1PostOrderAsyncResponse.fromJson);
 
-  /// PostSandboxStopOrder — place a stop order.
-  ///
   /// REST path: [InvestApiPaths.sandboxServicePostSandboxStopOrder]
-  Future<JsonMap> postSandboxStopOrder(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServicePostSandboxStopOrder, request);
+  Future<V1PostStopOrderResponse> postSandboxStopOrder(
+          V1PostStopOrderRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServicePostSandboxStopOrder, request,
+          V1PostStopOrderResponse.fromJson);
 
-  /// ReplaceSandboxOrder — replace an order.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceReplaceSandboxOrder]
-  Future<JsonMap> replaceSandboxOrder(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceReplaceSandboxOrder, request);
+  Future<V1PostOrderResponse> replaceSandboxOrder(
+          V1ReplaceOrderRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceReplaceSandboxOrder, request,
+          V1PostOrderResponse.fromJson);
 
-  /// SandboxPayIn — deposit virtual cash.
-  ///
   /// REST path: [InvestApiPaths.sandboxServiceSandboxPayIn]
-  Future<JsonMap> sandboxPayIn(JsonMap request) =>
-      _http.post(InvestApiPaths.sandboxServiceSandboxPayIn, request);
+  Future<V1SandboxPayInResponse> sandboxPayIn(V1SandboxPayInRequest request) =>
+      _http.postDto(InvestApiPaths.sandboxServiceSandboxPayIn, request,
+          V1SandboxPayInResponse.fromJson);
 }

@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.6.2
+
+- **Breaking: REST is fully on generated DTOs.** Every `Invest*Api` method now takes a `V1*Request` (or equivalent generated request) and returns `V1*Response` / `Contractv1OrderState` / `StreamResultOf*` as emitted by the OpenAPI code generator. The previous `Future<JsonMap>` signatures and `*Typed` helpers (`getAccountsTyped`, `getOrdersTyped`, `findInstrumentTyped`, etc.) are **removed**.
+- **Implementation:** `lib/src/services/*_api.dart` is produced by `tool/_generate_service_dart_types.py` (run after `build_runner` when the spec changes). See [docs/service-regeneration.md](docs/service-regeneration.md) (EN) / [RU](docs/service-regeneration.ru.md).
+- **`InvestHttpClient.postDto` / `postRequest`:** body parameter is a `V1*Request` (or other DTO) or a raw `JsonMap`; encoding uses `toJson()` when needed. `post` remains for a `JsonMap` body only. See class docs in `lib/src/invest_http_client.dart`.
+- **Escape hatch:** [`InvestHttpClient.post`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/InvestHttpClient/post.html) is unchanged for low-level `JsonMap` calls; the integration smoke test uses it with `{}` to avoid building valid requests with many required fields.
+- **Docs:** [rest-and-services](docs/rest-and-services.md), [models-and-dto](docs/models-and-dto.md) updated; root [README](README.md) quick start and limitations describe the migration. Install with `^0.6.2`.
+
+## 0.6.1
+
+- **Documentation (expanded):** `docs/README.md` is the hub for the **whole** package. Added Markdown: [structure and exports](docs/structure-and-exports.md) (EN) / [RU](docs/structure-and-exports.ru.md), [configuration](docs/configuration.md) / [RU](docs/configuration.ru.md), [REST + all services](docs/rest-and-services.md) / [RU](docs/rest-and-services.ru.md), [WebSocket and streams](docs/websocket-and-streams.md) / [RU](docs/websocket-and-streams.ru.md), [exceptions and retry](docs/exceptions-and-retry.md) / [RU](docs/exceptions-and-retry.ru.md), [models and DTOs](docs/models-and-dto.md) / [RU](docs/models-and-dto.ru.md), [platforms](docs/platform.md) / [RU](docs/platform.ru.md), plus the existing [OpenAPI & codegen](docs/openapi-dto.md) (EN) / [RU](docs/openapi-dto.ru.md) with cross-links. Root [README](README.md) “Documentation (extra)” table updated; installation examples use `^0.6.1`.
+
+## 0.6.0
+
+- **Documentation:** added a `docs/` folder in Markdown: index ([`docs/README.md`](docs/README.md)), OpenAPI DTOs and codegen in [English](docs/openapi-dto.md) and [Russian](docs/openapi-dto.ru.md). Linked from pubspec as `documentation`.
+- **Description & README:** aligned with 0.5+ reality — full **generated** `V1*` DTOs are shipped; service methods still return `JsonMap` with optional `postDto` and typed hand helpers. Installation examples use `^0.6.0`. Removed the outdated “no DTO for all responses” limitation; `lib/src/generated/` is reflected in the package layout.
+
+## 0.5.0
+
+- Shipped full OpenAPI **codegen** (`swagger_dart_code_generator`): all schema DTOs are generated in `lib/src/generated/` and exported from the package (alongside the existing hand-written models).
+- The bundled machine-readable spec in `tool/t_invest.openapi.swagger` is a **valid OpenAPI 3.1** JSON (from the official T-Invest description via **Redocly bundle**; the single-line or truncated `openapi.yaml` copy is no longer used).
+- Added `InvestHttpClient.postDto` to decode any REST call into a generated `V1*.fromJson` type in one step.
+- Dev: `build.yaml` limits codegen to `tool/t_invest.openapi.swagger`; `analysis_options.yaml` excludes `lib/src/generated/**` from strict-raw type checks.
+- Direct dependency: `collection` (required by generated code).
+
 ## 0.4.1
 
 - Added optional `InvestConfig.allowInsecureSandboxTls` for debug-only sandbox REST troubleshooting when local TLS verification fails.

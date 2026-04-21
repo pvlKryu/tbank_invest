@@ -7,7 +7,9 @@
 
 **Languages:** [English](#english) · [Русский](#русский)
 
-Unofficial Dart client for **[T‑Invest (T‑Bank) Invest API](https://developer.tbank.ru/invest/api)** — REST (Dio) + `dart:io` WebSocket helpers. Not an official SDK.
+Unofficial Dart client for **[T‑Invest (T‑Bank) Invest API](https://developer.tbank.ru/invest/api)** — REST (Dio) + `dart:io` WebSocket, **OpenAPI code‑generated** request/response models (`V1*` in `lib/src/generated/`, exported from the package) plus hand-written helpers. Not an official SDK.
+
+**More docs (full package):** [docs/README.md](docs/README.md) — structure, config, all REST services, WSS, errors/retry, models, platforms, and OpenAPI codegen (EN + RU).
 
 **Flutter Web / browser:** not supported — the main import pulls in `dart:io` (see [Platform support](#platform-support)).
 
@@ -18,6 +20,7 @@ Unofficial Dart client for **[T‑Invest (T‑Bank) Invest API](https://develope
 Dart client for T‑Invest:
 
 - **REST** — thin wrappers over every method from the official [OpenAPI](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/swagger-ui/openapi.yaml) (POST + JSON), using [Dio](https://pub.dev/packages/dio).
+- **OpenAPI DTOs** — every `Invest*Api` method takes a `V1*Request` and returns a `V1*Response` (or a rare generated name such as `Contractv1OrderState`); see [`lib/src/generated/`](https://github.com/pvlKryu/tbank_invest/tree/main/lib/src/generated) and [docs](docs/README.md) ([service regen](docs/service-regeneration.md), [codegen](docs/openapi-dto.md)).
 - **WebSocket** — [`WebSocket`](https://api.dart.dev/stable/dart-io/WebSocket-class.html) helper with `Authorization` and the `json` subprotocol for streaming endpoints.
 
 ### Platform support
@@ -37,6 +40,7 @@ Dart client for T‑Invest:
 - [Configuration](#configuration)
 - [WebSocket](#websocket)
 - [Errors](#errors)
+- [Documentation (extra)](#documentation-extra)
 - [Package layout](#package-layout)
 - [Contributing](#contributing)
 - [Limitations](#limitations)
@@ -48,7 +52,7 @@ Dart client for T‑Invest:
 | Area | Notes |
 |------|--------|
 | REST | One class per gRPC/OpenAPI service (`InvestUsersApi`, `InvestMarketDataApi`, …). Each method maps 1:1 to a path in `InvestApiPaths`. |
-| JSON / Typed | Keep raw [`JsonMap`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/JsonMap.html) flow or use typed helpers for core methods (`getAccountsTyped`, `findInstrumentTyped`, `getOrdersTyped`, sandbox typed methods). |
+| DTOs | `Invest*Api` methods are **fully typed** (`V1*Request` / `V1*Response` from codegen). Use [`InvestHttpClient.post`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/InvestHttpClient/post.html) only for advanced cases or the package’s [integration](test/all_api_methods_integration_test.dart) smokes. See [rest-and-services](docs/rest-and-services.md), [service-regeneration](docs/service-regeneration.md). |
 | Auth | Bearer token on every request; optional `x-app-name` via `InvestConfig.appName`. |
 | WebSocket | `InvestWebSocket.connect` builds `wss://…` URLs from `InvestConfig` + `InvestApiPaths`. |
 | Reliability | `InvestRetryPolicy` for idempotent REST methods, `InvestRateLimitException` with `retryAfter`, and `InvestStreamManager` (reconnect + resubscribe + heartbeat). |
@@ -60,14 +64,14 @@ Dart client for T‑Invest:
 |--------------|--------|
 | `UsersService`, `InstrumentsService`, `MarketDataService`, `OperationsService`, `OrdersService`, `StopOrdersService`, `SandboxService`, `SignalService` | Implemented as REST service wrappers in `lib/src/services/`. |
 | `MarketDataStreamService`, `OrdersStreamService`, `OperationsStreamService` | Path constants + WebSocket support via `InvestWebSocket`. |
-| Typed DTO coverage for all methods | Partial. Core helpers + typed wrappers for Users/Instruments/Orders/Sandbox are available; remaining endpoints still use `JsonMap`. |
+| OpenAPI DTOs | **Full** set of `V1*` (and related) request/response types; **`Invest*Api` uses them directly** in method signatures. `lib/src/services/*_api.dart` is regenerated with `tool/_generate_service_dart_types.py` when the spec changes. |
 | Flutter Web/browser target | Not supported in current default import graph (`dart:io`). |
 
 ### Installation
 
 ```yaml
 dependencies:
-  tbank_invest: ^0.5.1
+  tbank_invest: ^0.6.2
 ```
 
 Path dependency is intended for local development of this package only:
@@ -92,8 +96,10 @@ Future<void> main() async {
   );
 
   try {
-    final accounts = await client.users.getAccountsTyped({});
-    print('Accounts: ${accounts.accounts.length}');
+    final res =
+        await client.users.getAccounts(const V1GetAccountsRequest());
+    final list = res.accounts ?? <V1Account>[];
+    print('Accounts: ${list.length}');
   } on InvestApiException catch (e) {
     print(e);
   } finally {
@@ -165,6 +171,23 @@ Future<void> lastPriceExample(InvestConfig config) async {
 - `InvestDecodeException` — unexpected JSON.
 - `InvestException` — generic client error.
 
+### Documentation (extra)
+
+| Doc | Content |
+|-----|---------|
+| [docs/README.md](docs/README.md) | Master index: EN + RU links for every topic. |
+| [docs/structure-and-exports.md](docs/structure-and-exports.md) | Public exports, `TinvestClient`, `lib/src/` map. RU: [structure-and-exports.ru.md](docs/structure-and-exports.ru.md). |
+| [docs/configuration.md](docs/configuration.md) | `InvestConfig`, environments, retry, TLS. RU: [configuration.ru.md](docs/configuration.ru.md). |
+| [docs/rest-and-services.md](docs/rest-and-services.md) | `InvestHttpClient`, all `Invest*Api` methods. RU: [rest-and-services.ru.md](docs/rest-and-services.ru.md). |
+| [docs/websocket-and-streams.md](docs/websocket-and-streams.md) | WSS, `InvestStreamManager`. RU: [websocket-and-streams.ru.md](docs/websocket-and-streams.ru.md). |
+| [docs/exceptions-and-retry.md](docs/exceptions-and-retry.md) | Error types, `InvestRetryPolicy`. RU: [exceptions-and-retry.ru.md](docs/exceptions-and-retry.ru.md). |
+| [docs/models-and-dto.md](docs/models-and-dto.md) | Hand helpers vs `V1*` (post–0.6.2). RU: [models-and-dto.ru.md](docs/models-and-dto.ru.md). |
+| [docs/platform.md](docs/platform.md) | Web vs VM. RU: [platform.ru.md](docs/platform.ru.md). |
+| [docs/openapi-dto.md](docs/openapi-dto.md) / [openapi-dto.ru.md](docs/openapi-dto.ru.md) | `build_runner`, `t_invest.swagger` DTOs, `tool/`. |
+| [docs/service-regeneration.md](docs/service-regeneration.md) | Regenerate `lib/src/services/*_api.dart`. RU: [service-regeneration.ru.md](docs/service-regeneration.ru.md). |
+
+`pubspec.yaml` uses `documentation:` pointing to the `docs` folder on GitHub.
+
 ### Package layout
 
 ```
@@ -177,9 +200,14 @@ lib/
     invest_exception.dart
     api_paths.dart
     json_types.dart
+    generated/       # OpenAPI DTOs (t_invest.swagger.dart, …) — do not hand-edit
     models/
     services/
     tinvest_client.dart
+tool/
+  t_invest.openapi.swagger              # spec for swagger codegen + Python service mapper
+  _generate_service_dart_types.py       # see docs/service-regeneration.md
+docs/             # see docs/README.md — full index (EN/RU) + *.md, *.ru.md
 example/
   example.dart
 ```
@@ -191,7 +219,7 @@ Contributions are welcome. Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) and 
 ### Limitations
 
 - **No Flutter Web / browser** — default import includes `dart:io` WebSocket; see [Platform support](#platform-support).
-- No codegen for all DTOs — use `JsonMap` or your models.
+- **REST** — `Invest*Api` is **fully DTO-typed**; for raw JSON, [`InvestHttpClient.post`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/InvestHttpClient/post.html), [`postDto`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/InvestHttpClient/postDto.html), [`postRequest`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/InvestHttpClient/postRequest.html). See [docs](docs/README.md), [rest-and-services](docs/rest-and-services.md), [service-regeneration](docs/service-regeneration.md).
 - Quotas and stream rules are enforced by T‑Bank.
 
 ### Example app
@@ -211,6 +239,7 @@ MIT — see [`LICENSE`](LICENSE).
 Неофициальный Dart-клиент для **[API Т‑Инвест (Т‑Банк)](https://developer.tbank.ru/invest/api)**:
 
 - **REST** — обёртки над методами из [OpenAPI](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/swagger-ui/openapi.yaml) (`POST` + JSON), транспорт [Dio](https://pub.dev/packages/dio).
+- **OpenAPI DTO** — `Invest*Api` на **`V1*Request/Response`**, скрипт пересборки `lib/src/services/*_api` — [service-regeneration.ru.md](docs/service-regeneration.ru.md); [индекс](docs/README.md), [codegen](docs/openapi-dto.ru.md).
 - **WebSocket** — помощник на базе [`WebSocket`](https://api.dart.dev/stable/dart-io/WebSocket-class.html) из `dart:io` с заголовком `Authorization` и подпротоколом `json`.
 
 Официальным SDK пакет **не является**; контракты и лимиты — в документации Т‑Банка.
@@ -234,6 +263,7 @@ MIT — see [`LICENSE`](LICENSE).
 - [Конфигурация](#конфигурация)
 - [WebSocket (стримы)](#websocket-стримы)
 - [Ошибки](#ошибки)
+- [Документация (доп.)](#документация-доп)
 - [Структура пакета](#структура-пакета)
 - [Как контрибьютить](#как-контрибьютить)
 - [Ограничения](#ограничения)
@@ -245,7 +275,7 @@ MIT — see [`LICENSE`](LICENSE).
 | Область | Описание |
 |---------|----------|
 | REST | Один класс на сервис OpenAPI (`InvestUsersApi`, `InvestMarketDataApi`, …), путь 1:1 с `InvestApiPaths`. |
-| JSON / Typed | Можно работать через сырой [`JsonMap`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/JsonMap.html) или через typed helper-методы core-сценариев (`getAccountsTyped`, `findInstrumentTyped`, `getOrdersTyped`, typed sandbox). |
+| DTO | Методы `Invest*Api` — **`V1*Request` / `V1*Response`**. `post` / сырой map — низкоуровнево. [доки](docs/README.md), [сервисы](docs/rest-and-services.ru.md), [пересборка `*_api`](docs/service-regeneration.ru.md). |
 | Авторизация | Bearer на каждый запрос; опционально `x-app-name` через `InvestConfig.appName`. |
 | WebSocket | `InvestWebSocket.connect` собирает `wss://…` из `InvestConfig` и `InvestApiPaths`. |
 | Надёжность | `InvestRetryPolicy` для идемпотентных REST-вызовов, `InvestRateLimitException` с `retryAfter`, `InvestStreamManager` (reconnect + resubscribe + heartbeat). |
@@ -257,14 +287,14 @@ MIT — see [`LICENSE`](LICENSE).
 |-----------------|--------|
 | `UsersService`, `InstrumentsService`, `MarketDataService`, `OperationsService`, `OrdersService`, `StopOrdersService`, `SandboxService`, `SignalService` | Реализованы как REST-обёртки в `lib/src/services/`. |
 | `MarketDataStreamService`, `OrdersStreamService`, `OperationsStreamService` | Константы путей + поддержка WebSocket через `InvestWebSocket`. |
-| Полная типизация DTO по всем методам | Частично. Помимо базовых helper-моделей добавлены typed wrappers для Users/Instruments/Orders/Sandbox; остальные методы пока `JsonMap`. |
+| DTO по OpenAPI | **Полный** набор типов; сигнатуры **`Invest*Api` — DTO**; `lib/src/services/*_api.dart` — скрипт `tool/_generate_service_dart_types.py`. |
 | Flutter Web/браузер | Пока не поддерживается из-за `dart:io` в стандартном импорте. |
 
 ### Установка
 
 ```yaml
 dependencies:
-  tbank_invest: ^0.5.1
+  tbank_invest: ^0.6.2
 ```
 
 Локальная зависимость по пути нужна только при разработке самого пакета:
@@ -289,8 +319,10 @@ Future<void> main() async {
   );
 
   try {
-    final accounts = await client.users.getAccountsTyped({});
-    print('Accounts: ${accounts.accounts.length}');
+    final res =
+        await client.users.getAccounts(const V1GetAccountsRequest());
+    final list = res.accounts ?? <V1Account>[];
+    print('Accounts: ${list.length}');
   } on InvestApiException catch (e) {
     print(e);
   } finally {
@@ -334,6 +366,23 @@ const token = String.fromEnvironment('TBANK_TOKEN', defaultValue: '');
 - `InvestDecodeException` — неожиданная форма JSON.
 - `InvestException` — прочие ошибки клиента.
 
+### Документация (доп.)
+
+| Файл | Содержание |
+|------|------------|
+| [docs/README.md](docs/README.md) | Оглавление: все разделы EN + RU |
+| [docs/structure-and-exports.ru.md](docs/structure-and-exports.ru.md) | Экспорт, фасад, структура `lib/src/` |
+| [docs/configuration.ru.md](docs/configuration.ru.md) | `InvestConfig`, среда, retry, TLS |
+| [docs/rest-and-services.ru.md](docs/rest-and-services.ru.md) | Список REST-методов по сервисам |
+| [docs/websocket-and-streams.ru.md](docs/websocket-and-streams.ru.md) | WSS, `InvestStreamManager` |
+| [docs/exceptions-and-retry.ru.md](docs/exceptions-and-retry.ru.md) | Исключения, повторы |
+| [docs/models-and-dto.ru.md](docs/models-and-dto.ru.md) | Модели и `V1*` |
+| [docs/platform.ru.md](docs/platform.ru.md) | Платформы |
+| [docs/openapi-dto.ru.md](docs/openapi-dto.ru.md) | Кодоген, `build_runner` |
+| [docs/service-regeneration.ru.md](docs/service-regeneration.ru.md) | Скрипт `*_api.dart` из OpenAPI |
+
+В `pubspec.yaml` — `documentation:` на каталог `docs` на GitHub.
+
 ### Структура пакета
 
 ```
@@ -344,11 +393,16 @@ lib/
     invest_http_client.dart
     invest_websocket.dart
     invest_exception.dart
-    api_paths.dart       # Константы путей (генерация)
+    api_paths.dart       # Константы путей
     json_types.dart
+    generated/           # OpenAPI DTO (t_invest.swagger.dart, …) — не править вручную
     models/
     services/
     tinvest_client.dart
+tool/
+  t_invest.openapi.swagger
+  _generate_service_dart_types.py
+docs/             # см. docs/README.md
 example/
   example.dart
 ```
@@ -360,7 +414,7 @@ example/
 ### Ограничения
 
 - **Нет Flutter Web / браузера** — в дефолтном импорте есть WebSocket на `dart:io`; см. [Поддержка платформ](#поддержка-платформ).
-- Нет сгенерированных DTO для всех ответов — работа с `JsonMap` или своими моделями.
+- **REST** — `Invest*Api` только DTO; сырой JSON: [`http.post`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/InvestHttpClient/post.html), `postDto`, `postRequest` ([docs](docs/README.md), [REST](docs/rest-and-services.ru.md)).
 - Лимиты API и правила стримов задаёт Т‑Банк.
 
 ### Пример

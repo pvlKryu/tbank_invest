@@ -24,11 +24,13 @@ Future<void> main() async {
   );
 
   try {
-    final accounts = await client.users.getAccountsTyped({});
-    print('Accounts: ${accounts.accounts.length}');
-    for (final account in accounts.accounts) {
-      print(
-          '- ${account.id} ${account.name ?? ''} (${account.status ?? 'n/a'})');
+    final response =
+        await client.users.getAccounts(const V1GetAccountsRequest());
+    final accounts = response.accounts ?? <V1Account>[];
+    print('Accounts: ${accounts.length}');
+    for (final account in accounts) {
+      final status = account.status?.name ?? 'n/a';
+      print('- ${account.id} ${account.name ?? ''} ($status)');
     }
   } on InvestApiException catch (e) {
     print('API error: $e');

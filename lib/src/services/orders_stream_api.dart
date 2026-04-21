@@ -1,27 +1,26 @@
-// T-Invest REST API methods (OpenAPI 1.43). Request/response bodies match the official schema.
+// ignore_for_file: public_member_api_docs
+// T-Invest REST (OpenAPI). Request/response: generated types (V1*…, StreamResult*, etc.).
 
 import '../invest_http_client.dart';
-import '../json_types.dart';
 import '../api_paths.dart';
+import '../generated/t_invest.swagger.dart';
 
-/// gRPC service: `tinkoff.public.invest.api.contract.v1.OrdersStreamService`.
-///
-/// Each method sends a `POST` with a JSON body and returns parsed JSON.
+/// gRPC: `tinkoff.public.invest.api.contract.v1.OrdersStreamService`.
+/// Each method: POST; body from [request] (DTO / JsonMap via [InvestHttpClient.postDto]).
 class InvestOrdersStreamApi {
-  /// Creates this API group with a shared HTTP client.
   InvestOrdersStreamApi(this._http);
 
   final InvestHttpClient _http;
 
-  /// OrderStateStream — order state stream.
-  ///
   /// REST path: [InvestApiPaths.ordersStreamServiceOrderStateStream]
-  Future<JsonMap> orderStateStream(JsonMap request) =>
-      _http.post(InvestApiPaths.ordersStreamServiceOrderStateStream, request);
+  Future<StreamResultOfV1OrderStateStreamResponse> orderStateStream(
+          V1OrderStateStreamRequest request) =>
+      _http.postDto(InvestApiPaths.ordersStreamServiceOrderStateStream, request,
+          StreamResultOfV1OrderStateStreamResponse.fromJson);
 
-  /// TradesStream — user trades stream.
-  ///
   /// REST path: [InvestApiPaths.ordersStreamServiceTradesStream]
-  Future<JsonMap> tradesStream(JsonMap request) =>
-      _http.post(InvestApiPaths.ordersStreamServiceTradesStream, request);
+  Future<StreamResultOfV1TradesStreamResponse> tradesStream(
+          V1TradesStreamRequest request) =>
+      _http.postDto(InvestApiPaths.ordersStreamServiceTradesStream, request,
+          StreamResultOfV1TradesStreamResponse.fromJson);
 }

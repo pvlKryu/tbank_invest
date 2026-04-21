@@ -21,7 +21,8 @@ import 'services/users_api.dart';
 ///   environment: InvestEnvironment.sandbox,
 /// );
 /// final client = TinvestClient(cfg);
-/// final accounts = await client.users.getAccounts({});
+/// final accounts = await client.users
+///     .getAccounts(const V1GetAccountsRequest());
 /// ```
 class TinvestClient {
   /// Builds [InvestHttpClient] and all REST groups ([InvestInstrumentsApi], …).
