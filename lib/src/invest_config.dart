@@ -1,5 +1,7 @@
 import 'package:meta/meta.dart';
 
+import 'invest_retry_policy.dart';
+
 /// T-Invest API environment: production or sandbox.
 ///
 /// Base URLs match the [official OpenAPI spec](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/swagger-ui/openapi.yaml).
@@ -31,6 +33,7 @@ class InvestConfig {
     this.connectTimeout = const Duration(seconds: 30),
     this.receiveTimeout = const Duration(seconds: 60),
     this.sendTimeout = const Duration(seconds: 30),
+    this.retryPolicy = const InvestRetryPolicy.disabled(),
   });
 
   /// Access token (without the `Bearer ` prefix).
@@ -53,6 +56,9 @@ class InvestConfig {
 
   /// Request body send timeout.
   final Duration sendTimeout;
+
+  /// Retry policy for idempotent REST methods.
+  final InvestRetryPolicy retryPolicy;
 
   /// REST API base URL (no trailing `/`).
   ///

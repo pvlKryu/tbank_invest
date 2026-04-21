@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0 (unreleased)
+
+- Added reliability primitives: `InvestRetryPolicy`, automatic retries for idempotent REST calls, and typed `InvestRateLimitException` with `retryAfter`.
+- Added `InvestStreamManager` with reconnect, heartbeat timeout handling, and auto-resubscribe for saved subscriptions.
+- Added typed stream event model `InvestStreamEvent` with basic event classification and parsing helpers.
+
 ## 0.3.1
 
 - No API changes. Republishes changelog state correction and repository metadata alignment after the 0.3.0 release.

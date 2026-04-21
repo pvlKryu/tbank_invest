@@ -52,6 +52,31 @@ class InvestApiException extends InvestException {
   }
 }
 
+/// API rate limit error (`HTTP 429`) with optional retry hint.
+class InvestRateLimitException extends InvestApiException {
+  /// Creates a rate limit error.
+  const InvestRateLimitException({
+    required super.message,
+    super.httpStatusCode,
+    super.grpcCode,
+    super.trackingId,
+    super.businessCode,
+    this.retryAfter,
+  });
+
+  /// Suggested delay before the next request.
+  final Duration? retryAfter;
+
+  @override
+  String toString() {
+    final base = super.toString();
+    if (retryAfter == null) {
+      return base;
+    }
+    return '$base: retryAfter=${retryAfter!.inSeconds}s';
+  }
+}
+
 /// JSON decode/parsing error (unexpected response shape).
 class InvestDecodeException extends InvestException {
   /// Creates a decode error.
@@ -70,6 +95,17 @@ InvestException investExceptionFromDio(DioException e) {
     final code = _asInt(data['code']);
     final msg = data['message']?.toString() ?? e.message ?? 'Request failed';
     final biz = _asInt(data['description']);
+    final retryAfter = _parseRetryAfter(response?.headers.value('retry-after'));
+    if (status == 429) {
+      return InvestRateLimitException(
+        message: msg,
+        httpStatusCode: status,
+        grpcCode: code,
+        trackingId: trackingId,
+        businessCode: biz,
+        retryAfter: retryAfter,
+      );
+    }
     return InvestApiException(
       message: msg,
       httpStatusCode: status,
@@ -93,4 +129,15 @@ int? _asInt(Object? v) {
     return v.toInt();
   }
   return int.tryParse(v.toString());
+}
+
+Duration? _parseRetryAfter(String? value) {
+  if (value == null || value.isEmpty) {
+    return null;
+  }
+  final seconds = int.tryParse(value);
+  if (seconds != null && seconds >= 0) {
+    return Duration(seconds: seconds);
+  }
+  return null;
 }

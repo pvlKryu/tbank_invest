@@ -66,20 +66,43 @@ class InvestHttpClient {
   /// Returns the top-level decoded JSON object.
   /// On failure throws [InvestApiException] or [InvestException].
   Future<JsonMap> post(String path, JsonMap body) async {
-    try {
-      final response = await _dio.post<Object>(path, data: body);
-      final data = response.data;
-      if (data is Map<String, dynamic>) {
-        return data;
+    final idempotent = _isIdempotentPath(path);
+    var attempt = 1;
+
+    while (true) {
+      try {
+        final response = await _dio.post<Object>(path, data: body);
+        final data = response.data;
+        if (data is Map<String, dynamic>) {
+          return data;
+        }
+        if (data is Map) {
+          return Map<String, dynamic>.from(data);
+        }
+        throw InvestDecodeException(
+          'Expected JSON object in response, got ${data.runtimeType}',
+        );
+      } on DioException catch (e) {
+        final mapped = investExceptionFromDio(e);
+        final shouldRetry = _config.retryPolicy.shouldRetry(
+          attempt: attempt,
+          error: mapped,
+          idempotent: idempotent,
+        );
+        if (!shouldRetry) {
+          throw mapped;
+        }
+        attempt += 1;
+        final retryAfter =
+            mapped is InvestRateLimitException ? mapped.retryAfter : null;
+        final delay = _config.retryPolicy.delayForAttempt(
+          attempt,
+          serverSuggestedDelay: retryAfter,
+        );
+        if (delay > Duration.zero) {
+          await Future<void>.delayed(delay);
+        }
       }
-      if (data is Map) {
-        return Map<String, dynamic>.from(data);
-      }
-      throw InvestDecodeException(
-        'Expected JSON object in response, got ${data.runtimeType}',
-      );
-    } on DioException catch (e) {
-      throw investExceptionFromDio(e);
     }
   }
 
@@ -87,4 +110,29 @@ class InvestHttpClient {
   void close({bool force = false}) {
     _dio.close(force: force);
   }
+}
+
+bool _isIdempotentPath(String path) {
+  final lower = path.toLowerCase();
+  if (lower.contains('/post') ||
+      lower.contains('/replace') ||
+      lower.contains('/cancel') ||
+      lower.contains('/open') ||
+      lower.contains('/close') ||
+      lower.contains('/payin') ||
+      lower.contains('/edit') ||
+      lower.contains('/create') ||
+      lower.contains('/delete') ||
+      lower.contains('/transfer')) {
+    return false;
+  }
+  return lower.contains('/get') ||
+      lower.contains('/find') ||
+      lower.contains('/shares') ||
+      lower.contains('/bonds') ||
+      lower.contains('/etfs') ||
+      lower.contains('/futures') ||
+      lower.contains('/currencies') ||
+      lower.contains('/options') ||
+      lower.contains('/tradingschedules');
 }

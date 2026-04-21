@@ -51,6 +51,7 @@ Dart client for T‑Invest:
 | JSON / Typed | Keep raw [`JsonMap`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/JsonMap.html) flow or use typed helpers for core methods (`getAccountsTyped`, `findInstrumentTyped`, `getOrdersTyped`, sandbox typed methods). |
 | Auth | Bearer token on every request; optional `x-app-name` via `InvestConfig.appName`. |
 | WebSocket | `InvestWebSocket.connect` builds `wss://…` URLs from `InvestConfig` + `InvestApiPaths`. |
+| Reliability | `InvestRetryPolicy` for idempotent REST methods, `InvestRateLimitException` with `retryAfter`, and `InvestStreamManager` (reconnect + resubscribe + heartbeat). |
 | Helpers | `MoneyValue`, `Quotation`, `InvestApiException` (HTTP status, gRPC code, `x-tracking-id` when present). |
 
 ### Supported API coverage
@@ -246,6 +247,7 @@ MIT — see [`LICENSE`](LICENSE).
 | JSON / Typed | Можно работать через сырой [`JsonMap`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/JsonMap.html) или через typed helper-методы core-сценариев (`getAccountsTyped`, `findInstrumentTyped`, `getOrdersTyped`, typed sandbox). |
 | Авторизация | Bearer на каждый запрос; опционально `x-app-name` через `InvestConfig.appName`. |
 | WebSocket | `InvestWebSocket.connect` собирает `wss://…` из `InvestConfig` и `InvestApiPaths`. |
+| Надёжность | `InvestRetryPolicy` для идемпотентных REST-вызовов, `InvestRateLimitException` с `retryAfter`, `InvestStreamManager` (reconnect + resubscribe + heartbeat). |
 | Утилиты | `MoneyValue`, `Quotation`, `InvestApiException`. |
 
 ### Покрытие API
