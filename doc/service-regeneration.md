@@ -6,6 +6,12 @@ All files matching `lib/src/services/*_api.dart` (except you only have `*api` na
 python3 tool/_generate_service_dart_types.py
 ```
 
+To inject dartdoc comments into generated DTOs from OpenAPI `description`:
+
+```bash
+python3 tool/_inject_openapi_dartdoc.py
+```
+
 The script:
 
 1. Reads `paths.*.post` in the spec and takes `requestBody` / `200` response `$ref` names.
@@ -15,7 +21,9 @@ The script:
 
 **When to run it**
 
-- After **replacing** `tool/t_invest.openapi.swagger` and running **`dart run build_runner build`**, re-run the Python script if paths or request/response schemas for REST methods change.
+- After **replacing** `tool/t_invest.openapi.swagger` and running **`dart run build_runner build`**, re-run:
+  1) `python3 tool/_generate_service_dart_types.py` (service wrappers), and
+  2) `python3 tool/_inject_openapi_dartdoc.py` (DTO comments from OpenAPI descriptions).
 - Then run **`dart format lib/src/services`** and fix any merge conflicts in git.
 
 **Do not** hand-edit the generated `*_api.dart` files; fix the tool or the spec instead.

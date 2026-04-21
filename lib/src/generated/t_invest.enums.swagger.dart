@@ -1,6 +1,9 @@
 import 'package:json_annotation/json_annotation.dart';
-import 'package:collection/collection.dart';
 
+/// - PERIOD_TYPE_UNSPECIFIED: Не указан.
+/// - PERIOD_TYPE_QUARTER: Квартальный.
+/// - PERIOD_TYPE_SEMIANNUAL: Полугодовой.
+/// - PERIOD_TYPE_ANNUAL: Годовой.
 enum GetAssetReportsResponseAssetReportPeriodType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -19,6 +22,11 @@ enum GetAssetReportsResponseAssetReportPeriodType {
   const GetAssetReportsResponseAssetReportPeriodType(this.value);
 }
 
+/// - EVENT_TYPE_UNSPECIFIED: Неопределенное значение.
+/// - EVENT_TYPE_CPN: Купон.
+/// - EVENT_TYPE_CALL: Опцион (оферта).
+/// - EVENT_TYPE_MTY: Погашение.
+/// - EVENT_TYPE_CONV: Конвертация.
 enum GetBondEventsRequestEventType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -39,6 +47,21 @@ enum GetBondEventsRequestEventType {
   const GetBondEventsRequestEventType(this.value);
 }
 
+/// Интервал свечи.
+/// - INDICATOR_INTERVAL_UNSPECIFIED: Интервал не определен.
+/// - INDICATOR_INTERVAL_ONE_MINUTE: 1 минута.
+/// - INDICATOR_INTERVAL_FIVE_MINUTES: 5 минут.
+/// - INDICATOR_INTERVAL_FIFTEEN_MINUTES: 15 минут.
+/// - INDICATOR_INTERVAL_ONE_HOUR: 1 час.
+/// - INDICATOR_INTERVAL_ONE_DAY: 1 день.
+/// - INDICATOR_INTERVAL_2_MIN: 2 минуты.
+/// - INDICATOR_INTERVAL_3_MIN: 3 минуты.
+/// - INDICATOR_INTERVAL_10_MIN: 10 минут.
+/// - INDICATOR_INTERVAL_30_MIN: 30 минут.
+/// - INDICATOR_INTERVAL_2_HOUR: 2 часа.
+/// - INDICATOR_INTERVAL_4_HOUR: 4 часа.
+/// - INDICATOR_INTERVAL_WEEK: Неделя.
+/// - INDICATOR_INTERVAL_MONTH: Месяц.
 enum GetTechAnalysisRequestIndicatorInterval {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -77,6 +100,12 @@ enum GetTechAnalysisRequestIndicatorInterval {
   const GetTechAnalysisRequestIndicatorInterval(this.value);
 }
 
+/// - INDICATOR_TYPE_UNSPECIFIED: Не определен.
+/// - INDICATOR_TYPE_BB: Bollinger Bands — линия Боллинжера.
+/// - INDICATOR_TYPE_EMA: Exponential Moving Average — EMA, экспоненциальная скользящая средняя.
+/// - INDICATOR_TYPE_RSI: Relative Strength Index — индекс относительной силы.
+/// - INDICATOR_TYPE_MACD: Moving Average Convergence/Divergence — схождение/расхождение скользящих средних.
+/// - INDICATOR_TYPE_SMA: Simple Moving Average — простое скользящее среднее.
 enum GetTechAnalysisRequestIndicatorType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -99,6 +128,12 @@ enum GetTechAnalysisRequestIndicatorType {
   const GetTechAnalysisRequestIndicatorType(this.value);
 }
 
+/// - TYPE_OF_PRICE_UNSPECIFIED: Не указано.
+/// - TYPE_OF_PRICE_CLOSE: Цена закрытия.
+/// - TYPE_OF_PRICE_OPEN: Цена открытия.
+/// - TYPE_OF_PRICE_HIGH: Максимальное значение за выбранный интервал.
+/// - TYPE_OF_PRICE_LOW: Минимальное значение за выбранный интервал.
+/// - TYPE_OF_PRICE_AVG: Среднее значение по показателям [ (close + open + high + low) / 4 ].
 enum GetTechAnalysisRequestTypeOfPrice {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -121,6 +156,11 @@ enum GetTechAnalysisRequestTypeOfPrice {
   const GetTechAnalysisRequestTypeOfPrice(this.value);
 }
 
+/// - MARKER_UNKNOWN: не определено - MARKER_BROKER: сделки брокера - MARKER_CHAT: исполнение поручение,
+/// полученного от клиента через каналы связи - MARKER_PAPER: исполнение поручение, полученного от клиента в
+/// бумажной форме - MARKER_MARGIN: принудительное закрытие позиций - MARKER_TKBNM: сделки по управлению
+/// ликвидностью - MARKER_SHORT: сделки РЕПО по привлечению у клиентов бумаг - MARKER_SPECMM: перенос временно
+/// непокрытых позиций
 enum OrderStateStreamResponseMarkerType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -149,6 +189,11 @@ enum OrderStateStreamResponseMarkerType {
   const OrderStateStreamResponseMarkerType(this.value);
 }
 
+/// - CAUSE_UNSPECIFIED: Не определено - CAUSE_CANCELLED_BY_CLIENT: Отменено клиентом -
+/// CAUSE_CANCELLED_BY_EXCHANGE: Отменено биржей - CAUSE_CANCELLED_NOT_ENOUGH_POSITION: Заявка не выставлена из-за
+/// нехватки средств - CAUSE_CANCELLED_BY_CLIENT_BLOCK: Отменено из-за блокировки клиента -
+/// CAUSE_REJECTED_BY_BROKER: Отклонено брокером - CAUSE_REJECTED_BY_EXCHANGE: Отклонено биржей -
+/// CAUSE_CANCELLED_BY_BROKER: Отменено брокером
 enum OrderStateStreamResponseStatusCauseInfo {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -191,6 +236,10 @@ enum PortfolioRequestCurrencyRequest {
   const PortfolioRequestCurrencyRequest(this.value);
 }
 
+/// Стратегия портфеля.
+/// - LOGIC_PORTFOLIO_UNSPECIFIED: Стратегия портфеля не определена.
+/// - LOGIC_PORTFOLIO_VOLATILITY: Волатильность.
+/// - LOGIC_PORTFOLIO_CORRELATION: Корреляция.
 enum StructuredNoteLogicPortfolio {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -207,6 +256,13 @@ enum StructuredNoteLogicPortfolio {
   const StructuredNoteLogicPortfolio(this.value);
 }
 
+/// Принцип наблюдений.
+/// - OBSERVATION_PRINCIPLE_UNSPECIFIED: Принцип наблюдений не определен.
+/// - OBSERVATION_PRINCIPLE_WORST_BASIC_ASSET: По худшему базовому активу.
+/// - OBSERVATION_PRINCIPLE_BEST_BASIC_ASSET: По лучшему базовому активу.
+/// - OBSERVATION_PRINCIPLE_AVERAGE_OF_BASIC_ASSETS: Среднее значение по базовым активам.
+/// - OBSERVATION_PRINCIPLE_SINGLE_BASIC_ASSET_PERFORMANCE: Динамика актива (только если у ноты один базовый
+/// актив).
 enum StructuredNoteObservationPrinciple {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -230,6 +286,11 @@ enum StructuredNoteObservationPrinciple {
   const StructuredNoteObservationPrinciple(this.value);
 }
 
+/// Тип доходности.
+/// - YIELD_TYPE_UNSPECIFIED: Тип доходности не определен.
+/// - YIELD_TYPE_GUARANTED_COUPON: Гарантированный купон.
+/// - YIELD_TYPE_CONDITIONAL_COUPON: Условный купон.
+/// - YIELD_TYPE_PARTICIPATION: Участие в росте.
 enum StructuredNoteYieldType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -248,6 +309,9 @@ enum StructuredNoteYieldType {
   const StructuredNoteYieldType(this.value);
 }
 
+/// - CANDLE_SOURCE_UNSPECIFIED: Источник свечей не определен.
+/// - CANDLE_SOURCE_EXCHANGE: Биржевые свечи.
+/// - CANDLE_SOURCE_DEALER_WEEKEND: Свечи дилера в результате торговли по выходным.
 enum Contractv1CandleSource {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -264,6 +328,10 @@ enum Contractv1CandleSource {
   const Contractv1CandleSource(this.value);
 }
 
+/// Направление сделки.
+/// - TRADE_DIRECTION_UNSPECIFIED: Направление сделки не определено.
+/// - TRADE_DIRECTION_BUY: Покупка.
+/// - TRADE_DIRECTION_SELL: Продажа.
 enum Contractv1TradeDirection {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -280,6 +348,11 @@ enum Contractv1TradeDirection {
   const Contractv1TradeDirection(this.value);
 }
 
+/// Уровень доступа к счeту.
+/// - ACCOUNT_ACCESS_LEVEL_UNSPECIFIED: Уровень доступа не определeн.
+/// - ACCOUNT_ACCESS_LEVEL_FULL_ACCESS: Полный доступ к счeту.
+/// - ACCOUNT_ACCESS_LEVEL_READ_ONLY: Доступ с уровнем прав «только чтение».
+/// - ACCOUNT_ACCESS_LEVEL_NO_ACCESS: Доступа нет.
 enum V1AccessLevel {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -298,6 +371,12 @@ enum V1AccessLevel {
   const V1AccessLevel(this.value);
 }
 
+/// Статус счeта.
+/// - ACCOUNT_STATUS_UNSPECIFIED: Статус счeта не определeн.
+/// - ACCOUNT_STATUS_NEW: Новый, в процессе открытия.
+/// - ACCOUNT_STATUS_OPEN: Открытый и активный счeт.
+/// - ACCOUNT_STATUS_CLOSED: Закрытый счeт.
+/// - ACCOUNT_STATUS_ALL: Все счета.
 enum V1AccountStatus {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -318,6 +397,14 @@ enum V1AccountStatus {
   const V1AccountStatus(this.value);
 }
 
+/// Тип счeта.
+/// - ACCOUNT_TYPE_UNSPECIFIED: Тип аккаунта не определeн.
+/// - ACCOUNT_TYPE_TINKOFF: Брокерский счeт Т-Инвестиций.
+/// - ACCOUNT_TYPE_TINKOFF_IIS: ИИС.
+/// - ACCOUNT_TYPE_INVEST_BOX: Инвесткопилка.
+/// - ACCOUNT_TYPE_INVEST_FUND: Фонд денежного рынка.
+/// - ACCOUNT_TYPE_DEBIT: Дебетовый карточный счeт.
+/// - ACCOUNT_TYPE_SAVING: Накопительный счeт.
 enum V1AccountType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -342,6 +429,12 @@ enum V1AccountType {
   const V1AccountType(this.value);
 }
 
+/// Тип актива.
+/// - ASSET_TYPE_UNSPECIFIED: Тип не определен.
+/// - ASSET_TYPE_CURRENCY: Валюта.
+/// - ASSET_TYPE_COMMODITY: Товар.
+/// - ASSET_TYPE_INDEX: Индекс.
+/// - ASSET_TYPE_SECURITY: Ценная бумага.
 enum V1AssetType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -362,6 +455,8 @@ enum V1AssetType {
   const V1AssetType(this.value);
 }
 
+/// - BOND_TYPE_UNSPECIFIED: Тип облигации не определен.
+/// - BOND_TYPE_REPLACED: Замещающая облигация.
 enum V1BondType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -376,6 +471,42 @@ enum V1BondType {
   const V1BondType(this.value);
 }
 
+/// Интервал свечей.
+/// Максимальное значение интервала приведено ориентировочно, может отличаться в большую сторону в зависимости от
+/// параметров запроса.
+/// - CANDLE_INTERVAL_UNSPECIFIED: Интервал не определен.
+/// - CANDLE_INTERVAL_1_MIN: От 1 минуты до 1 дня.
+/// Максимальное значение `limit` — 2400.
+/// - CANDLE_INTERVAL_5_MIN: От 5 минут до недели.
+/// Максимальное значение `limit` — 2400.
+/// - CANDLE_INTERVAL_15_MIN: От 15 минут до 3 недель.
+/// Максимальное значение `limit` — 2400.
+/// - CANDLE_INTERVAL_HOUR: От 1 часа до 3 месяцев.
+/// Максимальное значение `limit` — 2400.
+/// - CANDLE_INTERVAL_DAY: От 1 дня до 6 лет.
+/// Максимальное значение `limit` — 2400.
+/// - CANDLE_INTERVAL_2_MIN: От 2 минут до 1 дня.
+/// Максимальное значение `limit` — 1200.
+/// - CANDLE_INTERVAL_3_MIN: От 3 минут до 1 дня.
+/// Максимальное значение `limit` — 750.
+/// - CANDLE_INTERVAL_10_MIN: От 10 минут до недели.
+/// Максимальное значение `limit` — 1200.
+/// - CANDLE_INTERVAL_30_MIN: От 30 минут до 3 недель.
+/// Максимальное значение `limit` — 1200.
+/// - CANDLE_INTERVAL_2_HOUR: От 2 часов до 3 месяцев.
+/// Максимальное значение `limit` — 2400.
+/// - CANDLE_INTERVAL_4_HOUR: От 4 часов до 3 месяцев.
+/// Максимальное значение `limit` — 700.
+/// - CANDLE_INTERVAL_WEEK: От 1 недели до 5 лет.
+/// Максимальное значение `limit` — 300.
+/// - CANDLE_INTERVAL_MONTH: От 1 месяца до 10 лет.
+/// Максимальное значение `limit` — 120.
+/// - CANDLE_INTERVAL_5_SEC: От 5 секунд до 200 минут.
+/// Максимальное значение `limit` — 2500.
+/// - CANDLE_INTERVAL_10_SEC: От 10 секунд до 200 минут.
+/// Максимальное значение `limit` — 1250.
+/// - CANDLE_INTERVAL_30_SEC: От 30 секунд до 20 часов.
+/// Максимальное значение `limit` — 2500.
 enum V1CandleInterval {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -420,6 +551,15 @@ enum V1CandleInterval {
   const V1CandleInterval(this.value);
 }
 
+/// Тип купонов.
+/// - COUPON_TYPE_UNSPECIFIED: Неопределенное значение.
+/// - COUPON_TYPE_CONSTANT: Постоянный.
+/// - COUPON_TYPE_FLOATING: Плавающий.
+/// - COUPON_TYPE_DISCOUNT: Дисконт.
+/// - COUPON_TYPE_MORTGAGE: Ипотечный.
+/// - COUPON_TYPE_FIX: Фиксированный.
+/// - COUPON_TYPE_VARIABLE: Переменный.
+/// - COUPON_TYPE_OTHER: Прочее.
 enum V1CouponType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -446,6 +586,10 @@ enum V1CouponType {
   const V1CouponType(this.value);
 }
 
+/// Тип действия со списком избранных инструментов.
+/// - EDIT_FAVORITES_ACTION_TYPE_UNSPECIFIED: Тип не определен.
+/// - EDIT_FAVORITES_ACTION_TYPE_ADD: Добавить в список.
+/// - EDIT_FAVORITES_ACTION_TYPE_DEL: Удалить из списка.
 enum V1EditFavoritesActionType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -462,6 +606,10 @@ enum V1EditFavoritesActionType {
   const V1EditFavoritesActionType(this.value);
 }
 
+/// Тип выставляемой заявки.
+/// - EXCHANGE_ORDER_TYPE_UNSPECIFIED: Значение не указано.
+/// - EXCHANGE_ORDER_TYPE_MARKET: Заявка по рыночной цене.
+/// - EXCHANGE_ORDER_TYPE_LIMIT: Лимитная заявка.
 enum V1ExchangeOrderType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -478,6 +626,9 @@ enum V1ExchangeOrderType {
   const V1ExchangeOrderType(this.value);
 }
 
+/// - CANDLE_SOURCE_UNSPECIFIED: Все свечи.
+/// - CANDLE_SOURCE_EXCHANGE: Биржевые свечи.
+/// - CANDLE_SOURCE_INCLUDE_WEEKEND: Все свечи с учетом торговли по выходным.
 enum V1GetCandlesRequestCandleSource {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -494,6 +645,11 @@ enum V1GetCandlesRequestCandleSource {
   const V1GetCandlesRequestCandleSource(this.value);
 }
 
+/// - TRADE_DIRECTION_UNSPECIFIED: Не определено.
+/// - TRADE_DIRECTION_BUY: Покупка.
+/// - TRADE_DIRECTION_SELL: Продажа.
+/// - TRADE_DIRECTION_INCREASE: Увеличение доли.
+/// - TRADE_DIRECTION_DECREASE: Уменьшение доли.
 enum V1GetInsiderDealsResponseTradeDirection {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -514,6 +670,9 @@ enum V1GetInsiderDealsResponseTradeDirection {
   const V1GetInsiderDealsResponseTradeDirection(this.value);
 }
 
+/// Площадка торговли.
+/// - INSTRUMENT_EXCHANGE_UNSPECIFIED: Площадка торговли не определена.
+/// - INSTRUMENT_EXCHANGE_DEALER: Бумага, торгуемая у дилера.
 enum V1InstrumentExchangeType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -528,6 +687,13 @@ enum V1InstrumentExchangeType {
   const V1InstrumentExchangeType(this.value);
 }
 
+/// Тип идентификатора инструмента.
+/// [Подробнее об идентификации инструментов](./faq_identification/).
+/// - INSTRUMENT_ID_UNSPECIFIED: Значение не определено.
+/// - INSTRUMENT_ID_TYPE_FIGI: FIGI.
+/// - INSTRUMENT_ID_TYPE_TICKER: Ticker.
+/// - INSTRUMENT_ID_TYPE_UID: Уникальный идентификатор.
+/// - INSTRUMENT_ID_TYPE_POSITION_UID: Идентификатор позиции.
 enum V1InstrumentIdType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -548,6 +714,13 @@ enum V1InstrumentIdType {
   const V1InstrumentIdType(this.value);
 }
 
+/// Статус запрашиваемых инструментов.
+/// - INSTRUMENT_STATUS_UNSPECIFIED: Значение не определено.
+/// - INSTRUMENT_STATUS_BASE: По умолчанию — базовый список инструментов, которыми можно торговать через T-Invest
+/// API.
+/// Сейчас списки доступных бумаг в API и других интерфейсах совпадают — кроме внебиржевых бумаг, но в будущем
+/// списки могут различаться.
+/// - INSTRUMENT_STATUS_ALL: Список всех инструментов.
 enum V1InstrumentStatus {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -564,6 +737,18 @@ enum V1InstrumentStatus {
   const V1InstrumentStatus(this.value);
 }
 
+/// Тип инструмента.
+/// - INSTRUMENT_TYPE_BOND: Облигация.
+/// - INSTRUMENT_TYPE_SHARE: Акция.
+/// - INSTRUMENT_TYPE_CURRENCY: Валюта.
+/// - INSTRUMENT_TYPE_ETF: Exchange-traded fund.
+/// Фонд.
+/// - INSTRUMENT_TYPE_FUTURES: Фьючерс.
+/// - INSTRUMENT_TYPE_SP: Структурная нота.
+/// - INSTRUMENT_TYPE_OPTION: Опцион.
+/// - INSTRUMENT_TYPE_CLEARING_CERTIFICATE: Clearing certificate.
+/// - INSTRUMENT_TYPE_INDEX: Индекс.
+/// - INSTRUMENT_TYPE_COMMODITY: Товар.
 enum V1InstrumentType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -596,6 +781,9 @@ enum V1InstrumentType {
   const V1InstrumentType(this.value);
 }
 
+/// - LAST_PRICE_UNSPECIFIED: Не определен.
+/// - LAST_PRICE_EXCHANGE: Цена биржи.
+/// - LAST_PRICE_DEALER: Цена дилера
 enum V1LastPriceType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -638,6 +826,11 @@ enum V1MarketValueType {
   const V1MarketValueType(this.value);
 }
 
+/// Статус запрашиваемых операций.
+/// - OPERATION_STATE_UNSPECIFIED: Статус операции не определен.
+/// - OPERATION_STATE_EXECUTED: Исполнена частично или полностью.
+/// - OPERATION_STATE_CANCELED: Отменена.
+/// - OPERATION_STATE_PROGRESS: Исполняется.
 enum V1OperationState {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -656,6 +849,70 @@ enum V1OperationState {
   const V1OperationState(this.value);
 }
 
+/// Тип операции.
+/// - OPERATION_TYPE_UNSPECIFIED: Тип операции не определен.
+/// - OPERATION_TYPE_INPUT: Пополнение брокерского счета.
+/// - OPERATION_TYPE_BOND_TAX: Удержание НДФЛ по купонам.
+/// - OPERATION_TYPE_OUTPUT_SECURITIES: Вывод ЦБ.
+/// - OPERATION_TYPE_OVERNIGHT: Доход по сделке РЕПО овернайт.
+/// - OPERATION_TYPE_TAX: Удержание налога.
+/// - OPERATION_TYPE_BOND_REPAYMENT_FULL: Полное погашение облигаций.
+/// - OPERATION_TYPE_SELL_CARD: Продажа ЦБ с карты.
+/// - OPERATION_TYPE_DIVIDEND_TAX: Удержание налога по дивидендам.
+/// - OPERATION_TYPE_OUTPUT: Вывод денежных средств.
+/// - OPERATION_TYPE_BOND_REPAYMENT: Частичное погашение облигаций.
+/// - OPERATION_TYPE_TAX_CORRECTION: Корректировка налога.
+/// - OPERATION_TYPE_SERVICE_FEE: Удержание комиссии за обслуживание брокерского счета.
+/// - OPERATION_TYPE_BENEFIT_TAX: Удержание налога за материальную выгоду.
+/// - OPERATION_TYPE_MARGIN_FEE: Удержание комиссии за непокрытую позицию.
+/// - OPERATION_TYPE_BUY: Покупка ЦБ.
+/// - OPERATION_TYPE_BUY_CARD: Покупка ЦБ с карты.
+/// - OPERATION_TYPE_INPUT_SECURITIES: Перевод ценных бумаг из другого депозитария.
+/// - OPERATION_TYPE_SELL_MARGIN: Продажа в результате Margin-call.
+/// - OPERATION_TYPE_BROKER_FEE: Удержание комиссии за операцию.
+/// - OPERATION_TYPE_BUY_MARGIN: Покупка в результате Margin-call.
+/// - OPERATION_TYPE_DIVIDEND: Выплата дивидендов.
+/// - OPERATION_TYPE_SELL: Продажа ЦБ.
+/// - OPERATION_TYPE_COUPON: Выплата купонов.
+/// - OPERATION_TYPE_SUCCESS_FEE: Удержание комиссии SuccessFee.
+/// - OPERATION_TYPE_DIVIDEND_TRANSFER: Передача дивидендного дохода.
+/// - OPERATION_TYPE_ACCRUING_VARMARGIN: Зачисление вариационной маржи.
+/// - OPERATION_TYPE_WRITING_OFF_VARMARGIN: Списание вариационной маржи.
+/// - OPERATION_TYPE_DELIVERY_BUY: Покупка в рамках экспирации фьючерсного контракта.
+/// - OPERATION_TYPE_DELIVERY_SELL: Продажа в рамках экспирации фьючерсного контракта.
+/// - OPERATION_TYPE_TRACK_MFEE: Комиссия за управление по счету автоследования.
+/// - OPERATION_TYPE_TRACK_PFEE: Комиссия за результат по счету автоследования.
+/// - OPERATION_TYPE_TAX_PROGRESSIVE: Удержание налога по ставке 15%.
+/// - OPERATION_TYPE_BOND_TAX_PROGRESSIVE: Удержание налога по купонам по ставке 15%.
+/// - OPERATION_TYPE_DIVIDEND_TAX_PROGRESSIVE: Удержание налога по дивидендам по ставке 15%.
+/// - OPERATION_TYPE_BENEFIT_TAX_PROGRESSIVE: Удержание налога за материальную выгоду по ставке 15%.
+/// - OPERATION_TYPE_TAX_CORRECTION_PROGRESSIVE: Корректировка налога по ставке 15%.
+/// - OPERATION_TYPE_TAX_REPO_PROGRESSIVE: Удержание налога за возмещение по сделкам РЕПО по ставке 15%.
+/// - OPERATION_TYPE_TAX_REPO: Удержание налога за возмещение по сделкам РЕПО.
+/// - OPERATION_TYPE_TAX_REPO_HOLD: Удержание налога по сделкам РЕПО.
+/// - OPERATION_TYPE_TAX_REPO_REFUND: Возврат налога по сделкам РЕПО.
+/// - OPERATION_TYPE_TAX_REPO_HOLD_PROGRESSIVE: Удержание налога по сделкам РЕПО по ставке 15%.
+/// - OPERATION_TYPE_TAX_REPO_REFUND_PROGRESSIVE: Возврат налога по сделкам РЕПО по ставке 15%.
+/// - OPERATION_TYPE_DIV_EXT: Выплата дивидендов на карту.
+/// - OPERATION_TYPE_TAX_CORRECTION_COUPON: Корректировка налога по купонам.
+/// - OPERATION_TYPE_CASH_FEE: Комиссия за валютный остаток.
+/// - OPERATION_TYPE_OUT_FEE: Комиссия за вывод валюты с брокерского счета.
+/// - OPERATION_TYPE_OUT_STAMP_DUTY: Гербовый сбор.
+/// - OPERATION_TYPE_OUTPUT_SWIFT: SWIFT-перевод.
+/// - OPERATION_TYPE_INPUT_SWIFT: SWIFT-перевод.
+/// - OPERATION_TYPE_OUTPUT_ACQUIRING: Перевод на карту.
+/// - OPERATION_TYPE_INPUT_ACQUIRING: Перевод с карты.
+/// - OPERATION_TYPE_OUTPUT_PENALTY: Комиссия за вывод средств.
+/// - OPERATION_TYPE_ADVICE_FEE: Списание оплаты за сервис Советов.
+/// - OPERATION_TYPE_TRANS_IIS_BS: Перевод ценных бумаг с ИИС на брокерский счет.
+/// - OPERATION_TYPE_TRANS_BS_BS: Перевод ценных бумаг с одного брокерского счета на другой.
+/// - OPERATION_TYPE_OUT_MULTI: Вывод денежных средств со счета.
+/// - OPERATION_TYPE_INP_MULTI: Пополнение денежных средств со счета.
+/// - OPERATION_TYPE_OVER_PLACEMENT: Размещение биржевого овернайта.
+/// - OPERATION_TYPE_OVER_COM: Списание комиссии.
+/// - OPERATION_TYPE_OVER_INCOME: Доход от оверанайта.
+/// - OPERATION_TYPE_OPTION_EXPIRATION: Экспирация опциона.
+/// - OPERATION_TYPE_FUTURE_EXPIRATION: Экспирация фьючерса.
 enum V1OperationType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -796,6 +1053,10 @@ enum V1OperationType {
   const V1OperationType(this.value);
 }
 
+/// Тип опциона по направлению сделки.
+/// - OPTION_DIRECTION_UNSPECIFIED: Тип не определен.
+/// - OPTION_DIRECTION_PUT: Опцион на продажу.
+/// - OPTION_DIRECTION_CALL: Опцион на покупку.
 enum V1OptionDirection {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -812,6 +1073,10 @@ enum V1OptionDirection {
   const V1OptionDirection(this.value);
 }
 
+/// Тип расчетов по опциону.
+/// - OPTION_PAYMENT_TYPE_UNSPECIFIED: Тип не определен.
+/// - OPTION_PAYMENT_TYPE_PREMIUM: Опционы с использованием премии в расчетах.
+/// - OPTION_PAYMENT_TYPE_MARGINAL: Маржируемые опционы.
 enum V1OptionPaymentType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -828,6 +1093,10 @@ enum V1OptionPaymentType {
   const V1OptionPaymentType(this.value);
 }
 
+/// Тип опциона по способу исполнения.
+/// - OPTION_EXECUTION_TYPE_UNSPECIFIED: Тип не определен.
+/// - OPTION_EXECUTION_TYPE_PHYSICAL_DELIVERY: Поставочный тип опциона.
+/// - OPTION_EXECUTION_TYPE_CASH_SETTLEMENT: Расчетный тип опциона.
 enum V1OptionSettlementType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -845,6 +1114,10 @@ enum V1OptionSettlementType {
   const V1OptionSettlementType(this.value);
 }
 
+/// Тип опциона по стилю.
+/// - OPTION_STYLE_UNSPECIFIED: Тип не определен.
+/// - OPTION_STYLE_AMERICAN: Американский опцион.
+/// - OPTION_STYLE_EUROPEAN: Европейский опцион.
 enum V1OptionStyle {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -861,6 +1134,10 @@ enum V1OptionStyle {
   const V1OptionStyle(this.value);
 }
 
+/// - ORDERBOOK_TYPE_UNSPECIFIED: Не определен.
+/// - ORDERBOOK_TYPE_EXCHANGE: Биржевой стакан.
+/// - ORDERBOOK_TYPE_DEALER: Стакан дилера.
+/// - ORDERBOOK_TYPE_ALL: Стакан биржевой и дилера.
 enum V1OrderBookType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -879,6 +1156,9 @@ enum V1OrderBookType {
   const V1OrderBookType(this.value);
 }
 
+/// Направление операции.
+/// - ORDER_DIRECTION_UNSPECIFIED: Значение не указано - ORDER_DIRECTION_BUY: Покупка - ORDER_DIRECTION_SELL:
+/// Продажа
 enum V1OrderDirection {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -895,6 +1175,9 @@ enum V1OrderDirection {
   const V1OrderDirection(this.value);
 }
 
+/// - EXECUTION_REPORT_STATUS_FILL: Исполнена - EXECUTION_REPORT_STATUS_REJECTED: Отклонена -
+/// EXECUTION_REPORT_STATUS_CANCELLED: Отменена пользователем - EXECUTION_REPORT_STATUS_NEW: Новая -
+/// EXECUTION_REPORT_STATUS_PARTIALLYFILL: Частично исполнена
 enum V1OrderExecutionReportStatus {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -917,6 +1200,9 @@ enum V1OrderExecutionReportStatus {
   const V1OrderExecutionReportStatus(this.value);
 }
 
+/// - ORDER_ID_TYPE_UNSPECIFIED: Тип идентификатора не указан.
+/// - ORDER_ID_TYPE_EXCHANGE: Биржевой идентификатор - ORDER_ID_TYPE_REQUEST: Ключ идемпотентности, переданный
+/// клиентом
 enum V1OrderIdType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -933,6 +1219,9 @@ enum V1OrderIdType {
   const V1OrderIdType(this.value);
 }
 
+/// Тип заявки.
+/// - ORDER_TYPE_UNSPECIFIED: Значение не указано - ORDER_TYPE_LIMIT: Лимитная - ORDER_TYPE_MARKET: Рыночная -
+/// ORDER_TYPE_BESTPRICE: Лучшая цена
 enum V1OrderType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -951,6 +1240,11 @@ enum V1OrderType {
   const V1OrderType(this.value);
 }
 
+/// Результат подписки.
+/// - PORTFOLIO_SUBSCRIPTION_STATUS_UNSPECIFIED: Тип не определен.
+/// - PORTFOLIO_SUBSCRIPTION_STATUS_SUCCESS: Успешно.
+/// - PORTFOLIO_SUBSCRIPTION_STATUS_ACCOUNT_NOT_FOUND: Счет не найден или недостаточно прав.
+/// - PORTFOLIO_SUBSCRIPTION_STATUS_INTERNAL_ERROR: Произошла ошибка.
 enum V1PortfolioSubscriptionStatus {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -972,6 +1266,11 @@ enum V1PortfolioSubscriptionStatus {
   const V1PortfolioSubscriptionStatus(this.value);
 }
 
+/// Результат подписки.
+/// - POSITIONS_SUBSCRIPTION_STATUS_UNSPECIFIED: Тип не определен.
+/// - POSITIONS_SUBSCRIPTION_STATUS_SUCCESS: Успешно.
+/// - POSITIONS_SUBSCRIPTION_STATUS_ACCOUNT_NOT_FOUND: Счет не найден или недостаточно прав.
+/// - POSITIONS_SUBSCRIPTION_STATUS_INTERNAL_ERROR: Произошла ошибка.
 enum V1PositionsAccountSubscriptionStatus {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -993,6 +1292,10 @@ enum V1PositionsAccountSubscriptionStatus {
   const V1PositionsAccountSubscriptionStatus(this.value);
 }
 
+/// Тип цены.
+/// - PRICE_TYPE_UNSPECIFIED: Значение не определено.
+/// - PRICE_TYPE_POINT: Цена в пунктах (только для фьючерсов и облигаций).
+/// - PRICE_TYPE_CURRENCY: Цена в валюте расчетов по инструменту.
 enum V1PriceType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1009,6 +1312,12 @@ enum V1PriceType {
   const V1PriceType(this.value);
 }
 
+/// Реальная площадка исполнения расчетов.
+/// - REAL_EXCHANGE_UNSPECIFIED: Тип не определен.
+/// - REAL_EXCHANGE_MOEX: Московская биржа.
+/// - REAL_EXCHANGE_RTS: Санкт-Петербургская биржа.
+/// - REAL_EXCHANGE_OTC: Внебиржевой инструмент.
+/// - REAL_EXCHANGE_DEALER: Инструмент, торгуемый на площадке брокера.
 enum V1RealExchange {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1029,6 +1338,10 @@ enum V1RealExchange {
   const V1RealExchange(this.value);
 }
 
+/// - RECOMMENDATION_UNSPECIFIED: Не определено.
+/// - RECOMMENDATION_BUY: Покупать.
+/// - RECOMMENDATION_HOLD: Держать.
+/// - RECOMMENDATION_SELL: Продавать.
 enum V1Recommendation {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1063,6 +1376,11 @@ enum V1ResultSubscriptionStatus {
   const V1ResultSubscriptionStatus(this.value);
 }
 
+/// Уровень риска облигации.
+/// - RISK_LEVEL_UNSPECIFIED: Не указан.
+/// - RISK_LEVEL_LOW: Низкий уровень риска.
+/// - RISK_LEVEL_MODERATE: Средний уровень риска.
+/// - RISK_LEVEL_HIGH: Высокий уровень риска.
 enum V1RiskLevel {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1081,6 +1399,24 @@ enum V1RiskLevel {
   const V1RiskLevel(this.value);
 }
 
+/// - SECURITY_TRADING_STATUS_UNSPECIFIED: Торговый статус не определен.
+/// - SECURITY_TRADING_STATUS_NOT_AVAILABLE_FOR_TRADING: Недоступен для торгов.
+/// - SECURITY_TRADING_STATUS_OPENING_PERIOD: Период открытия торгов.
+/// - SECURITY_TRADING_STATUS_CLOSING_PERIOD: Период закрытия торгов.
+/// - SECURITY_TRADING_STATUS_BREAK_IN_TRADING: Перерыв в торговле.
+/// - SECURITY_TRADING_STATUS_NORMAL_TRADING: Нормальная торговля.
+/// - SECURITY_TRADING_STATUS_CLOSING_AUCTION: Аукцион закрытия.
+/// - SECURITY_TRADING_STATUS_DARK_POOL_AUCTION: Аукцион крупных пакетов.
+/// - SECURITY_TRADING_STATUS_DISCRETE_AUCTION: Дискретный аукцион.
+/// - SECURITY_TRADING_STATUS_OPENING_AUCTION_PERIOD: Аукцион открытия.
+/// - SECURITY_TRADING_STATUS_TRADING_AT_CLOSING_AUCTION_PRICE: Период торгов по цене аукциона закрытия.
+/// - SECURITY_TRADING_STATUS_SESSION_ASSIGNED: Сессия назначена.
+/// - SECURITY_TRADING_STATUS_SESSION_CLOSE: Сессия закрыта.
+/// - SECURITY_TRADING_STATUS_SESSION_OPEN: Сессия открыта.
+/// - SECURITY_TRADING_STATUS_DEALER_NORMAL_TRADING: Доступна торговля в режиме внутренней ликвидности брокера.
+/// - SECURITY_TRADING_STATUS_DEALER_BREAK_IN_TRADING: Перерыв торговли в режиме внутренней ликвидности брокера.
+/// - SECURITY_TRADING_STATUS_DEALER_NOT_AVAILABLE_FOR_TRADING: Недоступна торговля в режиме внутренней
+/// ликвидности брокера.
 enum V1SecurityTradingStatus {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1136,6 +1472,16 @@ enum V1SecurityTradingStatus {
   const V1SecurityTradingStatus(this.value);
 }
 
+/// Тип акций.
+/// - SHARE_TYPE_UNSPECIFIED: Значение не определено.
+/// - SHARE_TYPE_COMMON: Обыкновенная.
+/// - SHARE_TYPE_PREFERRED: Привилегированная.
+/// - SHARE_TYPE_ADR: Американские депозитарные расписки.
+/// - SHARE_TYPE_GDR: Глобальные депозитарные расписки.
+/// - SHARE_TYPE_MLP: Товарищество с ограниченной ответственностью.
+/// - SHARE_TYPE_NY_REG_SHRS: Акции из реестра Нью-Йорка.
+/// - SHARE_TYPE_CLOSED_END_FUND: Закрытый инвестиционный фонд.
+/// - SHARE_TYPE_REIT: Траст недвижимости.
 enum V1ShareType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1164,6 +1510,10 @@ enum V1ShareType {
   const V1ShareType(this.value);
 }
 
+/// Направление сигнала.
+/// - SIGNAL_DIRECTION_UNSPECIFIED: Не определен.
+/// - SIGNAL_DIRECTION_BUY: Покупка.
+/// - SIGNAL_DIRECTION_SELL: Продажа.
 enum V1SignalDirection {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1180,6 +1530,11 @@ enum V1SignalDirection {
   const V1SignalDirection(this.value);
 }
 
+/// Статус сигнала.
+/// - SIGNAL_STATE_UNSPECIFIED: Не определен.
+/// - SIGNAL_STATE_ACTIVE: Активный сигнал.
+/// - SIGNAL_STATE_CLOSED: Закрытый сигнал.
+/// - SIGNAL_STATE_ALL: Все состояния.
 enum V1SignalState {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1198,6 +1553,10 @@ enum V1SignalState {
   const V1SignalState(this.value);
 }
 
+/// Направление сделки стоп-заявки.
+/// - STOP_ORDER_DIRECTION_UNSPECIFIED: Значение не указано.
+/// - STOP_ORDER_DIRECTION_BUY: Покупка.
+/// - STOP_ORDER_DIRECTION_SELL: Продажа.
 enum V1StopOrderDirection {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1214,6 +1573,10 @@ enum V1StopOrderDirection {
   const V1StopOrderDirection(this.value);
 }
 
+/// Тип экспирации стоп-заявке.
+/// - STOP_ORDER_EXPIRATION_TYPE_UNSPECIFIED: Значение не указано.
+/// - STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_CANCEL: Действительно до отмены.
+/// - STOP_ORDER_EXPIRATION_TYPE_GOOD_TILL_DATE: Действительно до даты снятия.
 enum V1StopOrderExpirationType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1232,6 +1595,13 @@ enum V1StopOrderExpirationType {
   const V1StopOrderExpirationType(this.value);
 }
 
+/// Статус стоп-заяки.
+/// - STOP_ORDER_STATUS_UNSPECIFIED: Значение не указано.
+/// - STOP_ORDER_STATUS_ALL: Все заявки.
+/// - STOP_ORDER_STATUS_ACTIVE: Активные заявки.
+/// - STOP_ORDER_STATUS_EXECUTED: Исполненные заявки.
+/// - STOP_ORDER_STATUS_CANCELED: Отмененные заявки.
+/// - STOP_ORDER_STATUS_EXPIRED: Истекшие заявки.
 enum V1StopOrderStatusOption {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1254,6 +1624,11 @@ enum V1StopOrderStatusOption {
   const V1StopOrderStatusOption(this.value);
 }
 
+/// Тип стоп-заявки.
+/// - STOP_ORDER_TYPE_UNSPECIFIED: Значение не указано.
+/// - STOP_ORDER_TYPE_TAKE_PROFIT: `Take-profit`-заявка.
+/// - STOP_ORDER_TYPE_STOP_LOSS: `Stop-loss`-заявка.
+/// - STOP_ORDER_TYPE_STOP_LIMIT: `Stop-limit`-заявка.
 enum V1StopOrderType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1272,6 +1647,10 @@ enum V1StopOrderType {
   const V1StopOrderType(this.value);
 }
 
+/// Тип стратегии.
+/// - STRATEGY_TYPE_UNSPECIFIED: Не определен.
+/// - STRATEGY_TYPE_TECHNICAL: Техническая стратегия.
+/// - STRATEGY_TYPE_FUNDAMENTAL: Фундаментальная стратегия.
 enum V1StrategyType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1288,6 +1667,10 @@ enum V1StrategyType {
   const V1StrategyType(this.value);
 }
 
+/// Тип структурной ноты.
+/// - SP_TYPE_UNSPECIFIED: Тип не определен.
+/// - SP_TYPE_DELIVERABLE: Поставочный.
+/// - SP_TYPE_NON_DELIVERABLE: Беспоставочный.
 enum V1StructuredProductType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1304,6 +1687,10 @@ enum V1StructuredProductType {
   const V1StructuredProductType(this.value);
 }
 
+/// Тип операции со списком подписок.
+/// - SUBSCRIPTION_ACTION_UNSPECIFIED: Статус подписки не определен.
+/// - SUBSCRIPTION_ACTION_SUBSCRIBE: Подписаться.
+/// - SUBSCRIPTION_ACTION_UNSUBSCRIBE: Отписаться.
 enum V1SubscriptionAction {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1320,6 +1707,21 @@ enum V1SubscriptionAction {
   const V1SubscriptionAction(this.value);
 }
 
+/// Интервал свечи.
+/// - SUBSCRIPTION_INTERVAL_UNSPECIFIED: Интервал свечи не определен.
+/// - SUBSCRIPTION_INTERVAL_ONE_MINUTE: Минутные свечи.
+/// - SUBSCRIPTION_INTERVAL_FIVE_MINUTES: Пятиминутные свечи.
+/// - SUBSCRIPTION_INTERVAL_FIFTEEN_MINUTES: Пятнадцатиминутные свечи.
+/// - SUBSCRIPTION_INTERVAL_ONE_HOUR: Часовые свечи.
+/// - SUBSCRIPTION_INTERVAL_ONE_DAY: Дневные свечи.
+/// - SUBSCRIPTION_INTERVAL_2_MIN: Двухминутные свечи.
+/// - SUBSCRIPTION_INTERVAL_3_MIN: Трехминутные свечи.
+/// - SUBSCRIPTION_INTERVAL_10_MIN: Десятиминутные свечи.
+/// - SUBSCRIPTION_INTERVAL_30_MIN: Тридцатиминутные свечи.
+/// - SUBSCRIPTION_INTERVAL_2_HOUR: Двухчасовые свечи.
+/// - SUBSCRIPTION_INTERVAL_4_HOUR: Четырехчасовые свечи.
+/// - SUBSCRIPTION_INTERVAL_WEEK: Недельные свечи.
+/// - SUBSCRIPTION_INTERVAL_MONTH: Месячные свечи.
 enum V1SubscriptionInterval {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1358,6 +1760,24 @@ enum V1SubscriptionInterval {
   const V1SubscriptionInterval(this.value);
 }
 
+/// Результат подписки.
+/// - SUBSCRIPTION_STATUS_UNSPECIFIED: Статус подписки не определен.
+/// - SUBSCRIPTION_STATUS_SUCCESS: Успешно.
+/// - SUBSCRIPTION_STATUS_INSTRUMENT_NOT_FOUND: Инструмент не найден.
+/// - SUBSCRIPTION_STATUS_SUBSCRIPTION_ACTION_IS_INVALID: Некорректный статус подписки.
+/// [Список возможных значений](./marketdata#subscriptionaction).
+/// - SUBSCRIPTION_STATUS_DEPTH_IS_INVALID: Некорректная глубина стакана.
+/// Доступные значения — 1, 10, 20, 30, 40, 50.
+/// - SUBSCRIPTION_STATUS_INTERVAL_IS_INVALID: Некорректный интервал свечей.
+/// [Список возможных значений](./marketdata#subscriptioninterval).
+/// - SUBSCRIPTION_STATUS_LIMIT_IS_EXCEEDED: Превышен лимит на общее количество подписок в рамках стрима.
+/// [Лимитная политика](./limits/).
+/// - SUBSCRIPTION_STATUS_INTERNAL_ERROR: Внутренняя ошибка сервиса.
+/// - SUBSCRIPTION_STATUS_TOO_MANY_REQUESTS: Превышен лимит на количество запросов на подписки в течение
+/// установленного отрезка времени.
+/// - SUBSCRIPTION_STATUS_SUBSCRIPTION_NOT_FOUND: Активная подписка не найдена.
+/// Ошибка может возникнуть только при отписке от несуществующей подписки.
+/// - SUBSCRIPTION_STATUS_SOURCE_IS_INVALID: Указан некорректный источник.
 enum V1SubscriptionStatus {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1394,6 +1814,10 @@ enum V1SubscriptionStatus {
   const V1SubscriptionStatus(this.value);
 }
 
+/// Тип TakeProfit-заявки.
+/// - TAKE_PROFIT_TYPE_UNSPECIFIED: Значение не указано.
+/// - TAKE_PROFIT_TYPE_REGULAR: Обычная заявка, значение по умолчанию.
+/// - TAKE_PROFIT_TYPE_TRAILING: Трейлинг-стоп.
 enum V1TakeProfitType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1410,6 +1834,13 @@ enum V1TakeProfitType {
   const V1TakeProfitType(this.value);
 }
 
+/// - TIME_IN_FORCE_UNSPECIFIED: Значение не определено см.
+/// TIME_IN_FORCE_DAY - TIME_IN_FORCE_DAY: Заявка действует до конца торгового дня.
+/// Значение по умолчанию - TIME_IN_FORCE_FILL_AND_KILL: Если в момент выставления возможно исполнение заявки(в
+/// т.ч.
+/// частичное), заявка будет исполнена или отменена сразу после выставления - TIME_IN_FORCE_FILL_OR_KILL: Если в
+/// момент выставления возможно полное исполнение заявки, заявка будет исполнена или отменена сразу после
+/// выставления, недоступно для срочного рынка и торговли по выходным
 enum V1TimeInForceType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1428,6 +1859,11 @@ enum V1TimeInForceType {
   const V1TimeInForceType(this.value);
 }
 
+/// Типы источников сделок.
+/// - TRADE_SOURCE_UNSPECIFIED: Тип источника сделки не определён.
+/// - TRADE_SOURCE_EXCHANGE: Биржевые сделки.
+/// - TRADE_SOURCE_DEALER: Сделки дилера.
+/// - TRADE_SOURCE_ALL: Все сделки.
 enum V1TradeSourceType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1446,6 +1882,10 @@ enum V1TradeSourceType {
   const V1TradeSourceType(this.value);
 }
 
+/// Статус трейлинг-стопа.
+/// - TRAILING_STOP_UNSPECIFIED: Значение не указано.
+/// - TRAILING_STOP_ACTIVE: Активный.
+/// - TRAILING_STOP_ACTIVATED: Активированный.
 enum V1TrailingStopStatus {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1462,6 +1902,10 @@ enum V1TrailingStopStatus {
   const V1TrailingStopStatus(this.value);
 }
 
+/// Тип параметров значений трейлинг-стопа.
+/// - TRAILING_VALUE_UNSPECIFIED: Значение не указано.
+/// - TRAILING_VALUE_ABSOLUTE: Абсолютное значение в единицах цены.
+/// - TRAILING_VALUE_RELATIVE: Относительное значение в процентах.
 enum V1TrailingValueType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),

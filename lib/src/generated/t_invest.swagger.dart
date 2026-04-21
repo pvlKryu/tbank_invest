@@ -1,7 +1,6 @@
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, deprecated_member_use, deprecated_member_use_from_same_package
 
 import 'package:json_annotation/json_annotation.dart';
-import 'package:json_annotation/json_annotation.dart' as json;
 import 'package:collection/collection.dart';
 import 'dart:convert';
 
@@ -81,116 +80,225 @@ class GetAssetFundamentalsResponseStatisticResponse {
       _$GetAssetFundamentalsResponseStatisticResponseToJson(this);
 
   @JsonKey(name: 'assetUid')
+
+  /// Идентификатор актива.
   final String? assetUid;
   @JsonKey(name: 'currency')
+
+  /// Валюта.
   final String? currency;
   @JsonKey(name: 'marketCapitalization')
+
+  /// Рыночная капитализация.
   final double? marketCapitalization;
   @JsonKey(name: 'highPriceLast52Weeks')
+
+  /// Максимум за год.
   final double? highPriceLast52Weeks;
   @JsonKey(name: 'lowPriceLast52Weeks')
+
+  /// Минимум за год.
   final double? lowPriceLast52Weeks;
   @JsonKey(name: 'averageDailyVolumeLast10Days')
+
+  /// Средний объем торгов за 10 дней.
   final double? averageDailyVolumeLast10Days;
   @JsonKey(name: 'averageDailyVolumeLast4Weeks')
+
+  /// Средний объем торгов за месяц.
   final double? averageDailyVolumeLast4Weeks;
   @JsonKey(name: 'beta')
   final double? beta;
   @JsonKey(name: 'freeFloat')
+
+  /// Доля акций в свободном обращении.
   final double? freeFloat;
   @JsonKey(name: 'forwardAnnualDividendYield')
+
+  /// Процент форвардной дивидендной доходности по отношению к цене акций.
   final double? forwardAnnualDividendYield;
   @JsonKey(name: 'sharesOutstanding')
+
+  /// Количество акций в обращении.
   final double? sharesOutstanding;
   @JsonKey(name: 'revenueTtm')
+
+  /// Выручка.
   final double? revenueTtm;
   @JsonKey(name: 'ebitdaTtm')
+
+  /// EBITDA — прибыль до вычета процентов, налогов, износа и амортизации.
   final double? ebitdaTtm;
   @JsonKey(name: 'netIncomeTtm')
+
+  /// Чистая прибыль.
   final double? netIncomeTtm;
   @JsonKey(name: 'epsTtm')
+
+  /// EPS — величина чистой прибыли компании, которая приходится на каждую обыкновенную акцию.
   final double? epsTtm;
   @JsonKey(name: 'dilutedEpsTtm')
+
+  /// EPS компании с допущением, что все конвертируемые ценные бумаги компании были сконвертированы в обыкновенные
+  /// акции.
   final double? dilutedEpsTtm;
   @JsonKey(name: 'freeCashFlowTtm')
+
+  /// Свободный денежный поток.
   final double? freeCashFlowTtm;
   @JsonKey(name: 'fiveYearAnnualRevenueGrowthRate')
+
+  /// Среднегодовой рocт выручки за 5 лет.
   final double? fiveYearAnnualRevenueGrowthRate;
   @JsonKey(name: 'threeYearAnnualRevenueGrowthRate')
+
+  /// Среднегодовой рocт выручки за 3 года.
   final double? threeYearAnnualRevenueGrowthRate;
   @JsonKey(name: 'peRatioTtm')
+
+  /// Соотношение рыночной капитализации компании к ее чистой прибыли.
   final double? peRatioTtm;
   @JsonKey(name: 'priceToSalesTtm')
+
+  /// Соотношение рыночной капитализации компании к ее выручке.
   final double? priceToSalesTtm;
   @JsonKey(name: 'priceToBookTtm')
+
+  /// Соотношение рыночной капитализации компании к ее балансовой стоимости.
   final double? priceToBookTtm;
   @JsonKey(name: 'priceToFreeCashFlowTtm')
+
+  /// Соотношение рыночной капитализации компании к ее свободному денежному потоку.
   final double? priceToFreeCashFlowTtm;
   @JsonKey(name: 'totalEnterpriseValueMrq')
+
+  /// Рыночная стоимость компании.
   final double? totalEnterpriseValueMrq;
   @JsonKey(name: 'evToEbitdaMrq')
+
+  /// Соотношение EV и EBITDA.
   final double? evToEbitdaMrq;
   @JsonKey(name: 'netMarginMrq')
+
+  /// Маржа чистой прибыли.
   final double? netMarginMrq;
   @JsonKey(name: 'netInterestMarginMrq')
+
+  /// Рентабельность чистой прибыли.
   final double? netInterestMarginMrq;
   @JsonKey(name: 'roe')
+
+  /// Рентабельность собственного капитала.
   final double? roe;
   @JsonKey(name: 'roa')
+
+  /// Рентабельность активов.
   final double? roa;
   @JsonKey(name: 'roic')
+
+  /// Рентабельность активов.
   final double? roic;
   @JsonKey(name: 'totalDebtMrq')
+
+  /// Сумма краткосрочных и долгосрочных обязательств компании.
   final double? totalDebtMrq;
   @JsonKey(name: 'totalDebtToEquityMrq')
+
+  /// Соотношение долга к собственному капиталу.
   final double? totalDebtToEquityMrq;
   @JsonKey(name: 'totalDebtToEbitdaMrq')
+
+  /// Total Debt/EBITDA.
   final double? totalDebtToEbitdaMrq;
   @JsonKey(name: 'freeCashFlowToPrice')
+
+  /// Отношение свободногоо кэша к стоимости.
   final double? freeCashFlowToPrice;
   @JsonKey(name: 'netDebtToEbitda')
+
+  /// Отношение чистого долга к EBITDA.
   final double? netDebtToEbitda;
   @JsonKey(name: 'currentRatioMrq')
+
+  /// Коэффициент текущей ликвидности.
   final double? currentRatioMrq;
   @JsonKey(name: 'fixedChargeCoverageRatioFy')
+
+  /// Коэффициент покрытия фиксированных платежей — FCCR.
   final double? fixedChargeCoverageRatioFy;
   @JsonKey(name: 'dividendYieldDailyTtm')
+
+  /// Дивидендная доходность за 12 месяцев.
   final double? dividendYieldDailyTtm;
   @JsonKey(name: 'dividendRateTtm')
+
+  /// Выплаченные дивиденды за 12 месяцев.
   final double? dividendRateTtm;
   @JsonKey(name: 'dividendsPerShare')
+
+  /// Значение дивидендов на акцию.
   final double? dividendsPerShare;
   @JsonKey(name: 'fiveYearsAverageDividendYield')
+
+  /// Средняя дивидендная доходность за 5 лет.
   final double? fiveYearsAverageDividendYield;
   @JsonKey(name: 'fiveYearAnnualDividendGrowthRate')
+
+  /// Среднегодовой рост дивидендов за 5 лет.
   final double? fiveYearAnnualDividendGrowthRate;
   @JsonKey(name: 'dividendPayoutRatioFy')
+
+  /// Процент чистой прибыли, уходящий на выплату дивидендов.
   final double? dividendPayoutRatioFy;
   @JsonKey(name: 'buyBackTtm')
+
+  /// Деньги, потраченные на обратный выкуп акций.
   final double? buyBackTtm;
   @JsonKey(name: 'oneYearAnnualRevenueGrowthRate')
+
+  /// Рост выручки за 1 год.
   final double? oneYearAnnualRevenueGrowthRate;
   @JsonKey(name: 'domicileIndicatorCode')
+
+  /// Код страны.
   final String? domicileIndicatorCode;
   @JsonKey(name: 'adrToCommonShareRatio')
+
+  /// Соотношение депозитарной расписки к акциям.
   final double? adrToCommonShareRatio;
   @JsonKey(name: 'numberOfEmployees')
+
+  /// Количество сотрудников.
   final double? numberOfEmployees;
   @JsonKey(name: 'exDividendDate')
   final DateTime? exDividendDate;
   @JsonKey(name: 'fiscalPeriodStartDate')
+
+  /// Начало фискального периода.
   final DateTime? fiscalPeriodStartDate;
   @JsonKey(name: 'fiscalPeriodEndDate')
+
+  /// Окончание фискального периода.
   final DateTime? fiscalPeriodEndDate;
   @JsonKey(name: 'revenueChangeFiveYears')
+
+  /// Изменение общего дохода за 5 лет.
   final double? revenueChangeFiveYears;
   @JsonKey(name: 'epsChangeFiveYears')
+
+  /// Изменение EPS за 5 лет.
   final double? epsChangeFiveYears;
   @JsonKey(name: 'ebitdaChangeFiveYears')
+
+  /// Изменение EBIDTA за 5 лет.
   final double? ebitdaChangeFiveYears;
   @JsonKey(name: 'totalDebtChangeFiveYears')
+
+  /// Изменение общей задолжности за 5 лет.
   final double? totalDebtChangeFiveYears;
   @JsonKey(name: 'evToSales')
+
+  /// Отношение EV к выручке.
   final double? evToSales;
   static const fromJsonFactory =
       _$GetAssetFundamentalsResponseStatisticResponseFromJson;
@@ -534,12 +642,20 @@ class GetAssetReportsResponseGetAssetReportsEvent {
       _$GetAssetReportsResponseGetAssetReportsEventToJson(this);
 
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента.
   final String? instrumentId;
   @JsonKey(name: 'reportDate')
+
+  /// Дата публикации отчета.
   final DateTime? reportDate;
   @JsonKey(name: 'periodYear')
+
+  /// Год периода отчета.
   final int? periodYear;
   @JsonKey(name: 'periodNum')
+
+  /// Номер периода.
   final int? periodNum;
   @JsonKey(
     name: 'periodType',
@@ -548,6 +664,8 @@ class GetAssetReportsResponseGetAssetReportsEvent {
   )
   final enums.GetAssetReportsResponseAssetReportPeriodType? periodType;
   @JsonKey(name: 'createdAt')
+
+  /// Дата создания записи.
   final DateTime? createdAt;
   static const fromJsonFactory =
       _$GetAssetReportsResponseGetAssetReportsEventFromJson;
@@ -625,10 +743,16 @@ class GetBondEventsResponseBondEvent {
   Map<String, dynamic> toJson() => _$GetBondEventsResponseBondEventToJson(this);
 
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента.
   final String? instrumentId;
   @JsonKey(name: 'eventNumber')
+
+  /// Номер события для данного типа события.
   final int? eventNumber;
   @JsonKey(name: 'eventDate')
+
+  /// Дата события.
   final DateTime? eventDate;
   @JsonKey(
     name: 'eventType',
@@ -639,34 +763,58 @@ class GetBondEventsResponseBondEvent {
   @JsonKey(name: 'eventTotalVol')
   final V1Quotation? eventTotalVol;
   @JsonKey(name: 'fixDate')
+
+  /// Дата фиксации владельцев для участия в событии.
   final DateTime? fixDate;
   @JsonKey(name: 'rateDate')
+
+  /// Дата определения даты или факта события.
   final DateTime? rateDate;
   @JsonKey(name: 'defaultDate')
+
+  /// Дата дефолта, если применимо.
   final DateTime? defaultDate;
   @JsonKey(name: 'realPayDate')
+
+  /// Дата реального исполнения обязательства.
   final DateTime? realPayDate;
   @JsonKey(name: 'payDate')
+
+  /// Дата выплаты.
   final DateTime? payDate;
   @JsonKey(name: 'payOneBond')
   final V1MoneyValue? payOneBond;
   @JsonKey(name: 'moneyFlowVal')
   final V1MoneyValue? moneyFlowVal;
   @JsonKey(name: 'execution')
+
+  /// Признак исполнения.
   final String? execution;
   @JsonKey(name: 'operationType')
+
+  /// Тип операции.
   final String? operationType;
   @JsonKey(name: 'value')
   final V1Quotation? $value;
   @JsonKey(name: 'note')
+
+  /// Примечание.
   final String? note;
   @JsonKey(name: 'convertToFinToolId')
+
+  /// ID выпуска бумаг, в который произведена конвертация (для конвертаций).
   final String? convertToFinToolId;
   @JsonKey(name: 'couponStartDate')
+
+  /// Начало купонного периода.
   final DateTime? couponStartDate;
   @JsonKey(name: 'couponEndDate')
+
+  /// Окончание купонного периода.
   final DateTime? couponEndDate;
   @JsonKey(name: 'couponPeriod')
+
+  /// Купонный период.
   final int? couponPeriod;
   @JsonKey(name: 'couponInterestRate')
   final V1Quotation? couponInterestRate;
@@ -813,10 +961,16 @@ class GetConsensusForecastsResponseConsensusForecastsItem {
       _$GetConsensusForecastsResponseConsensusForecastsItemToJson(this);
 
   @JsonKey(name: 'uid')
+
+  /// UID-идентификатор.
   final String? uid;
   @JsonKey(name: 'assetUid')
+
+  /// UID-идентификатор актива.
   final String? assetUid;
   @JsonKey(name: 'createdAt')
+
+  /// Дата и время создания записи.
   final DateTime? createdAt;
   @JsonKey(name: 'bestTargetPrice')
   final V1Quotation? bestTargetPrice;
@@ -825,12 +979,20 @@ class GetConsensusForecastsResponseConsensusForecastsItem {
   @JsonKey(name: 'bestTargetHigh')
   final V1Quotation? bestTargetHigh;
   @JsonKey(name: 'totalBuyRecommend')
+
+  /// Количество аналитиков рекомендующих покупать.
   final int? totalBuyRecommend;
   @JsonKey(name: 'totalHoldRecommend')
+
+  /// Количество аналитиков рекомендующих держать.
   final int? totalHoldRecommend;
   @JsonKey(name: 'totalSellRecommend')
+
+  /// Количество аналитиков рекомендующих продавать.
   final int? totalSellRecommend;
   @JsonKey(name: 'currency')
+
+  /// Валюта прогнозов инструмента.
   final String? currency;
   @JsonKey(
     name: 'consensus',
@@ -839,6 +1001,8 @@ class GetConsensusForecastsResponseConsensusForecastsItem {
   )
   final enums.V1Recommendation? consensus;
   @JsonKey(name: 'prognosisDate')
+
+  /// Дата прогноза.
   final DateTime? prognosisDate;
   static const fromJsonFactory =
       _$GetConsensusForecastsResponseConsensusForecastsItemFromJson;
@@ -937,14 +1101,24 @@ class GetFavoriteGroupsResponseFavoriteGroup {
       _$GetFavoriteGroupsResponseFavoriteGroupToJson(this);
 
   @JsonKey(name: 'groupId')
+
+  /// Уникальный идентификатор группы.
   final String groupId;
   @JsonKey(name: 'groupName')
+
+  /// Название группы.
   final String groupName;
   @JsonKey(name: 'color')
+
+  /// Цвет группы в HEX-формате.
   final String color;
   @JsonKey(name: 'size')
+
+  /// Количество инструментов в группе.
   final int size;
   @JsonKey(name: 'containsInstrument')
+
+  /// Признак наличия в группе хотя бы одного инструмента из запроса.
   final bool? containsInstrument;
   static const fromJsonFactory =
       _$GetFavoriteGroupsResponseFavoriteGroupFromJson;
@@ -987,6 +1161,8 @@ extension $GetFavoriteGroupsResponseFavoriteGroupExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Консенсус-прогноз.
 class GetForecastResponseConsensusItem {
   const GetForecastResponseConsensusItem({
     this.uid,
@@ -1010,8 +1186,12 @@ class GetForecastResponseConsensusItem {
       _$GetForecastResponseConsensusItemToJson(this);
 
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор инструмента.
   final String? uid;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(
     name: 'recommendation',
@@ -1020,6 +1200,8 @@ class GetForecastResponseConsensusItem {
   )
   final enums.V1Recommendation? recommendation;
   @JsonKey(name: 'currency')
+
+  /// Валюта.
   final String? currency;
   @JsonKey(name: 'currentPrice')
   final V1Quotation? currentPrice;
@@ -1119,10 +1301,16 @@ class GetForecastResponseTargetItem {
   Map<String, dynamic> toJson() => _$GetForecastResponseTargetItemToJson(this);
 
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор инструмента.
   final String? uid;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'company')
+
+  /// Название компании, давшей прогноз.
   final String? company;
   @JsonKey(
     name: 'recommendation',
@@ -1131,8 +1319,12 @@ class GetForecastResponseTargetItem {
   )
   final enums.V1Recommendation? recommendation;
   @JsonKey(name: 'recommendationDate')
+
+  /// Дата прогноза.
   final DateTime? recommendationDate;
   @JsonKey(name: 'currency')
+
+  /// Валюта.
   final String? currency;
   @JsonKey(name: 'currentPrice')
   final V1Quotation? currentPrice;
@@ -1143,6 +1335,8 @@ class GetForecastResponseTargetItem {
   @JsonKey(name: 'priceChangeRel')
   final V1Quotation? priceChangeRel;
   @JsonKey(name: 'showName')
+
+  /// Наименование инструмента.
   final String? showName;
   static const fromJsonFactory = _$GetForecastResponseTargetItemFromJson;
 
@@ -1241,6 +1435,8 @@ class GetInsiderDealsResponseInsiderDeal {
       _$GetInsiderDealsResponseInsiderDealToJson(this);
 
   @JsonKey(name: 'tradeId')
+
+  /// Уникальный идентификатор сделки.
   final String? tradeId;
   @JsonKey(
     name: 'direction',
@@ -1249,18 +1445,30 @@ class GetInsiderDealsResponseInsiderDeal {
   )
   final enums.V1GetInsiderDealsResponseTradeDirection? direction;
   @JsonKey(name: 'currency')
+
+  /// Валюта сделки.
   final String? currency;
   @JsonKey(name: 'date')
+
+  /// Дата сделки.
   final DateTime? date;
   @JsonKey(name: 'quantity')
+
+  /// Количество.
   final String? quantity;
   @JsonKey(name: 'price')
   final V1Quotation? price;
   @JsonKey(name: 'instrumentUid')
+
+  /// Уникальный идентификатор инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'investorName')
+
+  /// Имя инвестора.
   final String? investorName;
   @JsonKey(name: 'investorPosition')
   final String? investorPosition;
@@ -1269,6 +1477,8 @@ class GetInsiderDealsResponseInsiderDeal {
   @JsonKey(name: 'isOptionExecution')
   final bool? isOptionExecution;
   @JsonKey(name: 'disclosureDate')
+
+  /// Дата раскрытия сделки.
   final DateTime? disclosureDate;
   static const fromJsonFactory = _$GetInsiderDealsResponseInsiderDealFromJson;
 
@@ -1536,14 +1746,22 @@ class GetOrdersRequestGetOrdersRequestFilters {
       _$GetOrdersRequestGetOrdersRequestFiltersToJson(this);
 
   @JsonKey(name: 'from')
+
+  /// Дата и время, начиная с которой нужно получить информацию в часовом поясе UTC.
+  /// Параметр применим только к ордерам, созданным сегодня.
   final DateTime? from;
   @JsonKey(name: 'to')
+
+  /// Дата и время, до которой нужно получить информацию в часовом поясе UTC.
+  /// Параметр применим только к ордерам, созданным сегодня.
   final DateTime? to;
   @JsonKey(
     name: 'executionStatus',
     toJson: v1OrderExecutionReportStatusListToJson,
     fromJson: v1OrderExecutionReportStatusListFromJson,
   )
+
+  /// Статусы заявок.
   final List<enums.V1OrderExecutionReportStatus>? executionStatus;
   static const fromJsonFactory =
       _$GetOrdersRequestGetOrdersRequestFiltersFromJson;
@@ -1630,8 +1848,12 @@ class GetTechAnalysisRequestSmoothing {
       _$GetTechAnalysisRequestSmoothingToJson(this);
 
   @JsonKey(name: 'fastLength')
+
+  /// Короткий период сглаживания для первой экспоненциальной скользящей средней (EMA).
   final int? fastLength;
   @JsonKey(name: 'slowLength')
+
+  /// Длинный период сглаживания для второй экспоненциальной скользящей средней (EMA).
   final int? slowLength;
   @JsonKey(name: 'signalSmoothing')
   final int? signalSmoothing;
@@ -1684,6 +1906,8 @@ class GetTechAnalysisResponseTechAnalysisItem {
       _$GetTechAnalysisResponseTechAnalysisItemToJson(this);
 
   @JsonKey(name: 'timestamp')
+
+  /// Временная метка по UTC, для которой были рассчитаны значения индикатора.
   final DateTime? timestamp;
   @JsonKey(name: 'middleBand')
   final V1Quotation? middleBand;
@@ -1751,6 +1975,8 @@ class RiskRatesResponseRiskRate {
   Map<String, dynamic> toJson() => _$RiskRatesResponseRiskRateToJson(this);
 
   @JsonKey(name: 'riskLevelCode')
+
+  /// Категория риска.
   final String? riskLevelCode;
   @JsonKey(name: 'value')
   final V1Quotation? $value;
@@ -1806,6 +2032,8 @@ class RiskRatesResponseRiskRateResult {
   @JsonKey(name: 'longRiskRates', defaultValue: <RiskRatesResponseRiskRate>[])
   final List<RiskRatesResponseRiskRate>? longRiskRates;
   @JsonKey(name: 'error')
+
+  /// Ошибка.
   final String? error;
   static const fromJsonFactory = _$RiskRatesResponseRiskRateResultFromJson;
 
@@ -1855,6 +2083,8 @@ extension $RiskRatesResponseRiskRateResultExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Базовый актив.
 class StructuredNoteBasicAsset {
   const StructuredNoteBasicAsset({
     this.uid,
@@ -1869,6 +2099,8 @@ class StructuredNoteBasicAsset {
   Map<String, dynamic> toJson() => _$StructuredNoteBasicAssetToJson(this);
 
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор базового актива.
   final String? uid;
   @JsonKey(
     name: 'type',
@@ -1906,6 +2138,8 @@ extension $StructuredNoteBasicAssetExtension on StructuredNoteBasicAsset {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Доходность.
 class StructuredNoteYield {
   const StructuredNoteYield({
     this.type,
@@ -1962,8 +2196,12 @@ class TradingIntervalTimeInterval {
   Map<String, dynamic> toJson() => _$TradingIntervalTimeIntervalToJson(this);
 
   @JsonKey(name: 'startTs')
+
+  /// Время начала интервала.
   final DateTime? startTs;
   @JsonKey(name: 'endTs')
+
+  /// Время окончания интервала.
   final DateTime? endTs;
   static const fromJsonFactory = _$TradingIntervalTimeIntervalFromJson;
 
@@ -1986,6 +2224,8 @@ extension $TradingIntervalTimeIntervalExtension on TradingIntervalTimeInterval {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о торговом поручении.
 class Contractv1OrderState {
   const Contractv1OrderState({
     this.orderId,
@@ -2019,6 +2259,8 @@ class Contractv1OrderState {
   Map<String, dynamic> toJson() => _$Contractv1OrderStateToJson(this);
 
   @JsonKey(name: 'orderId')
+
+  /// Биржевой идентификатор заявки.
   final String? orderId;
   @JsonKey(
     name: 'executionReportStatus',
@@ -2027,8 +2269,12 @@ class Contractv1OrderState {
   )
   final enums.V1OrderExecutionReportStatus? executionReportStatus;
   @JsonKey(name: 'lotsRequested')
+
+  /// Запрошено лотов.
   final String? lotsRequested;
   @JsonKey(name: 'lotsExecuted')
+
+  /// Исполнено лотов.
   final String? lotsExecuted;
   @JsonKey(name: 'initialOrderPrice')
   final V1MoneyValue? initialOrderPrice;
@@ -2043,6 +2289,8 @@ class Contractv1OrderState {
   @JsonKey(name: 'executedCommission')
   final V1MoneyValue? executedCommission;
   @JsonKey(name: 'figi')
+
+  /// Figi-идентификатор инструмента.
   final String? figi;
   @JsonKey(
     name: 'direction',
@@ -2053,10 +2301,14 @@ class Contractv1OrderState {
   @JsonKey(name: 'initialSecurityPrice')
   final V1MoneyValue? initialSecurityPrice;
   @JsonKey(name: 'stages', defaultValue: <V1OrderStage>[])
+
+  /// Стадии выполнения заявки.
   final List<V1OrderStage>? stages;
   @JsonKey(name: 'serviceCommission')
   final V1MoneyValue? serviceCommission;
   @JsonKey(name: 'currency')
+
+  /// Валюта заявки.
   final String? currency;
   @JsonKey(
     name: 'orderType',
@@ -2065,14 +2317,25 @@ class Contractv1OrderState {
   )
   final enums.V1OrderType? orderType;
   @JsonKey(name: 'orderDate')
+
+  /// Дата и время выставления заявки в часовом поясе UTC.
   final DateTime? orderDate;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID идентификатор инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'orderRequestId')
+
+  /// Идентификатор ключа идемпотентности, переданный клиентом, в формате UID.
+  /// Максимальная длина 36 символов.
   final String? orderRequestId;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$Contractv1OrderStateFromJson;
 
@@ -2278,6 +2541,8 @@ extension $RpcStatusExtension on RpcStatus {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о счeте.
 class V1Account {
   const V1Account({
     this.id,
@@ -2296,6 +2561,8 @@ class V1Account {
   Map<String, dynamic> toJson() => _$V1AccountToJson(this);
 
   @JsonKey(name: 'id')
+
+  /// Идентификатор счeта.
   final String? id;
   @JsonKey(
     name: 'type',
@@ -2304,6 +2571,8 @@ class V1Account {
   )
   final enums.V1AccountType? type;
   @JsonKey(name: 'name')
+
+  /// Название счeта.
   final String? name;
   @JsonKey(
     name: 'status',
@@ -2312,8 +2581,12 @@ class V1Account {
   )
   final enums.V1AccountStatus? status;
   @JsonKey(name: 'openedDate')
+
+  /// Дата открытия счeта в часовом поясе UTC.
   final DateTime? openedDate;
   @JsonKey(name: 'closedDate')
+
+  /// Дата закрытия счeта в часовом поясе UTC.
   final DateTime? closedDate;
   @JsonKey(
     name: 'accessLevel',
@@ -2367,6 +2640,8 @@ extension $V1AccountExtension on V1Account {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Счет клиента.
 class V1AccountSubscriptionStatus {
   const V1AccountSubscriptionStatus({
     this.accountId,
@@ -2380,6 +2655,8 @@ class V1AccountSubscriptionStatus {
   Map<String, dynamic> toJson() => _$V1AccountSubscriptionStatusToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счета.
   final String? accountId;
   @JsonKey(
     name: 'subscriptionStatus',
@@ -2414,6 +2691,8 @@ extension $V1AccountSubscriptionStatusExtension on V1AccountSubscriptionStatus {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Операция начисления купонов.
 class V1AccruedInterest {
   const V1AccruedInterest({
     this.date,
@@ -2429,6 +2708,8 @@ class V1AccruedInterest {
   Map<String, dynamic> toJson() => _$V1AccruedInterestToJson(this);
 
   @JsonKey(name: 'date')
+
+  /// Дата и время выплаты по UTC.
   final DateTime? date;
   @JsonKey(name: 'value')
   final V1Quotation? $value;
@@ -2470,6 +2751,8 @@ extension $V1AccruedInterestExtension on V1AccruedInterest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация об активе.
 class V1Asset {
   const V1Asset({
     this.uid,
@@ -2485,6 +2768,8 @@ class V1Asset {
   Map<String, dynamic> toJson() => _$V1AssetToJson(this);
 
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор актива.
   final String? uid;
   @JsonKey(
     name: 'type',
@@ -2493,8 +2778,12 @@ class V1Asset {
   )
   final enums.V1AssetType? type;
   @JsonKey(name: 'name')
+
+  /// Наименование актива.
   final String? name;
   @JsonKey(name: 'instruments', defaultValue: <V1AssetInstrument>[])
+
+  /// Массив идентификаторов инструментов.
   final List<V1AssetInstrument>? instruments;
   static const fromJsonFactory = _$V1AssetFromJson;
 
@@ -2530,6 +2819,8 @@ extension $V1AssetExtension on V1Asset {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Облигация.
 class V1AssetBond {
   const V1AssetBond({
     this.currentNominal,
@@ -2564,40 +2855,72 @@ class V1AssetBond {
   @JsonKey(name: 'currentNominal')
   final V1Quotation? currentNominal;
   @JsonKey(name: 'borrowName')
+
+  /// Наименование заемщика.
   final String? borrowName;
   @JsonKey(name: 'issueSize')
   final V1Quotation? issueSize;
   @JsonKey(name: 'nominal')
   final V1Quotation? nominal;
   @JsonKey(name: 'nominalCurrency')
+
+  /// Валюта номинала.
   final String? nominalCurrency;
   @JsonKey(name: 'issueKind')
+
+  /// Форма выпуска облигации.
   final String? issueKind;
   @JsonKey(name: 'interestKind')
+
+  /// Форма дохода облигации.
   final String? interestKind;
   @JsonKey(name: 'couponQuantityPerYear')
+
+  /// Количество выплат в год.
   final int? couponQuantityPerYear;
   @JsonKey(name: 'indexedNominalFlag')
+
+  /// Признак облигации с индексируемым номиналом.
   final bool? indexedNominalFlag;
   @JsonKey(name: 'subordinatedFlag')
+
+  /// Признак субординированной облигации.
   final bool? subordinatedFlag;
   @JsonKey(name: 'collateralFlag')
+
+  /// Признак обеспеченной облигации.
   final bool? collateralFlag;
   @JsonKey(name: 'taxFreeFlag')
+
+  /// Признак показывает, что купоны облигации не облагаются налогом — для mass market.
   final bool? taxFreeFlag;
   @JsonKey(name: 'amortizationFlag')
+
+  /// Признак облигации с амортизацией долга.
   final bool? amortizationFlag;
   @JsonKey(name: 'floatingCouponFlag')
+
+  /// Признак облигации с плавающим купоном.
   final bool? floatingCouponFlag;
   @JsonKey(name: 'perpetualFlag')
+
+  /// Признак бессрочной облигации.
   final bool? perpetualFlag;
   @JsonKey(name: 'maturityDate')
+
+  /// Дата погашения облигации.
   final DateTime? maturityDate;
   @JsonKey(name: 'returnCondition')
+
+  /// Описание и условия получения дополнительного дохода.
   final String? returnCondition;
   @JsonKey(name: 'stateRegDate')
+
+  /// Дата выпуска облигации.
   final DateTime? stateRegDate;
   @JsonKey(name: 'placementDate')
+
+  /// Дата размещения облигации.
   final DateTime? placementDate;
   @JsonKey(name: 'placementPrice')
   final V1Quotation? placementPrice;
@@ -2732,6 +3055,8 @@ extension $V1AssetBondExtension on V1AssetBond {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Клиринговый сертификат участия.
 class V1AssetClearingCertificate {
   const V1AssetClearingCertificate({
     this.nominal,
@@ -2747,6 +3072,8 @@ class V1AssetClearingCertificate {
   @JsonKey(name: 'nominal')
   final V1Quotation? nominal;
   @JsonKey(name: 'nominalCurrency')
+
+  /// Валюта номинала.
   final String? nominalCurrency;
   static const fromJsonFactory = _$V1AssetClearingCertificateFromJson;
 
@@ -2773,6 +3100,8 @@ extension $V1AssetClearingCertificateExtension on V1AssetClearingCertificate {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Валюта.
 class V1AssetCurrency {
   const V1AssetCurrency({
     this.baseCurrency,
@@ -2785,6 +3114,8 @@ class V1AssetCurrency {
   Map<String, dynamic> toJson() => _$V1AssetCurrencyToJson(this);
 
   @JsonKey(name: 'baseCurrency')
+
+  /// ISO-код валюты.
   final String? baseCurrency;
   static const fromJsonFactory = _$V1AssetCurrencyFromJson;
 
@@ -2805,6 +3136,8 @@ extension $V1AssetCurrencyExtension on V1AssetCurrency {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Фонд.
 class V1AssetEtf {
   const V1AssetEtf({
     this.totalExpense,
@@ -2855,58 +3188,98 @@ class V1AssetEtf {
   @JsonKey(name: 'fixedCommission')
   final V1Quotation? fixedCommission;
   @JsonKey(name: 'paymentType')
+
+  /// Тип распределения доходов от выплат по бумагам.
   final String? paymentType;
   @JsonKey(name: 'watermarkFlag')
+
+  /// Признак необходимости выхода фонда в плюс для получения комиссии.
   final bool? watermarkFlag;
   @JsonKey(name: 'buyPremium')
   final V1Quotation? buyPremium;
   @JsonKey(name: 'sellDiscount')
   final V1Quotation? sellDiscount;
   @JsonKey(name: 'rebalancingFlag')
+
+  /// Признак ребалансируемости портфеля фонда.
   final bool? rebalancingFlag;
   @JsonKey(name: 'rebalancingFreq')
+
+  /// Периодичность ребалансировки.
   final String? rebalancingFreq;
   @JsonKey(name: 'managementType')
+
+  /// Тип управления.
   final String? managementType;
   @JsonKey(name: 'primaryIndex')
+
+  /// Индекс, который реплицирует (старается копировать) фонд.
   final String? primaryIndex;
   @JsonKey(name: 'focusType')
+
+  /// База ETF.
   final String? focusType;
   @JsonKey(name: 'leveragedFlag')
+
+  /// Признак использования заемных активов (плечо).
   final bool? leveragedFlag;
   @JsonKey(name: 'numShare')
   final V1Quotation? numShare;
   @JsonKey(name: 'ucitsFlag')
+
+  /// Признак обязательства по отчетности перед регулятором.
   final bool? ucitsFlag;
   @JsonKey(name: 'releasedDate')
+
+  /// Дата выпуска.
   final DateTime? releasedDate;
   @JsonKey(name: 'description')
+
+  /// Описание фонда.
   final String? description;
   @JsonKey(name: 'primaryIndexDescription')
+
+  /// Описание индекса, за которым следует фонд.
   final String? primaryIndexDescription;
   @JsonKey(name: 'primaryIndexCompany')
+
+  /// Основные компании, в которые вкладывается фонд.
   final String? primaryIndexCompany;
   @JsonKey(name: 'indexRecoveryPeriod')
   final V1Quotation? indexRecoveryPeriod;
   @JsonKey(name: 'inavCode')
+
+  /// IVAV-код.
   final String? inavCode;
   @JsonKey(name: 'divYieldFlag')
+
+  /// Признак наличия дивидендной доходности.
   final bool? divYieldFlag;
   @JsonKey(name: 'expenseCommission')
   final V1Quotation? expenseCommission;
   @JsonKey(name: 'primaryIndexTrackingError')
   final V1Quotation? primaryIndexTrackingError;
   @JsonKey(name: 'rebalancingPlan')
+
+  /// Плановая ребалансировка портфеля.
   final String? rebalancingPlan;
   @JsonKey(name: 'taxRate')
+
+  /// Ставки налогообложения дивидендов и купонов.
   final String? taxRate;
   @JsonKey(name: 'rebalancingDates', defaultValue: <DateTime>[])
+
+  /// Даты ребалансировок.
   final List<DateTime>? rebalancingDates;
   @JsonKey(name: 'issueKind')
+
+  /// Форма выпуска.
   final String? issueKind;
   @JsonKey(name: 'nominal')
   final V1Quotation? nominal;
   @JsonKey(name: 'nominalCurrency')
+
+  /// Валюта номинала.
   final String? nominalCurrency;
   static const fromJsonFactory = _$V1AssetEtfFromJson;
 
@@ -3115,6 +3488,8 @@ class V1AssetFull {
   Map<String, dynamic> toJson() => _$V1AssetFullToJson(this);
 
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор актива.
   final String? uid;
   @JsonKey(
     name: 'type',
@@ -3123,36 +3498,64 @@ class V1AssetFull {
   )
   final enums.V1AssetType? type;
   @JsonKey(name: 'name')
+
+  /// Наименование актива.
   final String? name;
   @JsonKey(name: 'nameBrief')
+
+  /// Короткое наименование актива.
   final String? nameBrief;
   @JsonKey(name: 'description')
+
+  /// Описание актива.
   final String? description;
   @JsonKey(name: 'deletedAt')
+
+  /// Дата и время удаления актива.
   final DateTime? deletedAt;
   @JsonKey(name: 'requiredTests', defaultValue: <String>[])
+
+  /// Тестирование клиентов.
   final List<String>? requiredTests;
   @JsonKey(name: 'currency')
   final V1AssetCurrency? currency;
   @JsonKey(name: 'security')
   final V1AssetSecurity? security;
   @JsonKey(name: 'gosRegCode')
+
+  /// Номер государственной регистрации.
   final String? gosRegCode;
   @JsonKey(name: 'cfi')
+
+  /// Код CFI.
   final String? cfi;
   @JsonKey(name: 'codeNsd')
+
+  /// Код НРД инструмента.
   final String? codeNsd;
   @JsonKey(name: 'status')
+
+  /// Статус актива.
   final String? status;
   @JsonKey(name: 'brand')
   final V1Brand? brand;
   @JsonKey(name: 'updatedAt')
+
+  /// Дата и время последнего обновления записи.
   final DateTime? updatedAt;
   @JsonKey(name: 'brCode')
+
+  /// Код типа ц.б.
+  /// по классификации Банка России.
   final String? brCode;
   @JsonKey(name: 'brCodeName')
+
+  /// Наименование кода типа ц.б.
+  /// по классификации Банка России.
   final String? brCodeName;
   @JsonKey(name: 'instruments', defaultValue: <V1AssetInstrument>[])
+
+  /// Массив идентификаторов инструментов.
   final List<V1AssetInstrument>? instruments;
   static const fromJsonFactory = _$V1AssetFullFromJson;
 
@@ -3246,6 +3649,8 @@ extension $V1AssetFullExtension on V1AssetFull {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Идентификаторы инструмента.
 class V1AssetInstrument {
   const V1AssetInstrument({
     this.uid,
@@ -3265,16 +3670,28 @@ class V1AssetInstrument {
   Map<String, dynamic> toJson() => _$V1AssetInstrumentToJson(this);
 
   @JsonKey(name: 'uid')
+
+  /// UID-идентификатор инструмента.
   final String? uid;
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'instrumentType')
+
+  /// Тип инструмента.
   final String? instrumentType;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'links', defaultValue: <V1InstrumentLink>[])
+
+  /// Массив связанных инструментов.
   final List<V1InstrumentLink>? links;
   @JsonKey(
     name: 'instrumentKind',
@@ -3283,6 +3700,8 @@ class V1AssetInstrument {
   )
   final enums.V1InstrumentType? instrumentKind;
   @JsonKey(name: 'positionUid')
+
+  /// ID позиции.
   final String? positionUid;
   static const fromJsonFactory = _$V1AssetInstrumentFromJson;
 
@@ -3338,6 +3757,8 @@ extension $V1AssetInstrumentExtension on V1AssetInstrument {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос актива по идентификатору.
 class V1AssetRequest {
   const V1AssetRequest({
     required this.id,
@@ -3350,6 +3771,8 @@ class V1AssetRequest {
   Map<String, dynamic> toJson() => _$V1AssetRequestToJson(this);
 
   @JsonKey(name: 'id')
+
+  /// UID-идентификатор актива.
   final String id;
   static const fromJsonFactory = _$V1AssetRequestFromJson;
 
@@ -3368,6 +3791,8 @@ extension $V1AssetRequestExtension on V1AssetRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по активу.
 class V1AssetResponse {
   const V1AssetResponse({
     this.asset,
@@ -3398,6 +3823,8 @@ extension $V1AssetResponseExtension on V1AssetResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Ценная бумага.
 class V1AssetSecurity {
   const V1AssetSecurity({
     this.isin,
@@ -3417,8 +3844,12 @@ class V1AssetSecurity {
   Map<String, dynamic> toJson() => _$V1AssetSecurityToJson(this);
 
   @JsonKey(name: 'isin')
+
+  /// ISIN-идентификатор ценной бумаги.
   final String? isin;
   @JsonKey(name: 'type')
+
+  /// Тип ценной бумаги.
   final String? type;
   @JsonKey(
     name: 'instrumentKind',
@@ -3489,6 +3920,8 @@ extension $V1AssetSecurityExtension on V1AssetSecurity {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Акция.
 class V1AssetShare {
   const V1AssetShare({
     this.type,
@@ -3525,24 +3958,42 @@ class V1AssetShare {
   @JsonKey(name: 'nominal')
   final V1Quotation? nominal;
   @JsonKey(name: 'nominalCurrency')
+
+  /// Валюта номинала.
   final String? nominalCurrency;
   @JsonKey(name: 'primaryIndex')
+
+  /// Индекс (Bloomberg).
   final String? primaryIndex;
   @JsonKey(name: 'dividendRate')
   final V1Quotation? dividendRate;
   @JsonKey(name: 'preferredShareType')
+
+  /// Тип привилегированных акций.
   final String? preferredShareType;
   @JsonKey(name: 'ipoDate')
+
+  /// Дата IPO.
   final DateTime? ipoDate;
   @JsonKey(name: 'registryDate')
+
+  /// Дата регистрации.
   final DateTime? registryDate;
   @JsonKey(name: 'divYieldFlag')
+
+  /// Признак наличия дивидендной доходности.
   final bool? divYieldFlag;
   @JsonKey(name: 'issueKind')
+
+  /// Форма выпуска ФИ.
   final String? issueKind;
   @JsonKey(name: 'placementDate')
+
+  /// Дата размещения акции.
   final DateTime? placementDate;
   @JsonKey(name: 'represIsin')
+
+  /// ISIN базового актива.
   final String? represIsin;
   @JsonKey(name: 'issueSizePlan')
   final V1Quotation? issueSizePlan;
@@ -3635,6 +4086,8 @@ extension $V1AssetShareExtension on V1AssetShare {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Структурная нота.
 class V1AssetStructuredProduct {
   const V1AssetStructuredProduct({
     this.borrowName,
@@ -3659,10 +4112,14 @@ class V1AssetStructuredProduct {
   Map<String, dynamic> toJson() => _$V1AssetStructuredProductToJson(this);
 
   @JsonKey(name: 'borrowName')
+
+  /// Наименование заемщика.
   final String? borrowName;
   @JsonKey(name: 'nominal')
   final V1Quotation? nominal;
   @JsonKey(name: 'nominalCurrency')
+
+  /// Валюта номинала.
   final String? nominalCurrency;
   @JsonKey(
     name: 'type',
@@ -3671,6 +4128,8 @@ class V1AssetStructuredProduct {
   )
   final enums.V1StructuredProductType? type;
   @JsonKey(name: 'logicPortfolio')
+
+  /// Стратегия портфеля.
   final String? logicPortfolio;
   @JsonKey(
     name: 'assetType',
@@ -3679,18 +4138,26 @@ class V1AssetStructuredProduct {
   )
   final enums.V1AssetType? assetType;
   @JsonKey(name: 'basicAsset')
+
+  /// Вид базового актива в зависимости от типа базового актива.
   final String? basicAsset;
   @JsonKey(name: 'safetyBarrier')
   final V1Quotation? safetyBarrier;
   @JsonKey(name: 'maturityDate')
+
+  /// Дата погашения.
   final DateTime? maturityDate;
   @JsonKey(name: 'issueSizePlan')
   final V1Quotation? issueSizePlan;
   @JsonKey(name: 'issueSize')
   final V1Quotation? issueSize;
   @JsonKey(name: 'placementDate')
+
+  /// Дата размещения ноты.
   final DateTime? placementDate;
   @JsonKey(name: 'issueKind')
+
+  /// Форма выпуска.
   final String? issueKind;
   static const fromJsonFactory = _$V1AssetStructuredProductFromJson;
 
@@ -3769,6 +4236,8 @@ extension $V1AssetStructuredProductExtension on V1AssetStructuredProduct {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос списка активов.
 class V1AssetsRequest {
   const V1AssetsRequest({
     this.instrumentType,
@@ -3822,6 +4291,8 @@ extension $V1AssetsRequestExtension on V1AssetsRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Список активов.
 class V1AssetsResponse {
   const V1AssetsResponse({
     this.assets,
@@ -3834,6 +4305,8 @@ class V1AssetsResponse {
   Map<String, dynamic> toJson() => _$V1AssetsResponseToJson(this);
 
   @JsonKey(name: 'assets', defaultValue: <V1Asset>[])
+
+  /// Активы.
   final List<V1Asset>? assets;
   static const fromJsonFactory = _$V1AssetsResponseFromJson;
 
@@ -3853,6 +4326,8 @@ extension $V1AssetsResponseExtension on V1AssetsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Банковский счeт.
 class V1BankAccount {
   const V1BankAccount({
     this.id,
@@ -3869,12 +4344,20 @@ class V1BankAccount {
   Map<String, dynamic> toJson() => _$V1BankAccountToJson(this);
 
   @JsonKey(name: 'id')
+
+  /// Идентификатор счeта.
   final String? id;
   @JsonKey(name: 'name')
+
+  /// Название счeта.
   final String? name;
   @JsonKey(name: 'money', defaultValue: <V1MoneyValue>[])
+
+  /// Список валютных позиций на счeте.
   final List<V1MoneyValue>? money;
   @JsonKey(name: 'openedDate')
+
+  /// Дата открытия счeта в часовом поясе UTC.
   final DateTime? openedDate;
   @JsonKey(
     name: 'type',
@@ -3919,6 +4402,8 @@ extension $V1BankAccountExtension on V1BankAccount {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Объект передачи информации об облигации.
 class V1Bond {
   const V1Bond({
     this.figi,
@@ -3986,16 +4471,30 @@ class V1Bond {
   Map<String, dynamic> toJson() => _$V1BondToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'isin')
+
+  /// ISIN-идентификатор инструмента.
   final String? isin;
   @JsonKey(name: 'lot')
+
+  /// Лотность инструмента.
+  /// Возможно совершение операций только на количества ценной бумаги, кратные параметру `lot`.
+  /// [Подробнее](./glossary#lot).
   final int? lot;
   @JsonKey(name: 'currency')
+
+  /// Валюта расчетов.
   final String? currency;
   @JsonKey(name: 'klong')
   final V1Quotation? klong;
@@ -4010,38 +4509,65 @@ class V1Bond {
   @JsonKey(name: 'dshortMin')
   final V1Quotation? dshortMin;
   @JsonKey(name: 'shortEnabledFlag')
+
+  /// Признак доступности для операций в шорт.
   final bool? shortEnabledFlag;
   @JsonKey(name: 'name')
+
+  /// Название инструмента.
   final String? name;
   @JsonKey(name: 'exchange')
+
+  /// Tорговая площадка (секция биржи).
   final String? exchange;
   @JsonKey(name: 'couponQuantityPerYear')
+
+  /// Количество выплат по купонам в год.
   final int? couponQuantityPerYear;
   @JsonKey(name: 'maturityDate')
+
+  /// Дата погашения облигации по UTC.
   final DateTime? maturityDate;
   @JsonKey(name: 'nominal')
   final V1MoneyValue? nominal;
   @JsonKey(name: 'initialNominal')
   final V1MoneyValue? initialNominal;
   @JsonKey(name: 'stateRegDate')
+
+  /// Дата выпуска облигации по UTC.
   final DateTime? stateRegDate;
   @JsonKey(name: 'placementDate')
+
+  /// Дата размещения по UTC.
   final DateTime? placementDate;
   @JsonKey(name: 'placementPrice')
   final V1MoneyValue? placementPrice;
   @JsonKey(name: 'aciValue')
   final V1MoneyValue? aciValue;
   @JsonKey(name: 'countryOfRisk')
+
+  /// Код страны риска — то есть страны, в которой компания ведет основной бизнес.
   final String? countryOfRisk;
   @JsonKey(name: 'countryOfRiskName')
+
+  /// Наименование страны риска — то есть страны, в которой компания ведет основной бизнес.
   final String? countryOfRiskName;
   @JsonKey(name: 'sector')
+
+  /// Сектор экономики.
   final String? sector;
   @JsonKey(name: 'issueKind')
+
+  /// Форма выпуска.
+  /// Возможные значения: <br/>**documentary** — документарная; <br/>**non_documentary** — бездокументарная.
   final String? issueKind;
   @JsonKey(name: 'issueSize')
+
+  /// Размер выпуска.
   final String? issueSize;
   @JsonKey(name: 'issueSizePlan')
+
+  /// Плановый размер выпуска.
   final String? issueSizePlan;
   @JsonKey(
     name: 'tradingStatus',
@@ -4050,22 +4576,40 @@ class V1Bond {
   )
   final enums.V1SecurityTradingStatus? tradingStatus;
   @JsonKey(name: 'otcFlag')
+
+  /// Флаг, используемый ранее для определения внебиржевых инструментов.
+  /// На данный момент не используется для торгуемых через API инструментов.
+  /// Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке.
   final bool? otcFlag;
   @JsonKey(name: 'buyAvailableFlag')
+
+  /// Признак доступности для покупки.
   final bool? buyAvailableFlag;
   @JsonKey(name: 'sellAvailableFlag')
+
+  /// Признак доступности для продажи.
   final bool? sellAvailableFlag;
   @JsonKey(name: 'floatingCouponFlag')
+
+  /// Признак облигации с плавающим купоном.
   final bool? floatingCouponFlag;
   @JsonKey(name: 'perpetualFlag')
+
+  /// Признак бессрочной облигации.
   final bool? perpetualFlag;
   @JsonKey(name: 'amortizationFlag')
+
+  /// Признак облигации с амортизацией долга.
   final bool? amortizationFlag;
   @JsonKey(name: 'minPriceIncrement')
   final V1Quotation? minPriceIncrement;
   @JsonKey(name: 'apiTradeAvailableFlag')
+
+  /// Параметр указывает на возможность торговать инструментом через API.
   final bool? apiTradeAvailableFlag;
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор инструмента.
   final String? uid;
   @JsonKey(
     name: 'realExchange',
@@ -4074,26 +4618,48 @@ class V1Bond {
   )
   final enums.V1RealExchange? realExchange;
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции инструмента.
   final String? positionUid;
   @JsonKey(name: 'assetUid')
+
+  /// Уникальный идентификатор актива.
   final String? assetUid;
   @JsonKey(name: 'requiredTests', defaultValue: <String>[])
+
+  /// Тесты, которые необходимо пройти клиенту, чтобы совершать сделки по инструменту.
   final List<String>? requiredTests;
   @JsonKey(name: 'forIisFlag')
+
+  /// Признак доступности для ИИС.
   final bool? forIisFlag;
   @JsonKey(name: 'forQualInvestorFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов.
   final bool? forQualInvestorFlag;
   @JsonKey(name: 'weekendFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом по выходным.
   final bool? weekendFlag;
   @JsonKey(name: 'blockedTcaFlag')
+
+  /// Флаг заблокированного ТКС.
   final bool? blockedTcaFlag;
   @JsonKey(name: 'subordinatedFlag')
+
+  /// Признак субординированной облигации.
   final bool? subordinatedFlag;
   @JsonKey(name: 'liquidityFlag')
+
+  /// Флаг достаточной ликвидности.
   final bool? liquidityFlag;
   @JsonKey(name: 'first1minCandleDate')
+
+  /// Дата первой минутной свечи.
   final DateTime? first1minCandleDate;
   @JsonKey(name: 'first1dayCandleDate')
+
+  /// Дата первой дневной свечи.
   final DateTime? first1dayCandleDate;
   @JsonKey(
     name: 'riskLevel',
@@ -4110,6 +4676,8 @@ class V1Bond {
   )
   final enums.V1BondType? bondType;
   @JsonKey(name: 'callDate')
+
+  /// Дата погашения облигации.
   final DateTime? callDate;
   @JsonKey(name: 'dlongClient')
   final V1Quotation? dlongClient;
@@ -4408,6 +4976,8 @@ extension $V1BondExtension on V1Bond {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация об облигации.
 class V1BondResponse {
   const V1BondResponse({
     this.instrument,
@@ -4439,6 +5009,8 @@ extension $V1BondResponseExtension on V1BondResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Список облигаций.
 class V1BondsResponse {
   const V1BondsResponse({
     this.instruments,
@@ -4451,6 +5023,8 @@ class V1BondsResponse {
   Map<String, dynamic> toJson() => _$V1BondsResponseToJson(this);
 
   @JsonKey(name: 'instruments', defaultValue: <V1Bond>[])
+
+  /// Массив облигаций.
   final List<V1Bond>? instruments;
   static const fromJsonFactory = _$V1BondsResponseFromJson;
 
@@ -4471,6 +5045,8 @@ extension $V1BondsResponseExtension on V1BondsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Бренд.
 class V1Brand {
   const V1Brand({
     this.uid,
@@ -4490,20 +5066,36 @@ class V1Brand {
   Map<String, dynamic> toJson() => _$V1BrandToJson(this);
 
   @JsonKey(name: 'uid')
+
+  /// UID-идентификатор бренда.
   final String? uid;
   @JsonKey(name: 'name')
+
+  /// Наименование бренда.
   final String? name;
   @JsonKey(name: 'description')
+
+  /// Описание.
   final String? description;
   @JsonKey(name: 'info')
+
+  /// Информация о бренде.
   final String? info;
   @JsonKey(name: 'company')
+
+  /// Компания.
   final String? company;
   @JsonKey(name: 'sector')
+
+  /// Сектор.
   final String? sector;
   @JsonKey(name: 'countryOfRisk')
+
+  /// Код страны риска.
   final String? countryOfRisk;
   @JsonKey(name: 'countryOfRiskName')
+
+  /// Наименование страны риска.
   final String? countryOfRiskName;
   static const fromJsonFactory = _$V1BrandFromJson;
 
@@ -4572,10 +5164,17 @@ class V1BrandData {
   Map<String, dynamic> toJson() => _$V1BrandDataToJson(this);
 
   @JsonKey(name: 'logoName')
+
+  /// Логотип инструмента.
+  /// Имя файла для получения логотипа.
   final String? logoName;
   @JsonKey(name: 'logoBaseColor')
+
+  /// Цвет бренда.
   final String? logoBaseColor;
   @JsonKey(name: 'textColor')
+
+  /// Цвет текста для цвета логотипа бренда.
   final String? textColor;
   static const fromJsonFactory = _$V1BrandDataFromJson;
 
@@ -4643,28 +5242,50 @@ class V1BrokerReport {
   Map<String, dynamic> toJson() => _$V1BrokerReportToJson(this);
 
   @JsonKey(name: 'tradeId')
+
+  /// Номер сделки.
   final String? tradeId;
   @JsonKey(name: 'orderId')
+
+  /// Номер поручения.
   final String? orderId;
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификаторинструмента.
   final String? figi;
   @JsonKey(name: 'executeSign')
+
+  /// Признак исполнения.
   final String? executeSign;
   @JsonKey(name: 'tradeDatetime')
+
+  /// Дата и время заключения по UTC.
   final DateTime? tradeDatetime;
   @JsonKey(name: 'exchange')
+
+  /// Торговая площадка.
   final String? exchange;
   @JsonKey(name: 'classCode')
+
+  /// Режим торгов.
   final String? classCode;
   @JsonKey(name: 'direction')
+
+  /// Вид сделки.
   final String? direction;
   @JsonKey(name: 'name')
+
+  /// Сокращенное наименование актива.
   final String? name;
   @JsonKey(name: 'ticker')
+
+  /// Код актива.
   final String? ticker;
   @JsonKey(name: 'price')
   final V1MoneyValue? price;
   @JsonKey(name: 'quantity')
+
+  /// Количество.
   final String? quantity;
   @JsonKey(name: 'orderAmount')
   final V1MoneyValue? orderAmount;
@@ -4681,20 +5302,36 @@ class V1BrokerReport {
   @JsonKey(name: 'repoRate')
   final V1Quotation? repoRate;
   @JsonKey(name: 'party')
+
+  /// Контрагент или брокерарокер.
   final String? party;
   @JsonKey(name: 'clearValueDate')
+
+  /// Дата расчетов по UTC.
   final DateTime? clearValueDate;
   @JsonKey(name: 'secValueDate')
+
+  /// Дата поставки по UTC.
   final DateTime? secValueDate;
   @JsonKey(name: 'brokerStatus')
+
+  /// Статус брокера.
   final String? brokerStatus;
   @JsonKey(name: 'separateAgreementType')
+
+  /// Тип договора.
   final String? separateAgreementType;
   @JsonKey(name: 'separateAgreementNumber')
+
+  /// Номер договора.
   final String? separateAgreementNumber;
   @JsonKey(name: 'separateAgreementDate')
+
+  /// Дата договора.
   final String? separateAgreementDate;
   @JsonKey(name: 'deliveryType')
+
+  /// Тип расчета по сделке.
   final String? deliveryType;
   static const fromJsonFactory = _$V1BrokerReportFromJson;
 
@@ -4941,6 +5578,8 @@ extension $V1BrokerReportResponseExtension on V1BrokerReportResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос отмены торгового поручения.
 class V1CancelOrderRequest {
   const V1CancelOrderRequest({
     required this.accountId,
@@ -4955,8 +5594,12 @@ class V1CancelOrderRequest {
   Map<String, dynamic> toJson() => _$V1CancelOrderRequestToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Номер счета.
   final String accountId;
   @JsonKey(name: 'orderId')
+
+  /// Идентификатор заявки.
   final String orderId;
   @JsonKey(
     name: 'orderIdType',
@@ -4992,6 +5635,8 @@ extension $V1CancelOrderRequestExtension on V1CancelOrderRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Результат отмены торгового поручения.
 class V1CancelOrderResponse {
   const V1CancelOrderResponse({
     this.time,
@@ -5005,6 +5650,8 @@ class V1CancelOrderResponse {
   Map<String, dynamic> toJson() => _$V1CancelOrderResponseToJson(this);
 
   @JsonKey(name: 'time')
+
+  /// Дата и время отмены заявки в часовом поясе UTC.
   final DateTime? time;
   @JsonKey(name: 'responseMetadata')
   final V1ResponseMetadata? responseMetadata;
@@ -5034,6 +5681,8 @@ extension $V1CancelOrderResponseExtension on V1CancelOrderResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос отмены выставленной стоп-заявки.
 class V1CancelStopOrderRequest {
   const V1CancelStopOrderRequest({
     required this.accountId,
@@ -5047,8 +5696,12 @@ class V1CancelStopOrderRequest {
   Map<String, dynamic> toJson() => _$V1CancelStopOrderRequestToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счета клиента.
   final String accountId;
   @JsonKey(name: 'stopOrderId')
+
+  /// Уникальный идентификатор стоп-заявки.
   final String stopOrderId;
   static const fromJsonFactory = _$V1CancelStopOrderRequestFromJson;
 
@@ -5073,6 +5726,8 @@ extension $V1CancelStopOrderRequestExtension on V1CancelStopOrderRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Результат отмены выставленной стоп-заявки.
 class V1CancelStopOrderResponse {
   const V1CancelStopOrderResponse({
     this.time,
@@ -5085,6 +5740,8 @@ class V1CancelStopOrderResponse {
   Map<String, dynamic> toJson() => _$V1CancelStopOrderResponseToJson(this);
 
   @JsonKey(name: 'time')
+
+  /// Время отмены заявки по UTC.
   final DateTime? time;
   static const fromJsonFactory = _$V1CancelStopOrderResponseFromJson;
 
@@ -5104,6 +5761,8 @@ extension $V1CancelStopOrderResponseExtension on V1CancelStopOrderResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Пакет свечей в рамках стрима.
 class V1Candle {
   const V1Candle({
     this.figi,
@@ -5130,6 +5789,8 @@ class V1Candle {
   Map<String, dynamic> toJson() => _$V1CandleToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(
     name: 'interval',
@@ -5146,20 +5807,36 @@ class V1Candle {
   @JsonKey(name: 'close')
   final V1Quotation? close;
   @JsonKey(name: 'volume')
+
+  /// Объем сделок в лотах.
   final String? volume;
   @JsonKey(name: 'time')
+
+  /// Время начала интервала свечи по UTC.
   final DateTime? time;
   @JsonKey(name: 'lastTradeTs')
+
+  /// Время последней сделки, вошедшей в свечу по UTC.
   final DateTime? lastTradeTs;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'volumeBuy')
+
+  /// Объем торгов на покупку.
   final String? volumeBuy;
   @JsonKey(name: 'volumeSell')
+
+  /// Объём торгов на продажу.
   final String? volumeSell;
   @JsonKey(
     name: 'candleSourceType',
@@ -5248,6 +5925,8 @@ extension $V1CandleExtension on V1Candle {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос изменения статус подписки на свечи.
 class V1CandleInstrument {
   const V1CandleInstrument({
     this.figi,
@@ -5263,6 +5942,9 @@ class V1CandleInstrument {
 
   @JsonKey(name: 'figi')
   @deprecated
+
+  /// Deprecated FIGI-идентификатор инструмента.
+  /// Используйте `instrument_id`.
   final String? figi;
   @JsonKey(
     name: 'interval',
@@ -5271,6 +5953,9 @@ class V1CandleInstrument {
   )
   final enums.V1SubscriptionInterval? interval;
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента.
+  /// Принимает значение `figi`, `instrument_uid` или `ticker + '_' + class_code`.
   final String? instrumentId;
   static const fromJsonFactory = _$V1CandleInstrumentFromJson;
 
@@ -5302,6 +5987,8 @@ extension $V1CandleInstrumentExtension on V1CandleInstrument {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Статус подписки на свечи.
 class V1CandleSubscription {
   const V1CandleSubscription({
     this.figi,
@@ -5324,6 +6011,8 @@ class V1CandleSubscription {
   Map<String, dynamic> toJson() => _$V1CandleSubscriptionToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(
     name: 'interval',
@@ -5338,12 +6027,20 @@ class V1CandleSubscription {
   )
   final enums.V1SubscriptionStatus? subscriptionStatus;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'waitingClose')
+
+  /// Флаг ожидания закрытия временного интервала для отправки свечи.
   final bool? waitingClose;
   @JsonKey(name: 'streamId')
+
+  /// Идентификатор открытого соединения.
   final String? streamId;
   @JsonKey(name: 'subscriptionId')
+
+  /// Идентификатор подписки в формате `UUID`.
   final String? subscriptionId;
   @JsonKey(
     name: 'subscriptionAction',
@@ -5358,8 +6055,12 @@ class V1CandleSubscription {
   )
   final enums.V1GetCandlesRequestCandleSource? candleSourceType;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1CandleSubscriptionFromJson;
 
@@ -5445,6 +6146,8 @@ class V1ChildOperationItem {
   Map<String, dynamic> toJson() => _$V1ChildOperationItemToJson(this);
 
   @JsonKey(name: 'instrumentUid')
+
+  /// Уникальный идентификатор инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'payment')
   final V1MoneyValue? payment;
@@ -5472,6 +6175,8 @@ extension $V1ChildOperationItemExtension on V1ChildOperationItem {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос закрытия счета в песочнице.
 class V1CloseSandboxAccountRequest {
   const V1CloseSandboxAccountRequest({
     required this.accountId,
@@ -5504,6 +6209,9 @@ extension $V1CloseSandboxAccountRequestExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Результат закрытия счета в песочнице.
+/// пустой ответ
 class V1CloseSandboxAccountResponse {
   const V1CloseSandboxAccountResponse();
 
@@ -5520,6 +6228,8 @@ class V1CloseSandboxAccountResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные о стране.
 class V1CountryResponse {
   const V1CountryResponse({
     this.alfaTwo,
@@ -5535,12 +6245,20 @@ class V1CountryResponse {
   Map<String, dynamic> toJson() => _$V1CountryResponseToJson(this);
 
   @JsonKey(name: 'alfaTwo')
+
+  /// Двухбуквенный код страны.
   final String? alfaTwo;
   @JsonKey(name: 'alfaThree')
+
+  /// Трехбуквенный код страны.
   final String? alfaThree;
   @JsonKey(name: 'name')
+
+  /// Наименование страны.
   final String? name;
   @JsonKey(name: 'nameBrief')
+
+  /// Краткое наименование страны.
   final String? nameBrief;
   static const fromJsonFactory = _$V1CountryResponseFromJson;
 
@@ -5572,6 +6290,8 @@ extension $V1CountryResponseExtension on V1CountryResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Объект передачи информации о купоне облигации.
 class V1Coupon {
   const V1Coupon({
     this.figi,
@@ -5592,12 +6312,20 @@ class V1Coupon {
   Map<String, dynamic> toJson() => _$V1CouponToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'couponDate')
+
+  /// Дата выплаты купона.
   final DateTime? couponDate;
   @JsonKey(name: 'couponNumber')
+
+  /// Номер купона.
   final String? couponNumber;
   @JsonKey(name: 'fixDate')
+
+  /// Дата фиксации реестра для выплаты купона — опционально.
   final DateTime? fixDate;
   @JsonKey(name: 'payOneBond')
   final V1MoneyValue? payOneBond;
@@ -5608,10 +6336,16 @@ class V1Coupon {
   )
   final enums.V1CouponType? couponType;
   @JsonKey(name: 'couponStartDate')
+
+  /// Начало купонного периода.
   final DateTime? couponStartDate;
   @JsonKey(name: 'couponEndDate')
+
+  /// Окончание купонного периода.
   final DateTime? couponEndDate;
   @JsonKey(name: 'couponPeriod')
+
+  /// Купонный период в днях.
   final int? couponPeriod;
   static const fromJsonFactory = _$V1CouponFromJson;
 
@@ -5671,6 +6405,8 @@ extension $V1CouponExtension on V1Coupon {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос создания новой группы избранных инструментов.
 class V1CreateFavoriteGroupRequest {
   const V1CreateFavoriteGroupRequest({
     required this.groupName,
@@ -5685,6 +6421,8 @@ class V1CreateFavoriteGroupRequest {
   Map<String, dynamic> toJson() => _$V1CreateFavoriteGroupRequestToJson(this);
 
   @JsonKey(name: 'groupName')
+
+  /// Название группы, не более 255 символов.
   final String groupName;
   @JsonKey(name: 'groupColor')
   final String groupColor;
@@ -5731,8 +6469,12 @@ class V1CreateFavoriteGroupResponse {
   Map<String, dynamic> toJson() => _$V1CreateFavoriteGroupResponseToJson(this);
 
   @JsonKey(name: 'groupId')
+
+  /// Уникальный идентификатор группы.
   final String? groupId;
   @JsonKey(name: 'groupName')
+
+  /// Название группы.
   final String? groupName;
   static const fromJsonFactory = _$V1CreateFavoriteGroupResponseFromJson;
 
@@ -5757,6 +6499,8 @@ extension $V1CreateFavoriteGroupResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по валютам.
 class V1CurrenciesResponse {
   const V1CurrenciesResponse({
     this.instruments,
@@ -5769,6 +6513,8 @@ class V1CurrenciesResponse {
   Map<String, dynamic> toJson() => _$V1CurrenciesResponseToJson(this);
 
   @JsonKey(name: 'instruments', defaultValue: <V1Currency>[])
+
+  /// Массив валют.
   final List<V1Currency>? instruments;
   static const fromJsonFactory = _$V1CurrenciesResponseFromJson;
 
@@ -5790,6 +6536,8 @@ extension $V1CurrenciesResponseExtension on V1CurrenciesResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Объект передачи информации о валюте.
 class V1Currency {
   const V1Currency({
     this.figi,
@@ -5839,16 +6587,30 @@ class V1Currency {
   Map<String, dynamic> toJson() => _$V1CurrencyToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'isin')
+
+  /// ISIN-идентификатор инструмента.
   final String? isin;
   @JsonKey(name: 'lot')
+
+  /// Лотность инструмента.
+  /// Возможно совершение операций только на количества ценной бумаги, кратные параметру `lot`.
+  /// [Подробнее](./glossary#lot).
   final int? lot;
   @JsonKey(name: 'currency')
+
+  /// Валюта расчетов.
   final String? currency;
   @JsonKey(name: 'klong')
   final V1Quotation? klong;
@@ -5863,16 +6625,26 @@ class V1Currency {
   @JsonKey(name: 'dshortMin')
   final V1Quotation? dshortMin;
   @JsonKey(name: 'shortEnabledFlag')
+
+  /// Признак доступности для операций в шорт.
   final bool? shortEnabledFlag;
   @JsonKey(name: 'name')
+
+  /// Название инструмента.
   final String? name;
   @JsonKey(name: 'exchange')
+
+  /// Tорговая площадка (секция биржи).
   final String? exchange;
   @JsonKey(name: 'nominal')
   final V1MoneyValue? nominal;
   @JsonKey(name: 'countryOfRisk')
+
+  /// Код страны риска — то есть страны, в которой компания ведет основной бизнес.
   final String? countryOfRisk;
   @JsonKey(name: 'countryOfRiskName')
+
+  /// Наименование страны риска — то есть страны, в которой компания ведет основной бизнес.
   final String? countryOfRiskName;
   @JsonKey(
     name: 'tradingStatus',
@@ -5881,18 +6653,32 @@ class V1Currency {
   )
   final enums.V1SecurityTradingStatus? tradingStatus;
   @JsonKey(name: 'otcFlag')
+
+  /// Флаг, используемый ранее для определения внебиржевых инструментов.
+  /// На данный момент не используется для торгуемых через API инструментов.
+  /// Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке.
   final bool? otcFlag;
   @JsonKey(name: 'buyAvailableFlag')
+
+  /// Признак доступности для покупки.
   final bool? buyAvailableFlag;
   @JsonKey(name: 'sellAvailableFlag')
+
+  /// Признак доступности для продажи.
   final bool? sellAvailableFlag;
   @JsonKey(name: 'isoCurrencyName')
+
+  /// Строковый ISO-код валюты.
   final String? isoCurrencyName;
   @JsonKey(name: 'minPriceIncrement')
   final V1Quotation? minPriceIncrement;
   @JsonKey(name: 'apiTradeAvailableFlag')
+
+  /// Параметр указывает на возможность торговать инструментом через API.
   final bool? apiTradeAvailableFlag;
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор инструмента.
   final String? uid;
   @JsonKey(
     name: 'realExchange',
@@ -5901,20 +6687,36 @@ class V1Currency {
   )
   final enums.V1RealExchange? realExchange;
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции инструмента.
   final String? positionUid;
   @JsonKey(name: 'requiredTests', defaultValue: <String>[])
+
+  /// Тесты, которые необходимо пройти клиенту, чтобы совершать сделки по инструменту.
   final List<String>? requiredTests;
   @JsonKey(name: 'forIisFlag')
+
+  /// Признак доступности для ИИС.
   final bool? forIisFlag;
   @JsonKey(name: 'forQualInvestorFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов.
   final bool? forQualInvestorFlag;
   @JsonKey(name: 'weekendFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом по выходным.
   final bool? weekendFlag;
   @JsonKey(name: 'blockedTcaFlag')
+
+  /// Флаг заблокированного ТКС.
   final bool? blockedTcaFlag;
   @JsonKey(name: 'first1minCandleDate')
+
+  /// Дата первой минутной свечи.
   final DateTime? first1minCandleDate;
   @JsonKey(name: 'first1dayCandleDate')
+
+  /// Дата первой дневной свечи.
   final DateTime? first1dayCandleDate;
   @JsonKey(name: 'brand')
   final V1BrandData? brand;
@@ -6122,6 +6924,8 @@ extension $V1CurrencyExtension on V1Currency {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по валюте.
 class V1CurrencyResponse {
   const V1CurrencyResponse({
     this.instrument,
@@ -6168,12 +6972,18 @@ class V1CurrencyTransferRequest {
   Map<String, dynamic> toJson() => _$V1CurrencyTransferRequestToJson(this);
 
   @JsonKey(name: 'fromAccountId')
+
+  /// Номер счета списания.
   final String fromAccountId;
   @JsonKey(name: 'toAccountId')
+
+  /// Номер счета зачисления.
   final String toAccountId;
   @JsonKey(name: 'amount')
   final V1MoneyValue amount;
   @JsonKey(name: 'transactionId')
+
+  /// Идентификатор запроса выставления поручения для целей идемпотентности в формате UUID.
   final String? transactionId;
   static const fromJsonFactory = _$V1CurrencyTransferRequestFromJson;
 
@@ -6239,6 +7049,8 @@ class V1DeleteFavoriteGroupRequest {
   Map<String, dynamic> toJson() => _$V1DeleteFavoriteGroupRequestToJson(this);
 
   @JsonKey(name: 'groupId')
+
+  /// Уникальный идентификатор группы.
   final String groupId;
   static const fromJsonFactory = _$V1DeleteFavoriteGroupRequestFromJson;
 
@@ -6275,6 +7087,8 @@ class V1DeleteFavoriteGroupResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о выплате.
 class V1Dividend {
   const V1Dividend({
     this.dividendNet,
@@ -6298,22 +7112,39 @@ class V1Dividend {
   @JsonKey(name: 'dividendNet')
   final V1MoneyValue? dividendNet;
   @JsonKey(name: 'paymentDate')
+
+  /// Дата фактических выплат по UTC.
   final DateTime? paymentDate;
   @JsonKey(name: 'declaredDate')
+
+  /// Дата объявления дивидендов по UTC.
   final DateTime? declaredDate;
   @JsonKey(name: 'lastBuyDate')
+
+  /// Последний день (включительно) покупки для получения выплаты по UTC.
   final DateTime? lastBuyDate;
   @JsonKey(name: 'dividendType')
+
+  /// Тип выплаты.
+  /// Возможные значения: `Regular Cash` – регулярные выплаты, `Cancelled` – выплата отменена, `Daily Accrual` –
+  /// ежедневное начисление, `Return of Capital` – возврат капитала, прочие типы выплат.
   final String? dividendType;
   @JsonKey(name: 'recordDate')
+
+  /// Дата фиксации реестра по UTC.
   final DateTime? recordDate;
   @JsonKey(name: 'regularity')
+
+  /// Регулярность выплаты.
+  /// Возможные значения: `Annual` – ежегодная, `Semi-Anl` – каждые полгода, прочие типы выплат.
   final String? regularity;
   @JsonKey(name: 'closePrice')
   final V1MoneyValue? closePrice;
   @JsonKey(name: 'yieldValue')
   final V1Quotation? yieldValue;
   @JsonKey(name: 'createdAt')
+
+  /// Дата и время создания записи по UTC.
   final DateTime? createdAt;
   static const fromJsonFactory = _$V1DividendFromJson;
 
@@ -6377,6 +7208,8 @@ extension $V1DividendExtension on V1Dividend {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Отчет «Справка о доходах за пределами РФ».
 class V1DividendsForeignIssuerReport {
   const V1DividendsForeignIssuerReport({
     this.recordDate,
@@ -6400,16 +7233,29 @@ class V1DividendsForeignIssuerReport {
   Map<String, dynamic> toJson() => _$V1DividendsForeignIssuerReportToJson(this);
 
   @JsonKey(name: 'recordDate')
+
+  /// Дата фиксации реестра.
   final DateTime? recordDate;
   @JsonKey(name: 'paymentDate')
+
+  /// Дата выплаты.
   final DateTime? paymentDate;
   @JsonKey(name: 'securityName')
+
+  /// Наименование ценной бумаги.
   final String? securityName;
   @JsonKey(name: 'isin')
+
+  /// ISIN-идентификатор ценной бумаги.
   final String? isin;
   @JsonKey(name: 'issuerCountry')
+
+  /// Страна эмитента.
+  /// Для депозитарных расписок указывается страна эмитента базового актива.
   final String? issuerCountry;
   @JsonKey(name: 'quantity')
+
+  /// Количество ценных бумаг.
   final String? quantity;
   @JsonKey(name: 'dividend')
   final V1Quotation? dividend;
@@ -6422,6 +7268,8 @@ class V1DividendsForeignIssuerReport {
   @JsonKey(name: 'dividendAmount')
   final V1Quotation? dividendAmount;
   @JsonKey(name: 'currency')
+
+  /// Валюта.
   final String? currency;
   static const fromJsonFactory = _$V1DividendsForeignIssuerReportFromJson;
 
@@ -6497,6 +7345,8 @@ extension $V1DividendsForeignIssuerReportExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос редактирования списка избранных инструментов.
 class V1EditFavoritesRequest {
   const V1EditFavoritesRequest({
     required this.instruments,
@@ -6512,6 +7362,8 @@ class V1EditFavoritesRequest {
 
   @JsonKey(
       name: 'instruments', defaultValue: <V1EditFavoritesRequestInstrument>[])
+
+  /// Массив инструментов.
   final List<V1EditFavoritesRequestInstrument> instruments;
   @JsonKey(
     name: 'actionType',
@@ -6520,6 +7372,8 @@ class V1EditFavoritesRequest {
   )
   final enums.V1EditFavoritesActionType actionType;
   @JsonKey(name: 'groupId')
+
+  /// Уникальный идентификатор группы.
   final String? groupId;
   static const fromJsonFactory = _$V1EditFavoritesRequestFromJson;
 
@@ -6551,6 +7405,8 @@ extension $V1EditFavoritesRequestExtension on V1EditFavoritesRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Массив инструментов для редактирования списка избранных инструментов.
 class V1EditFavoritesRequestInstrument {
   const V1EditFavoritesRequestInstrument({
     required this.instrumentId,
@@ -6565,6 +7421,8 @@ class V1EditFavoritesRequestInstrument {
       _$V1EditFavoritesRequestInstrumentToJson(this);
 
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента — `figi` или `instrument_uid`.
   final String instrumentId;
   static const fromJsonFactory = _$V1EditFavoritesRequestInstrumentFromJson;
 
@@ -6588,6 +7446,8 @@ extension $V1EditFavoritesRequestInstrumentExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Результат редактирования списка избранных инструментов.
 class V1EditFavoritesResponse {
   const V1EditFavoritesResponse({
     this.favoriteInstruments,
@@ -6601,8 +7461,12 @@ class V1EditFavoritesResponse {
   Map<String, dynamic> toJson() => _$V1EditFavoritesResponseToJson(this);
 
   @JsonKey(name: 'favoriteInstruments', defaultValue: <V1FavoriteInstrument>[])
+
+  /// Массив инструментов.
   final List<V1FavoriteInstrument>? favoriteInstruments;
   @JsonKey(name: 'groupId')
+
+  /// Уникальный идентификатор группы.
   final String? groupId;
   static const fromJsonFactory = _$V1EditFavoritesResponseFromJson;
 
@@ -6643,8 +7507,12 @@ class V1ErrorDetail {
   Map<String, dynamic> toJson() => _$V1ErrorDetailToJson(this);
 
   @JsonKey(name: 'code')
+
+  /// Код ошибки.
   final String? code;
   @JsonKey(name: 'message')
+
+  /// Описание ошибки.
   final String? message;
   static const fromJsonFactory = _$V1ErrorDetailFromJson;
 
@@ -6667,6 +7535,8 @@ extension $V1ErrorDetailExtension on V1ErrorDetail {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Объект передачи информации об инвестиционном фонде.
 class V1Etf {
   const V1Etf({
     this.figi,
@@ -6722,16 +7592,30 @@ class V1Etf {
   Map<String, dynamic> toJson() => _$V1EtfToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'isin')
+
+  /// ISIN-идентификатор инструмента.
   final String? isin;
   @JsonKey(name: 'lot')
+
+  /// Лотность инструмента.
+  /// Возможно совершение операций только на количества ценной бумаги, кратные параметру `lot`.
+  /// [Подробнее](./glossary#lot).
   final int? lot;
   @JsonKey(name: 'currency')
+
+  /// Валюта расчетов.
   final String? currency;
   @JsonKey(name: 'klong')
   final V1Quotation? klong;
@@ -6746,26 +7630,47 @@ class V1Etf {
   @JsonKey(name: 'dshortMin')
   final V1Quotation? dshortMin;
   @JsonKey(name: 'shortEnabledFlag')
+
+  /// Признак доступности для операций в шорт.
   final bool? shortEnabledFlag;
   @JsonKey(name: 'name')
+
+  /// Название инструмента.
   final String? name;
   @JsonKey(name: 'exchange')
+
+  /// Tорговая площадка (секция биржи).
   final String? exchange;
   @JsonKey(name: 'fixedCommission')
   final V1Quotation? fixedCommission;
   @JsonKey(name: 'focusType')
+
+  /// Возможные значения: <br/>**equity** — акции;<br/>**fixed_income** — облигации;<br/>**mixed_allocation** —
+  /// смешанный;<br/>**money_market** — денежный рынок;<br/>**real_estate** — недвижимость;<br/>**commodity** —
+  /// товары;<br/>**specialty** — специальный;<br/>**private_equity** — private
+  /// equity;<br/>**alternative_investment** — альтернативные инвестиции.
   final String? focusType;
   @JsonKey(name: 'releasedDate')
+
+  /// Дата выпуска по UTC.
   final DateTime? releasedDate;
   @JsonKey(name: 'numShares')
   final V1Quotation? numShares;
   @JsonKey(name: 'countryOfRisk')
+
+  /// Код страны риска — то есть страны, в которой компания ведет основной бизнес.
   final String? countryOfRisk;
   @JsonKey(name: 'countryOfRiskName')
+
+  /// Наименование страны риска — то есть страны, в которой компания ведет основной бизнес.
   final String? countryOfRiskName;
   @JsonKey(name: 'sector')
+
+  /// Сектор экономики.
   final String? sector;
   @JsonKey(name: 'rebalancingFreq')
+
+  /// Частота ребалансировки.
   final String? rebalancingFreq;
   @JsonKey(
     name: 'tradingStatus',
@@ -6774,16 +7679,28 @@ class V1Etf {
   )
   final enums.V1SecurityTradingStatus? tradingStatus;
   @JsonKey(name: 'otcFlag')
+
+  /// Флаг, используемый ранее для определения внебиржевых инструментов.
+  /// На данный момент не используется для торгуемых через API инструментов.
+  /// Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке.
   final bool? otcFlag;
   @JsonKey(name: 'buyAvailableFlag')
+
+  /// Признак доступности для покупки.
   final bool? buyAvailableFlag;
   @JsonKey(name: 'sellAvailableFlag')
+
+  /// Признак доступности для продажи.
   final bool? sellAvailableFlag;
   @JsonKey(name: 'minPriceIncrement')
   final V1Quotation? minPriceIncrement;
   @JsonKey(name: 'apiTradeAvailableFlag')
+
+  /// Параметр указывает на возможность торговать инструментом через API.
   final bool? apiTradeAvailableFlag;
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор инструмента.
   final String? uid;
   @JsonKey(
     name: 'realExchange',
@@ -6792,8 +7709,12 @@ class V1Etf {
   )
   final enums.V1RealExchange? realExchange;
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции инструмента.
   final String? positionUid;
   @JsonKey(name: 'assetUid')
+
+  /// Уникальный идентификатор актива.
   final String? assetUid;
   @JsonKey(
     name: 'instrumentExchange',
@@ -6802,20 +7723,36 @@ class V1Etf {
   )
   final enums.V1InstrumentExchangeType? instrumentExchange;
   @JsonKey(name: 'requiredTests', defaultValue: <String>[])
+
+  /// Тесты, которые необходимо пройти клиенту, чтобы совершать сделки по инструменту.
   final List<String>? requiredTests;
   @JsonKey(name: 'forIisFlag')
+
+  /// Признак доступности для ИИС.
   final bool? forIisFlag;
   @JsonKey(name: 'forQualInvestorFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов.
   final bool? forQualInvestorFlag;
   @JsonKey(name: 'weekendFlag')
+
+  /// ФлагФлаг, отображающий доступность торговли инструментом по выходным.
   final bool? weekendFlag;
   @JsonKey(name: 'blockedTcaFlag')
+
+  /// Флаг заблокированного ТКС.
   final bool? blockedTcaFlag;
   @JsonKey(name: 'liquidityFlag')
+
+  /// Флаг достаточной ликвидности.
   final bool? liquidityFlag;
   @JsonKey(name: 'first1minCandleDate')
+
+  /// Дата первой минутной свечи.
   final DateTime? first1minCandleDate;
   @JsonKey(name: 'first1dayCandleDate')
+
+  /// Дата первой дневной свечи.
   final DateTime? first1dayCandleDate;
   @JsonKey(name: 'brand')
   final V1BrandData? brand;
@@ -7057,6 +7994,8 @@ extension $V1EtfExtension on V1Etf {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по фонду.
 class V1EtfResponse {
   const V1EtfResponse({
     this.instrument,
@@ -7088,6 +8027,8 @@ extension $V1EtfResponseExtension on V1EtfResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по фондам.
 class V1EtfsResponse {
   const V1EtfsResponse({
     this.instruments,
@@ -7100,6 +8041,8 @@ class V1EtfsResponse {
   Map<String, dynamic> toJson() => _$V1EtfsResponseToJson(this);
 
   @JsonKey(name: 'instruments', defaultValue: <V1Etf>[])
+
+  /// Массив фондов.
   final List<V1Etf>? instruments;
   static const fromJsonFactory = _$V1EtfsResponseFromJson;
 
@@ -7120,6 +8063,8 @@ extension $V1EtfsResponseExtension on V1EtfsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Массив избранных инструментов.
 class V1FavoriteInstrument {
   const V1FavoriteInstrument({
     this.figi,
@@ -7141,22 +8086,42 @@ class V1FavoriteInstrument {
   Map<String, dynamic> toJson() => _$V1FavoriteInstrumentToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код инструмента.
   final String? classCode;
   @JsonKey(name: 'isin')
+
+  /// ISIN-идентификатор инструмента.
   final String? isin;
   @JsonKey(name: 'instrumentType')
+
+  /// Тип инструмента.
   final String? instrumentType;
   @JsonKey(name: 'name')
+
+  /// Название инструмента.
   final String? name;
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор инструмента.
   final String? uid;
   @JsonKey(name: 'otcFlag')
+
+  /// Флаг, используемый ранее для определения внебиржевых инструментов.
+  /// На данный момент не используется для торгуемых через API инструментов.
+  /// Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке.
   final bool? otcFlag;
   @JsonKey(name: 'apiTradeAvailableFlag')
+
+  /// Возможность торговать инструментом через API.
   final bool? apiTradeAvailableFlag;
   @JsonKey(
     name: 'instrumentKind',
@@ -7228,6 +8193,8 @@ extension $V1FavoriteInstrumentExtension on V1FavoriteInstrument {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Параметры фильтрации опционов.
 class V1FilterOptionsRequest {
   const V1FilterOptionsRequest({
     this.basicAssetUid,
@@ -7241,8 +8208,13 @@ class V1FilterOptionsRequest {
   Map<String, dynamic> toJson() => _$V1FilterOptionsRequestToJson(this);
 
   @JsonKey(name: 'basicAssetUid')
+
+  /// Идентификатор базового актива опциона.
+  /// Обязательный параметр.
   final String? basicAssetUid;
   @JsonKey(name: 'basicAssetPositionUid')
+
+  /// Идентификатор позиции базового актива опциона.
   final String? basicAssetPositionUid;
   static const fromJsonFactory = _$V1FilterOptionsRequestFromJson;
 
@@ -7272,6 +8244,8 @@ extension $V1FilterOptionsRequestExtension on V1FilterOptionsRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос на поиск инструментов.
 class V1FindInstrumentRequest {
   const V1FindInstrumentRequest({
     required this.query,
@@ -7286,6 +8260,8 @@ class V1FindInstrumentRequest {
   Map<String, dynamic> toJson() => _$V1FindInstrumentRequestToJson(this);
 
   @JsonKey(name: 'query')
+
+  /// Строка поиска.
   final String query;
   @JsonKey(
     name: 'instrumentKind',
@@ -7294,6 +8270,8 @@ class V1FindInstrumentRequest {
   )
   final enums.V1InstrumentType? instrumentKind;
   @JsonKey(name: 'apiTradeAvailableFlag')
+
+  /// Фильтр для отображения только торговых инструментов.
   final bool? apiTradeAvailableFlag;
   static const fromJsonFactory = _$V1FindInstrumentRequestFromJson;
 
@@ -7329,6 +8307,8 @@ extension $V1FindInstrumentRequestExtension on V1FindInstrumentRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Результат поиска инструментов.
 class V1FindInstrumentResponse {
   const V1FindInstrumentResponse({
     this.instruments,
@@ -7341,6 +8321,8 @@ class V1FindInstrumentResponse {
   Map<String, dynamic> toJson() => _$V1FindInstrumentResponseToJson(this);
 
   @JsonKey(name: 'instruments', defaultValue: <V1InstrumentShort>[])
+
+  /// Массив инструментов, удовлетворяющих условиям поиска.
   final List<V1InstrumentShort>? instruments;
   static const fromJsonFactory = _$V1FindInstrumentResponseFromJson;
 
@@ -7363,6 +8345,8 @@ extension $V1FindInstrumentResponseExtension on V1FindInstrumentResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Объект передачи информации о фьючерсе.
 class V1Future {
   const V1Future({
     this.figi,
@@ -7421,14 +8405,26 @@ class V1Future {
   Map<String, dynamic> toJson() => _$V1FutureToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'lot')
+
+  /// Лотность инструмента.
+  /// Возможно совершение операций только на количества ценной бумаги, кратные параметру `lot`.
+  /// [Подробнее](./glossary#lot).
   final int? lot;
   @JsonKey(name: 'currency')
+
+  /// Валюта расчетов.
   final String? currency;
   @JsonKey(name: 'klong')
   final V1Quotation? klong;
@@ -7443,30 +8439,58 @@ class V1Future {
   @JsonKey(name: 'dshortMin')
   final V1Quotation? dshortMin;
   @JsonKey(name: 'shortEnabledFlag')
+
+  /// Признак доступности для операций шорт.
   final bool? shortEnabledFlag;
   @JsonKey(name: 'name')
+
+  /// Название инструмента.
   final String? name;
   @JsonKey(name: 'exchange')
+
+  /// Tорговая площадка (секция биржи).
   final String? exchange;
   @JsonKey(name: 'firstTradeDate')
+
+  /// Дата начала обращения контракта по UTC.
   final DateTime? firstTradeDate;
   @JsonKey(name: 'lastTradeDate')
+
+  /// Дата по UTC, до которой возможно проведение операций с фьючерсом.
   final DateTime? lastTradeDate;
   @JsonKey(name: 'futuresType')
+
+  /// Тип фьючерса.
+  /// Возможные значения: <br/>**physical_delivery** — физические поставки; <br/>**cash_settlement** — денежный
+  /// эквивалент.
   final String? futuresType;
   @JsonKey(name: 'assetType')
+
+  /// Тип актива.
+  /// Возможные значения: <br/>**commodity** — товар; <br/>**currency** — валюта; <br/>**security** — ценная бумага;
+  /// <br/>**index** — индекс.
   final String? assetType;
   @JsonKey(name: 'basicAsset')
+
+  /// Основной актив.
   final String? basicAsset;
   @JsonKey(name: 'basicAssetSize')
   final V1Quotation? basicAssetSize;
   @JsonKey(name: 'countryOfRisk')
+
+  /// Код страны риска — то есть страны, в которой компания ведет основной бизнес.
   final String? countryOfRisk;
   @JsonKey(name: 'countryOfRiskName')
+
+  /// Наименование страны риска — то есть страны, в которой компания ведет основной бизнес.
   final String? countryOfRiskName;
   @JsonKey(name: 'sector')
+
+  /// Сектор экономики.
   final String? sector;
   @JsonKey(name: 'expirationDate')
+
+  /// Дата истечения срока в часов поясе UTC.
   final DateTime? expirationDate;
   @JsonKey(
     name: 'tradingStatus',
@@ -7475,16 +8499,28 @@ class V1Future {
   )
   final enums.V1SecurityTradingStatus? tradingStatus;
   @JsonKey(name: 'otcFlag')
+
+  /// Флаг, используемый ранее для определения внебиржевых инструментов.
+  /// На данный момент не используется для торгуемых через API инструментов.
+  /// Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке.
   final bool? otcFlag;
   @JsonKey(name: 'buyAvailableFlag')
+
+  /// Признак доступности для покупки.
   final bool? buyAvailableFlag;
   @JsonKey(name: 'sellAvailableFlag')
+
+  /// Признак доступности для продажи.
   final bool? sellAvailableFlag;
   @JsonKey(name: 'minPriceIncrement')
   final V1Quotation? minPriceIncrement;
   @JsonKey(name: 'apiTradeAvailableFlag')
+
+  /// Параметр указывает на возможность торговать инструментом через API.
   final bool? apiTradeAvailableFlag;
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор инструмента.
   final String? uid;
   @JsonKey(
     name: 'realExchange',
@@ -7493,22 +8529,40 @@ class V1Future {
   )
   final enums.V1RealExchange? realExchange;
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции инструмента.
   final String? positionUid;
   @JsonKey(name: 'basicAssetPositionUid')
+
+  /// Уникальный идентификатор позиции основного инструмента.
   final String? basicAssetPositionUid;
   @JsonKey(name: 'requiredTests', defaultValue: <String>[])
+
+  /// Тесты, которые необходимо пройти клиенту, чтобы совершать сделки по инструменту.
   final List<String>? requiredTests;
   @JsonKey(name: 'forIisFlag')
+
+  /// Признак доступности для ИИС.
   final bool? forIisFlag;
   @JsonKey(name: 'forQualInvestorFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов.
   final bool? forQualInvestorFlag;
   @JsonKey(name: 'weekendFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом по выходным.
   final bool? weekendFlag;
   @JsonKey(name: 'blockedTcaFlag')
+
+  /// Флаг заблокированного ТКС.
   final bool? blockedTcaFlag;
   @JsonKey(name: 'first1minCandleDate')
+
+  /// Дата первой минутной свечи.
   final DateTime? first1minCandleDate;
   @JsonKey(name: 'first1dayCandleDate')
+
+  /// Дата первой дневной свечи.
   final DateTime? first1dayCandleDate;
   @JsonKey(name: 'initialMarginOnBuy')
   final V1MoneyValue? initialMarginOnBuy;
@@ -7774,6 +8828,8 @@ extension $V1FutureExtension on V1Future {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по фьючерсу.
 class V1FutureResponse {
   const V1FutureResponse({
     this.instrument,
@@ -7805,6 +8861,8 @@ extension $V1FutureResponseExtension on V1FutureResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по фьючерсам.
 class V1FuturesResponse {
   const V1FuturesResponse({
     this.instruments,
@@ -7817,6 +8875,8 @@ class V1FuturesResponse {
   Map<String, dynamic> toJson() => _$V1FuturesResponseToJson(this);
 
   @JsonKey(name: 'instruments', defaultValue: <V1Future>[])
+
+  /// Массив фьючерсов.
   final List<V1Future>? instruments;
   static const fromJsonFactory = _$V1FuturesResponseFromJson;
 
@@ -7851,10 +8911,16 @@ class V1GenerateBrokerReportRequest {
   Map<String, dynamic> toJson() => _$V1GenerateBrokerReportRequestToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счета клиента.
   final String accountId;
   @JsonKey(name: 'from')
+
+  /// Начало периода по UTC.
   final DateTime from;
   @JsonKey(name: 'to')
+
+  /// Окончание периода по UTC.
   final DateTime to;
   static const fromJsonFactory = _$V1GenerateBrokerReportRequestFromJson;
 
@@ -7896,6 +8962,8 @@ class V1GenerateBrokerReportResponse {
   Map<String, dynamic> toJson() => _$V1GenerateBrokerReportResponseToJson(this);
 
   @JsonKey(name: 'taskId')
+
+  /// Идентификатор задачи формирования брокерского отчета.
   final String? taskId;
   static const fromJsonFactory = _$V1GenerateBrokerReportResponseFromJson;
 
@@ -7916,6 +8984,8 @@ extension $V1GenerateBrokerReportResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Объект запроса формирования отчета «Справка о доходах за пределами РФ».
 class V1GenerateDividendsForeignIssuerReportRequest {
   const V1GenerateDividendsForeignIssuerReportRequest({
     required this.accountId,
@@ -7933,10 +9003,18 @@ class V1GenerateDividendsForeignIssuerReportRequest {
       _$V1GenerateDividendsForeignIssuerReportRequestToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счета клиента.
   final String accountId;
   @JsonKey(name: 'from')
+
+  /// Начало периода по UTC.
   final DateTime from;
   @JsonKey(name: 'to')
+
+  /// Окончание периода по UTC.
+  /// Как правило, можно сформировать отчет по дату на несколько дней меньше текущей.
+  /// Начало и окончание периода должны быть в рамках одного календарного года.
   final DateTime to;
   static const fromJsonFactory =
       _$V1GenerateDividendsForeignIssuerReportRequestFromJson;
@@ -7967,6 +9045,8 @@ extension $V1GenerateDividendsForeignIssuerReportRequestExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Объект результата задачи запуска формирования отчета «Справка о доходах за пределами РФ».
 class V1GenerateDividendsForeignIssuerReportResponse {
   const V1GenerateDividendsForeignIssuerReportResponse({
     this.taskId,
@@ -7982,6 +9062,8 @@ class V1GenerateDividendsForeignIssuerReportResponse {
       _$V1GenerateDividendsForeignIssuerReportResponseToJson(this);
 
   @JsonKey(name: 'taskId')
+
+  /// Идентификатор задачи формирования отчета.
   final String? taskId;
   static const fromJsonFactory =
       _$V1GenerateDividendsForeignIssuerReportResponseFromJson;
@@ -8005,6 +9087,8 @@ extension $V1GenerateDividendsForeignIssuerReportResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос получения счетов пользователя.
 class V1GetAccountsRequest {
   const V1GetAccountsRequest({
     this.status,
@@ -8041,6 +9125,8 @@ extension $V1GetAccountsRequestExtension on V1GetAccountsRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Список счетов пользователя.
 class V1GetAccountsResponse {
   const V1GetAccountsResponse({
     this.accounts,
@@ -8053,6 +9139,8 @@ class V1GetAccountsResponse {
   Map<String, dynamic> toJson() => _$V1GetAccountsResponseToJson(this);
 
   @JsonKey(name: 'accounts', defaultValue: <V1Account>[])
+
+  /// Массив счетов клиента.
   final List<V1Account>? accounts;
   static const fromJsonFactory = _$V1GetAccountsResponseFromJson;
 
@@ -8072,6 +9160,8 @@ extension $V1GetAccountsResponseExtension on V1GetAccountsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос НКД по облигации.
 class V1GetAccruedInterestsRequest {
   const V1GetAccruedInterestsRequest({
     required this.from,
@@ -8086,10 +9176,16 @@ class V1GetAccruedInterestsRequest {
   Map<String, dynamic> toJson() => _$V1GetAccruedInterestsRequestToJson(this);
 
   @JsonKey(name: 'from')
+
+  /// Начало запрашиваемого периода по UTC.
   final DateTime from;
   @JsonKey(name: 'to')
+
+  /// Окончание запрашиваемого периода по UTC.
   final DateTime to;
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента — `figi` или `instrument_uid`.
   final String instrumentId;
   static const fromJsonFactory = _$V1GetAccruedInterestsRequestFromJson;
 
@@ -8120,6 +9216,8 @@ extension $V1GetAccruedInterestsRequestExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// НКД облигации.
 class V1GetAccruedInterestsResponse {
   const V1GetAccruedInterestsResponse({
     this.accruedInterests,
@@ -8132,6 +9230,8 @@ class V1GetAccruedInterestsResponse {
   Map<String, dynamic> toJson() => _$V1GetAccruedInterestsResponseToJson(this);
 
   @JsonKey(name: 'accruedInterests', defaultValue: <V1AccruedInterest>[])
+
+  /// Массив операций начисления купонов.
   final List<V1AccruedInterest>? accruedInterests;
   static const fromJsonFactory = _$V1GetAccruedInterestsResponseFromJson;
 
@@ -8169,6 +9269,8 @@ class V1GetAssetFundamentalsRequest {
   Map<String, dynamic> toJson() => _$V1GetAssetFundamentalsRequestToJson(this);
 
   @JsonKey(name: 'assets', defaultValue: <String>[])
+
+  /// Массив идентификаторов активов, не более 100 шт.
   final List<String> assets;
   static const fromJsonFactory = _$V1GetAssetFundamentalsRequestFromJson;
 
@@ -8243,10 +9345,16 @@ class V1GetAssetReportsRequest {
   Map<String, dynamic> toJson() => _$V1GetAssetReportsRequestToJson(this);
 
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента в формате UID.
   final String instrumentId;
   @JsonKey(name: 'from')
+
+  /// Начало запрашиваемого периода по UTC.
   final DateTime? from;
   @JsonKey(name: 'to')
+
+  /// Окончание запрашиваемого периода по UTC.
   final DateTime? to;
   static const fromJsonFactory = _$V1GetAssetReportsRequestFromJson;
 
@@ -8290,6 +9398,8 @@ class V1GetAssetReportsResponse {
   @JsonKey(
       name: 'events',
       defaultValue: <GetAssetReportsResponseGetAssetReportsEvent>[])
+
+  /// Массив событий по облигации.
   final List<GetAssetReportsResponseGetAssetReportsEvent>? events;
   static const fromJsonFactory = _$V1GetAssetReportsResponseFromJson;
 
@@ -8311,6 +9421,8 @@ extension $V1GetAssetReportsResponseExtension on V1GetAssetReportsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос списка банковских счетов пользователя.
 class V1GetBankAccountsRequest {
   const V1GetBankAccountsRequest();
 
@@ -8327,6 +9439,8 @@ class V1GetBankAccountsRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Список банковских счетов пользователя.
 class V1GetBankAccountsResponse {
   const V1GetBankAccountsResponse({
     this.bankAccounts,
@@ -8339,6 +9453,8 @@ class V1GetBankAccountsResponse {
   Map<String, dynamic> toJson() => _$V1GetBankAccountsResponseToJson(this);
 
   @JsonKey(name: 'bankAccounts', defaultValue: <V1BankAccount>[])
+
+  /// Массив банковских счетов.
   final List<V1BankAccount>? bankAccounts;
   static const fromJsonFactory = _$V1GetBankAccountsResponseFromJson;
 
@@ -8361,6 +9477,8 @@ extension $V1GetBankAccountsResponseExtension on V1GetBankAccountsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос купонов по облигации.
 class V1GetBondCouponsRequest {
   const V1GetBondCouponsRequest({
     this.from,
@@ -8375,10 +9493,18 @@ class V1GetBondCouponsRequest {
   Map<String, dynamic> toJson() => _$V1GetBondCouponsRequestToJson(this);
 
   @JsonKey(name: 'from')
+
+  /// Начало запрашиваемого периода по UTC.
+  /// Фильтрация по `coupon_date` — дата выплаты купона.
   final DateTime? from;
   @JsonKey(name: 'to')
+
+  /// Окончание запрашиваемого периода по UTC.
+  /// Фильтрация по `coupon_date` — дата выплаты купона.
   final DateTime? to;
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента — `figi` или `instrument_uid`.
   final String instrumentId;
   static const fromJsonFactory = _$V1GetBondCouponsRequestFromJson;
 
@@ -8408,6 +9534,8 @@ extension $V1GetBondCouponsRequestExtension on V1GetBondCouponsRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Купоны по облигации.
 class V1GetBondCouponsResponse {
   const V1GetBondCouponsResponse({
     this.events,
@@ -8439,6 +9567,8 @@ extension $V1GetBondCouponsResponseExtension on V1GetBondCouponsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// События по облигации.
 class V1GetBondEventsRequest {
   const V1GetBondEventsRequest({
     this.from,
@@ -8454,10 +9584,16 @@ class V1GetBondEventsRequest {
   Map<String, dynamic> toJson() => _$V1GetBondEventsRequestToJson(this);
 
   @JsonKey(name: 'from')
+
+  /// Начало запрашиваемого периода по UTC.
   final DateTime? from;
   @JsonKey(name: 'to')
+
+  /// Окончание запрашиваемого периода по UTC.
   final DateTime? to;
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента — `figi` или `instrument_uid`.
   final String instrumentId;
   @JsonKey(
     name: 'type',
@@ -8499,6 +9635,8 @@ extension $V1GetBondEventsRequestExtension on V1GetBondEventsRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Объект передачи информации о событии облигации.
 class V1GetBondEventsResponse {
   const V1GetBondEventsResponse({
     this.events,
@@ -8532,6 +9670,8 @@ extension $V1GetBondEventsResponseExtension on V1GetBondEventsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос бренда.
 class V1GetBrandRequest {
   const V1GetBrandRequest({
     required this.id,
@@ -8544,6 +9684,8 @@ class V1GetBrandRequest {
   Map<String, dynamic> toJson() => _$V1GetBrandRequestToJson(this);
 
   @JsonKey(name: 'id')
+
+  /// UID-идентификатор бренда.
   final String id;
   static const fromJsonFactory = _$V1GetBrandRequestFromJson;
 
@@ -8562,6 +9704,8 @@ extension $V1GetBrandRequestExtension on V1GetBrandRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос списка брендов.
 class V1GetBrandsRequest {
   const V1GetBrandsRequest({
     this.paging,
@@ -8593,6 +9737,8 @@ extension $V1GetBrandsRequestExtension on V1GetBrandsRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Список брендов.
 class V1GetBrandsResponse {
   const V1GetBrandsResponse({
     this.brands,
@@ -8606,6 +9752,8 @@ class V1GetBrandsResponse {
   Map<String, dynamic> toJson() => _$V1GetBrandsResponseToJson(this);
 
   @JsonKey(name: 'brands', defaultValue: <V1Brand>[])
+
+  /// Массив брендов.
   final List<V1Brand>? brands;
   @JsonKey(name: 'paging')
   final V1PageResponse? paging;
@@ -8644,8 +9792,13 @@ class V1GetBrokerReportRequest {
   Map<String, dynamic> toJson() => _$V1GetBrokerReportRequestToJson(this);
 
   @JsonKey(name: 'taskId')
+
+  /// Идентификатор задачи формирования брокерского отчета.
   final String taskId;
   @JsonKey(name: 'page')
+
+  /// Номер страницы отчета, начинается с 1.
+  /// Значение по умолчанию — 0.
   final int? page;
   static const fromJsonFactory = _$V1GetBrokerReportRequestFromJson;
 
@@ -8685,10 +9838,16 @@ class V1GetBrokerReportResponse {
   @JsonKey(name: 'brokerReport', defaultValue: <V1BrokerReport>[])
   final List<V1BrokerReport>? brokerReport;
   @JsonKey(name: 'itemsCount')
+
+  /// Количество записей в отчете.
   final int? itemsCount;
   @JsonKey(name: 'pagesCount')
+
+  /// Количество страниц с данными отчета, начинается с 0.
   final int? pagesCount;
   @JsonKey(name: 'page')
+
+  /// Текущая страница, начинается с 0.
   final int? page;
   static const fromJsonFactory = _$V1GetBrokerReportResponseFromJson;
 
@@ -8724,6 +9883,8 @@ extension $V1GetBrokerReportResponseExtension on V1GetBrokerReportResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос исторических свечей.
 class V1GetCandlesRequest {
   const V1GetCandlesRequest({
     required this.from,
@@ -8741,8 +9902,12 @@ class V1GetCandlesRequest {
   Map<String, dynamic> toJson() => _$V1GetCandlesRequestToJson(this);
 
   @JsonKey(name: 'from')
+
+  /// Начало запрашиваемого периода по UTC.
   final DateTime from;
   @JsonKey(name: 'to')
+
+  /// Окончание запрашиваемого периода по UTC.
   final DateTime to;
   @JsonKey(
     name: 'interval',
@@ -8751,6 +9916,9 @@ class V1GetCandlesRequest {
   )
   final enums.V1CandleInterval interval;
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента.
+  /// Принимает значение `figi`, `instrument_uid` или `ticker + '_' + class_code`.
   final String? instrumentId;
   @JsonKey(
     name: 'candleSourceType',
@@ -8759,6 +9927,8 @@ class V1GetCandlesRequest {
   )
   final enums.V1GetCandlesRequestCandleSource? candleSourceType;
   @JsonKey(name: 'limit')
+
+  /// Максимальное количество свечей в ответе.
   final int? limit;
   static const fromJsonFactory = _$V1GetCandlesRequestFromJson;
 
@@ -8804,6 +9974,8 @@ extension $V1GetCandlesRequestExtension on V1GetCandlesRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Список свечей.
 class V1GetCandlesResponse {
   const V1GetCandlesResponse({
     this.candles,
@@ -8816,6 +9988,8 @@ class V1GetCandlesResponse {
   Map<String, dynamic> toJson() => _$V1GetCandlesResponseToJson(this);
 
   @JsonKey(name: 'candles', defaultValue: <V1HistoricCandle>[])
+
+  /// Массив свечей.
   final List<V1HistoricCandle>? candles;
   static const fromJsonFactory = _$V1GetCandlesResponseFromJson;
 
@@ -8836,6 +10010,8 @@ extension $V1GetCandlesResponseExtension on V1GetCandlesResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос цен закрытия торговой сессии по инструментам.
 class V1GetClosePricesRequest {
   const V1GetClosePricesRequest({
     required this.instruments,
@@ -8849,6 +10025,8 @@ class V1GetClosePricesRequest {
   Map<String, dynamic> toJson() => _$V1GetClosePricesRequestToJson(this);
 
   @JsonKey(name: 'instruments', defaultValue: <V1InstrumentClosePriceRequest>[])
+
+  /// Массив по инструментам.
   final List<V1InstrumentClosePriceRequest> instruments;
   @JsonKey(
     name: 'instrumentStatus',
@@ -8884,6 +10062,8 @@ extension $V1GetClosePricesRequestExtension on V1GetClosePricesRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Цены закрытия торговой сессии по инструментам.
 class V1GetClosePricesResponse {
   const V1GetClosePricesResponse({
     this.closePrices,
@@ -8897,6 +10077,8 @@ class V1GetClosePricesResponse {
 
   @JsonKey(
       name: 'closePrices', defaultValue: <V1InstrumentClosePriceResponse>[])
+
+  /// Массив по инструментам.
   final List<V1InstrumentClosePriceResponse>? closePrices;
   static const fromJsonFactory = _$V1GetClosePricesResponseFromJson;
 
@@ -8968,6 +10150,8 @@ class V1GetConsensusForecastsResponse {
   @JsonKey(
       name: 'items',
       defaultValue: <GetConsensusForecastsResponseConsensusForecastsItem>[])
+
+  /// Массив прогнозов.
   final List<GetConsensusForecastsResponseConsensusForecastsItem>? items;
   @JsonKey(name: 'page')
   final V1PageResponse? page;
@@ -8997,6 +10181,8 @@ extension $V1GetConsensusForecastsResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос справочника стран.
 class V1GetCountriesRequest {
   const V1GetCountriesRequest();
 
@@ -9013,6 +10199,8 @@ class V1GetCountriesRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Справочник стран.
 class V1GetCountriesResponse {
   const V1GetCountriesResponse({
     this.countries,
@@ -9025,6 +10213,8 @@ class V1GetCountriesResponse {
   Map<String, dynamic> toJson() => _$V1GetCountriesResponseToJson(this);
 
   @JsonKey(name: 'countries', defaultValue: <V1CountryResponse>[])
+
+  /// Массив стран.
   final List<V1CountryResponse>? countries;
   static const fromJsonFactory = _$V1GetCountriesResponseFromJson;
 
@@ -9045,6 +10235,8 @@ extension $V1GetCountriesResponseExtension on V1GetCountriesResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Объект запроса сформированного отчета «Справка о доходах за пределами РФ».
 class V1GetDividendsForeignIssuerReportRequest {
   const V1GetDividendsForeignIssuerReportRequest({
     required this.taskId,
@@ -9060,8 +10252,12 @@ class V1GetDividendsForeignIssuerReportRequest {
       _$V1GetDividendsForeignIssuerReportRequestToJson(this);
 
   @JsonKey(name: 'taskId')
+
+  /// Идентификатор задачи формирования отчета.
   final String taskId;
   @JsonKey(name: 'page')
+
+  /// Номер страницы отчета (начинается с 0), значение по умолчанию: 0.
   final int? page;
   static const fromJsonFactory =
       _$V1GetDividendsForeignIssuerReportRequestFromJson;
@@ -9109,10 +10305,16 @@ class V1GetDividendsForeignIssuerReportResponse {
       defaultValue: <V1DividendsForeignIssuerReport>[])
   final List<V1DividendsForeignIssuerReport>? dividendsForeignIssuerReport;
   @JsonKey(name: 'itemsCount')
+
+  /// Количество записей в отчете.
   final int? itemsCount;
   @JsonKey(name: 'pagesCount')
+
+  /// Количество страниц с данными отчета, начинается с 0.
   final int? pagesCount;
   @JsonKey(name: 'page')
+
+  /// Текущая страница, начинается с 0.
   final int? page;
   static const fromJsonFactory =
       _$V1GetDividendsForeignIssuerReportResponseFromJson;
@@ -9263,6 +10465,8 @@ extension $V1GetDividendsForeignIssuerResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос дивидендов.
 class V1GetDividendsRequest {
   const V1GetDividendsRequest({
     this.from,
@@ -9277,10 +10481,18 @@ class V1GetDividendsRequest {
   Map<String, dynamic> toJson() => _$V1GetDividendsRequestToJson(this);
 
   @JsonKey(name: 'from')
+
+  /// Начало запрашиваемого периода по UTC.
+  /// Фильтрация происходит по параметру `record_date` — дата фиксации реестра.
   final DateTime? from;
   @JsonKey(name: 'to')
+
+  /// Окончание запрашиваемого периода по UTC.
+  /// Фильтрация происходит по параметру `record_date` — дата фиксации реестра.
   final DateTime? to;
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента — `figi` или `instrument_uid`.
   final String instrumentId;
   static const fromJsonFactory = _$V1GetDividendsRequestFromJson;
 
@@ -9310,6 +10522,8 @@ extension $V1GetDividendsRequestExtension on V1GetDividendsRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Дивиденды.
 class V1GetDividendsResponse {
   const V1GetDividendsResponse({
     this.dividends,
@@ -9355,8 +10569,15 @@ class V1GetFavoriteGroupsRequest {
   Map<String, dynamic> toJson() => _$V1GetFavoriteGroupsRequestToJson(this);
 
   @JsonKey(name: 'instrumentId', defaultValue: <String>[])
+
+  /// Массив идентификаторов инструментов.
+  /// Принимает значение `figi` или `instrument_uid`.
+  /// Если в группе будет хотя бы один из инструментов массива, то в ответе у группы вернется признак
+  /// `containsInstrument = true`.
   final List<String>? instrumentId;
   @JsonKey(name: 'excludedGroupId', defaultValue: <String>[])
+
+  /// Массив идентификаторов групп, которые необходимо исключить из ответа.
   final List<String>? excludedGroupId;
   static const fromJsonFactory = _$V1GetFavoriteGroupsRequestFromJson;
 
@@ -9398,6 +10619,8 @@ class V1GetFavoriteGroupsResponse {
 
   @JsonKey(
       name: 'groups', defaultValue: <GetFavoriteGroupsResponseFavoriteGroup>[])
+
+  /// Массив групп избранных списков инструментов.
   final List<GetFavoriteGroupsResponseFavoriteGroup>? groups;
   static const fromJsonFactory = _$V1GetFavoriteGroupsResponseFromJson;
 
@@ -9419,6 +10642,8 @@ extension $V1GetFavoriteGroupsResponseExtension on V1GetFavoriteGroupsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос списка избранных инструментов, входные параметры не требуются.
 class V1GetFavoritesRequest {
   const V1GetFavoritesRequest({
     this.groupId,
@@ -9431,6 +10656,8 @@ class V1GetFavoritesRequest {
   Map<String, dynamic> toJson() => _$V1GetFavoritesRequestToJson(this);
 
   @JsonKey(name: 'groupId')
+
+  /// Уникальный идентификатор группы.
   final String? groupId;
   static const fromJsonFactory = _$V1GetFavoritesRequestFromJson;
 
@@ -9450,6 +10677,8 @@ extension $V1GetFavoritesRequestExtension on V1GetFavoritesRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// В ответ передается список избранных инструментов в качестве массива.
 class V1GetFavoritesResponse {
   const V1GetFavoritesResponse({
     this.favoriteInstruments,
@@ -9463,8 +10692,12 @@ class V1GetFavoritesResponse {
   Map<String, dynamic> toJson() => _$V1GetFavoritesResponseToJson(this);
 
   @JsonKey(name: 'favoriteInstruments', defaultValue: <V1FavoriteInstrument>[])
+
+  /// Массив инструментов.
   final List<V1FavoriteInstrument>? favoriteInstruments;
   @JsonKey(name: 'groupId')
+
+  /// Уникальный идентификатор группы.
   final String? groupId;
   static const fromJsonFactory = _$V1GetFavoritesResponseFromJson;
 
@@ -9492,6 +10725,8 @@ extension $V1GetFavoritesResponseExtension on V1GetFavoritesResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос прогнозов инвестдомов.
 class V1GetForecastRequest {
   const V1GetForecastRequest({
     this.instrumentId,
@@ -9504,6 +10739,8 @@ class V1GetForecastRequest {
   Map<String, dynamic> toJson() => _$V1GetForecastRequestToJson(this);
 
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента.
   final String? instrumentId;
   static const fromJsonFactory = _$V1GetForecastRequestFromJson;
 
@@ -9525,6 +10762,8 @@ extension $V1GetForecastRequestExtension on V1GetForecastRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Прогнозы инвестдомов по инструменту.
 class V1GetForecastResponse {
   const V1GetForecastResponse({
     this.targets,
@@ -9538,6 +10777,8 @@ class V1GetForecastResponse {
   Map<String, dynamic> toJson() => _$V1GetForecastResponseToJson(this);
 
   @JsonKey(name: 'targets', defaultValue: <GetForecastResponseTargetItem>[])
+
+  /// Массив прогнозов.
   final List<GetForecastResponseTargetItem>? targets;
   @JsonKey(name: 'consensus')
   final GetForecastResponseConsensusItem? consensus;
@@ -9578,6 +10819,8 @@ class V1GetFuturesMarginRequest {
   Map<String, dynamic> toJson() => _$V1GetFuturesMarginRequestToJson(this);
 
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента — `figi` или `instrument_uid`.
   final String instrumentId;
   static const fromJsonFactory = _$V1GetFuturesMarginRequestFromJson;
 
@@ -9663,6 +10906,8 @@ extension $V1GetFuturesMarginResponseExtension on V1GetFuturesMarginResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос информации о пользователе.
 class V1GetInfoRequest {
   const V1GetInfoRequest();
 
@@ -9679,6 +10924,8 @@ class V1GetInfoRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о пользователе.
 class V1GetInfoResponse {
   const V1GetInfoResponse({
     this.premStatus,
@@ -9696,16 +10943,29 @@ class V1GetInfoResponse {
   Map<String, dynamic> toJson() => _$V1GetInfoResponseToJson(this);
 
   @JsonKey(name: 'premStatus')
+
+  /// Признак премиум клиента.
   final bool? premStatus;
   @JsonKey(name: 'qualStatus')
+
+  /// Признак квалифицированного инвестора.
   final bool? qualStatus;
   @JsonKey(name: 'qualifiedForWorkWith', defaultValue: <String>[])
+
+  /// Набор требующих тестирования инструментов и возможностей, с которыми может работать пользователь.
+  /// [Подробнее](/invest/services/accounts/faq_users).
   final List<String>? qualifiedForWorkWith;
   @JsonKey(name: 'tariff')
+
+  /// Наименование тарифа пользователя.
   final String? tariff;
   @JsonKey(name: 'userId')
+
+  /// Идентификатор пользователя.
   final String? userId;
   @JsonKey(name: 'riskLevelCode')
+
+  /// Категория риска.
   final String? riskLevelCode;
   static const fromJsonFactory = _$V1GetInfoResponseFromJson;
 
@@ -9813,8 +11073,12 @@ class V1GetInsiderDealsResponse {
   @JsonKey(
       name: 'insiderDeals',
       defaultValue: <GetInsiderDealsResponseInsiderDeal>[])
+
+  /// Массив сделок.
   final List<GetInsiderDealsResponseInsiderDeal>? insiderDeals;
   @JsonKey(name: 'nextCursor')
+
+  /// Курсор для получения следующей страницы.
   final String? nextCursor;
   static const fromJsonFactory = _$V1GetInsiderDealsResponseFromJson;
 
@@ -9842,6 +11106,8 @@ extension $V1GetInsiderDealsResponseExtension on V1GetInsiderDealsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос получения цен последних сделок.
 class V1GetLastPricesRequest {
   const V1GetLastPricesRequest({
     this.instrumentId,
@@ -9856,6 +11122,9 @@ class V1GetLastPricesRequest {
   Map<String, dynamic> toJson() => _$V1GetLastPricesRequestToJson(this);
 
   @JsonKey(name: 'instrumentId', defaultValue: <String>[])
+
+  /// Массив идентификаторов инструмента.
+  /// Принимает значения `figi`, `instrument_uid` или `ticker + '_' + class_code`.
   final List<String>? instrumentId;
   @JsonKey(
     name: 'lastPriceType',
@@ -9902,6 +11171,8 @@ extension $V1GetLastPricesRequestExtension on V1GetLastPricesRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Список цен последних сделок.
 class V1GetLastPricesResponse {
   const V1GetLastPricesResponse({
     this.lastPrices,
@@ -9914,6 +11185,8 @@ class V1GetLastPricesResponse {
   Map<String, dynamic> toJson() => _$V1GetLastPricesResponseToJson(this);
 
   @JsonKey(name: 'lastPrices', defaultValue: <V1LastPrice>[])
+
+  /// Массив цен последних сделок.
   final List<V1LastPrice>? lastPrices;
   static const fromJsonFactory = _$V1GetLastPricesResponseFromJson;
 
@@ -9934,6 +11207,8 @@ extension $V1GetLastPricesResponseExtension on V1GetLastPricesResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос обезличенных сделок за последний час.
 class V1GetLastTradesRequest {
   const V1GetLastTradesRequest({
     required this.from,
@@ -9949,8 +11224,12 @@ class V1GetLastTradesRequest {
   Map<String, dynamic> toJson() => _$V1GetLastTradesRequestToJson(this);
 
   @JsonKey(name: 'from')
+
+  /// Начало запрашиваемого периода по UTC.
   final DateTime from;
   @JsonKey(name: 'to')
+
+  /// Окончание запрашиваемого периода по UTC.
   final DateTime to;
   @JsonKey(name: 'instrumentId')
   final String? instrumentId;
@@ -9995,6 +11274,8 @@ extension $V1GetLastTradesRequestExtension on V1GetLastTradesRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Обезличенных сделок за последний час.
 class V1GetLastTradesResponse {
   const V1GetLastTradesResponse({
     this.trades,
@@ -10007,6 +11288,8 @@ class V1GetLastTradesResponse {
   Map<String, dynamic> toJson() => _$V1GetLastTradesResponseToJson(this);
 
   @JsonKey(name: 'trades', defaultValue: <V1Trade>[])
+
+  /// Массив сделок.
   final List<V1Trade>? trades;
   static const fromJsonFactory = _$V1GetLastTradesResponseFromJson;
 
@@ -10026,6 +11309,8 @@ extension $V1GetLastTradesResponseExtension on V1GetLastTradesResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос маржинальных показателей по счeту.
 class V1GetMarginAttributesRequest {
   const V1GetMarginAttributesRequest({
     required this.accountId,
@@ -10038,6 +11323,8 @@ class V1GetMarginAttributesRequest {
   Map<String, dynamic> toJson() => _$V1GetMarginAttributesRequestToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счeта пользователя.
   final String accountId;
   static const fromJsonFactory = _$V1GetMarginAttributesRequestFromJson;
 
@@ -10058,6 +11345,8 @@ extension $V1GetMarginAttributesRequestExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Маржинальные показатели по счeту.
 class V1GetMarginAttributesResponse {
   const V1GetMarginAttributesResponse({
     this.liquidPortfolio,
@@ -10153,12 +11442,17 @@ class V1GetMarketValuesRequest {
   Map<String, dynamic> toJson() => _$V1GetMarketValuesRequestToJson(this);
 
   @JsonKey(name: 'instrumentId', defaultValue: <String>[])
+
+  /// Массив идентификаторов инструментов.
+  /// Принимает значения `figi`, `instrument_uid` или `ticker + '_' + class_code`.
   final List<String>? instrumentId;
   @JsonKey(
     name: 'values',
     toJson: v1MarketValueTypeListToJson,
     fromJson: v1MarketValueTypeListFromJson,
   )
+
+  /// Массив запрашиваемых параметров.
   final List<enums.V1MarketValueType>? values;
   static const fromJsonFactory = _$V1GetMarketValuesRequestFromJson;
 
@@ -10197,6 +11491,8 @@ class V1GetMarketValuesResponse {
   Map<String, dynamic> toJson() => _$V1GetMarketValuesResponseToJson(this);
 
   @JsonKey(name: 'instruments', defaultValue: <V1MarketValueInstrument>[])
+
+  /// Массив значений параметров.
   final List<V1MarketValueInstrument>? instruments;
   static const fromJsonFactory = _$V1GetMarketValuesResponseFromJson;
 
@@ -10220,6 +11516,10 @@ extension $V1GetMarketValuesResponseExtension on V1GetMarketValuesResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос на расчет количества доступных для покупки/продажи лотов.
+/// Если не указывать цену инструмента, то расчет произведется по текущум ценам в стакане: по лучшему предложению
+/// для покупки и по лучшему спросу для продажи.
 class V1GetMaxLotsRequest {
   const V1GetMaxLotsRequest({
     required this.accountId,
@@ -10333,6 +11633,10 @@ extension $V1GetMaxLotsResponseExtension on V1GetMaxLotsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос активных подписок.
+/// Возвращает по одному сообщению на каждый тип активных подписок — `SubscribeLastPriceResponse`,
+/// `SubscribeInfoResponse`, `SubscribeTradesResponse`, `SubscribeOrderBookResponse`, `SubscribeCandlesResponse`.
 class V1GetMySubscriptions {
   const V1GetMySubscriptions();
 
@@ -10349,6 +11653,8 @@ class V1GetMySubscriptions {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос списка операций по счету с пагинацией.
 class V1GetOperationsByCursorRequest {
   const V1GetOperationsByCursorRequest({
     required this.accountId,
@@ -10371,22 +11677,39 @@ class V1GetOperationsByCursorRequest {
   Map<String, dynamic> toJson() => _$V1GetOperationsByCursorRequestToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счета клиента, обязательный параметр.
+  /// Остальные параметры опциональны.
   final String accountId;
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента — FIGI или UID инструмента.
   final String? instrumentId;
   @JsonKey(name: 'from')
+
+  /// Начало периода по UTC.
   final DateTime? from;
   @JsonKey(name: 'to')
+
+  /// Окончание периода по UTC.
   final DateTime? to;
   @JsonKey(name: 'cursor')
+
+  /// Идентификатор элемента, с которого начать формировать ответ.
   final String? cursor;
   @JsonKey(name: 'limit')
+
+  /// Лимит количества операций.
+  /// По умолчанию — `100`, максимальное значение — `1000`.
   final int? limit;
   @JsonKey(
     name: 'operationTypes',
     toJson: v1OperationTypeListToJson,
     fromJson: v1OperationTypeListFromJson,
   )
+
+  /// Тип операции.
+  /// Принимает значение из списка `OperationType`.
   final List<enums.V1OperationType>? operationTypes;
   @JsonKey(
     name: 'state',
@@ -10395,10 +11718,17 @@ class V1GetOperationsByCursorRequest {
   )
   final enums.V1OperationState? state;
   @JsonKey(name: 'withoutCommissions')
+
+  /// Флаг возврата комиссии.
+  /// По умолчанию — `false`.
   final bool? withoutCommissions;
   @JsonKey(name: 'withoutTrades')
+
+  /// Флаг получения ответа без массива сделок.
   final bool? withoutTrades;
   @JsonKey(name: 'withoutOvernights')
+
+  /// Флаг показа overnight операций.
   final bool? withoutOvernights;
   static const fromJsonFactory = _$V1GetOperationsByCursorRequestFromJson;
 
@@ -10470,6 +11800,8 @@ extension $V1GetOperationsByCursorRequestExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Список операций по счету с пагинацией.
 class V1GetOperationsByCursorResponse {
   const V1GetOperationsByCursorResponse({
     this.hasNext,
@@ -10485,10 +11817,16 @@ class V1GetOperationsByCursorResponse {
       _$V1GetOperationsByCursorResponseToJson(this);
 
   @JsonKey(name: 'hasNext')
+
+  /// Признак, есть ли следующий элемент.
   final bool? hasNext;
   @JsonKey(name: 'nextCursor')
+
+  /// Следующий курсор.
   final String? nextCursor;
   @JsonKey(name: 'items', defaultValue: <V1OperationItem>[])
+
+  /// Список операций.
   final List<V1OperationItem>? items;
   static const fromJsonFactory = _$V1GetOperationsByCursorResponseFromJson;
 
@@ -10518,6 +11856,8 @@ extension $V1GetOperationsByCursorResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос стакана.
 class V1GetOrderBookRequest {
   const V1GetOrderBookRequest({
     required this.depth,
@@ -10531,8 +11871,13 @@ class V1GetOrderBookRequest {
   Map<String, dynamic> toJson() => _$V1GetOrderBookRequestToJson(this);
 
   @JsonKey(name: 'depth')
+
+  /// Глубина стакана.
   final int depth;
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента.
+  /// Принимает значение `figi`, `instrument_uid` или `ticker + '_' + class_code`.
   final String? instrumentId;
   static const fromJsonFactory = _$V1GetOrderBookRequestFromJson;
 
@@ -10557,6 +11902,8 @@ extension $V1GetOrderBookRequestExtension on V1GetOrderBookRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о стакане.
 class V1GetOrderBookResponse {
   const V1GetOrderBookResponse({
     this.figi,
@@ -10582,12 +11929,20 @@ class V1GetOrderBookResponse {
   Map<String, dynamic> toJson() => _$V1GetOrderBookResponseToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'depth')
+
+  /// Глубина стакана.
   final int? depth;
   @JsonKey(name: 'bids', defaultValue: <V1Order>[])
+
+  /// Множество пар значений на покупку.
   final List<V1Order>? bids;
   @JsonKey(name: 'asks', defaultValue: <V1Order>[])
+
+  /// Множество пар значений на продажу.
   final List<V1Order>? asks;
   @JsonKey(name: 'lastPrice')
   final V1Quotation? lastPrice;
@@ -10598,16 +11953,28 @@ class V1GetOrderBookResponse {
   @JsonKey(name: 'limitDown')
   final V1Quotation? limitDown;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'lastPriceTs')
+
+  /// Время получения цены последней сделки.
   final DateTime? lastPriceTs;
   @JsonKey(name: 'closePriceTs')
+
+  /// Время получения цены закрытия.
   final DateTime? closePriceTs;
   @JsonKey(name: 'orderbookTs')
+
+  /// Время формирования стакана на бирже.
   final DateTime? orderbookTs;
   static const fromJsonFactory = _$V1GetOrderBookResponseFromJson;
 
@@ -10858,6 +12225,8 @@ extension $V1GetOrderPriceResponseExtension on V1GetOrderPriceResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос получения статуса торгового поручения.
 class V1GetOrderStateRequest {
   const V1GetOrderStateRequest({
     required this.accountId,
@@ -10873,8 +12242,12 @@ class V1GetOrderStateRequest {
   Map<String, dynamic> toJson() => _$V1GetOrderStateRequestToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Номер счета.
   final String accountId;
   @JsonKey(name: 'orderId')
+
+  /// Идентификатор заявки.
   final String orderId;
   @JsonKey(
     name: 'priceType',
@@ -10922,6 +12295,8 @@ extension $V1GetOrderStateRequestExtension on V1GetOrderStateRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос получения списка активных торговых поручений.
 class V1GetOrdersRequest {
   const V1GetOrdersRequest({
     required this.accountId,
@@ -10935,6 +12310,8 @@ class V1GetOrdersRequest {
   Map<String, dynamic> toJson() => _$V1GetOrdersRequestToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Номер счета.
   final String accountId;
   @JsonKey(name: 'advancedFilters')
   final GetOrdersRequestGetOrdersRequestFilters? advancedFilters;
@@ -10965,6 +12342,8 @@ extension $V1GetOrdersRequestExtension on V1GetOrdersRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Список активных торговых поручений.
 class V1GetOrdersResponse {
   const V1GetOrdersResponse({
     this.orders,
@@ -10977,6 +12356,8 @@ class V1GetOrdersResponse {
   Map<String, dynamic> toJson() => _$V1GetOrdersResponseToJson(this);
 
   @JsonKey(name: 'orders', defaultValue: <Contractv1OrderState>[])
+
+  /// Массив активных заявок.
   final List<Contractv1OrderState>? orders;
   static const fromJsonFactory = _$V1GetOrdersResponseFromJson;
 
@@ -10997,6 +12378,8 @@ extension $V1GetOrdersResponseExtension on V1GetOrdersResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос сигналов.
 class V1GetSignalsRequest {
   const V1GetSignalsRequest({
     this.signalId,
@@ -11017,8 +12400,12 @@ class V1GetSignalsRequest {
   Map<String, dynamic> toJson() => _$V1GetSignalsRequestToJson(this);
 
   @JsonKey(name: 'signalId')
+
+  /// Идентификатор сигнала.
   final String? signalId;
   @JsonKey(name: 'strategyId')
+
+  /// Идентификатор стратегии.
   final String? strategyId;
   @JsonKey(
     name: 'strategyType',
@@ -11027,10 +12414,16 @@ class V1GetSignalsRequest {
   )
   final enums.V1StrategyType? strategyType;
   @JsonKey(name: 'instrumentUid')
+
+  /// Идентификатор бумаги.
   final String? instrumentUid;
   @JsonKey(name: 'from')
+
+  /// Дата начала запрашиваемого интервала по UTC.
   final DateTime? from;
   @JsonKey(name: 'to')
+
+  /// Дата конца запрашиваемого интервала по UTC.
   final DateTime? to;
   @JsonKey(
     name: 'direction',
@@ -11101,6 +12494,8 @@ extension $V1GetSignalsRequestExtension on V1GetSignalsRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Сигналы.
 class V1GetSignalsResponse {
   const V1GetSignalsResponse({
     this.signals,
@@ -11114,6 +12509,8 @@ class V1GetSignalsResponse {
   Map<String, dynamic> toJson() => _$V1GetSignalsResponseToJson(this);
 
   @JsonKey(name: 'signals', defaultValue: <V1Signal>[])
+
+  /// Массив сигналов.
   final List<V1Signal>? signals;
   @JsonKey(name: 'paging')
   final V1PageResponse? paging;
@@ -11139,6 +12536,8 @@ extension $V1GetSignalsResponseExtension on V1GetSignalsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос получения списка активных стоп-заявок.
 class V1GetStopOrdersRequest {
   const V1GetStopOrdersRequest({
     required this.accountId,
@@ -11154,6 +12553,8 @@ class V1GetStopOrdersRequest {
   Map<String, dynamic> toJson() => _$V1GetStopOrdersRequestToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счета клиента.
   final String accountId;
   @JsonKey(
     name: 'status',
@@ -11162,8 +12563,12 @@ class V1GetStopOrdersRequest {
   )
   final enums.V1StopOrderStatusOption? status;
   @JsonKey(name: 'from')
+
+  /// Левая граница.
   final DateTime? from;
   @JsonKey(name: 'to')
+
+  /// Правая граница.
   final DateTime? to;
   static const fromJsonFactory = _$V1GetStopOrdersRequestFromJson;
 
@@ -11198,6 +12603,8 @@ extension $V1GetStopOrdersRequestExtension on V1GetStopOrdersRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Список активных стоп-заявок.
 class V1GetStopOrdersResponse {
   const V1GetStopOrdersResponse({
     this.stopOrders,
@@ -11210,6 +12617,8 @@ class V1GetStopOrdersResponse {
   Map<String, dynamic> toJson() => _$V1GetStopOrdersResponseToJson(this);
 
   @JsonKey(name: 'stopOrders', defaultValue: <V1StopOrder>[])
+
+  /// Массив стоп-заявок по счету.
   final List<V1StopOrder>? stopOrders;
   static const fromJsonFactory = _$V1GetStopOrdersResponseFromJson;
 
@@ -11230,6 +12639,8 @@ extension $V1GetStopOrdersResponseExtension on V1GetStopOrdersResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос стратегий.
 class V1GetStrategiesRequest {
   const V1GetStrategiesRequest({
     this.strategyId,
@@ -11242,6 +12653,8 @@ class V1GetStrategiesRequest {
   Map<String, dynamic> toJson() => _$V1GetStrategiesRequestToJson(this);
 
   @JsonKey(name: 'strategyId')
+
+  /// Идентификатор стратегии.
   final String? strategyId;
   static const fromJsonFactory = _$V1GetStrategiesRequestFromJson;
 
@@ -11319,10 +12732,16 @@ class V1GetTechAnalysisRequest {
   )
   final enums.GetTechAnalysisRequestIndicatorType indicatorType;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String instrumentUid;
   @JsonKey(name: 'from')
+
+  /// Начало запрашиваемого периода по UTC.
   final DateTime from;
   @JsonKey(name: 'to')
+
+  /// Окончание запрашиваемого периода по UTC.
   final DateTime to;
   @JsonKey(
     name: 'interval',
@@ -11337,6 +12756,8 @@ class V1GetTechAnalysisRequest {
   )
   final enums.GetTechAnalysisRequestTypeOfPrice typeOfPrice;
   @JsonKey(name: 'length')
+
+  /// Торговый период, за который рассчитывается индикатор.
   final int? length;
   @JsonKey(name: 'deviation')
   final GetTechAnalysisRequestDeviation? deviation;
@@ -11412,6 +12833,8 @@ class V1GetTechAnalysisResponse {
   @JsonKey(
       name: 'technicalIndicators',
       defaultValue: <GetTechAnalysisResponseTechAnalysisItem>[])
+
+  /// Массив значений результатов технического анализа.
   final List<GetTechAnalysisResponseTechAnalysisItem>? technicalIndicators;
   static const fromJsonFactory = _$V1GetTechAnalysisResponseFromJson;
 
@@ -11437,6 +12860,8 @@ extension $V1GetTechAnalysisResponseExtension on V1GetTechAnalysisResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос получения торгового статуса.
 class V1GetTradingStatusRequest {
   const V1GetTradingStatusRequest({
     this.instrumentId,
@@ -11470,6 +12895,8 @@ extension $V1GetTradingStatusRequestExtension on V1GetTradingStatusRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о торговом статусе.
 class V1GetTradingStatusResponse {
   const V1GetTradingStatusResponse({
     this.figi,
@@ -11491,6 +12918,8 @@ class V1GetTradingStatusResponse {
   Map<String, dynamic> toJson() => _$V1GetTradingStatusResponseToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(
     name: 'tradingStatus',
@@ -11499,20 +12928,36 @@ class V1GetTradingStatusResponse {
   )
   final enums.V1SecurityTradingStatus? tradingStatus;
   @JsonKey(name: 'limitOrderAvailableFlag')
+
+  /// Признак доступности выставления лимитной заявки по инструменту.
   final bool? limitOrderAvailableFlag;
   @JsonKey(name: 'marketOrderAvailableFlag')
+
+  /// Признак доступности выставления рыночной заявки по инструменту.
   final bool? marketOrderAvailableFlag;
   @JsonKey(name: 'apiTradeAvailableFlag')
+
+  /// Признак доступности торгов через API.
   final bool? apiTradeAvailableFlag;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'bestpriceOrderAvailableFlag')
+
+  /// Признак доступности завяки по лучшей цене.
   final bool? bestpriceOrderAvailableFlag;
   @JsonKey(name: 'onlyBestPrice')
+
+  /// Признак доступности только заявки по лучшей цене.
   final bool? onlyBestPrice;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1GetTradingStatusResponseFromJson;
 
@@ -11586,6 +13031,8 @@ extension $V1GetTradingStatusResponseExtension on V1GetTradingStatusResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос получения торгового статуса.
 class V1GetTradingStatusesRequest {
   const V1GetTradingStatusesRequest({
     this.instrumentId,
@@ -11620,6 +13067,8 @@ extension $V1GetTradingStatusesRequestExtension on V1GetTradingStatusesRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о торговом статусе.
 class V1GetTradingStatusesResponse {
   const V1GetTradingStatusesResponse({
     this.tradingStatuses,
@@ -11633,6 +13082,8 @@ class V1GetTradingStatusesResponse {
 
   @JsonKey(
       name: 'tradingStatuses', defaultValue: <V1GetTradingStatusResponse>[])
+
+  /// Массив информации о торговых статусах.
   final List<V1GetTradingStatusResponse>? tradingStatuses;
   static const fromJsonFactory = _$V1GetTradingStatusesResponseFromJson;
 
@@ -11658,6 +13109,8 @@ extension $V1GetTradingStatusesResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос текущих лимитов пользователя.
 class V1GetUserTariffRequest {
   const V1GetUserTariffRequest();
 
@@ -11674,6 +13127,8 @@ class V1GetUserTariffRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Текущие лимиты пользователя.
 class V1GetUserTariffResponse {
   const V1GetUserTariffResponse({
     this.unaryLimits,
@@ -11687,8 +13142,12 @@ class V1GetUserTariffResponse {
   Map<String, dynamic> toJson() => _$V1GetUserTariffResponseToJson(this);
 
   @JsonKey(name: 'unaryLimits', defaultValue: <V1UnaryLimit>[])
+
+  /// Массив лимитов пользователя по unary-запросам.
   final List<V1UnaryLimit>? unaryLimits;
   @JsonKey(name: 'streamLimits', defaultValue: <V1StreamLimit>[])
+
+  /// Массив лимитов пользователей для stream-соединений.
   final List<V1StreamLimit>? streamLimits;
   static const fromJsonFactory = _$V1GetUserTariffResponseFromJson;
 
@@ -11716,6 +13175,8 @@ extension $V1GetUserTariffResponseExtension on V1GetUserTariffResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о свече.
 class V1HistoricCandle {
   const V1HistoricCandle({
     this.open,
@@ -11745,10 +13206,17 @@ class V1HistoricCandle {
   @JsonKey(name: 'close')
   final V1Quotation? close;
   @JsonKey(name: 'volume')
+
+  /// Объем торгов в лотах.
   final String? volume;
   @JsonKey(name: 'time')
+
+  /// Время свечи в часовом поясе UTC.
   final DateTime? time;
   @JsonKey(name: 'isComplete')
+
+  /// Признак завершенности свечи.
+  /// **false** — свеча за текущие интервал еще сформирована не полностью.
   final bool? isComplete;
   @JsonKey(
     name: 'candleSource',
@@ -11757,8 +13225,12 @@ class V1HistoricCandle {
   )
   final enums.Contractv1CandleSource? candleSource;
   @JsonKey(name: 'volumeBuy')
+
+  /// Объем торгов на покупку.
   final String? volumeBuy;
   @JsonKey(name: 'volumeSell')
+
+  /// Объём торгов на продажу.
   final String? volumeSell;
   static const fromJsonFactory = _$V1HistoricCandleFromJson;
 
@@ -11839,12 +13311,20 @@ class V1IndicativeResponse {
   Map<String, dynamic> toJson() => _$V1IndicativeResponseToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код инструмента.
   final String? classCode;
   @JsonKey(name: 'currency')
+
+  /// Валюта расчетов.
   final String? currency;
   @JsonKey(
     name: 'instrumentKind',
@@ -11853,14 +13333,24 @@ class V1IndicativeResponse {
   )
   final enums.V1InstrumentType? instrumentKind;
   @JsonKey(name: 'name')
+
+  /// Название инструмента.
   final String? name;
   @JsonKey(name: 'exchange')
+
+  /// Tорговая площадка (секция биржи).
   final String? exchange;
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор инструмента.
   final String? uid;
   @JsonKey(name: 'buyAvailableFlag')
+
+  /// Признак доступности для покупки.
   final bool? buyAvailableFlag;
   @JsonKey(name: 'sellAvailableFlag')
+
+  /// Признак доступности для продажи.
   final bool? sellAvailableFlag;
   static const fromJsonFactory = _$V1IndicativeResponseFromJson;
 
@@ -11953,6 +13443,8 @@ class V1IndicativesResponse {
   Map<String, dynamic> toJson() => _$V1IndicativesResponseToJson(this);
 
   @JsonKey(name: 'instruments', defaultValue: <V1IndicativeResponse>[])
+
+  /// Массив инструментов.
   final List<V1IndicativeResponse>? instruments;
   static const fromJsonFactory = _$V1IndicativesResponseFromJson;
 
@@ -11974,6 +13466,8 @@ extension $V1IndicativesResponseExtension on V1IndicativesResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос подписки на торговый статус.
 class V1InfoInstrument {
   const V1InfoInstrument({
     this.figi,
@@ -11988,8 +13482,14 @@ class V1InfoInstrument {
 
   @JsonKey(name: 'figi')
   @deprecated
+
+  /// Deprecated FIGI-идентификатор инструмента.
+  /// Используйте instrument_id`.
   final String? figi;
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента.
+  /// Принимает значение `figi`, `instrument_uid` или `ticker + '_' + class_code`.
   final String? instrumentId;
   static const fromJsonFactory = _$V1InfoInstrumentFromJson;
 
@@ -12014,6 +13514,8 @@ extension $V1InfoInstrumentExtension on V1InfoInstrument {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Статус подписки.
 class V1InfoSubscription {
   const V1InfoSubscription({
     this.figi,
@@ -12033,6 +13535,8 @@ class V1InfoSubscription {
   Map<String, dynamic> toJson() => _$V1InfoSubscriptionToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(
     name: 'subscriptionStatus',
@@ -12041,10 +13545,16 @@ class V1InfoSubscription {
   )
   final enums.V1SubscriptionStatus? subscriptionStatus;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'streamId')
+
+  /// Идентификатор открытого соединения.
   final String? streamId;
   @JsonKey(name: 'subscriptionId')
+
+  /// Идентификатор подписки в формате UUID.
   final String? subscriptionId;
   @JsonKey(
     name: 'subscriptionAction',
@@ -12053,8 +13563,12 @@ class V1InfoSubscription {
   )
   final enums.V1SubscriptionAction? subscriptionAction;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1InfoSubscriptionFromJson;
 
@@ -12112,6 +13626,8 @@ extension $V1InfoSubscriptionExtension on V1InfoSubscription {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Объект передачи основной информации об инструменте.
 class V1Instrument {
   const V1Instrument({
     this.figi,
@@ -12162,16 +13678,30 @@ class V1Instrument {
   Map<String, dynamic> toJson() => _$V1InstrumentToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код инструмента.
   final String? classCode;
   @JsonKey(name: 'isin')
+
+  /// ISIN-идентификатор инструмента.
   final String? isin;
   @JsonKey(name: 'lot')
+
+  /// Лотность инструмента.
+  /// Возможно совершение операций только на количества ценной бумаги, кратные параметру `lot`.
+  /// [Подробнее](./glossary#lot).
   final int? lot;
   @JsonKey(name: 'currency')
+
+  /// Валюта расчетов.
   final String? currency;
   @JsonKey(name: 'klong')
   final V1Quotation? klong;
@@ -12186,16 +13716,28 @@ class V1Instrument {
   @JsonKey(name: 'dshortMin')
   final V1Quotation? dshortMin;
   @JsonKey(name: 'shortEnabledFlag')
+
+  /// Признак доступности для операций в шорт.
   final bool? shortEnabledFlag;
   @JsonKey(name: 'name')
+
+  /// Название инструмента.
   final String? name;
   @JsonKey(name: 'exchange')
+
+  /// Tорговая площадка (секция биржи).
   final String? exchange;
   @JsonKey(name: 'countryOfRisk')
+
+  /// Код страны риска — то есть страны, в которой компания ведет основной бизнес.
   final String? countryOfRisk;
   @JsonKey(name: 'countryOfRiskName')
+
+  /// Наименование страны риска — то есть страны, в которой компания ведет основной бизнес.
   final String? countryOfRiskName;
   @JsonKey(name: 'instrumentType')
+
+  /// Тип инструмента.
   final String? instrumentType;
   @JsonKey(
     name: 'tradingStatus',
@@ -12204,16 +13746,28 @@ class V1Instrument {
   )
   final enums.V1SecurityTradingStatus? tradingStatus;
   @JsonKey(name: 'otcFlag')
+
+  /// Флаг, используемый ранее для определения внебиржевых инструментов.
+  /// На данный момент не используется для торгуемых через API инструментов.
+  /// Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке.
   final bool? otcFlag;
   @JsonKey(name: 'buyAvailableFlag')
+
+  /// Признак доступности для покупки.
   final bool? buyAvailableFlag;
   @JsonKey(name: 'sellAvailableFlag')
+
+  /// Признак доступности для продажи.
   final bool? sellAvailableFlag;
   @JsonKey(name: 'minPriceIncrement')
   final V1Quotation? minPriceIncrement;
   @JsonKey(name: 'apiTradeAvailableFlag')
+
+  /// Параметр указывает на возможность торговать инструментом через API.
   final bool? apiTradeAvailableFlag;
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор инструмента.
   final String? uid;
   @JsonKey(
     name: 'realExchange',
@@ -12222,18 +13776,32 @@ class V1Instrument {
   )
   final enums.V1RealExchange? realExchange;
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции инструмента.
   final String? positionUid;
   @JsonKey(name: 'assetUid')
+
+  /// Уникальный идентификатор актива.
   final String? assetUid;
   @JsonKey(name: 'requiredTests', defaultValue: <String>[])
+
+  /// Тесты, которые необходимо пройти клиенту, чтобы совершать сделки по инструменту.
   final List<String>? requiredTests;
   @JsonKey(name: 'forIisFlag')
+
+  /// Признак доступности для ИИС.
   final bool? forIisFlag;
   @JsonKey(name: 'forQualInvestorFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов.
   final bool? forQualInvestorFlag;
   @JsonKey(name: 'weekendFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом по выходным.
   final bool? weekendFlag;
   @JsonKey(name: 'blockedTcaFlag')
+
+  /// Флаг заблокированного ТКС.
   final bool? blockedTcaFlag;
   @JsonKey(
     name: 'instrumentKind',
@@ -12242,8 +13810,12 @@ class V1Instrument {
   )
   final enums.V1InstrumentType? instrumentKind;
   @JsonKey(name: 'first1minCandleDate')
+
+  /// Дата первой минутной свечи.
   final DateTime? first1minCandleDate;
   @JsonKey(name: 'first1dayCandleDate')
+
+  /// Дата первой дневной свечи.
   final DateTime? first1dayCandleDate;
   @JsonKey(name: 'brand')
   final V1BrandData? brand;
@@ -12457,6 +14029,8 @@ extension $V1InstrumentExtension on V1Instrument {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос цен закрытия торговой сессии по инструменту.
 class V1InstrumentClosePriceRequest {
   const V1InstrumentClosePriceRequest({
     this.instrumentId,
@@ -12492,6 +14066,8 @@ extension $V1InstrumentClosePriceRequestExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Цена закрытия торговой сессии по инструменту.
 class V1InstrumentClosePriceResponse {
   const V1InstrumentClosePriceResponse({
     this.figi,
@@ -12511,20 +14087,32 @@ class V1InstrumentClosePriceResponse {
   Map<String, dynamic> toJson() => _$V1InstrumentClosePriceResponseToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI инструмента.
   final String? figi;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'price')
   final V1Quotation? price;
   @JsonKey(name: 'eveningSessionPrice')
   final V1Quotation? eveningSessionPrice;
   @JsonKey(name: 'time')
+
+  /// Дата совершения торгов.
   final DateTime? time;
   @JsonKey(name: 'eveningSessionPriceTime')
+
+  /// Дата цены закрытия вечерней сессии.
   final DateTime? eveningSessionPriceTime;
   static const fromJsonFactory = _$V1InstrumentClosePriceResponseFromJson;
 
@@ -12582,6 +14170,8 @@ extension $V1InstrumentClosePriceResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Связь с другим инструментом.
 class V1InstrumentLink {
   const V1InstrumentLink({
     this.type,
@@ -12595,8 +14185,12 @@ class V1InstrumentLink {
   Map<String, dynamic> toJson() => _$V1InstrumentLinkToJson(this);
 
   @JsonKey(name: 'type')
+
+  /// Тип связи.
   final String? type;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID-идентификатор связанного инструмента.
   final String? instrumentUid;
   static const fromJsonFactory = _$V1InstrumentLinkFromJson;
 
@@ -12621,6 +14215,8 @@ extension $V1InstrumentLinkExtension on V1InstrumentLink {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос получения инструмента по идентификатору.
 class V1InstrumentRequest {
   const V1InstrumentRequest({
     required this.idType,
@@ -12641,8 +14237,13 @@ class V1InstrumentRequest {
   )
   final enums.V1InstrumentIdType idType;
   @JsonKey(name: 'classCode')
+
+  /// Идентификатор `class_code`.
+  /// Обязательный, если `id_type = ticker`.
   final String? classCode;
   @JsonKey(name: 'id')
+
+  /// Идентификатор запрашиваемого инструмента.
   final String id;
   static const fromJsonFactory = _$V1InstrumentRequestFromJson;
 
@@ -12671,6 +14272,8 @@ extension $V1InstrumentRequestExtension on V1InstrumentRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по инструменту.
 class V1InstrumentResponse {
   const V1InstrumentResponse({
     this.instrument,
@@ -12702,6 +14305,8 @@ extension $V1InstrumentResponseExtension on V1InstrumentResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Краткая информация об инструменте.
 class V1InstrumentShort {
   const V1InstrumentShort({
     this.isin,
@@ -12730,20 +14335,36 @@ class V1InstrumentShort {
   Map<String, dynamic> toJson() => _$V1InstrumentShortToJson(this);
 
   @JsonKey(name: 'isin')
+
+  /// ISIN инструмента.
   final String? isin;
   @JsonKey(name: 'figi')
+
+  /// FIGI инструмента.
   final String? figi;
   @JsonKey(name: 'ticker')
+
+  /// Ticker инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// ClassCode инструмента.
   final String? classCode;
   @JsonKey(name: 'instrumentType')
+
+  /// Тип инструмента.
   final String? instrumentType;
   @JsonKey(name: 'name')
+
+  /// Название инструмента.
   final String? name;
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор инструмента.
   final String? uid;
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции инструмента.
   final String? positionUid;
   @JsonKey(
     name: 'instrumentKind',
@@ -12752,20 +14373,36 @@ class V1InstrumentShort {
   )
   final enums.V1InstrumentType? instrumentKind;
   @JsonKey(name: 'apiTradeAvailableFlag')
+
+  /// Возможность торговать инструментом через API.
   final bool? apiTradeAvailableFlag;
   @JsonKey(name: 'forIisFlag')
+
+  /// Признак доступности для ИИС.
   final bool? forIisFlag;
   @JsonKey(name: 'first1minCandleDate')
+
+  /// Дата первой минутной свечи.
   final DateTime? first1minCandleDate;
   @JsonKey(name: 'first1dayCandleDate')
+
+  /// Дата первой дневной свечи.
   final DateTime? first1dayCandleDate;
   @JsonKey(name: 'forQualInvestorFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов.
   final bool? forQualInvestorFlag;
   @JsonKey(name: 'weekendFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом по выходным.
   final bool? weekendFlag;
   @JsonKey(name: 'blockedTcaFlag')
+
+  /// Флаг заблокированного ТКС.
   final bool? blockedTcaFlag;
   @JsonKey(name: 'lot')
+
+  /// Количество бумаг в лоте.
   final int? lot;
   static const fromJsonFactory = _$V1InstrumentShortFromJson;
 
@@ -12869,6 +14506,8 @@ extension $V1InstrumentShortExtension on V1InstrumentShort {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос получения инструментов.
 class V1InstrumentsRequest {
   const V1InstrumentsRequest({
     this.instrumentStatus,
@@ -12922,6 +14561,8 @@ extension $V1InstrumentsRequestExtension on V1InstrumentsRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о цене последней сделки.
 class V1LastPrice {
   const V1LastPrice({
     this.figi,
@@ -12940,16 +14581,26 @@ class V1LastPrice {
   Map<String, dynamic> toJson() => _$V1LastPriceToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI инструмента.
   final String? figi;
   @JsonKey(name: 'price')
   final V1Quotation? price;
   @JsonKey(name: 'time')
+
+  /// Время получения последней цены в часовом поясе UTC по времени биржи.
   final DateTime? time;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String? instrumentUid;
   @JsonKey(
     name: 'lastPriceType',
@@ -13004,6 +14655,8 @@ extension $V1LastPriceExtension on V1LastPrice {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос подписки на последнюю цену.
 class V1LastPriceInstrument {
   const V1LastPriceInstrument({
     this.figi,
@@ -13018,8 +14671,14 @@ class V1LastPriceInstrument {
 
   @JsonKey(name: 'figi')
   @deprecated
+
+  /// Deprecated FIGI-идентификатор инструмента.
+  /// Используйте instrument_id`.
   final String? figi;
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента.
+  /// Принимает значение `figi`, `instrument_uid` или `ticker + '_' + class_code`.
   final String? instrumentId;
   static const fromJsonFactory = _$V1LastPriceInstrumentFromJson;
 
@@ -13044,6 +14703,8 @@ extension $V1LastPriceInstrumentExtension on V1LastPriceInstrument {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Статус подписки на цену последней сделки.
 class V1LastPriceSubscription {
   const V1LastPriceSubscription({
     this.figi,
@@ -13063,6 +14724,8 @@ class V1LastPriceSubscription {
   Map<String, dynamic> toJson() => _$V1LastPriceSubscriptionToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(
     name: 'subscriptionStatus',
@@ -13071,10 +14734,16 @@ class V1LastPriceSubscription {
   )
   final enums.V1SubscriptionStatus? subscriptionStatus;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'streamId')
+
+  /// Идентификатор открытого соединения.
   final String? streamId;
   @JsonKey(name: 'subscriptionId')
+
+  /// Идентификатор подписки в формате `UUID`.
   final String? subscriptionId;
   @JsonKey(
     name: 'subscriptionAction',
@@ -13083,8 +14752,12 @@ class V1LastPriceSubscription {
   )
   final enums.V1SubscriptionAction? subscriptionAction;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1LastPriceSubscriptionFromJson;
 
@@ -13142,6 +14815,8 @@ extension $V1LastPriceSubscriptionExtension on V1LastPriceSubscription {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос подписки или отписки на определенные биржевые данные.
 class V1MarketDataRequest {
   const V1MarketDataRequest({
     this.subscribeCandlesRequest,
@@ -13171,6 +14846,10 @@ class V1MarketDataRequest {
   @JsonKey(name: 'subscribeLastPriceRequest')
   final V1SubscribeLastPriceRequest? subscribeLastPriceRequest;
   @JsonKey(name: 'getMySubscriptions')
+
+  /// Запрос активных подписок.
+  /// Возвращает по одному сообщению на каждый тип активных подписок — `SubscribeLastPriceResponse`,
+  /// `SubscribeInfoResponse`, `SubscribeTradesResponse`, `SubscribeOrderBookResponse`, `SubscribeCandlesResponse`.
   final Object? getMySubscriptions;
   @JsonKey(name: 'ping')
   final V1PingRequest? ping;
@@ -13242,6 +14921,8 @@ extension $V1MarketDataRequestExtension on V1MarketDataRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Пакет биржевой информации по подписке.
 class V1MarketDataResponse {
   const V1MarketDataResponse({
     this.subscribeCandlesResponse,
@@ -13479,6 +15160,8 @@ class V1MarketValue {
   @JsonKey(name: 'value')
   final V1Quotation? $value;
   @JsonKey(name: 'time')
+
+  /// Дата и время.
   final DateTime? time;
   static const fromJsonFactory = _$V1MarketValueFromJson;
 
@@ -13522,12 +15205,20 @@ class V1MarketValueInstrument {
   Map<String, dynamic> toJson() => _$V1MarketValueInstrumentToJson(this);
 
   @JsonKey(name: 'instrumentUid')
+
+  /// Идентификатор инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'values', defaultValue: <V1MarketValue>[])
+
+  /// Массив параметров инструмента.
   final List<V1MarketValue>? values;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1MarketValueInstrumentFromJson;
 
@@ -13563,6 +15254,8 @@ extension $V1MarketValueInstrumentExtension on V1MarketValueInstrument {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Денежная сумма в определенной валюте.
 class V1MoneyValue {
   const V1MoneyValue({
     this.currency,
@@ -13577,10 +15270,16 @@ class V1MoneyValue {
   Map<String, dynamic> toJson() => _$V1MoneyValueToJson(this);
 
   @JsonKey(name: 'currency')
+
+  /// Строковый ISO-код валюты.
   final String? currency;
   @JsonKey(name: 'units')
+
+  /// Целая часть суммы, может быть отрицательным числом.
   final String? units;
   @JsonKey(name: 'nano')
+
+  /// Дробная часть суммы, может быть отрицательным числом.
   final int? nano;
   static const fromJsonFactory = _$V1MoneyValueFromJson;
 
@@ -13624,14 +15323,24 @@ class V1OpenInterest {
   Map<String, dynamic> toJson() => _$V1OpenInterestToJson(this);
 
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'time')
+
+  /// Время получения открытого интереса в часовом поясе UTC по времени биржи.
   final DateTime? time;
   @JsonKey(name: 'openInterest')
+
+  /// Открытый интерес.
   final String? openInterest;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1OpenInterestFromJson;
 
@@ -13672,6 +15381,8 @@ extension $V1OpenInterestExtension on V1OpenInterest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос открытия счета в песочнице.
 class V1OpenSandboxAccountRequest {
   const V1OpenSandboxAccountRequest({
     this.name,
@@ -13703,6 +15414,8 @@ extension $V1OpenSandboxAccountRequestExtension on V1OpenSandboxAccountRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Номер открытого счета в песочнице.
 class V1OpenSandboxAccountResponse {
   const V1OpenSandboxAccountResponse({
     this.accountId,
@@ -13735,6 +15448,8 @@ extension $V1OpenSandboxAccountResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по операции.
 class V1Operation {
   const V1Operation({
     this.id,
@@ -13764,10 +15479,16 @@ class V1Operation {
   Map<String, dynamic> toJson() => _$V1OperationToJson(this);
 
   @JsonKey(name: 'id')
+
+  /// Идентификатор операции.
   final String? id;
   @JsonKey(name: 'parentOperationId')
+
+  /// Идентификатор родительской операции.
   final String? parentOperationId;
   @JsonKey(name: 'currency')
+
+  /// Валюта операции.
   final String? currency;
   @JsonKey(name: 'payment')
   final V1MoneyValue? payment;
@@ -13780,16 +15501,30 @@ class V1Operation {
   )
   final enums.V1OperationState? state;
   @JsonKey(name: 'quantity')
+
+  /// Количество единиц инструмента.
   final String? quantity;
   @JsonKey(name: 'quantityRest')
+
+  /// Неисполненный остаток по сделке.
   final String? quantityRest;
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента, связанного с операцией.
   final String? figi;
   @JsonKey(name: 'instrumentType')
+
+  /// Тип инструмента.
+  /// Возможные значения: <br/><br/>`bond` — облигация; <br/>`share` — акция; <br/>`currency` — валюта; <br/>`etf` —
+  /// фонд; <br/>`futures` — фьючерс.
   final String? instrumentType;
   @JsonKey(name: 'date')
+
+  /// Дата и время операции в формате часовом поясе UTC.
   final DateTime? date;
   @JsonKey(name: 'type')
+
+  /// Текстовое описание типа операции.
   final String? type;
   @JsonKey(
     name: 'operationType',
@@ -13798,14 +15533,22 @@ class V1Operation {
   )
   final enums.V1OperationType? operationType;
   @JsonKey(name: 'trades', defaultValue: <V1OperationTrade>[])
+
+  /// Массив сделок.
   final List<V1OperationTrade>? trades;
   @JsonKey(name: 'assetUid')
   final String? assetUid;
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции.
   final String? positionUid;
   @JsonKey(name: 'instrumentUid')
+
+  /// Уникальный идентификатор инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'childOperations', defaultValue: <V1ChildOperationItem>[])
+
+  /// Массив дочерних операций.
   final List<V1ChildOperationItem>? childOperations;
   static const fromJsonFactory = _$V1OperationFromJson;
 
@@ -13906,6 +15649,8 @@ extension $V1OperationExtension on V1Operation {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные об операции.
 class V1OperationItem {
   const V1OperationItem({
     this.cursor,
@@ -13947,16 +15692,29 @@ class V1OperationItem {
   Map<String, dynamic> toJson() => _$V1OperationItemToJson(this);
 
   @JsonKey(name: 'cursor')
+
+  /// Курсор.
   final String? cursor;
   @JsonKey(name: 'brokerAccountId')
+
+  /// Номер счета клиента.
   final String? brokerAccountId;
   @JsonKey(name: 'id')
+
+  /// Идентификатор операции, может меняться с течением времени.
   final String? id;
   @JsonKey(name: 'parentOperationId')
+
+  /// Идентификатор родительской операции.
+  /// Может измениться, если изменился ID родительской операции.
   final String? parentOperationId;
   @JsonKey(name: 'name')
+
+  /// Название операции.
   final String? name;
   @JsonKey(name: 'date')
+
+  /// Дата поручения.
   final DateTime? date;
   @JsonKey(
     name: 'type',
@@ -13965,6 +15723,8 @@ class V1OperationItem {
   )
   final enums.V1OperationType? type;
   @JsonKey(name: 'description')
+
+  /// Описание операции.
   final String? description;
   @JsonKey(
     name: 'state',
@@ -13973,10 +15733,16 @@ class V1OperationItem {
   )
   final enums.V1OperationState? state;
   @JsonKey(name: 'instrumentUid')
+
+  /// Уникальный идентификатор инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'figi')
+
+  /// FIGI.
   final String? figi;
   @JsonKey(name: 'instrumentType')
+
+  /// Тип инструмента.
   final String? instrumentType;
   @JsonKey(
     name: 'instrumentKind',
@@ -13985,10 +15751,16 @@ class V1OperationItem {
   )
   final enums.V1InstrumentType? instrumentKind;
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции.
   final String? positionUid;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'payment')
   final V1MoneyValue? payment;
@@ -14003,20 +15775,34 @@ class V1OperationItem {
   @JsonKey(name: 'accruedInt')
   final V1MoneyValue? accruedInt;
   @JsonKey(name: 'quantity')
+
+  /// Количество единиц инструмента.
   final String? quantity;
   @JsonKey(name: 'quantityRest')
+
+  /// Неисполненный остаток по сделке.
   final String? quantityRest;
   @JsonKey(name: 'quantityDone')
+
+  /// Исполненный остаток.
   final String? quantityDone;
   @JsonKey(name: 'cancelDateTime')
+
+  /// Дата и время снятия заявки.
   final DateTime? cancelDateTime;
   @JsonKey(name: 'cancelReason')
+
+  /// Причина отмены операции.
   final String? cancelReason;
   @JsonKey(name: 'tradesInfo')
   final V1OperationItemTrades? tradesInfo;
   @JsonKey(name: 'assetUid')
+
+  /// Идентификатор актива.
   final String? assetUid;
   @JsonKey(name: 'childOperations', defaultValue: <V1ChildOperationItem>[])
+
+  /// Массив дочерних операций.
   final List<V1ChildOperationItem>? childOperations;
   static const fromJsonFactory = _$V1OperationItemFromJson;
 
@@ -14174,6 +15960,8 @@ extension $V1OperationItemExtension on V1OperationItem {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Сделка по операции.
 class V1OperationItemTrade {
   const V1OperationItemTrade({
     this.$num,
@@ -14193,8 +15981,12 @@ class V1OperationItemTrade {
   @JsonKey(name: 'num')
   final String? $num;
   @JsonKey(name: 'date')
+
+  /// Дата сделки.
   final DateTime? date;
   @JsonKey(name: 'quantity')
+
+  /// Количество в единицах.
   final String? quantity;
   @JsonKey(name: 'price')
   final V1MoneyValue? price;
@@ -14244,6 +16036,8 @@ extension $V1OperationItemTradeExtension on V1OperationItemTrade {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Массив с информацией о сделках.
 class V1OperationItemTrades {
   const V1OperationItemTrades({
     this.trades,
@@ -14276,6 +16070,8 @@ extension $V1OperationItemTradesExtension on V1OperationItemTrades {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Сделка по операции.
 class V1OperationTrade {
   const V1OperationTrade({
     this.tradeId,
@@ -14291,10 +16087,16 @@ class V1OperationTrade {
   Map<String, dynamic> toJson() => _$V1OperationTradeToJson(this);
 
   @JsonKey(name: 'tradeId')
+
+  /// Идентификатор сделки.
   final String? tradeId;
   @JsonKey(name: 'dateTime')
+
+  /// Дата и время сделки по UTC.
   final DateTime? dateTime;
   @JsonKey(name: 'quantity')
+
+  /// Количество инструментов.
   final String? quantity;
   @JsonKey(name: 'price')
   final V1MoneyValue? price;
@@ -14331,6 +16133,8 @@ extension $V1OperationTradeExtension on V1OperationTrade {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос получения списка операций по счету.
 class V1OperationsRequest {
   const V1OperationsRequest({
     required this.accountId,
@@ -14347,10 +16151,16 @@ class V1OperationsRequest {
   Map<String, dynamic> toJson() => _$V1OperationsRequestToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счета клиента.
   final String accountId;
   @JsonKey(name: 'from')
+
+  /// Начало периода по UTC.
   final DateTime? from;
   @JsonKey(name: 'to')
+
+  /// Окончание периода по UTC.
   final DateTime? to;
   @JsonKey(
     name: 'state',
@@ -14359,6 +16169,8 @@ class V1OperationsRequest {
   )
   final enums.V1OperationState? state;
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента для фильтрации.
   final String? figi;
   static const fromJsonFactory = _$V1OperationsRequestFromJson;
 
@@ -14397,6 +16209,8 @@ extension $V1OperationsRequestExtension on V1OperationsRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Список операций.
 class V1OperationsResponse {
   const V1OperationsResponse({
     this.operations,
@@ -14409,6 +16223,8 @@ class V1OperationsResponse {
   Map<String, dynamic> toJson() => _$V1OperationsResponseToJson(this);
 
   @JsonKey(name: 'operations', defaultValue: <V1Operation>[])
+
+  /// Массив операций.
   final List<V1Operation>? operations;
   static const fromJsonFactory = _$V1OperationsResponseFromJson;
 
@@ -14429,6 +16245,8 @@ extension $V1OperationsResponseExtension on V1OperationsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Опцион.
 class V1Option {
   const V1Option({
     this.uid,
@@ -14488,14 +16306,24 @@ class V1Option {
   Map<String, dynamic> toJson() => _$V1OptionToJson(this);
 
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор инструмента.
   final String? uid;
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции.
   final String? positionUid;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код.
   final String? classCode;
   @JsonKey(name: 'basicAssetPositionUid')
+
+  /// Уникальный идентификатор позиции основного инструмента.
   final String? basicAssetPositionUid;
   @JsonKey(
     name: 'tradingStatus',
@@ -14534,26 +16362,46 @@ class V1Option {
   )
   final enums.V1OptionSettlementType? settlementType;
   @JsonKey(name: 'name')
+
+  /// Название инструмента.
   final String? name;
   @JsonKey(name: 'currency')
+
+  /// Валюта.
   final String? currency;
   @JsonKey(name: 'settlementCurrency')
+
+  /// Валюта, в которой оценивается контракт.
   final String? settlementCurrency;
   @JsonKey(name: 'assetType')
+
+  /// Тип актива.
   final String? assetType;
   @JsonKey(name: 'basicAsset')
+
+  /// Основной актив.
   final String? basicAsset;
   @JsonKey(name: 'exchange')
+
+  /// Tорговая площадка (секция биржи).
   final String? exchange;
   @JsonKey(name: 'countryOfRisk')
+
+  /// Код страны рисков.
   final String? countryOfRisk;
   @JsonKey(name: 'countryOfRiskName')
+
+  /// Наименование страны рисков.
   final String? countryOfRiskName;
   @JsonKey(name: 'sector')
+
+  /// Сектор экономики.
   final String? sector;
   @JsonKey(name: 'brand')
   final V1BrandData? brand;
   @JsonKey(name: 'lot')
+
+  /// Количество бумаг в лоте.
   final int? lot;
   @JsonKey(name: 'basicAssetSize')
   final V1Quotation? basicAssetSize;
@@ -14578,34 +16426,66 @@ class V1Option {
   @JsonKey(name: 'dshortClient')
   final V1Quotation? dshortClient;
   @JsonKey(name: 'expirationDate')
+
+  /// Дата истечения срока в формате UTC.
   final DateTime? expirationDate;
   @JsonKey(name: 'firstTradeDate')
+
+  /// Дата начала обращения контракта в формате UTC.
   final DateTime? firstTradeDate;
   @JsonKey(name: 'lastTradeDate')
+
+  /// Дата исполнения в формате UTC.
   final DateTime? lastTradeDate;
   @JsonKey(name: 'first1minCandleDate')
+
+  /// Дата первой минутной свечи в формате UTC.
   final DateTime? first1minCandleDate;
   @JsonKey(name: 'first1dayCandleDate')
+
+  /// Дата первой дневной свечи в формате UTC.
   final DateTime? first1dayCandleDate;
   @JsonKey(name: 'shortEnabledFlag')
+
+  /// Признак доступности для операций шорт.
   final bool? shortEnabledFlag;
   @JsonKey(name: 'forIisFlag')
+
+  /// Возможность покупки или продажи на ИИС.
   final bool? forIisFlag;
   @JsonKey(name: 'otcFlag')
+
+  /// Флаг, используемый ранее для определения внебиржевых инструментов.
+  /// На данный момент не используется для торгуемых через API инструментов.
+  /// Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке.
   final bool? otcFlag;
   @JsonKey(name: 'buyAvailableFlag')
+
+  /// Признак доступности для покупки.
   final bool? buyAvailableFlag;
   @JsonKey(name: 'sellAvailableFlag')
+
+  /// Признак доступности для продажи.
   final bool? sellAvailableFlag;
   @JsonKey(name: 'forQualInvestorFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов.
   final bool? forQualInvestorFlag;
   @JsonKey(name: 'weekendFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом по выходным.
   final bool? weekendFlag;
   @JsonKey(name: 'blockedTcaFlag')
+
+  /// Флаг заблокированного ТКС.
   final bool? blockedTcaFlag;
   @JsonKey(name: 'apiTradeAvailableFlag')
+
+  /// Возможность торговать инструментом через API.
   final bool? apiTradeAvailableFlag;
   @JsonKey(name: 'requiredTests', defaultValue: <String>[])
+
+  /// Тесты, которые необходимо пройти клиенту, чтобы совершать сделки по инструменту.
   final List<String>? requiredTests;
   static const fromJsonFactory = _$V1OptionFromJson;
 
@@ -14861,6 +16741,8 @@ extension $V1OptionExtension on V1Option {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по опциону.
 class V1OptionResponse {
   const V1OptionResponse({
     this.instrument,
@@ -14892,6 +16774,8 @@ extension $V1OptionResponseExtension on V1OptionResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по опционам.
 class V1OptionsResponse {
   const V1OptionsResponse({
     this.instruments,
@@ -14904,6 +16788,8 @@ class V1OptionsResponse {
   Map<String, dynamic> toJson() => _$V1OptionsResponseToJson(this);
 
   @JsonKey(name: 'instruments', defaultValue: <V1Option>[])
+
+  /// Массив данных по опциону.
   final List<V1Option>? instruments;
   static const fromJsonFactory = _$V1OptionsResponseFromJson;
 
@@ -14924,6 +16810,8 @@ extension $V1OptionsResponseExtension on V1OptionsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Массив предложений/спроса.
 class V1Order {
   const V1Order({
     this.price,
@@ -14939,6 +16827,8 @@ class V1Order {
   @JsonKey(name: 'price')
   final V1Quotation? price;
   @JsonKey(name: 'quantity')
+
+  /// Количество в лотах.
   final String? quantity;
   static const fromJsonFactory = _$V1OrderFromJson;
 
@@ -14961,6 +16851,8 @@ extension $V1OrderExtension on V1Order {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Пакет стаканов в рамках стрима.
 class V1OrderBook {
   const V1OrderBook({
     this.figi,
@@ -14984,22 +16876,37 @@ class V1OrderBook {
   Map<String, dynamic> toJson() => _$V1OrderBookToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'depth')
+
+  /// Глубина стакана.
   final int? depth;
   @JsonKey(name: 'isConsistent')
+
+  /// Флаг консистентности стакана.
+  /// **false** — не все заявки попали в стакан из-за сетевых задержек или нарушения порядка доставки.
   final bool? isConsistent;
   @JsonKey(name: 'bids', defaultValue: <V1Order>[])
+
+  /// Массив предложений.
   final List<V1Order>? bids;
   @JsonKey(name: 'asks', defaultValue: <V1Order>[])
+
+  /// Массив спроса.
   final List<V1Order>? asks;
   @JsonKey(name: 'time')
+
+  /// Время формирования стакана в часовом поясе UTC по времени биржи.
   final DateTime? time;
   @JsonKey(name: 'limitUp')
   final V1Quotation? limitUp;
   @JsonKey(name: 'limitDown')
   final V1Quotation? limitDown;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String? instrumentUid;
   @JsonKey(
     name: 'orderBookType',
@@ -15008,8 +16915,12 @@ class V1OrderBook {
   )
   final enums.V1OrderBookType? orderBookType;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1OrderBookFromJson;
 
@@ -15079,6 +16990,8 @@ extension $V1OrderBookExtension on V1OrderBook {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос подписки на стаканы.
 class V1OrderBookInstrument {
   const V1OrderBookInstrument({
     this.figi,
@@ -15095,10 +17008,18 @@ class V1OrderBookInstrument {
 
   @JsonKey(name: 'figi')
   @deprecated
+
+  /// Deprecated FIGI-идентификатор инструмента.
+  /// Используйте `instrument_id`.
   final String? figi;
   @JsonKey(name: 'depth')
+
+  /// Глубина стакана.
   final int? depth;
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента.
+  /// Принимает значение `figi`, `instrument_uid` или `ticker + '_' + class_code`.
   final String? instrumentId;
   @JsonKey(
     name: 'orderBookType',
@@ -15141,6 +17062,8 @@ extension $V1OrderBookInstrumentExtension on V1OrderBookInstrument {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Статус подписки.
 class V1OrderBookSubscription {
   const V1OrderBookSubscription({
     this.figi,
@@ -15162,8 +17085,12 @@ class V1OrderBookSubscription {
   Map<String, dynamic> toJson() => _$V1OrderBookSubscriptionToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'depth')
+
+  /// Глубина стакана.
   final int? depth;
   @JsonKey(
     name: 'subscriptionStatus',
@@ -15172,10 +17099,16 @@ class V1OrderBookSubscription {
   )
   final enums.V1SubscriptionStatus? subscriptionStatus;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'streamId')
+
+  /// Идентификатор открытого соединения.
   final String? streamId;
   @JsonKey(name: 'subscriptionId')
+
+  /// Идентификатор подписки в формате `UUID`.
   final String? subscriptionId;
   @JsonKey(
     name: 'orderBookType',
@@ -15190,8 +17123,12 @@ class V1OrderBookSubscription {
   )
   final enums.V1SubscriptionAction? subscriptionAction;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1OrderBookSubscriptionFromJson;
 
@@ -15258,6 +17195,8 @@ extension $V1OrderBookSubscriptionExtension on V1OrderBookSubscription {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Сделки в рамках торгового поручения.
 class V1OrderStage {
   const V1OrderStage({
     this.price,
@@ -15275,8 +17214,12 @@ class V1OrderStage {
   @JsonKey(name: 'price')
   final V1MoneyValue? price;
   @JsonKey(name: 'quantity')
+
+  /// Количество лотов.
   final String? quantity;
   @JsonKey(name: 'tradeId')
+
+  /// Идентификатор сделки.
   final String? tradeId;
   @JsonKey(name: 'executionTime')
   final DateTime? executionTime;
@@ -15327,8 +17270,13 @@ class V1OrderStateStreamRequest {
   Map<String, dynamic> toJson() => _$V1OrderStateStreamRequestToJson(this);
 
   @JsonKey(name: 'accounts', defaultValue: <String>[])
+
+  /// Идентификаторы счетов.
   final List<String>? accounts;
   @JsonKey(name: 'pingDelayMillis')
+
+  /// Задержка (пинг) сообщений: 1000-120 000 миллисекунд.
+  /// Значение по умолчанию — 120 000.
   final int? pingDelayMillis;
   static const fromJsonFactory = _$V1OrderStateStreamRequestFromJson;
 
@@ -15444,12 +17392,21 @@ class V1OrderStateStreamResponseOrderState {
       _$V1OrderStateStreamResponseOrderStateToJson(this);
 
   @JsonKey(name: 'orderId')
+
+  /// Биржевой идентификатор заявки.
   final String? orderId;
   @JsonKey(name: 'orderRequestId')
+
+  /// Идентификатор ключа идемпотентности, переданный клиентом, в формате UID.
+  /// Максимальная длина 36 символов.
   final String? orderRequestId;
   @JsonKey(name: 'clientCode')
+
+  /// Код клиента на бирже.
   final String? clientCode;
   @JsonKey(name: 'createdAt')
+
+  /// Дата создания заявки.
   final DateTime? createdAt;
   @JsonKey(
     name: 'executionReportStatus',
@@ -15464,10 +17421,16 @@ class V1OrderStateStreamResponseOrderState {
   )
   final enums.OrderStateStreamResponseStatusCauseInfo? statusInfo;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'lotSize')
+
+  /// Лотность инструмента заявки.
   final int? lotSize;
   @JsonKey(
     name: 'direction',
@@ -15488,6 +17451,8 @@ class V1OrderStateStreamResponseOrderState {
   )
   final enums.V1OrderType? orderType;
   @JsonKey(name: 'accountId')
+
+  /// Номер счета.
   final String? accountId;
   @JsonKey(name: 'initialOrderPrice')
   final V1MoneyValue? initialOrderPrice;
@@ -15498,14 +17463,24 @@ class V1OrderStateStreamResponseOrderState {
   @JsonKey(name: 'executedOrderPrice')
   final V1MoneyValue? executedOrderPrice;
   @JsonKey(name: 'currency')
+
+  /// Валюта исполнения.
   final String? currency;
   @JsonKey(name: 'lotsRequested')
+
+  /// Запрошено лотов.
   final String? lotsRequested;
   @JsonKey(name: 'lotsExecuted')
+
+  /// Исполнено лотов.
   final String? lotsExecuted;
   @JsonKey(name: 'lotsLeft')
+
+  /// Число неисполненных лотов по заявке.
   final String? lotsLeft;
   @JsonKey(name: 'lotsCancelled')
+
+  /// Отмененные лоты.
   final String? lotsCancelled;
   @JsonKey(
     name: 'marker',
@@ -15514,12 +17489,20 @@ class V1OrderStateStreamResponseOrderState {
   )
   final enums.OrderStateStreamResponseMarkerType? marker;
   @JsonKey(name: 'trades', defaultValue: <V1OrderTrade>[])
+
+  /// Список сделок.
   final List<V1OrderTrade>? trades;
   @JsonKey(name: 'completionTime')
+
+  /// Время исполнения заявки.
   final DateTime? completionTime;
   @JsonKey(name: 'exchange')
+
+  /// Код биржи.
   final String? exchange;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID идентификатор инструмента.
   final String? instrumentUid;
   static const fromJsonFactory = _$V1OrderStateStreamResponseOrderStateFromJson;
 
@@ -15663,6 +17646,8 @@ extension $V1OrderStateStreamResponseOrderStateExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о сделке.
 class V1OrderTrade {
   const V1OrderTrade({
     this.dateTime,
@@ -15678,12 +17663,18 @@ class V1OrderTrade {
   Map<String, dynamic> toJson() => _$V1OrderTradeToJson(this);
 
   @JsonKey(name: 'dateTime')
+
+  /// Дата и время совершения сделки в часовом поясе UTC.
   final DateTime? dateTime;
   @JsonKey(name: 'price')
   final V1Quotation? price;
   @JsonKey(name: 'quantity')
+
+  /// Количество штук в сделке.
   final String? quantity;
   @JsonKey(name: 'tradeId')
+
+  /// Идентификатор сделки.
   final String? tradeId;
   static const fromJsonFactory = _$V1OrderTradeFromJson;
 
@@ -15718,6 +17709,8 @@ extension $V1OrderTradeExtension on V1OrderTrade {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация об исполнении торгового поручения.
 class V1OrderTrades {
   const V1OrderTrades({
     this.orderId,
@@ -15736,8 +17729,12 @@ class V1OrderTrades {
   Map<String, dynamic> toJson() => _$V1OrderTradesToJson(this);
 
   @JsonKey(name: 'orderId')
+
+  /// Идентификатор торгового поручения.
   final String? orderId;
   @JsonKey(name: 'createdAt')
+
+  /// Дата и время создания сообщения в часовом поясе UTC.
   final DateTime? createdAt;
   @JsonKey(
     name: 'direction',
@@ -15746,12 +17743,20 @@ class V1OrderTrades {
   )
   final enums.V1OrderDirection? direction;
   @JsonKey(name: 'figi')
+
+  /// Figi-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'trades', defaultValue: <V1OrderTrade>[])
+
+  /// Массив сделок.
   final List<V1OrderTrade>? trades;
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счета.
   final String? accountId;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID идентификатор инструмента.
   final String? instrumentUid;
   static const fromJsonFactory = _$V1OrderTradesFromJson;
 
@@ -15811,8 +17816,12 @@ class V1Page {
   Map<String, dynamic> toJson() => _$V1PageToJson(this);
 
   @JsonKey(name: 'limit')
+
+  /// Максимальное число возвращаемых записей.
   final int? limit;
   @JsonKey(name: 'pageNumber')
+
+  /// Порядковый номер страницы, начиная с 0.
   final int? pageNumber;
   static const fromJsonFactory = _$V1PageFromJson;
 
@@ -15848,10 +17857,16 @@ class V1PageResponse {
   Map<String, dynamic> toJson() => _$V1PageResponseToJson(this);
 
   @JsonKey(name: 'limit')
+
+  /// Максимальное число возвращаемых записей.
   final int? limit;
   @JsonKey(name: 'pageNumber')
+
+  /// Порядковый номер страницы, начиная с 0.
   final int? pageNumber;
   @JsonKey(name: 'totalCount')
+
+  /// Общее количество записей.
   final int? totalCount;
   static const fromJsonFactory = _$V1PageResponseFromJson;
 
@@ -15879,6 +17894,8 @@ extension $V1PageResponseExtension on V1PageResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Проверка активности стрима.
 class V1Ping {
   const V1Ping({
     this.time,
@@ -15892,10 +17909,16 @@ class V1Ping {
   Map<String, dynamic> toJson() => _$V1PingToJson(this);
 
   @JsonKey(name: 'time')
+
+  /// Время проверки.
   final DateTime? time;
   @JsonKey(name: 'streamId')
+
+  /// Идентификатор соединения.
   final String? streamId;
   @JsonKey(name: 'pingRequestTime')
+
+  /// Время формирования запроса.
   final DateTime? pingRequestTime;
   static const fromJsonFactory = _$V1PingFromJson;
 
@@ -15938,6 +17961,9 @@ class V1PingDelaySettings {
   Map<String, dynamic> toJson() => _$V1PingDelaySettingsToJson(this);
 
   @JsonKey(name: 'pingDelayMs')
+
+  /// Задержка (пинг) сообщений: 5000–180 000 миллисекунд.
+  /// Значение по умолчанию — 120 000.
   final int? pingDelayMs;
   static const fromJsonFactory = _$V1PingDelaySettingsFromJson;
 
@@ -15970,6 +17996,8 @@ class V1PingRequest {
   Map<String, dynamic> toJson() => _$V1PingRequestToJson(this);
 
   @JsonKey(name: 'time')
+
+  /// Время формирования запроса.
   final DateTime? time;
   static const fromJsonFactory = _$V1PingRequestFromJson;
 
@@ -15988,6 +18016,8 @@ extension $V1PingRequestExtension on V1PingRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Позиции портфеля.
 class V1PortfolioPosition {
   const V1PortfolioPosition({
     this.figi,
@@ -16018,8 +18048,12 @@ class V1PortfolioPosition {
   Map<String, dynamic> toJson() => _$V1PortfolioPositionToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'instrumentType')
+
+  /// Тип инструмента.
   final String? instrumentType;
   @JsonKey(name: 'quantity')
   final V1Quotation? quantity;
@@ -16038,12 +18072,18 @@ class V1PortfolioPosition {
   @JsonKey(name: 'quantityLots')
   final V1Quotation? quantityLots;
   @JsonKey(name: 'blocked')
+
+  /// Заблокировано на бирже.
   final bool? blocked;
   @JsonKey(name: 'blockedLots')
   final V1Quotation? blockedLots;
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции.
   final String? positionUid;
   @JsonKey(name: 'instrumentUid')
+
+  /// Уникальный идентификатор инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'varMargin')
   final V1MoneyValue? varMargin;
@@ -16052,8 +18092,12 @@ class V1PortfolioPosition {
   @JsonKey(name: 'dailyYield')
   final V1MoneyValue? dailyYield;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1PortfolioPositionFromJson;
 
@@ -16166,6 +18210,8 @@ extension $V1PortfolioPositionExtension on V1PortfolioPosition {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос получения текущего портфеля по счету.
 class V1PortfolioRequest {
   const V1PortfolioRequest({
     required this.accountId,
@@ -16179,6 +18225,8 @@ class V1PortfolioRequest {
   Map<String, dynamic> toJson() => _$V1PortfolioRequestToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счета пользователя.
   final String accountId;
   @JsonKey(
     name: 'currency',
@@ -16210,6 +18258,8 @@ extension $V1PortfolioRequestExtension on V1PortfolioRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Текущий портфель по счету.
 class V1PortfolioResponse {
   const V1PortfolioResponse({
     this.totalAmountShares,
@@ -16247,8 +18297,12 @@ class V1PortfolioResponse {
   @JsonKey(name: 'expectedYield')
   final V1Quotation? expectedYield;
   @JsonKey(name: 'positions', defaultValue: <V1PortfolioPosition>[])
+
+  /// Список позиций портфеля.
   final List<V1PortfolioPosition>? positions;
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счета пользователя.
   final String? accountId;
   @JsonKey(name: 'totalAmountOptions')
   final V1MoneyValue? totalAmountOptions;
@@ -16258,6 +18312,8 @@ class V1PortfolioResponse {
   final V1MoneyValue? totalAmountPortfolio;
   @JsonKey(
       name: 'virtualPositions', defaultValue: <V1VirtualPortfolioPosition>[])
+
+  /// Массив виртуальных позиций портфеля.
   final List<V1VirtualPortfolioPosition>? virtualPositions;
   @JsonKey(name: 'dailyYield')
   final V1MoneyValue? dailyYield;
@@ -16357,6 +18413,8 @@ extension $V1PortfolioResponseExtension on V1PortfolioResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос установки stream-соединения.
 class V1PortfolioStreamRequest {
   const V1PortfolioStreamRequest({
     this.accounts,
@@ -16370,6 +18428,8 @@ class V1PortfolioStreamRequest {
   Map<String, dynamic> toJson() => _$V1PortfolioStreamRequestToJson(this);
 
   @JsonKey(name: 'accounts', defaultValue: <String>[])
+
+  /// Массив идентификаторов счетов пользователя.
   final List<String>? accounts;
   @JsonKey(name: 'pingSettings')
   final V1PingDelaySettings? pingSettings;
@@ -16398,6 +18458,8 @@ extension $V1PortfolioStreamRequestExtension on V1PortfolioStreamRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация по позициям и доходностям портфелей.
 class V1PortfolioStreamResponse {
   const V1PortfolioStreamResponse({
     this.subscriptions,
@@ -16447,6 +18509,8 @@ extension $V1PortfolioStreamResponseExtension on V1PortfolioStreamResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Объект результата подписки.
 class V1PortfolioSubscriptionResult {
   const V1PortfolioSubscriptionResult({
     this.accounts,
@@ -16461,8 +18525,13 @@ class V1PortfolioSubscriptionResult {
   Map<String, dynamic> toJson() => _$V1PortfolioSubscriptionResultToJson(this);
 
   @JsonKey(name: 'accounts', defaultValue: <V1AccountSubscriptionStatus>[])
+
+  /// Массив счетов клиента.
   final List<V1AccountSubscriptionStatus>? accounts;
   @JsonKey(name: 'trackingId')
+
+  /// Уникальный идентификатор запроса, подробнее:
+  /// [tracking_id](/invest/intro/developer/protocols/grpc#tracking-id).
   final String? trackingId;
   @JsonKey(name: 'streamId')
   final String? streamId;
@@ -16496,6 +18565,8 @@ extension $V1PortfolioSubscriptionResultExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные о позиции портфеля.
 class V1PositionData {
   const V1PositionData({
     this.accountId,
@@ -16513,16 +18584,28 @@ class V1PositionData {
   Map<String, dynamic> toJson() => _$V1PositionDataToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счета.
   final String? accountId;
   @JsonKey(name: 'money', defaultValue: <V1PositionsMoney>[])
+
+  /// Массив валютных позиций портфеля.
   final List<V1PositionsMoney>? money;
   @JsonKey(name: 'securities', defaultValue: <V1PositionsSecurities>[])
+
+  /// Список ценно-бумажных позиций портфеля.
   final List<V1PositionsSecurities>? securities;
   @JsonKey(name: 'futures', defaultValue: <V1PositionsFutures>[])
+
+  /// Список фьючерсов портфеля.
   final List<V1PositionsFutures>? futures;
   @JsonKey(name: 'options', defaultValue: <V1PositionsOptions>[])
+
+  /// Список опционов портфеля.
   final List<V1PositionsOptions>? options;
   @JsonKey(name: 'date')
+
+  /// Дата и время операции в формате UTC.
   final DateTime? date;
   static const fromJsonFactory = _$V1PositionDataFromJson;
 
@@ -16565,6 +18648,8 @@ extension $V1PositionDataExtension on V1PositionData {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Баланс фьючерса.
 class V1PositionsFutures {
   const V1PositionsFutures({
     this.figi,
@@ -16583,18 +18668,32 @@ class V1PositionsFutures {
   Map<String, dynamic> toJson() => _$V1PositionsFuturesToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор фьючерса.
   final String? figi;
   @JsonKey(name: 'blocked')
+
+  /// Количество бумаг, заблокированных выставленными заявками.
   final String? blocked;
   @JsonKey(name: 'balance')
+
+  /// Текущий незаблокированный баланс.
   final String? balance;
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции.
   final String? positionUid;
   @JsonKey(name: 'instrumentUid')
+
+  /// Уникальный идентификатор инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1PositionsFuturesFromJson;
 
@@ -16643,6 +18742,8 @@ extension $V1PositionsFuturesExtension on V1PositionsFutures {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Валютная позиция портфеля.
 class V1PositionsMoney {
   const V1PositionsMoney({
     this.availableValue,
@@ -16686,6 +18787,8 @@ extension $V1PositionsMoneyExtension on V1PositionsMoney {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Баланс опциона.
 class V1PositionsOptions {
   const V1PositionsOptions({
     this.positionUid,
@@ -16703,16 +18806,28 @@ class V1PositionsOptions {
   Map<String, dynamic> toJson() => _$V1PositionsOptionsToJson(this);
 
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции опциона.
   final String? positionUid;
   @JsonKey(name: 'instrumentUid')
+
+  /// Уникальный идентификатор инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'blocked')
+
+  /// Количество бумаг, заблокированных выставленными заявками.
   final String? blocked;
   @JsonKey(name: 'balance')
+
+  /// Текущий незаблокированный баланс.
   final String? balance;
   static const fromJsonFactory = _$V1PositionsOptionsFromJson;
 
@@ -16757,6 +18872,8 @@ extension $V1PositionsOptionsExtension on V1PositionsOptions {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос позиций портфеля по счету.
 class V1PositionsRequest {
   const V1PositionsRequest({
     required this.accountId,
@@ -16769,6 +18886,8 @@ class V1PositionsRequest {
   Map<String, dynamic> toJson() => _$V1PositionsRequestToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счета пользователя.
   final String accountId;
   static const fromJsonFactory = _$V1PositionsRequestFromJson;
 
@@ -16788,6 +18907,8 @@ extension $V1PositionsRequestExtension on V1PositionsRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Список позиций по счету.
 class V1PositionsResponse {
   const V1PositionsResponse({
     this.money,
@@ -16806,18 +18927,32 @@ class V1PositionsResponse {
   Map<String, dynamic> toJson() => _$V1PositionsResponseToJson(this);
 
   @JsonKey(name: 'money', defaultValue: <V1MoneyValue>[])
+
+  /// Массив валютных позиций портфеля.
   final List<V1MoneyValue>? money;
   @JsonKey(name: 'blocked', defaultValue: <V1MoneyValue>[])
+
+  /// Массив заблокированных валютных позиций портфеля.
   final List<V1MoneyValue>? blocked;
   @JsonKey(name: 'securities', defaultValue: <V1PositionsSecurities>[])
+
+  /// Список ценно-бумажных позиций портфеля.
   final List<V1PositionsSecurities>? securities;
   @JsonKey(name: 'limitsLoadingInProgress')
+
+  /// Признак идущей выгрузки лимитов в данный момент.
   final bool? limitsLoadingInProgress;
   @JsonKey(name: 'futures', defaultValue: <V1PositionsFutures>[])
+
+  /// Список фьючерсов портфеля.
   final List<V1PositionsFutures>? futures;
   @JsonKey(name: 'options', defaultValue: <V1PositionsOptions>[])
+
+  /// Список опционов портфеля.
   final List<V1PositionsOptions>? options;
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счёта пользователя.
   final String? accountId;
   static const fromJsonFactory = _$V1PositionsResponseFromJson;
 
@@ -16867,6 +19002,8 @@ extension $V1PositionsResponseExtension on V1PositionsResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Баланс позиции ценной бумаги.
 class V1PositionsSecurities {
   const V1PositionsSecurities({
     this.figi,
@@ -16887,22 +19024,40 @@ class V1PositionsSecurities {
   Map<String, dynamic> toJson() => _$V1PositionsSecuritiesToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор бумаги.
   final String? figi;
   @JsonKey(name: 'blocked')
+
+  /// Количество бумаг, заблокированных выставленными заявками.
   final String? blocked;
   @JsonKey(name: 'balance')
+
+  /// Текущий незаблокированный баланс.
   final String? balance;
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции.
   final String? positionUid;
   @JsonKey(name: 'instrumentUid')
+
+  /// Уникальный идентификатор инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'exchangeBlocked')
+
+  /// Заблокировано на бирже.
   final bool? exchangeBlocked;
   @JsonKey(name: 'instrumentType')
+
+  /// Тип инструмента.
   final String? instrumentType;
   static const fromJsonFactory = _$V1PositionsSecuritiesFromJson;
 
@@ -16963,6 +19118,8 @@ extension $V1PositionsSecuritiesExtension on V1PositionsSecurities {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос установки stream-соединения позиций.
 class V1PositionsStreamRequest {
   const V1PositionsStreamRequest({
     this.accounts,
@@ -16977,8 +19134,12 @@ class V1PositionsStreamRequest {
   Map<String, dynamic> toJson() => _$V1PositionsStreamRequestToJson(this);
 
   @JsonKey(name: 'accounts', defaultValue: <String>[])
+
+  /// Массив идентификаторов счетов пользователя.
   final List<String>? accounts;
   @JsonKey(name: 'withInitialPositions')
+
+  /// Получение состояния позиций на момент подключения.
   final bool? withInitialPositions;
   @JsonKey(name: 'pingSettings')
   final V1PingDelaySettings? pingSettings;
@@ -17014,6 +19175,8 @@ extension $V1PositionsStreamRequestExtension on V1PositionsStreamRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация по изменению позиций портфеля.
 class V1PositionsStreamResponse {
   const V1PositionsStreamResponse({
     this.subscriptions,
@@ -17072,6 +19235,8 @@ extension $V1PositionsStreamResponseExtension on V1PositionsStreamResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Объект результата подписки.
 class V1PositionsSubscriptionResult {
   const V1PositionsSubscriptionResult({
     this.accounts,
@@ -17086,8 +19251,13 @@ class V1PositionsSubscriptionResult {
   Map<String, dynamic> toJson() => _$V1PositionsSubscriptionResultToJson(this);
 
   @JsonKey(name: 'accounts', defaultValue: <V1PositionsSubscriptionStatus>[])
+
+  /// Массив счетов клиента.
   final List<V1PositionsSubscriptionStatus>? accounts;
   @JsonKey(name: 'trackingId')
+
+  /// Уникальный идентификатор запроса, подробнее:
+  /// [tracking_id](/invest/intro/developer/protocols/grpc#tracking-id).
   final String? trackingId;
   @JsonKey(name: 'streamId')
   final String? streamId;
@@ -17121,6 +19291,8 @@ extension $V1PositionsSubscriptionResultExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Счет клиента.
 class V1PositionsSubscriptionStatus {
   const V1PositionsSubscriptionStatus({
     this.accountId,
@@ -17134,6 +19306,8 @@ class V1PositionsSubscriptionStatus {
   Map<String, dynamic> toJson() => _$V1PositionsSubscriptionStatusToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счета.
   final String? accountId;
   @JsonKey(
     name: 'subscriptionStatus',
@@ -17170,6 +19344,8 @@ extension $V1PositionsSubscriptionStatusExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос выставления асинхронного торгового поручения.
 class V1PostOrderAsyncRequest {
   const V1PostOrderAsyncRequest({
     required this.instrumentId,
@@ -17191,8 +19367,12 @@ class V1PostOrderAsyncRequest {
   Map<String, dynamic> toJson() => _$V1PostOrderAsyncRequestToJson(this);
 
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента, принимает значения Figi или Instrument_uid.
   final String instrumentId;
   @JsonKey(name: 'quantity')
+
+  /// Количество лотов.
   final String quantity;
   @JsonKey(name: 'price')
   final V1Quotation? price;
@@ -17203,6 +19383,8 @@ class V1PostOrderAsyncRequest {
   )
   final enums.V1OrderDirection direction;
   @JsonKey(name: 'accountId')
+
+  /// Номер счета.
   final String accountId;
   @JsonKey(
     name: 'orderType',
@@ -17211,6 +19393,9 @@ class V1PostOrderAsyncRequest {
   )
   final enums.V1OrderType orderType;
   @JsonKey(name: 'orderId')
+
+  /// Идентификатор запроса выставления поручения для целей идемпотентности в формате UID.
+  /// Максимальная длина 36 символов.
   final String orderId;
   @JsonKey(
     name: 'timeInForce',
@@ -17225,6 +19410,8 @@ class V1PostOrderAsyncRequest {
   )
   final enums.V1PriceType? priceType;
   @JsonKey(name: 'confirmMarginTrade')
+
+  /// Согласие на выставление заявки, которая может привести к непокрытой позиции, по умолчанию false.
   final bool? confirmMarginTrade;
   static const fromJsonFactory = _$V1PostOrderAsyncRequestFromJson;
 
@@ -17287,6 +19474,8 @@ extension $V1PostOrderAsyncRequestExtension on V1PostOrderAsyncRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Результат выставления асинхронного торгового поручения.
 class V1PostOrderAsyncResponse {
   const V1PostOrderAsyncResponse({
     required this.orderRequestId,
@@ -17301,6 +19490,9 @@ class V1PostOrderAsyncResponse {
   Map<String, dynamic> toJson() => _$V1PostOrderAsyncResponseToJson(this);
 
   @JsonKey(name: 'orderRequestId')
+
+  /// Идентификатор ключа идемпотентности, переданный клиентом, в формате UID.
+  /// Максимальная длина 36 символов.
   final String orderRequestId;
   @JsonKey(
     name: 'executionReportStatus',
@@ -17309,6 +19501,8 @@ class V1PostOrderAsyncResponse {
   )
   final enums.V1OrderExecutionReportStatus executionReportStatus;
   @JsonKey(name: 'tradeIntentId')
+
+  /// Идентификатор торгового поручения.
   final String? tradeIntentId;
   static const fromJsonFactory = _$V1PostOrderAsyncResponseFromJson;
 
@@ -17345,6 +19539,8 @@ extension $V1PostOrderAsyncResponseExtension on V1PostOrderAsyncResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос выставления торгового поручения.
 class V1PostOrderRequest {
   const V1PostOrderRequest({
     required this.quantity,
@@ -17366,6 +19562,8 @@ class V1PostOrderRequest {
   Map<String, dynamic> toJson() => _$V1PostOrderRequestToJson(this);
 
   @JsonKey(name: 'quantity')
+
+  /// Количество лотов.
   final String quantity;
   @JsonKey(name: 'price')
   final V1Quotation? price;
@@ -17376,6 +19574,8 @@ class V1PostOrderRequest {
   )
   final enums.V1OrderDirection direction;
   @JsonKey(name: 'accountId')
+
+  /// Номер счета.
   final String accountId;
   @JsonKey(
     name: 'orderType',
@@ -17384,8 +19584,13 @@ class V1PostOrderRequest {
   )
   final enums.V1OrderType orderType;
   @JsonKey(name: 'orderId')
+
+  /// Идентификатор запроса выставления поручения для целей идемпотентности в формате UID.
+  /// Максимальная длина 36 символов.
   final String orderId;
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента, принимает значения Figi или Instrument_uid.
   final String? instrumentId;
   @JsonKey(
     name: 'timeInForce',
@@ -17400,6 +19605,8 @@ class V1PostOrderRequest {
   )
   final enums.V1PriceType? priceType;
   @JsonKey(name: 'confirmMarginTrade')
+
+  /// Согласие на выставление заявки, которая может привести к непокрытой позиции, по умолчанию false.
   final bool? confirmMarginTrade;
   static const fromJsonFactory = _$V1PostOrderRequestFromJson;
 
@@ -17462,6 +19669,8 @@ extension $V1PostOrderRequestExtension on V1PostOrderRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о выставлении поручения.
 class V1PostOrderResponse {
   const V1PostOrderResponse({
     this.orderId,
@@ -17494,6 +19703,8 @@ class V1PostOrderResponse {
   Map<String, dynamic> toJson() => _$V1PostOrderResponseToJson(this);
 
   @JsonKey(name: 'orderId')
+
+  /// Биржевой идентификатор заявки.
   final String? orderId;
   @JsonKey(
     name: 'executionReportStatus',
@@ -17502,8 +19713,12 @@ class V1PostOrderResponse {
   )
   final enums.V1OrderExecutionReportStatus? executionReportStatus;
   @JsonKey(name: 'lotsRequested')
+
+  /// Запрошено лотов.
   final String? lotsRequested;
   @JsonKey(name: 'lotsExecuted')
+
+  /// Исполнено лотов.
   final String? lotsExecuted;
   @JsonKey(name: 'initialOrderPrice')
   final V1MoneyValue? initialOrderPrice;
@@ -17518,6 +19733,8 @@ class V1PostOrderResponse {
   @JsonKey(name: 'aciValue')
   final V1MoneyValue? aciValue;
   @JsonKey(name: 'figi')
+
+  /// Figi-идентификатор инструмента.
   final String? figi;
   @JsonKey(
     name: 'direction',
@@ -17534,16 +19751,27 @@ class V1PostOrderResponse {
   )
   final enums.V1OrderType? orderType;
   @JsonKey(name: 'message')
+
+  /// Дополнительные данные об исполнении заявки.
   final String? message;
   @JsonKey(name: 'initialOrderPricePt')
   final V1Quotation? initialOrderPricePt;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID идентификатор инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'orderRequestId')
+
+  /// Идентификатор ключа идемпотентности, переданный клиентом, в формате UID.
+  /// Максимальная длина 36 символов.
   final String? orderRequestId;
   @JsonKey(name: 'responseMetadata')
   final V1ResponseMetadata? responseMetadata;
@@ -17672,6 +19900,8 @@ extension $V1PostOrderResponseExtension on V1PostOrderResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос выставления стоп-заявки.
 class V1PostStopOrderRequest {
   const V1PostStopOrderRequest({
     required this.quantity,
@@ -17698,6 +19928,8 @@ class V1PostStopOrderRequest {
   Map<String, dynamic> toJson() => _$V1PostStopOrderRequestToJson(this);
 
   @JsonKey(name: 'quantity')
+
+  /// Количество лотов.
   final String quantity;
   @JsonKey(name: 'price')
   final V1Quotation? price;
@@ -17710,6 +19942,8 @@ class V1PostStopOrderRequest {
   )
   final enums.V1StopOrderDirection direction;
   @JsonKey(name: 'accountId')
+
+  /// Номер счета.
   final String accountId;
   @JsonKey(
     name: 'expirationType',
@@ -17724,8 +19958,14 @@ class V1PostStopOrderRequest {
   )
   final enums.V1StopOrderType stopOrderType;
   @JsonKey(name: 'expireDate')
+
+  /// Дата и время окончания действия стоп-заявки по UTC.
+  /// Для `ExpirationType = GoodTillDate` заполнение обязательно, для `GoodTillCancel` игнорируется.
   final DateTime? expireDate;
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента.
+  /// Принимает значение `figi` или `instrument_uid`.
   final String instrumentId;
   @JsonKey(
     name: 'exchangeOrderType',
@@ -17748,8 +19988,13 @@ class V1PostStopOrderRequest {
   )
   final enums.V1PriceType? priceType;
   @JsonKey(name: 'orderId')
+
+  /// Идентификатор запроса выставления поручения для целей идемпотентности в формате `UID`.
+  /// Максимальная длина — 36 символов.
   final String orderId;
   @JsonKey(name: 'confirmMarginTrade')
+
+  /// Согласие на выставление заявки, которая может привести к непокрытой позиции, по умолчанию false.
   final bool? confirmMarginTrade;
   static const fromJsonFactory = _$V1PostStopOrderRequestFromJson;
 
@@ -17905,6 +20150,8 @@ extension $V1PostStopOrderRequestTrailingDataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Результат выставления стоп-заявки.
 class V1PostStopOrderResponse {
   const V1PostStopOrderResponse({
     this.stopOrderId,
@@ -17919,8 +20166,13 @@ class V1PostStopOrderResponse {
   Map<String, dynamic> toJson() => _$V1PostStopOrderResponseToJson(this);
 
   @JsonKey(name: 'stopOrderId')
+
+  /// Уникальный идентификатор стоп-заявки.
   final String? stopOrderId;
   @JsonKey(name: 'orderRequestId')
+
+  /// Идентификатор ключа идемпотентности, переданный клиентом, в формате `UID`.
+  /// Максимальная длина 36 — символов.
   final String? orderRequestId;
   @JsonKey(name: 'responseMetadata')
   final V1ResponseMetadata? responseMetadata;
@@ -17958,6 +20210,8 @@ extension $V1PostStopOrderResponseExtension on V1PostStopOrderResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Котировка — денежная сумма без указания валюты.
 class V1Quotation {
   const V1Quotation({
     this.units,
@@ -17971,8 +20225,12 @@ class V1Quotation {
   Map<String, dynamic> toJson() => _$V1QuotationToJson(this);
 
   @JsonKey(name: 'units')
+
+  /// Целая часть суммы, может быть отрицательным числом.
   final String? units;
   @JsonKey(name: 'nano')
+
+  /// Дробная часть суммы, может быть отрицательным числом.
   final int? nano;
   static const fromJsonFactory = _$V1QuotationFromJson;
 
@@ -17993,6 +20251,8 @@ extension $V1QuotationExtension on V1Quotation {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос изменения выставленной заявки.
 class V1ReplaceOrderRequest {
   const V1ReplaceOrderRequest({
     required this.accountId,
@@ -18011,12 +20271,22 @@ class V1ReplaceOrderRequest {
   Map<String, dynamic> toJson() => _$V1ReplaceOrderRequestToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Номер счета.
   final String accountId;
   @JsonKey(name: 'orderId')
+
+  /// Идентификатор заявки на бирже.
   final String orderId;
   @JsonKey(name: 'idempotencyKey')
+
+  /// Новый идентификатор запроса выставления поручения для целей идемпотентности.
+  /// Максимальная длина 36 символов.
+  /// Перезатирает старый ключ.
   final String idempotencyKey;
   @JsonKey(name: 'quantity')
+
+  /// Количество лотов.
   final String quantity;
   @JsonKey(name: 'price')
   final V1Quotation? price;
@@ -18027,6 +20297,8 @@ class V1ReplaceOrderRequest {
   )
   final enums.V1PriceType? priceType;
   @JsonKey(name: 'confirmMarginTrade')
+
+  /// Согласие на выставление заявки, которая может привести к непокрытой позиции, по умолчанию false.
   final bool? confirmMarginTrade;
   static const fromJsonFactory = _$V1ReplaceOrderRequestFromJson;
 
@@ -18090,8 +20362,12 @@ class V1ResponseMetadata {
   Map<String, dynamic> toJson() => _$V1ResponseMetadataToJson(this);
 
   @JsonKey(name: 'trackingId')
+
+  /// Идентификатор трекинга.
   final String? trackingId;
   @JsonKey(name: 'serverTime')
+
+  /// Серверное время.
   final DateTime? serverTime;
   static const fromJsonFactory = _$V1ResponseMetadataFromJson;
 
@@ -18127,6 +20403,8 @@ class V1RiskRatesRequest {
   Map<String, dynamic> toJson() => _$V1RiskRatesRequestToJson(this);
 
   @JsonKey(name: 'instrumentId', defaultValue: <String>[])
+
+  /// Идентификаторы инструментов.
   final List<String>? instrumentId;
   static const fromJsonFactory = _$V1RiskRatesRequestFromJson;
 
@@ -18185,6 +20463,8 @@ extension $V1RiskRatesResponseExtension on V1RiskRatesResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос пополнения счета в песочнице.
 class V1SandboxPayInRequest {
   const V1SandboxPayInRequest({
     required this.accountId,
@@ -18222,6 +20502,8 @@ extension $V1SandboxPayInRequestExtension on V1SandboxPayInRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Результат пополнения счета, текущий баланс.
 class V1SandboxPayInResponse {
   const V1SandboxPayInResponse({
     this.balance,
@@ -18253,6 +20535,8 @@ extension $V1SandboxPayInResponseExtension on V1SandboxPayInResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Объект передачи информации об акции.
 class V1Share {
   const V1Share({
     this.figi,
@@ -18310,16 +20594,26 @@ class V1Share {
   Map<String, dynamic> toJson() => _$V1ShareToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'isin')
+
+  /// ISIN-идентификатор инструмента.
   final String? isin;
   @JsonKey(name: 'lot')
   final int? lot;
   @JsonKey(name: 'currency')
+
+  /// Валюта расчетов.
   final String? currency;
   @JsonKey(name: 'klong')
   final V1Quotation? klong;
@@ -18334,22 +20628,40 @@ class V1Share {
   @JsonKey(name: 'dshortMin')
   final V1Quotation? dshortMin;
   @JsonKey(name: 'shortEnabledFlag')
+
+  /// Признак доступности для операций в шорт.
   final bool? shortEnabledFlag;
   @JsonKey(name: 'name')
+
+  /// Название инструмента.
   final String? name;
   @JsonKey(name: 'exchange')
+
+  /// Tорговая площадка (секция биржи).
   final String? exchange;
   @JsonKey(name: 'ipoDate')
+
+  /// Дата IPO акции по UTC.
   final DateTime? ipoDate;
   @JsonKey(name: 'issueSize')
+
+  /// Размер выпуска.
   final String? issueSize;
   @JsonKey(name: 'countryOfRisk')
+
+  /// Код страны риска — то есть страны, в которой компания ведет основной бизнес.
   final String? countryOfRisk;
   @JsonKey(name: 'countryOfRiskName')
+
+  /// Наименование страны риска — то есть страны, в которой компания ведет основной бизнес.
   final String? countryOfRiskName;
   @JsonKey(name: 'sector')
+
+  /// Сектор экономики.
   final String? sector;
   @JsonKey(name: 'issueSizePlan')
+
+  /// Плановый размер выпуска.
   final String? issueSizePlan;
   @JsonKey(name: 'nominal')
   final V1MoneyValue? nominal;
@@ -18360,12 +20672,22 @@ class V1Share {
   )
   final enums.V1SecurityTradingStatus? tradingStatus;
   @JsonKey(name: 'otcFlag')
+
+  /// Флаг, используемый ранее для определения внебиржевых инструментов.
+  /// На данный момент не используется для торгуемых через API инструментов.
+  /// Может использоваться как фильтр для операций, совершавшихся некоторое время назад на ОТС площадке.
   final bool? otcFlag;
   @JsonKey(name: 'buyAvailableFlag')
+
+  /// Признак доступности для покупки.
   final bool? buyAvailableFlag;
   @JsonKey(name: 'sellAvailableFlag')
+
+  /// Признак доступности для продажи.
   final bool? sellAvailableFlag;
   @JsonKey(name: 'divYieldFlag')
+
+  /// Признак наличия дивидендной доходности.
   final bool? divYieldFlag;
   @JsonKey(
     name: 'shareType',
@@ -18376,8 +20698,12 @@ class V1Share {
   @JsonKey(name: 'minPriceIncrement')
   final V1Quotation? minPriceIncrement;
   @JsonKey(name: 'apiTradeAvailableFlag')
+
+  /// Возможность торговать инструментом через API.
   final bool? apiTradeAvailableFlag;
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор инструмента.
   final String? uid;
   @JsonKey(
     name: 'realExchange',
@@ -18386,8 +20712,12 @@ class V1Share {
   )
   final enums.V1RealExchange? realExchange;
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции инструмента.
   final String? positionUid;
   @JsonKey(name: 'assetUid')
+
+  /// Уникальный идентификатор актива.
   final String? assetUid;
   @JsonKey(
     name: 'instrumentExchange',
@@ -18396,20 +20726,36 @@ class V1Share {
   )
   final enums.V1InstrumentExchangeType? instrumentExchange;
   @JsonKey(name: 'requiredTests', defaultValue: <String>[])
+
+  /// Тесты, которые необходимо пройти клиенту, чтобы совершать сделки по инструменту.
   final List<String>? requiredTests;
   @JsonKey(name: 'forIisFlag')
+
+  /// Признак доступности для ИИС.
   final bool? forIisFlag;
   @JsonKey(name: 'forQualInvestorFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом только для квалифицированных инвесторов.
   final bool? forQualInvestorFlag;
   @JsonKey(name: 'weekendFlag')
+
+  /// Флаг, отображающий доступность торговли инструментом по выходным.
   final bool? weekendFlag;
   @JsonKey(name: 'blockedTcaFlag')
+
+  /// Флаг заблокированного ТКС.
   final bool? blockedTcaFlag;
   @JsonKey(name: 'liquidityFlag')
+
+  /// Флаг достаточной ликвидности.
   final bool? liquidityFlag;
   @JsonKey(name: 'first1minCandleDate')
+
+  /// Дата первой минутной свечи.
   final DateTime? first1minCandleDate;
   @JsonKey(name: 'first1dayCandleDate')
+
+  /// Дата первой дневной свечи.
   final DateTime? first1dayCandleDate;
   @JsonKey(name: 'brand')
   final V1BrandData? brand;
@@ -18652,6 +20998,8 @@ extension $V1ShareExtension on V1Share {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по акции.
 class V1ShareResponse {
   const V1ShareResponse({
     this.instrument,
@@ -18683,6 +21031,8 @@ extension $V1ShareResponseExtension on V1ShareResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по акциям.
 class V1SharesResponse {
   const V1SharesResponse({
     this.instruments,
@@ -18695,6 +21045,8 @@ class V1SharesResponse {
   Map<String, dynamic> toJson() => _$V1SharesResponseToJson(this);
 
   @JsonKey(name: 'instruments', defaultValue: <V1Share>[])
+
+  /// Массив акций.
   final List<V1Share>? instruments;
   static const fromJsonFactory = _$V1SharesResponseFromJson;
 
@@ -18715,6 +21067,8 @@ extension $V1SharesResponseExtension on V1SharesResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Сигнал.
 class V1Signal {
   const V1Signal({
     required this.signalId,
@@ -18741,14 +21095,24 @@ class V1Signal {
   Map<String, dynamic> toJson() => _$V1SignalToJson(this);
 
   @JsonKey(name: 'signalId')
+
+  /// Идентификатор сигнала.
   final String signalId;
   @JsonKey(name: 'strategyId')
+
+  /// Идентификатор стратегии.
   final String strategyId;
   @JsonKey(name: 'strategyName')
+
+  /// Название стратегии.
   final String strategyName;
   @JsonKey(name: 'instrumentUid')
+
+  /// Идентификатор бумаги.
   final String instrumentUid;
   @JsonKey(name: 'createDt')
+
+  /// Дата и время создания сигнала по UTC.
   final DateTime createDt;
   @JsonKey(
     name: 'direction',
@@ -18759,20 +21123,30 @@ class V1Signal {
   @JsonKey(name: 'initialPrice')
   final V1Quotation initialPrice;
   @JsonKey(name: 'info')
+
+  /// Дополнительная информация о сигнале.
   final String? info;
   @JsonKey(name: 'name')
+
+  /// Название сигнала.
   final String name;
   @JsonKey(name: 'targetPrice')
   final V1Quotation targetPrice;
   @JsonKey(name: 'endDt')
+
+  /// Дата и время дедлайна сигнала по UTC.
   final DateTime endDt;
   @JsonKey(name: 'probability')
+
+  /// Вероятность сигнала.
   final int? probability;
   @JsonKey(name: 'stoploss')
   final V1Quotation? stoploss;
   @JsonKey(name: 'closePrice')
   final V1Quotation? closePrice;
   @JsonKey(name: 'closeDt')
+
+  /// Дата и время закрытия сигнала по UTC.
   final DateTime? closeDt;
   static const fromJsonFactory = _$V1SignalFromJson;
 
@@ -18856,6 +21230,8 @@ extension $V1SignalExtension on V1Signal {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о стоп-заявке.
 class V1StopOrder {
   const V1StopOrder({
     this.stopOrderId,
@@ -18886,10 +21262,16 @@ class V1StopOrder {
   Map<String, dynamic> toJson() => _$V1StopOrderToJson(this);
 
   @JsonKey(name: 'stopOrderId')
+
+  /// Уникальный идентификатор стоп-заявки.
   final String? stopOrderId;
   @JsonKey(name: 'lotsRequested')
+
+  /// Запрошено лотов.
   final String? lotsRequested;
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(
     name: 'direction',
@@ -18898,6 +21280,8 @@ class V1StopOrder {
   )
   final enums.V1StopOrderDirection? direction;
   @JsonKey(name: 'currency')
+
+  /// Валюта стоп-заявки.
   final String? currency;
   @JsonKey(
     name: 'orderType',
@@ -18906,16 +21290,24 @@ class V1StopOrder {
   )
   final enums.V1StopOrderType? orderType;
   @JsonKey(name: 'createDate')
+
+  /// Дата и время выставления заявки по UTC.
   final DateTime? createDate;
   @JsonKey(name: 'activationDateTime')
+
+  /// Дата и время конвертации стоп-заявки в биржевую по UTC.
   final DateTime? activationDateTime;
   @JsonKey(name: 'expirationTime')
+
+  /// Дата и время снятия заявки по UTC.
   final DateTime? expirationTime;
   @JsonKey(name: 'price')
   final V1MoneyValue? price;
   @JsonKey(name: 'stopPrice')
   final V1MoneyValue? stopPrice;
   @JsonKey(name: 'instrumentUid')
+
+  /// `instrument_uid`-идентификатор инструмента.
   final String? instrumentUid;
   @JsonKey(
     name: 'takeProfitType',
@@ -18938,10 +21330,16 @@ class V1StopOrder {
   )
   final enums.V1ExchangeOrderType? exchangeOrderType;
   @JsonKey(name: 'exchangeOrderId')
+
+  /// Идентификатор биржевой заявки.
   final String? exchangeOrderId;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1StopOrderFromJson;
 
@@ -19161,12 +21559,20 @@ class V1Strategy {
   Map<String, dynamic> toJson() => _$V1StrategyToJson(this);
 
   @JsonKey(name: 'strategyId')
+
+  /// Идентификатор стратегии.
   final String strategyId;
   @JsonKey(name: 'strategyName')
+
+  /// Название стратегии.
   final String strategyName;
   @JsonKey(name: 'strategyDescription')
+
+  /// Описание стратегии.
   final String? strategyDescription;
   @JsonKey(name: 'strategyUrl')
+
+  /// Ссылка на страницу с описанием стратегии.
   final String? strategyUrl;
   @JsonKey(
     name: 'strategyType',
@@ -19175,10 +21581,16 @@ class V1Strategy {
   )
   final enums.V1StrategyType strategyType;
   @JsonKey(name: 'activeSignals')
+
+  /// Количество активных сигналов.
   final int activeSignals;
   @JsonKey(name: 'totalSignals')
+
+  /// Общее количество сигналов.
   final int totalSignals;
   @JsonKey(name: 'timeInPosition')
+
+  /// Среднее время нахождения сигнала в позиции.
   final String timeInPosition;
   @JsonKey(name: 'averageSignalYield')
   final V1Quotation averageSignalYield;
@@ -19267,6 +21679,8 @@ extension $V1StrategyExtension on V1Strategy {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Лимит stream-соединений.
 class V1StreamLimit {
   const V1StreamLimit({
     this.limit,
@@ -19281,10 +21695,16 @@ class V1StreamLimit {
   Map<String, dynamic> toJson() => _$V1StreamLimitToJson(this);
 
   @JsonKey(name: 'limit')
+
+  /// Максимальное количество stream-соединений.
   final int? limit;
   @JsonKey(name: 'streams', defaultValue: <String>[])
+
+  /// Названия stream-методов.
   final List<String>? streams;
   @JsonKey(name: 'open')
+
+  /// Текущее количество открытых stream-соединений.
   final int? open;
   static const fromJsonFactory = _$V1StreamLimitFromJson;
 
@@ -19312,6 +21732,8 @@ extension $V1StreamLimitExtension on V1StreamLimit {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Объект передачи информации о структурной ноте.
 class V1StructuredNote {
   const V1StructuredNote({
     this.uid,
@@ -19376,46 +21798,80 @@ class V1StructuredNote {
   Map<String, dynamic> toJson() => _$V1StructuredNoteToJson(this);
 
   @JsonKey(name: 'uid')
+
+  /// Уникальный идентификатор инструмента.
   final String? uid;
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   @JsonKey(name: 'isin')
+
+  /// ISIN-идентификатор инструмента.
   final String? isin;
   @JsonKey(name: 'name')
+
+  /// Название инструмента.
   final String? name;
   @JsonKey(name: 'assetUid')
+
+  /// Уникальный идентификатор актива.
   final String? assetUid;
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции.
   final String? positionUid;
   @JsonKey(name: 'minPriceIncrement')
   final V1Quotation? minPriceIncrement;
   @JsonKey(name: 'lot')
+
+  /// Лотность инструмента.
   final int? lot;
   @JsonKey(name: 'nominal')
   final V1MoneyValue? nominal;
   @JsonKey(name: 'currency')
+
+  /// Валюта расчетов.
   final String? currency;
   @JsonKey(name: 'maturityDate')
+
+  /// Дата погашения облигации в формате UTC.
   final DateTime? maturityDate;
   @JsonKey(name: 'placementDate')
+
+  /// Дата размещения в формате UTC.
   final DateTime? placementDate;
   @JsonKey(name: 'issueKind')
+
+  /// Форма выпуска.
   final String? issueKind;
   @JsonKey(name: 'issueSize')
+
+  /// Размер выпуска.
   final int? issueSize;
   @JsonKey(name: 'issueSizePlan')
+
+  /// Плановый размер выпуска.
   final int? issueSizePlan;
   @JsonKey(name: 'dlongClient')
   final V1Quotation? dlongClient;
   @JsonKey(name: 'dshortClient')
   final V1Quotation? dshortClient;
   @JsonKey(name: 'shortEnabledFlag')
+
+  /// Признак доступности для операций в шорт.
   final bool? shortEnabledFlag;
   @JsonKey(name: 'exchange')
+
+  /// Торговая площадка (секция биржи).
   final String? exchange;
   @JsonKey(
     name: 'tradingStatus',
@@ -19424,26 +21880,48 @@ class V1StructuredNote {
   )
   final enums.V1SecurityTradingStatus? tradingStatus;
   @JsonKey(name: 'apiTradeAvailableFlag')
+
+  /// Признак доступности торгов по бумаге через API.
   final bool? apiTradeAvailableFlag;
   @JsonKey(name: 'buyAvailableFlag')
+
+  /// Признак доступности для покупки.
   final bool? buyAvailableFlag;
   @JsonKey(name: 'sellAvailableFlag')
+
+  /// Признак доступности для продажи.
   final bool? sellAvailableFlag;
   @JsonKey(name: 'limitOrderAvailableFlag')
+
+  /// Признак доступности выставления лимитной заявки по инструменту.
   final bool? limitOrderAvailableFlag;
   @JsonKey(name: 'marketOrderAvailableFlag')
+
+  /// Признак доступности выставления рыночной заявки по инструменту.
   final bool? marketOrderAvailableFlag;
   @JsonKey(name: 'bestpriceOrderAvailableFlag')
+
+  /// Признак доступности выставления bestprice заявки по инструменту.
   final bool? bestpriceOrderAvailableFlag;
   @JsonKey(name: 'weekendFlag')
+
+  /// Флаг отображающий доступность торговли инструментом по выходным.
   final bool? weekendFlag;
   @JsonKey(name: 'liquidityFlag')
+
+  /// Флаг достаточной ликвидности.
   final bool? liquidityFlag;
   @JsonKey(name: 'forIisFlag')
+
+  /// Возможность покупки/продажи на ИИС.
   final bool? forIisFlag;
   @JsonKey(name: 'forQualInvestorFlag')
+
+  /// Флаг отображающий доступность торговли инструментом только для квалифицированных инвесторов.
   final bool? forQualInvestorFlag;
   @JsonKey(name: 'pawnshopListFlag')
+
+  /// Признак ФИ, включенного в ломбардный список.
   final bool? pawnshopListFlag;
   @JsonKey(
     name: 'realExchange',
@@ -19452,12 +21930,20 @@ class V1StructuredNote {
   )
   final enums.V1RealExchange? realExchange;
   @JsonKey(name: 'first1minCandleDate')
+
+  /// Дата первой минутной свечи.
   final DateTime? first1minCandleDate;
   @JsonKey(name: 'first1dayCandleDate')
+
+  /// Дата первой дневной свечи.
   final DateTime? first1dayCandleDate;
   @JsonKey(name: 'borrowName')
+
+  /// Название заемщика.
   final String? borrowName;
   @JsonKey(name: 'type')
+
+  /// Тип структурной ноты.
   final String? type;
   @JsonKey(
     name: 'logicPortfolio',
@@ -19472,10 +21958,14 @@ class V1StructuredNote {
   )
   final enums.V1AssetType? assetType;
   @JsonKey(name: 'basicAssets', defaultValue: <StructuredNoteBasicAsset>[])
+
+  /// Базовые активы, входящие в ноту.
   final List<StructuredNoteBasicAsset>? basicAssets;
   @JsonKey(name: 'safetyBarrier')
   final V1Quotation? safetyBarrier;
   @JsonKey(name: 'couponPeriodBase')
+
+  /// Базис расчета НКД.
   final String? couponPeriodBase;
   @JsonKey(
     name: 'observationPrinciple',
@@ -19484,22 +21974,38 @@ class V1StructuredNote {
   )
   final enums.StructuredNoteObservationPrinciple? observationPrinciple;
   @JsonKey(name: 'observationFrequency')
+
+  /// Частота наблюдений.
   final String? observationFrequency;
   @JsonKey(name: 'initialPriceFixingDate')
+
+  /// Дата фиксации цен базовых активов.
   final DateTime? initialPriceFixingDate;
   @JsonKey(name: 'yield', defaultValue: <StructuredNoteYield>[])
   final List<StructuredNoteYield>? $yield;
   @JsonKey(name: 'couponSavingFlag')
+
+  /// Признак сохранения купонов.
   final bool? couponSavingFlag;
   @JsonKey(name: 'sector')
+
+  /// Сектор экономики.
   final String? sector;
   @JsonKey(name: 'countryOfRisk')
+
+  /// Код страны рисков.
   final String? countryOfRisk;
   @JsonKey(name: 'countryOfRiskName')
+
+  /// Наименование страны рисков.
   final String? countryOfRiskName;
   @JsonKey(name: 'logoName')
+
+  /// Имя файла логотипа эмитента.
   final String? logoName;
   @JsonKey(name: 'requiredTests', defaultValue: <String>[])
+
+  /// Тесты, которые необходимо пройти клиенту, чтобы совершать покупки по бумаге.
   final List<String>? requiredTests;
   static const fromJsonFactory = _$V1StructuredNoteFromJson;
 
@@ -19787,6 +22293,8 @@ extension $V1StructuredNoteExtension on V1StructuredNote {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по структурной ноте.
 class V1StructuredNoteResponse {
   const V1StructuredNoteResponse({
     this.instrument,
@@ -19819,6 +22327,8 @@ extension $V1StructuredNoteResponseExtension on V1StructuredNoteResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по структурным нотам.
 class V1StructuredNotesResponse {
   const V1StructuredNotesResponse({
     this.instruments,
@@ -19831,6 +22341,8 @@ class V1StructuredNotesResponse {
   Map<String, dynamic> toJson() => _$V1StructuredNotesResponseToJson(this);
 
   @JsonKey(name: 'instruments', defaultValue: <V1StructuredNote>[])
+
+  /// Массив структурных нот.
   final List<V1StructuredNote>? instruments;
   static const fromJsonFactory = _$V1StructuredNotesResponseFromJson;
 
@@ -19853,6 +22365,8 @@ extension $V1StructuredNotesResponseExtension on V1StructuredNotesResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// subscribeCandles | Изменения статуса подписки на свечи.
 class V1SubscribeCandlesRequest {
   const V1SubscribeCandlesRequest({
     this.subscriptionAction,
@@ -19874,8 +22388,12 @@ class V1SubscribeCandlesRequest {
   )
   final enums.V1SubscriptionAction? subscriptionAction;
   @JsonKey(name: 'instruments', defaultValue: <V1CandleInstrument>[])
+
+  /// Массив инструментов для подписки на свечи.
   final List<V1CandleInstrument>? instruments;
   @JsonKey(name: 'waitingClose')
+
+  /// Флаг ожидания закрытия временного интервала для отправки свечи.
   final bool? waitingClose;
   @JsonKey(
     name: 'candleSourceType',
@@ -19922,6 +22440,8 @@ extension $V1SubscribeCandlesRequestExtension on V1SubscribeCandlesRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Результат изменения статус подписки на свечи.
 class V1SubscribeCandlesResponse {
   const V1SubscribeCandlesResponse({
     this.trackingId,
@@ -19935,8 +22455,13 @@ class V1SubscribeCandlesResponse {
   Map<String, dynamic> toJson() => _$V1SubscribeCandlesResponseToJson(this);
 
   @JsonKey(name: 'trackingId')
+
+  /// Уникальный идентификатор запроса.
+  /// [Подробнее](./grpc#tracking-id).
   final String? trackingId;
   @JsonKey(name: 'candlesSubscriptions', defaultValue: <V1CandleSubscription>[])
+
+  /// Массив статусов подписки на свечи.
   final List<V1CandleSubscription>? candlesSubscriptions;
   static const fromJsonFactory = _$V1SubscribeCandlesResponseFromJson;
 
@@ -19965,6 +22490,8 @@ extension $V1SubscribeCandlesResponseExtension on V1SubscribeCandlesResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Изменение статуса подписки на торговый статус инструмента.
 class V1SubscribeInfoRequest {
   const V1SubscribeInfoRequest({
     this.subscriptionAction,
@@ -19984,6 +22511,8 @@ class V1SubscribeInfoRequest {
   )
   final enums.V1SubscriptionAction? subscriptionAction;
   @JsonKey(name: 'instruments', defaultValue: <V1InfoInstrument>[])
+
+  /// Массив инструментов для подписки на торговый статус.
   final List<V1InfoInstrument>? instruments;
   static const fromJsonFactory = _$V1SubscribeInfoRequestFromJson;
 
@@ -20013,6 +22542,8 @@ extension $V1SubscribeInfoRequestExtension on V1SubscribeInfoRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Результат изменения статуса подписки на торговый статус.
 class V1SubscribeInfoResponse {
   const V1SubscribeInfoResponse({
     this.trackingId,
@@ -20026,8 +22557,13 @@ class V1SubscribeInfoResponse {
   Map<String, dynamic> toJson() => _$V1SubscribeInfoResponseToJson(this);
 
   @JsonKey(name: 'trackingId')
+
+  /// Уникальный идентификатор запроса.
+  /// [Подробнее](./grpc#tracking-id).
   final String? trackingId;
   @JsonKey(name: 'infoSubscriptions', defaultValue: <V1InfoSubscription>[])
+
+  /// Массив статусов подписки на торговый статус.
   final List<V1InfoSubscription>? infoSubscriptions;
   static const fromJsonFactory = _$V1SubscribeInfoResponseFromJson;
 
@@ -20055,6 +22591,8 @@ extension $V1SubscribeInfoResponseExtension on V1SubscribeInfoResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Изменение статуса подписки на цену последней сделки по инструменту.
 class V1SubscribeLastPriceRequest {
   const V1SubscribeLastPriceRequest({
     this.subscriptionAction,
@@ -20074,6 +22612,8 @@ class V1SubscribeLastPriceRequest {
   )
   final enums.V1SubscriptionAction? subscriptionAction;
   @JsonKey(name: 'instruments', defaultValue: <V1LastPriceInstrument>[])
+
+  /// Массив инструментов для подписки на цену последней сделки.
   final List<V1LastPriceInstrument>? instruments;
   static const fromJsonFactory = _$V1SubscribeLastPriceRequestFromJson;
 
@@ -20103,6 +22643,8 @@ extension $V1SubscribeLastPriceRequestExtension on V1SubscribeLastPriceRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Результат изменения статуса подписки на цену последней сделки.
 class V1SubscribeLastPriceResponse {
   const V1SubscribeLastPriceResponse({
     this.trackingId,
@@ -20116,9 +22658,14 @@ class V1SubscribeLastPriceResponse {
   Map<String, dynamic> toJson() => _$V1SubscribeLastPriceResponseToJson(this);
 
   @JsonKey(name: 'trackingId')
+
+  /// Уникальный идентификатор запроса.
+  /// [Подробнее](./grpc#tracking-id).
   final String? trackingId;
   @JsonKey(
       name: 'lastPriceSubscriptions', defaultValue: <V1LastPriceSubscription>[])
+
+  /// Массив статусов подписки на цену последней сделки.
   final List<V1LastPriceSubscription>? lastPriceSubscriptions;
   static const fromJsonFactory = _$V1SubscribeLastPriceResponseFromJson;
 
@@ -20149,6 +22696,8 @@ extension $V1SubscribeLastPriceResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос на изменение статуса подписки на стаканы.
 class V1SubscribeOrderBookRequest {
   const V1SubscribeOrderBookRequest({
     this.subscriptionAction,
@@ -20168,6 +22717,8 @@ class V1SubscribeOrderBookRequest {
   )
   final enums.V1SubscriptionAction? subscriptionAction;
   @JsonKey(name: 'instruments', defaultValue: <V1OrderBookInstrument>[])
+
+  /// Массив инструментов для подписки на стаканы.
   final List<V1OrderBookInstrument>? instruments;
   static const fromJsonFactory = _$V1SubscribeOrderBookRequestFromJson;
 
@@ -20197,6 +22748,8 @@ extension $V1SubscribeOrderBookRequestExtension on V1SubscribeOrderBookRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Результат изменения статуса подписки на стаканы.
 class V1SubscribeOrderBookResponse {
   const V1SubscribeOrderBookResponse({
     this.trackingId,
@@ -20210,9 +22763,14 @@ class V1SubscribeOrderBookResponse {
   Map<String, dynamic> toJson() => _$V1SubscribeOrderBookResponseToJson(this);
 
   @JsonKey(name: 'trackingId')
+
+  /// Уникальный идентификатор запроса.
+  /// [Подробнее](./grpc#tracking-id).
   final String? trackingId;
   @JsonKey(
       name: 'orderBookSubscriptions', defaultValue: <V1OrderBookSubscription>[])
+
+  /// Массив статусов подписки на стаканы.
   final List<V1OrderBookSubscription>? orderBookSubscriptions;
   static const fromJsonFactory = _$V1SubscribeOrderBookResponseFromJson;
 
@@ -20243,6 +22801,8 @@ extension $V1SubscribeOrderBookResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Изменение статуса подписки на поток обезличенных сделок.
 class V1SubscribeTradesRequest {
   const V1SubscribeTradesRequest({
     this.subscriptionAction,
@@ -20264,6 +22824,8 @@ class V1SubscribeTradesRequest {
   )
   final enums.V1SubscriptionAction? subscriptionAction;
   @JsonKey(name: 'instruments', defaultValue: <V1TradeInstrument>[])
+
+  /// Массив инструментов для подписки на поток обезличенных сделок.
   final List<V1TradeInstrument>? instruments;
   @JsonKey(
     name: 'tradeSource',
@@ -20312,6 +22874,8 @@ extension $V1SubscribeTradesRequestExtension on V1SubscribeTradesRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Результат изменения статуса подписки на поток обезличенных сделок.
 class V1SubscribeTradesResponse {
   const V1SubscribeTradesResponse({
     this.trackingId,
@@ -20326,8 +22890,13 @@ class V1SubscribeTradesResponse {
   Map<String, dynamic> toJson() => _$V1SubscribeTradesResponseToJson(this);
 
   @JsonKey(name: 'trackingId')
+
+  /// Уникальный идентификатор запроса.
+  /// [Подробнее](./grpc#tracking-id).
   final String? trackingId;
   @JsonKey(name: 'tradeSubscriptions', defaultValue: <V1TradeSubscription>[])
+
+  /// Массив статусов подписки на поток сделок.
   final List<V1TradeSubscription>? tradeSubscriptions;
   @JsonKey(
     name: 'tradeSource',
@@ -20383,6 +22952,8 @@ class V1SubscriptionResponse {
   Map<String, dynamic> toJson() => _$V1SubscriptionResponseToJson(this);
 
   @JsonKey(name: 'trackingId')
+
+  /// Уникальный идентификатор запроса, подробнее: [tracking_id](./grpc#tracking-id).
   final String? trackingId;
   @JsonKey(
     name: 'status',
@@ -20393,6 +22964,8 @@ class V1SubscriptionResponse {
   @JsonKey(name: 'streamId')
   final String? streamId;
   @JsonKey(name: 'accounts', defaultValue: <String>[])
+
+  /// Идентификаторы счетов.
   final List<String>? accounts;
   @JsonKey(name: 'error')
   final V1ErrorDetail? error;
@@ -20433,6 +23006,8 @@ extension $V1SubscriptionResponseExtension on V1SubscriptionResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о сделке.
 class V1Trade {
   const V1Trade({
     this.figi,
@@ -20453,6 +23028,8 @@ class V1Trade {
   Map<String, dynamic> toJson() => _$V1TradeToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(
     name: 'direction',
@@ -20463,10 +23040,16 @@ class V1Trade {
   @JsonKey(name: 'price')
   final V1Quotation? price;
   @JsonKey(name: 'quantity')
+
+  /// Количество лотов.
   final String? quantity;
   @JsonKey(name: 'time')
+
+  /// Время сделки в часовом поясе UTC по времени биржи.
   final DateTime? time;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String? instrumentUid;
   @JsonKey(
     name: 'tradeSource',
@@ -20475,8 +23058,12 @@ class V1Trade {
   )
   final enums.V1TradeSourceType? tradeSource;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1TradeFromJson;
 
@@ -20533,6 +23120,8 @@ extension $V1TradeExtension on V1Trade {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос подписки на поток обезличенных сделок.
 class V1TradeInstrument {
   const V1TradeInstrument({
     this.figi,
@@ -20547,8 +23136,14 @@ class V1TradeInstrument {
 
   @JsonKey(name: 'figi')
   @deprecated
+
+  /// Deprecated FIGI-идентификатор инструмента.
+  /// Используйте instrument_id`.
   final String? figi;
   @JsonKey(name: 'instrumentId')
+
+  /// Идентификатор инструмента.
+  /// Принимает значение `figi`, `instrument_uid` или `ticker + '_' + class_code`.
   final String? instrumentId;
   static const fromJsonFactory = _$V1TradeInstrumentFromJson;
 
@@ -20573,6 +23168,8 @@ extension $V1TradeInstrumentExtension on V1TradeInstrument {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Статус подписки.
 class V1TradeSubscription {
   const V1TradeSubscription({
     this.figi,
@@ -20593,6 +23190,8 @@ class V1TradeSubscription {
   Map<String, dynamic> toJson() => _$V1TradeSubscriptionToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(
     name: 'subscriptionStatus',
@@ -20601,10 +23200,16 @@ class V1TradeSubscription {
   )
   final enums.V1SubscriptionStatus? subscriptionStatus;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'streamId')
+
+  /// Идентификатор открытого соединения.
   final String? streamId;
   @JsonKey(name: 'subscriptionId')
+
+  /// Идентификатор подписки в формате UUID.
   final String? subscriptionId;
   @JsonKey(name: 'withOpenInterest')
   final bool? withOpenInterest;
@@ -20615,8 +23220,12 @@ class V1TradeSubscription {
   )
   final enums.V1SubscriptionAction? subscriptionAction;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1TradeSubscriptionFromJson;
 
@@ -20680,6 +23289,8 @@ extension $V1TradeSubscriptionExtension on V1TradeSubscription {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос установки соединения.
 class V1TradesStreamRequest {
   const V1TradesStreamRequest({
     this.accounts,
@@ -20693,8 +23304,13 @@ class V1TradesStreamRequest {
   Map<String, dynamic> toJson() => _$V1TradesStreamRequestToJson(this);
 
   @JsonKey(name: 'accounts', defaultValue: <String>[])
+
+  /// Идентификаторы счетов.
   final List<String>? accounts;
   @JsonKey(name: 'pingDelayMs')
+
+  /// Задержка (пинг) сообщений: 5000–180 000 миллисекунд.
+  /// Значение по умолчанию — 120 000.
   final int? pingDelayMs;
   static const fromJsonFactory = _$V1TradesStreamRequestFromJson;
 
@@ -20719,6 +23335,8 @@ extension $V1TradesStreamRequestExtension on V1TradesStreamRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о торговых поручениях.
 class V1TradesStreamResponse {
   const V1TradesStreamResponse({
     this.orderTrades,
@@ -20769,6 +23387,8 @@ extension $V1TradesStreamResponseExtension on V1TradesStreamResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Информация о времени торгов.
 class V1TradingDay {
   const V1TradingDay({
     this.date,
@@ -20796,36 +23416,68 @@ class V1TradingDay {
   Map<String, dynamic> toJson() => _$V1TradingDayToJson(this);
 
   @JsonKey(name: 'date')
+
+  /// Дата.
   final DateTime? date;
   @JsonKey(name: 'isTradingDay')
+
+  /// Признак торгового дня на бирже.
   final bool? isTradingDay;
   @JsonKey(name: 'startTime')
+
+  /// Время начала торгов по UTC.
   final DateTime? startTime;
   @JsonKey(name: 'endTime')
+
+  /// Время окончания торгов по UTC.
   final DateTime? endTime;
   @JsonKey(name: 'openingAuctionStartTime')
+
+  /// Время начала аукциона открытия по UTC.
   final DateTime? openingAuctionStartTime;
   @JsonKey(name: 'closingAuctionEndTime')
+
+  /// Время окончания аукциона закрытия по UTC.
   final DateTime? closingAuctionEndTime;
   @JsonKey(name: 'eveningOpeningAuctionStartTime')
+
+  /// Время начала аукциона открытия вечерней сессии по UTC.
   final DateTime? eveningOpeningAuctionStartTime;
   @JsonKey(name: 'eveningStartTime')
+
+  /// Время начала вечерней сессии по UTC.
   final DateTime? eveningStartTime;
   @JsonKey(name: 'eveningEndTime')
+
+  /// Время окончания вечерней сессии по UTC.
   final DateTime? eveningEndTime;
   @JsonKey(name: 'clearingStartTime')
+
+  /// Время начала основного клиринга по UTC.
   final DateTime? clearingStartTime;
   @JsonKey(name: 'clearingEndTime')
+
+  /// Время окончания основного клиринга по UTC.
   final DateTime? clearingEndTime;
   @JsonKey(name: 'premarketStartTime')
+
+  /// Время начала премаркета по UTC.
   final DateTime? premarketStartTime;
   @JsonKey(name: 'premarketEndTime')
+
+  /// Время окончания премаркета по UTC.
   final DateTime? premarketEndTime;
   @JsonKey(name: 'closingAuctionStartTime')
+
+  /// Время начала аукциона закрытия по UTC.
   final DateTime? closingAuctionStartTime;
   @JsonKey(name: 'openingAuctionEndTime')
+
+  /// Время окончания аукциона открытия по UTC.
   final DateTime? openingAuctionEndTime;
   @JsonKey(name: 'intervals', defaultValue: <V1TradingInterval>[])
+
+  /// Торговые интервалы.
   final List<V1TradingInterval>? intervals;
   static const fromJsonFactory = _$V1TradingDayFromJson;
 
@@ -20949,6 +23601,8 @@ class V1TradingInterval {
   Map<String, dynamic> toJson() => _$V1TradingIntervalToJson(this);
 
   @JsonKey(name: 'type')
+
+  /// Название интервала.
   final String? type;
   @JsonKey(name: 'interval')
   final TradingIntervalTimeInterval? interval;
@@ -20975,6 +23629,8 @@ extension $V1TradingIntervalExtension on V1TradingInterval {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные по торговой площадке.
 class V1TradingSchedule {
   const V1TradingSchedule({
     this.exchange,
@@ -20988,8 +23644,12 @@ class V1TradingSchedule {
   Map<String, dynamic> toJson() => _$V1TradingScheduleToJson(this);
 
   @JsonKey(name: 'exchange')
+
+  /// Наименование торговой площадки.
   final String? exchange;
   @JsonKey(name: 'days', defaultValue: <V1TradingDay>[])
+
+  /// Массив с торговыми и неторговыми днями.
   final List<V1TradingDay>? days;
   static const fromJsonFactory = _$V1TradingScheduleFromJson;
 
@@ -21012,6 +23672,8 @@ extension $V1TradingScheduleExtension on V1TradingSchedule {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос расписания торгов.
 class V1TradingSchedulesRequest {
   const V1TradingSchedulesRequest({
     this.exchange,
@@ -21026,10 +23688,17 @@ class V1TradingSchedulesRequest {
   Map<String, dynamic> toJson() => _$V1TradingSchedulesRequestToJson(this);
 
   @JsonKey(name: 'exchange')
+
+  /// Наименование биржи или расчетного календаря.
+  /// <br/>Если не передается, возвращается информация по всем доступным торговым площадкам.
   final String? exchange;
   @JsonKey(name: 'from')
+
+  /// Начало периода по UTC.
   final DateTime? from;
   @JsonKey(name: 'to')
+
+  /// Окончание периода по UTC.
   final DateTime? to;
   static const fromJsonFactory = _$V1TradingSchedulesRequestFromJson;
 
@@ -21058,6 +23727,8 @@ extension $V1TradingSchedulesRequestExtension on V1TradingSchedulesRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Список торговых площадок.
 class V1TradingSchedulesResponse {
   const V1TradingSchedulesResponse({
     this.exchanges,
@@ -21070,6 +23741,8 @@ class V1TradingSchedulesResponse {
   Map<String, dynamic> toJson() => _$V1TradingSchedulesResponseToJson(this);
 
   @JsonKey(name: 'exchanges', defaultValue: <V1TradingSchedule>[])
+
+  /// Список торговых площадок и режимов торгов.
   final List<V1TradingSchedule>? exchanges;
   static const fromJsonFactory = _$V1TradingSchedulesResponseFromJson;
 
@@ -21090,6 +23763,8 @@ extension $V1TradingSchedulesResponseExtension on V1TradingSchedulesResponse {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Пакет изменения торгового статуса.
 class V1TradingStatus {
   const V1TradingStatus({
     this.figi,
@@ -21109,6 +23784,8 @@ class V1TradingStatus {
   Map<String, dynamic> toJson() => _$V1TradingStatusToJson(this);
 
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(
     name: 'tradingStatus',
@@ -21117,16 +23794,28 @@ class V1TradingStatus {
   )
   final enums.V1SecurityTradingStatus? tradingStatus;
   @JsonKey(name: 'time')
+
+  /// Время изменения торгового статуса по UTC.
   final DateTime? time;
   @JsonKey(name: 'limitOrderAvailableFlag')
+
+  /// Признак доступности выставления лимитной заявки по инструменту.
   final bool? limitOrderAvailableFlag;
   @JsonKey(name: 'marketOrderAvailableFlag')
+
+  /// Признак доступности выставления рыночной заявки по инструменту.
   final bool? marketOrderAvailableFlag;
   @JsonKey(name: 'instrumentUid')
+
+  /// UID инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1TradingStatusFromJson;
 
@@ -21185,6 +23874,8 @@ extension $V1TradingStatusExtension on V1TradingStatus {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Лимит unary-методов.
 class V1UnaryLimit {
   const V1UnaryLimit({
     this.limitPerMinute,
@@ -21199,10 +23890,16 @@ class V1UnaryLimit {
   Map<String, dynamic> toJson() => _$V1UnaryLimitToJson(this);
 
   @JsonKey(name: 'limitPerMinute')
+
+  /// Количество unary-запросов в минуту.
   final int? limitPerMinute;
   @JsonKey(name: 'methods', defaultValue: <String>[])
+
+  /// Названия методов.
   final List<String>? methods;
   @JsonKey(name: 'limitPerSecond')
+
+  /// Количество unary-запросов в секунду.
   final int? limitPerSecond;
   static const fromJsonFactory = _$V1UnaryLimitFromJson;
 
@@ -21260,12 +23957,20 @@ class V1VirtualPortfolioPosition {
   Map<String, dynamic> toJson() => _$V1VirtualPortfolioPositionToJson(this);
 
   @JsonKey(name: 'positionUid')
+
+  /// Уникальный идентификатор позиции.
   final String? positionUid;
   @JsonKey(name: 'instrumentUid')
+
+  /// Уникальный идентификатор инструмента.
   final String? instrumentUid;
   @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
   final String? figi;
   @JsonKey(name: 'instrumentType')
+
+  /// Тип инструмента.
   final String? instrumentType;
   @JsonKey(name: 'quantity')
   final V1Quotation? quantity;
@@ -21276,6 +23981,9 @@ class V1VirtualPortfolioPosition {
   @JsonKey(name: 'expectedYieldFifo')
   final V1Quotation? expectedYieldFifo;
   @JsonKey(name: 'expireDate')
+
+  /// Дата, до которой нужно продать виртуальные бумаги.
+  /// После этой даты виртуальная позиция «сгораетт».
   final DateTime? expireDate;
   @JsonKey(name: 'currentPrice')
   final V1MoneyValue? currentPrice;
@@ -21284,8 +23992,12 @@ class V1VirtualPortfolioPosition {
   @JsonKey(name: 'dailyYield')
   final V1MoneyValue? dailyYield;
   @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
   final String? ticker;
   @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
   final String? classCode;
   static const fromJsonFactory = _$V1VirtualPortfolioPositionFromJson;
 
@@ -21373,6 +24085,8 @@ extension $V1VirtualPortfolioPositionExtension on V1VirtualPortfolioPosition {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Запрос доступного остатка для вывода.
 class V1WithdrawLimitsRequest {
   const V1WithdrawLimitsRequest({
     required this.accountId,
@@ -21385,6 +24099,8 @@ class V1WithdrawLimitsRequest {
   Map<String, dynamic> toJson() => _$V1WithdrawLimitsRequestToJson(this);
 
   @JsonKey(name: 'accountId')
+
+  /// Идентификатор счета пользователя.
   final String accountId;
   static const fromJsonFactory = _$V1WithdrawLimitsRequestFromJson;
 
@@ -21404,6 +24120,8 @@ extension $V1WithdrawLimitsRequestExtension on V1WithdrawLimitsRequest {
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Доступный остаток для вывода.
 class V1WithdrawLimitsResponse {
   const V1WithdrawLimitsResponse({
     this.money,
@@ -21418,10 +24136,16 @@ class V1WithdrawLimitsResponse {
   Map<String, dynamic> toJson() => _$V1WithdrawLimitsResponseToJson(this);
 
   @JsonKey(name: 'money', defaultValue: <V1MoneyValue>[])
+
+  /// Массив валютных позиций портфеля.
   final List<V1MoneyValue>? money;
   @JsonKey(name: 'blocked', defaultValue: <V1MoneyValue>[])
+
+  /// Массив заблокированных валютных позиций портфеля.
   final List<V1MoneyValue>? blocked;
   @JsonKey(name: 'blockedGuarantee', defaultValue: <V1MoneyValue>[])
+
+  /// Заблокировано под гарантийное обеспечение фьючерсов.
   final List<V1MoneyValue>? blockedGuarantee;
   static const fromJsonFactory = _$V1WithdrawLimitsResponseFromJson;
 
@@ -21665,6 +24389,8 @@ extension $StreamResultOfV1TradesStreamResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+
+/// Данные об ошибке
 class ErrorResponse {
   const ErrorResponse({
     required this.code,
@@ -21679,10 +24405,16 @@ class ErrorResponse {
   Map<String, dynamic> toJson() => _$ErrorResponseToJson(this);
 
   @JsonKey(name: 'code')
+
+  /// Уникальный идентификатор ошибки
   final int code;
   @JsonKey(name: 'message')
+
+  /// Пользовательское сообщение об ошибке
   final String message;
   @JsonKey(name: 'description')
+
+  /// Код ошибки
   final int description;
   static const fromJsonFactory = _$ErrorResponseFromJson;
 

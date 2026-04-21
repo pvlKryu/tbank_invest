@@ -6,10 +6,19 @@
 python3 tool/_generate_service_dart_types.py
 ```
 
+Чтобы проставить dartdoc-комментарии в сгенерированные DTO из OpenAPI `description`:
+
+```bash
+python3 tool/_inject_openapi_dartdoc.py
+```
+
 Скрипт читает `paths`, для каждой `post`-операции — схему запроса/ответа и пишет методы  
 `Future<Ответ> имя(Запрос request) => postDto(…)`.
 
-**Когда запускать:** после обновления `tool/t_invest.openapi.swagger` и `build_runner` — если в спеке сменились пути или схемы REST-методов. Затем `dart format lib/src/services`.
+**Когда запускать:** после обновления `tool/t_invest.openapi.swagger` и `build_runner` — если в спеке сменились пути или схемы REST-методов, запусти:
+1) `python3 tool/_generate_service_dart_types.py` (обёртки сервисов),
+2) `python3 tool/_inject_openapi_dartdoc.py` (комментарии DTO из OpenAPI `description`).
+Затем `dart format lib/src/services`.
 
 **Вручную** эти `*_api.dart` не править.
 

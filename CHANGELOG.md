@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.6.4
+
+- **Pub points improvements:** generated DTO files now include injected dartdoc comments from OpenAPI `description` metadata, raising documentation coverage in `pana`.
+- **Generator pipeline:** added `tool/_inject_openapi_dartdoc.py` and documented the step in [doc/service-regeneration.md](doc/service-regeneration.md) / [RU](doc/service-regeneration.ru.md).
+- **Static-analysis score:** cleaned generated warnings/info (`unused import`, generated deprecated-member usage) so `pana` static analysis passes with full points.
+
 ## 0.6.3
 
 - **Pub score / packaging:** moved package docs directory to `doc/` (pub layout convention), updated links in README/CHANGELOG/docs, and set `pubspec.documentation` to `.../tree/main/doc`.
