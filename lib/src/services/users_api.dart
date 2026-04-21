@@ -3,6 +3,7 @@
 import '../invest_http_client.dart';
 import '../json_types.dart';
 import '../api_paths.dart';
+import '../models/users_models.dart';
 
 /// gRPC service: `tinkoff.public.invest.api.contract.v1.UsersService`.
 ///
@@ -25,6 +26,10 @@ class InvestUsersApi {
   Future<JsonMap> getAccounts(JsonMap request) =>
       _http.post(InvestApiPaths.usersServiceGetAccounts, request);
 
+  /// Typed helper for [getAccounts].
+  Future<InvestAccountsResponse> getAccountsTyped(JsonMap request) async =>
+      InvestAccountsResponse.fromJson(await getAccounts(request));
+
   /// GetBankAccounts — user bank accounts.
   ///
   /// REST path: [InvestApiPaths.usersServiceGetBankAccounts]
@@ -36,6 +41,10 @@ class InvestUsersApi {
   /// REST path: [InvestApiPaths.usersServiceGetInfo]
   Future<JsonMap> getInfo(JsonMap request) =>
       _http.post(InvestApiPaths.usersServiceGetInfo, request);
+
+  /// Typed helper for [getInfo].
+  Future<InvestUserInfo> getInfoTyped(JsonMap request) async =>
+      InvestUserInfo.fromJson(await getInfo(request));
 
   /// GetMarginAttributes — margin metrics for an account.
   ///

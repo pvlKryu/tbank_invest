@@ -3,6 +3,7 @@
 import '../invest_http_client.dart';
 import '../json_types.dart';
 import '../api_paths.dart';
+import '../models/instruments_models.dart';
 
 /// gRPC service: `tinkoff.public.invest.api.contract.v1.InstrumentsService`.
 ///
@@ -72,6 +73,12 @@ class InvestInstrumentsApi {
   /// REST path: [InvestApiPaths.instrumentsServiceFindInstrument]
   Future<JsonMap> findInstrument(JsonMap request) =>
       _http.post(InvestApiPaths.instrumentsServiceFindInstrument, request);
+
+  /// Typed helper for [findInstrument].
+  Future<InvestFindInstrumentResponse> findInstrumentTyped(
+    JsonMap request,
+  ) async =>
+      InvestFindInstrumentResponse.fromJson(await findInstrument(request));
 
   /// FutureBy — futures contract by identifier.
   ///

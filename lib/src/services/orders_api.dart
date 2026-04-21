@@ -3,6 +3,7 @@
 import '../invest_http_client.dart';
 import '../json_types.dart';
 import '../api_paths.dart';
+import '../models/orders_models.dart';
 
 /// gRPC service: `tinkoff.public.invest.api.contract.v1.OrdersService`.
 ///
@@ -37,11 +38,19 @@ class InvestOrdersApi {
   Future<JsonMap> getOrderState(JsonMap request) =>
       _http.post(InvestApiPaths.ordersServiceGetOrderState, request);
 
+  /// Typed helper for [getOrderState].
+  Future<InvestOrderState> getOrderStateTyped(JsonMap request) async =>
+      InvestOrderState.fromJson(await getOrderState(request));
+
   /// GetOrders — active orders for an account.
   ///
   /// REST path: [InvestApiPaths.ordersServiceGetOrders]
   Future<JsonMap> getOrders(JsonMap request) =>
       _http.post(InvestApiPaths.ordersServiceGetOrders, request);
+
+  /// Typed helper for [getOrders].
+  Future<InvestOrdersResponse> getOrdersTyped(JsonMap request) async =>
+      InvestOrdersResponse.fromJson(await getOrders(request));
 
   /// PostOrder — place an order.
   ///

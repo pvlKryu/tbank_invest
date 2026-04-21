@@ -48,7 +48,7 @@ Dart client for T‑Invest:
 | Area | Notes |
 |------|--------|
 | REST | One class per gRPC/OpenAPI service (`InvestUsersApi`, `InvestMarketDataApi`, …). Each method maps 1:1 to a path in `InvestApiPaths`. |
-| JSON | Responses are [`JsonMap`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/JsonMap.html) — map to your own models as needed. |
+| JSON / Typed | Keep raw [`JsonMap`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/JsonMap.html) flow or use typed helpers for core methods (`getAccountsTyped`, `findInstrumentTyped`, `getOrdersTyped`, sandbox typed methods). |
 | Auth | Bearer token on every request; optional `x-app-name` via `InvestConfig.appName`. |
 | WebSocket | `InvestWebSocket.connect` builds `wss://…` URLs from `InvestConfig` + `InvestApiPaths`. |
 | Helpers | `MoneyValue`, `Quotation`, `InvestApiException` (HTTP status, gRPC code, `x-tracking-id` when present). |
@@ -59,7 +59,7 @@ Dart client for T‑Invest:
 |--------------|--------|
 | `UsersService`, `InstrumentsService`, `MarketDataService`, `OperationsService`, `OrdersService`, `StopOrdersService`, `SandboxService`, `SignalService` | Implemented as REST service wrappers in `lib/src/services/`. |
 | `MarketDataStreamService`, `OrdersStreamService`, `OperationsStreamService` | Path constants + WebSocket support via `InvestWebSocket`. |
-| Typed DTO coverage for all methods | Partial. Core helpers are typed (`MoneyValue`, `Quotation`), API payloads are mostly `JsonMap`. |
+| Typed DTO coverage for all methods | Partial. Core helpers + typed wrappers for Users/Instruments/Orders/Sandbox are available; remaining endpoints still use `JsonMap`. |
 | Flutter Web/browser target | Not supported in current default import graph (`dart:io`). |
 
 ### Installation
@@ -91,8 +91,8 @@ Future<void> main() async {
   );
 
   try {
-    final json = await client.users.getAccounts({});
-    final accounts = json['accounts'];
+    final accounts = await client.users.getAccountsTyped({});
+    print('Accounts: ${accounts.accounts.length}');
   } on InvestApiException catch (e) {
     print(e);
   } finally {
@@ -243,7 +243,7 @@ MIT — see [`LICENSE`](LICENSE).
 | Область | Описание |
 |---------|----------|
 | REST | Один класс на сервис OpenAPI (`InvestUsersApi`, `InvestMarketDataApi`, …), путь 1:1 с `InvestApiPaths`. |
-| JSON | Ответы — [`JsonMap`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/JsonMap.html); модели можно навесить сами. |
+| JSON / Typed | Можно работать через сырой [`JsonMap`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/JsonMap.html) или через typed helper-методы core-сценариев (`getAccountsTyped`, `findInstrumentTyped`, `getOrdersTyped`, typed sandbox). |
 | Авторизация | Bearer на каждый запрос; опционально `x-app-name` через `InvestConfig.appName`. |
 | WebSocket | `InvestWebSocket.connect` собирает `wss://…` из `InvestConfig` и `InvestApiPaths`. |
 | Утилиты | `MoneyValue`, `Quotation`, `InvestApiException`. |
@@ -254,7 +254,7 @@ MIT — see [`LICENSE`](LICENSE).
 |-----------------|--------|
 | `UsersService`, `InstrumentsService`, `MarketDataService`, `OperationsService`, `OrdersService`, `StopOrdersService`, `SandboxService`, `SignalService` | Реализованы как REST-обёртки в `lib/src/services/`. |
 | `MarketDataStreamService`, `OrdersStreamService`, `OperationsStreamService` | Константы путей + поддержка WebSocket через `InvestWebSocket`. |
-| Полная типизация DTO по всем методам | Частично. Типизированы базовые helper-модели (`MoneyValue`, `Quotation`), остальное в основном `JsonMap`. |
+| Полная типизация DTO по всем методам | Частично. Помимо базовых helper-моделей добавлены typed wrappers для Users/Instruments/Orders/Sandbox; остальные методы пока `JsonMap`. |
 | Flutter Web/браузер | Пока не поддерживается из-за `dart:io` в стандартном импорте. |
 
 ### Установка
@@ -286,8 +286,8 @@ Future<void> main() async {
   );
 
   try {
-    final json = await client.users.getAccounts({});
-    final accounts = json['accounts'];
+    final accounts = await client.users.getAccountsTyped({});
+    print('Accounts: ${accounts.accounts.length}');
   } on InvestApiException catch (e) {
     print(e);
   } finally {

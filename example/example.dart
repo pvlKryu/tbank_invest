@@ -24,8 +24,12 @@ Future<void> main() async {
   );
 
   try {
-    final json = await client.users.getAccounts({});
-    print(json);
+    final accounts = await client.users.getAccountsTyped({});
+    print('Accounts: ${accounts.accounts.length}');
+    for (final account in accounts.accounts) {
+      print(
+          '- ${account.id} ${account.name ?? ''} (${account.status ?? 'n/a'})');
+    }
   } on InvestApiException catch (e) {
     print('API error: $e');
   } finally {

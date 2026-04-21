@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0 (unreleased)
+
+- Added typed DTOs and typed helper methods for core Users/Instruments/Orders/Sandbox flows while keeping raw `JsonMap` APIs.
+- Updated example and README to document typed usage and current typed coverage.
+- Added parser tests for core typed responses.
+
 ## 0.2.0
 
 - Docs: refreshed README for pub.dev-first installation and added explicit API coverage tables (EN/RU).

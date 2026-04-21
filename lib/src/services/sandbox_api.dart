@@ -3,6 +3,8 @@
 import '../invest_http_client.dart';
 import '../json_types.dart';
 import '../api_paths.dart';
+import '../models/orders_models.dart';
+import '../models/sandbox_models.dart';
 
 /// gRPC service: `tinkoff.public.invest.api.contract.v1.SandboxService`.
 ///
@@ -37,6 +39,12 @@ class InvestSandboxApi {
   Future<JsonMap> getSandboxAccounts(JsonMap request) =>
       _http.post(InvestApiPaths.sandboxServiceGetSandboxAccounts, request);
 
+  /// Typed helper for [getSandboxAccounts].
+  Future<InvestSandboxAccountsResponse> getSandboxAccountsTyped(
+    JsonMap request,
+  ) async =>
+      InvestSandboxAccountsResponse.fromJson(await getSandboxAccounts(request));
+
   /// GetSandboxMaxLots — max lots for buy/sell in sandbox.
   ///
   /// REST path: [InvestApiPaths.sandboxServiceGetSandboxMaxLots]
@@ -67,11 +75,19 @@ class InvestSandboxApi {
   Future<JsonMap> getSandboxOrderState(JsonMap request) =>
       _http.post(InvestApiPaths.sandboxServiceGetSandboxOrderState, request);
 
+  /// Typed helper for [getSandboxOrderState].
+  Future<InvestOrderState> getSandboxOrderStateTyped(JsonMap request) async =>
+      InvestOrderState.fromJson(await getSandboxOrderState(request));
+
   /// GetSandboxOrders — active orders for an account.
   ///
   /// REST path: [InvestApiPaths.sandboxServiceGetSandboxOrders]
   Future<JsonMap> getSandboxOrders(JsonMap request) =>
       _http.post(InvestApiPaths.sandboxServiceGetSandboxOrders, request);
+
+  /// Typed helper for [getSandboxOrders].
+  Future<InvestOrdersResponse> getSandboxOrdersTyped(JsonMap request) async =>
+      InvestOrdersResponse.fromJson(await getSandboxOrders(request));
 
   /// GetSandboxPortfolio — portfolio for an account.
   ///
