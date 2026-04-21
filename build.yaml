@@ -1,0 +1,21 @@
+targets:
+  $default:
+    sources:
+      - lib/**
+      # One JSON OpenAPI (Redocly-bundled from official T-Invest spec); not tool/**
+      - tool/t_invest.openapi.swagger
+      - $package$
+    builders:
+      swagger_dart_code_generator:
+        options:
+          input_folder: "tool"
+          output_folder: "lib/src/generated"
+          with_base_url: false
+          with_converter: true
+          build_only_models: true
+          use_path_for_request_names: true
+          override_equals_and_hashcode: false
+          # Large spec: keep a single file output where possible
+          separate_models: false
+          # Reduce noise from oneOf / nullable combinations in protobuf JSON mapping
+          use_default_null_for_lists: true

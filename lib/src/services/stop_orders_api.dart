@@ -1,33 +1,32 @@
-// T-Invest REST API methods (OpenAPI 1.43). Request/response bodies match the official schema.
+// ignore_for_file: public_member_api_docs
+// T-Invest REST (OpenAPI). Request/response: generated types (V1*…, StreamResult*, etc.).
 
 import '../invest_http_client.dart';
-import '../json_types.dart';
 import '../api_paths.dart';
+import '../generated/t_invest.swagger.dart';
 
-/// gRPC service: `tinkoff.public.invest.api.contract.v1.StopOrdersService`.
-///
-/// Each method sends a `POST` with a JSON body and returns parsed JSON.
+/// gRPC: `tinkoff.public.invest.api.contract.v1.StopOrdersService`.
+/// Each method: POST; body from [request] (DTO / JsonMap via [InvestHttpClient.postDto]).
 class InvestStopOrdersApi {
-  /// Creates this API group with a shared HTTP client.
   InvestStopOrdersApi(this._http);
 
   final InvestHttpClient _http;
 
-  /// CancelStopOrder — cancel a stop order.
-  ///
   /// REST path: [InvestApiPaths.stopOrdersServiceCancelStopOrder]
-  Future<JsonMap> cancelStopOrder(JsonMap request) =>
-      _http.post(InvestApiPaths.stopOrdersServiceCancelStopOrder, request);
+  Future<V1CancelStopOrderResponse> cancelStopOrder(
+          V1CancelStopOrderRequest request) =>
+      _http.postDto(InvestApiPaths.stopOrdersServiceCancelStopOrder, request,
+          V1CancelStopOrderResponse.fromJson);
 
-  /// GetStopOrders — active stop orders for an account.
-  ///
   /// REST path: [InvestApiPaths.stopOrdersServiceGetStopOrders]
-  Future<JsonMap> getStopOrders(JsonMap request) =>
-      _http.post(InvestApiPaths.stopOrdersServiceGetStopOrders, request);
+  Future<V1GetStopOrdersResponse> getStopOrders(
+          V1GetStopOrdersRequest request) =>
+      _http.postDto(InvestApiPaths.stopOrdersServiceGetStopOrders, request,
+          V1GetStopOrdersResponse.fromJson);
 
-  /// PostStopOrder — place a stop order.
-  ///
   /// REST path: [InvestApiPaths.stopOrdersServicePostStopOrder]
-  Future<JsonMap> postStopOrder(JsonMap request) =>
-      _http.post(InvestApiPaths.stopOrdersServicePostStopOrder, request);
+  Future<V1PostStopOrderResponse> postStopOrder(
+          V1PostStopOrderRequest request) =>
+      _http.postDto(InvestApiPaths.stopOrdersServicePostStopOrder, request,
+          V1PostStopOrderResponse.fromJson);
 }

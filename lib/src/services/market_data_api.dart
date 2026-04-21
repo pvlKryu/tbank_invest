@@ -1,69 +1,66 @@
-// T-Invest REST API methods (OpenAPI 1.43). Request/response bodies match the official schema.
+// ignore_for_file: public_member_api_docs
+// T-Invest REST (OpenAPI). Request/response: generated types (V1*…, StreamResult*, etc.).
 
 import '../invest_http_client.dart';
-import '../json_types.dart';
 import '../api_paths.dart';
+import '../generated/t_invest.swagger.dart';
 
-/// gRPC service: `tinkoff.public.invest.api.contract.v1.MarketDataService`.
-///
-/// Each method sends a `POST` with a JSON body and returns parsed JSON.
+/// gRPC: `tinkoff.public.invest.api.contract.v1.MarketDataService`.
+/// Each method: POST; body from [request] (DTO / JsonMap via [InvestHttpClient.postDto]).
 class InvestMarketDataApi {
-  /// Creates this API group with a shared HTTP client.
   InvestMarketDataApi(this._http);
 
   final InvestHttpClient _http;
 
-  /// GetCandles — historical candles for an instrument.
-  ///
   /// REST path: [InvestApiPaths.marketDataServiceGetCandles]
-  Future<JsonMap> getCandles(JsonMap request) =>
-      _http.post(InvestApiPaths.marketDataServiceGetCandles, request);
+  Future<V1GetCandlesResponse> getCandles(V1GetCandlesRequest request) =>
+      _http.postDto(InvestApiPaths.marketDataServiceGetCandles, request,
+          V1GetCandlesResponse.fromJson);
 
-  /// GetClosePrices — session close prices for instruments.
-  ///
   /// REST path: [InvestApiPaths.marketDataServiceGetClosePrices]
-  Future<JsonMap> getClosePrices(JsonMap request) =>
-      _http.post(InvestApiPaths.marketDataServiceGetClosePrices, request);
+  Future<V1GetClosePricesResponse> getClosePrices(
+          V1GetClosePricesRequest request) =>
+      _http.postDto(InvestApiPaths.marketDataServiceGetClosePrices, request,
+          V1GetClosePricesResponse.fromJson);
 
-  /// GetLastPrices — last trade prices for instruments.
-  ///
   /// REST path: [InvestApiPaths.marketDataServiceGetLastPrices]
-  Future<JsonMap> getLastPrices(JsonMap request) =>
-      _http.post(InvestApiPaths.marketDataServiceGetLastPrices, request);
+  Future<V1GetLastPricesResponse> getLastPrices(
+          V1GetLastPricesRequest request) =>
+      _http.postDto(InvestApiPaths.marketDataServiceGetLastPrices, request,
+          V1GetLastPricesResponse.fromJson);
 
-  /// GetLastTrades — anonymized trades.
-  ///
   /// REST path: [InvestApiPaths.marketDataServiceGetLastTrades]
-  Future<JsonMap> getLastTrades(JsonMap request) =>
-      _http.post(InvestApiPaths.marketDataServiceGetLastTrades, request);
+  Future<V1GetLastTradesResponse> getLastTrades(
+          V1GetLastTradesRequest request) =>
+      _http.postDto(InvestApiPaths.marketDataServiceGetLastTrades, request,
+          V1GetLastTradesResponse.fromJson);
 
-  /// GetMarketValues — market data for instruments.
-  ///
   /// REST path: [InvestApiPaths.marketDataServiceGetMarketValues]
-  Future<JsonMap> getMarketValues(JsonMap request) =>
-      _http.post(InvestApiPaths.marketDataServiceGetMarketValues, request);
+  Future<V1GetMarketValuesResponse> getMarketValues(
+          V1GetMarketValuesRequest request) =>
+      _http.postDto(InvestApiPaths.marketDataServiceGetMarketValues, request,
+          V1GetMarketValuesResponse.fromJson);
 
-  /// GetOrderBook — order book for an instrument.
-  ///
   /// REST path: [InvestApiPaths.marketDataServiceGetOrderBook]
-  Future<JsonMap> getOrderBook(JsonMap request) =>
-      _http.post(InvestApiPaths.marketDataServiceGetOrderBook, request);
+  Future<V1GetOrderBookResponse> getOrderBook(V1GetOrderBookRequest request) =>
+      _http.postDto(InvestApiPaths.marketDataServiceGetOrderBook, request,
+          V1GetOrderBookResponse.fromJson);
 
-  /// GetTechAnalysis — technical indicators for an instrument.
-  ///
   /// REST path: [InvestApiPaths.marketDataServiceGetTechAnalysis]
-  Future<JsonMap> getTechAnalysis(JsonMap request) =>
-      _http.post(InvestApiPaths.marketDataServiceGetTechAnalysis, request);
+  Future<V1GetTechAnalysisResponse> getTechAnalysis(
+          V1GetTechAnalysisRequest request) =>
+      _http.postDto(InvestApiPaths.marketDataServiceGetTechAnalysis, request,
+          V1GetTechAnalysisResponse.fromJson);
 
-  /// GetTradingStatus — trading status for an instrument.
-  ///
   /// REST path: [InvestApiPaths.marketDataServiceGetTradingStatus]
-  Future<JsonMap> getTradingStatus(JsonMap request) =>
-      _http.post(InvestApiPaths.marketDataServiceGetTradingStatus, request);
+  Future<V1GetTradingStatusResponse> getTradingStatus(
+          V1GetTradingStatusRequest request) =>
+      _http.postDto(InvestApiPaths.marketDataServiceGetTradingStatus, request,
+          V1GetTradingStatusResponse.fromJson);
 
-  /// GetTradingStatuses — trading status for multiple instruments.
-  ///
   /// REST path: [InvestApiPaths.marketDataServiceGetTradingStatuses]
-  Future<JsonMap> getTradingStatuses(JsonMap request) =>
-      _http.post(InvestApiPaths.marketDataServiceGetTradingStatuses, request);
+  Future<V1GetTradingStatusesResponse> getTradingStatuses(
+          V1GetTradingStatusesRequest request) =>
+      _http.postDto(InvestApiPaths.marketDataServiceGetTradingStatuses, request,
+          V1GetTradingStatusesResponse.fromJson);
 }

@@ -1,262 +1,232 @@
-// T-Invest REST API methods (OpenAPI 1.43). Request/response bodies match the official schema.
+// ignore_for_file: public_member_api_docs
+// T-Invest REST (OpenAPI). Request/response: generated types (V1*…, StreamResult*, etc.).
 
 import '../invest_http_client.dart';
-import '../json_types.dart';
 import '../api_paths.dart';
-import '../models/instruments_models.dart';
+import '../generated/t_invest.swagger.dart';
 
-/// gRPC service: `tinkoff.public.invest.api.contract.v1.InstrumentsService`.
-///
-/// Each method sends a `POST` with a JSON body and returns parsed JSON.
+/// gRPC: `tinkoff.public.invest.api.contract.v1.InstrumentsService`.
+/// Each method: POST; body from [request] (DTO / JsonMap via [InvestHttpClient.postDto]).
 class InvestInstrumentsApi {
-  /// Creates this API group with a shared HTTP client.
   InvestInstrumentsApi(this._http);
 
   final InvestHttpClient _http;
 
-  /// BondBy — bond by identifier.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceBondBy]
-  Future<JsonMap> bondBy(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceBondBy, request);
+  Future<V1BondResponse> bondBy(V1InstrumentRequest request) => _http.postDto(
+      InvestApiPaths.instrumentsServiceBondBy,
+      request,
+      V1BondResponse.fromJson);
 
-  /// Bonds — list bonds.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceBonds]
-  Future<JsonMap> bonds(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceBonds, request);
+  Future<V1BondsResponse> bonds(V1InstrumentsRequest request) => _http.postDto(
+      InvestApiPaths.instrumentsServiceBonds,
+      request,
+      V1BondsResponse.fromJson);
 
-  /// CreateFavoriteGroup — create a favorites group.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceCreateFavoriteGroup]
-  Future<JsonMap> createFavoriteGroup(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceCreateFavoriteGroup, request);
+  Future<V1CreateFavoriteGroupResponse> createFavoriteGroup(
+          V1CreateFavoriteGroupRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceCreateFavoriteGroup,
+          request, V1CreateFavoriteGroupResponse.fromJson);
 
-  /// Currencies — list currencies.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceCurrencies]
-  Future<JsonMap> currencies(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceCurrencies, request);
+  Future<V1CurrenciesResponse> currencies(V1InstrumentsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceCurrencies, request,
+          V1CurrenciesResponse.fromJson);
 
-  /// CurrencyBy — currency by identifier.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceCurrencyBy]
-  Future<JsonMap> currencyBy(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceCurrencyBy, request);
+  Future<V1CurrencyResponse> currencyBy(V1InstrumentRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceCurrencyBy, request,
+          V1CurrencyResponse.fromJson);
 
-  /// DeleteFavoriteGroup — delete a favorites group.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceDeleteFavoriteGroup]
-  Future<JsonMap> deleteFavoriteGroup(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceDeleteFavoriteGroup, request);
+  Future<V1DeleteFavoriteGroupResponse> deleteFavoriteGroup(
+          V1DeleteFavoriteGroupRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceDeleteFavoriteGroup,
+          request, V1DeleteFavoriteGroupResponse.fromJson);
 
-  /// EditFavorites — edit favorites list.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceEditFavorites]
-  Future<JsonMap> editFavorites(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceEditFavorites, request);
+  Future<V1EditFavoritesResponse> editFavorites(
+          V1EditFavoritesRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceEditFavorites, request,
+          V1EditFavoritesResponse.fromJson);
 
-  /// EtfBy — ETF by identifier.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceEtfBy]
-  Future<JsonMap> etfBy(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceEtfBy, request);
+  Future<V1EtfResponse> etfBy(V1InstrumentRequest request) => _http.postDto(
+      InvestApiPaths.instrumentsServiceEtfBy, request, V1EtfResponse.fromJson);
 
-  /// Etfs — list ETFs.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceEtfs]
-  Future<JsonMap> etfs(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceEtfs, request);
+  Future<V1EtfsResponse> etfs(V1InstrumentsRequest request) => _http.postDto(
+      InvestApiPaths.instrumentsServiceEtfs, request, V1EtfsResponse.fromJson);
 
-  /// FindInstrument — search instruments.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceFindInstrument]
-  Future<JsonMap> findInstrument(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceFindInstrument, request);
+  Future<V1FindInstrumentResponse> findInstrument(
+          V1FindInstrumentRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceFindInstrument, request,
+          V1FindInstrumentResponse.fromJson);
 
-  /// Typed helper for [findInstrument].
-  Future<InvestFindInstrumentResponse> findInstrumentTyped(
-    JsonMap request,
-  ) async =>
-      InvestFindInstrumentResponse.fromJson(await findInstrument(request));
-
-  /// FutureBy — futures contract by identifier.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceFutureBy]
-  Future<JsonMap> futureBy(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceFutureBy, request);
+  Future<V1FutureResponse> futureBy(V1InstrumentRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceFutureBy, request,
+          V1FutureResponse.fromJson);
 
-  /// Futures — list futures.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceFutures]
-  Future<JsonMap> futures(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceFutures, request);
+  Future<V1FuturesResponse> futures(V1InstrumentsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceFutures, request,
+          V1FuturesResponse.fromJson);
 
-  /// GetAccruedInterests — accrued coupon interest for a bond.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetAccruedInterests]
-  Future<JsonMap> getAccruedInterests(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetAccruedInterests, request);
+  Future<V1GetAccruedInterestsResponse> getAccruedInterests(
+          V1GetAccruedInterestsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetAccruedInterests,
+          request, V1GetAccruedInterestsResponse.fromJson);
 
-  /// GetAssetBy — asset by identifier.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetAssetBy]
-  Future<JsonMap> getAssetBy(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetAssetBy, request);
+  Future<V1AssetResponse> getAssetBy(V1AssetRequest request) => _http.postDto(
+      InvestApiPaths.instrumentsServiceGetAssetBy,
+      request,
+      V1AssetResponse.fromJson);
 
-  /// GetAssetFundamentals — fundamentals for an asset.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetAssetFundamentals]
-  Future<JsonMap> getAssetFundamentals(JsonMap request) => _http.post(
-      InvestApiPaths.instrumentsServiceGetAssetFundamentals, request);
+  Future<V1GetAssetFundamentalsResponse> getAssetFundamentals(
+          V1GetAssetFundamentalsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetAssetFundamentals,
+          request, V1GetAssetFundamentalsResponse.fromJson);
 
-  /// GetAssetReports — issuer report schedules.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetAssetReports]
-  Future<JsonMap> getAssetReports(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetAssetReports, request);
+  Future<V1GetAssetReportsResponse> getAssetReports(
+          V1GetAssetReportsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetAssetReports, request,
+          V1GetAssetReportsResponse.fromJson);
 
-  /// GetAssets — list assets.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetAssets]
-  Future<JsonMap> getAssets(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetAssets, request);
+  Future<V1AssetsResponse> getAssets(V1AssetsRequest request) => _http.postDto(
+      InvestApiPaths.instrumentsServiceGetAssets,
+      request,
+      V1AssetsResponse.fromJson);
 
-  /// GetBondCoupons — bond coupon schedule.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetBondCoupons]
-  Future<JsonMap> getBondCoupons(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetBondCoupons, request);
+  Future<V1GetBondCouponsResponse> getBondCoupons(
+          V1GetBondCouponsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetBondCoupons, request,
+          V1GetBondCouponsResponse.fromJson);
 
-  /// GetBondEvents — bond events.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetBondEvents]
-  Future<JsonMap> getBondEvents(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetBondEvents, request);
+  Future<V1GetBondEventsResponse> getBondEvents(
+          V1GetBondEventsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetBondEvents, request,
+          V1GetBondEventsResponse.fromJson);
 
-  /// GetBrandBy — brand by identifier.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetBrandBy]
-  Future<JsonMap> getBrandBy(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetBrandBy, request);
+  Future<V1Brand> getBrandBy(V1GetBrandRequest request) => _http.postDto(
+      InvestApiPaths.instrumentsServiceGetBrandBy, request, V1Brand.fromJson);
 
-  /// GetBrands — list brands.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetBrands]
-  Future<JsonMap> getBrands(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetBrands, request);
+  Future<V1GetBrandsResponse> getBrands(V1GetBrandsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetBrands, request,
+          V1GetBrandsResponse.fromJson);
 
-  /// GetConsensusForecasts — analyst consensus for an instrument.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetConsensusForecasts]
-  Future<JsonMap> getConsensusForecasts(JsonMap request) => _http.post(
-      InvestApiPaths.instrumentsServiceGetConsensusForecasts, request);
+  Future<V1GetConsensusForecastsResponse> getConsensusForecasts(
+          V1GetConsensusForecastsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetConsensusForecasts,
+          request, V1GetConsensusForecastsResponse.fromJson);
 
-  /// GetCountries — list countries.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetCountries]
-  Future<JsonMap> getCountries(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetCountries, request);
+  Future<V1GetCountriesResponse> getCountries(V1GetCountriesRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetCountries, request,
+          V1GetCountriesResponse.fromJson);
 
-  /// GetDividends — dividend events for an instrument.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetDividends]
-  Future<JsonMap> getDividends(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetDividends, request);
+  Future<V1GetDividendsResponse> getDividends(V1GetDividendsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetDividends, request,
+          V1GetDividendsResponse.fromJson);
 
-  /// GetFavoriteGroups — list favorites groups.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetFavoriteGroups]
-  Future<JsonMap> getFavoriteGroups(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetFavoriteGroups, request);
+  Future<V1GetFavoriteGroupsResponse> getFavoriteGroups(
+          V1GetFavoriteGroupsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetFavoriteGroups, request,
+          V1GetFavoriteGroupsResponse.fromJson);
 
-  /// GetFavorites — list favorite instruments.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetFavorites]
-  Future<JsonMap> getFavorites(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetFavorites, request);
+  Future<V1GetFavoritesResponse> getFavorites(V1GetFavoritesRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetFavorites, request,
+          V1GetFavoritesResponse.fromJson);
 
-  /// GetForecastBy — investment firm forecasts for an instrument.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetForecastBy]
-  Future<JsonMap> getForecastBy(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetForecastBy, request);
+  Future<V1GetForecastResponse> getForecastBy(V1GetForecastRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetForecastBy, request,
+          V1GetForecastResponse.fromJson);
 
-  /// GetFuturesMargin — futures margin requirements.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetFuturesMargin]
-  Future<JsonMap> getFuturesMargin(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetFuturesMargin, request);
+  Future<V1GetFuturesMarginResponse> getFuturesMargin(
+          V1GetFuturesMarginRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetFuturesMargin, request,
+          V1GetFuturesMarginResponse.fromJson);
 
-  /// GetInsiderDeals — insider trades for instruments.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetInsiderDeals]
-  Future<JsonMap> getInsiderDeals(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetInsiderDeals, request);
+  Future<V1GetInsiderDealsResponse> getInsiderDeals(
+          V1GetInsiderDealsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetInsiderDeals, request,
+          V1GetInsiderDealsResponse.fromJson);
 
-  /// GetInstrumentBy — main instrument info.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetInstrumentBy]
-  Future<JsonMap> getInstrumentBy(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetInstrumentBy, request);
+  Future<V1InstrumentResponse> getInstrumentBy(V1InstrumentRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetInstrumentBy, request,
+          V1InstrumentResponse.fromJson);
 
-  /// GetRiskRates — risk rates for an instrument.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceGetRiskRates]
-  Future<JsonMap> getRiskRates(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceGetRiskRates, request);
+  Future<V1RiskRatesResponse> getRiskRates(V1RiskRatesRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceGetRiskRates, request,
+          V1RiskRatesResponse.fromJson);
 
-  /// Indicatives — indicative instruments (indices, commodities, etc.).
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceIndicatives]
-  Future<JsonMap> indicatives(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceIndicatives, request);
+  Future<V1IndicativesResponse> indicatives(V1IndicativesRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceIndicatives, request,
+          V1IndicativesResponse.fromJson);
 
-  /// OptionBy — option by identifier.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceOptionBy]
-  Future<JsonMap> optionBy(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceOptionBy, request);
+  Future<V1OptionResponse> optionBy(V1InstrumentRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceOptionBy, request,
+          V1OptionResponse.fromJson);
 
-  /// Options — list options (deprecated).
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceOptions]
-  Future<JsonMap> options(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceOptions, request);
+  Future<V1OptionsResponse> options(V1InstrumentsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceOptions, request,
+          V1OptionsResponse.fromJson);
 
-  /// OptionsBy — list options.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceOptionsBy]
-  Future<JsonMap> optionsBy(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceOptionsBy, request);
+  Future<V1OptionsResponse> optionsBy(V1FilterOptionsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceOptionsBy, request,
+          V1OptionsResponse.fromJson);
 
-  /// ShareBy — share by identifier.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceShareBy]
-  Future<JsonMap> shareBy(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceShareBy, request);
+  Future<V1ShareResponse> shareBy(V1InstrumentRequest request) => _http.postDto(
+      InvestApiPaths.instrumentsServiceShareBy,
+      request,
+      V1ShareResponse.fromJson);
 
-  /// Shares — list shares.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceShares]
-  Future<JsonMap> shares(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceShares, request);
+  Future<V1SharesResponse> shares(V1InstrumentsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceShares, request,
+          V1SharesResponse.fromJson);
 
-  /// StructuredNoteBy — structured note by identifier.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceStructuredNoteBy]
-  Future<JsonMap> structuredNoteBy(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceStructuredNoteBy, request);
+  Future<V1StructuredNoteResponse> structuredNoteBy(
+          V1InstrumentRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceStructuredNoteBy, request,
+          V1StructuredNoteResponse.fromJson);
 
-  /// StructuredNotes — list structured notes.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceStructuredNotes]
-  Future<JsonMap> structuredNotes(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceStructuredNotes, request);
+  Future<V1StructuredNotesResponse> structuredNotes(
+          V1InstrumentsRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceStructuredNotes, request,
+          V1StructuredNotesResponse.fromJson);
 
-  /// TradingSchedules — exchange trading schedules.
-  ///
   /// REST path: [InvestApiPaths.instrumentsServiceTradingSchedules]
-  Future<JsonMap> tradingSchedules(JsonMap request) =>
-      _http.post(InvestApiPaths.instrumentsServiceTradingSchedules, request);
+  Future<V1TradingSchedulesResponse> tradingSchedules(
+          V1TradingSchedulesRequest request) =>
+      _http.postDto(InvestApiPaths.instrumentsServiceTradingSchedules, request,
+          V1TradingSchedulesResponse.fromJson);
 }

@@ -1,60 +1,47 @@
-// T-Invest REST API methods (OpenAPI 1.43). Request/response bodies match the official schema.
+// ignore_for_file: public_member_api_docs
+// T-Invest REST (OpenAPI). Request/response: generated types (V1*…, StreamResult*, etc.).
 
 import '../invest_http_client.dart';
-import '../json_types.dart';
 import '../api_paths.dart';
-import '../models/users_models.dart';
+import '../generated/t_invest.swagger.dart';
 
-/// gRPC service: `tinkoff.public.invest.api.contract.v1.UsersService`.
-///
-/// Each method sends a `POST` with a JSON body and returns parsed JSON.
+/// gRPC: `tinkoff.public.invest.api.contract.v1.UsersService`.
+/// Each method: POST; body from [request] (DTO / JsonMap via [InvestHttpClient.postDto]).
 class InvestUsersApi {
-  /// Creates this API group with a shared HTTP client.
   InvestUsersApi(this._http);
 
   final InvestHttpClient _http;
 
-  /// CurrencyTransfer — transfer cash between accounts.
-  ///
   /// REST path: [InvestApiPaths.usersServiceCurrencyTransfer]
-  Future<JsonMap> currencyTransfer(JsonMap request) =>
-      _http.post(InvestApiPaths.usersServiceCurrencyTransfer, request);
+  Future<V1CurrencyTransferResponse> currencyTransfer(
+          V1CurrencyTransferRequest request) =>
+      _http.postDto(InvestApiPaths.usersServiceCurrencyTransfer, request,
+          V1CurrencyTransferResponse.fromJson);
 
-  /// GetAccounts — user brokerage accounts.
-  ///
   /// REST path: [InvestApiPaths.usersServiceGetAccounts]
-  Future<JsonMap> getAccounts(JsonMap request) =>
-      _http.post(InvestApiPaths.usersServiceGetAccounts, request);
+  Future<V1GetAccountsResponse> getAccounts(V1GetAccountsRequest request) =>
+      _http.postDto(InvestApiPaths.usersServiceGetAccounts, request,
+          V1GetAccountsResponse.fromJson);
 
-  /// Typed helper for [getAccounts].
-  Future<InvestAccountsResponse> getAccountsTyped(JsonMap request) async =>
-      InvestAccountsResponse.fromJson(await getAccounts(request));
-
-  /// GetBankAccounts — user bank accounts.
-  ///
   /// REST path: [InvestApiPaths.usersServiceGetBankAccounts]
-  Future<JsonMap> getBankAccounts(JsonMap request) =>
-      _http.post(InvestApiPaths.usersServiceGetBankAccounts, request);
+  Future<V1GetBankAccountsResponse> getBankAccounts(
+          V1GetBankAccountsRequest request) =>
+      _http.postDto(InvestApiPaths.usersServiceGetBankAccounts, request,
+          V1GetBankAccountsResponse.fromJson);
 
-  /// GetInfo — user profile info.
-  ///
   /// REST path: [InvestApiPaths.usersServiceGetInfo]
-  Future<JsonMap> getInfo(JsonMap request) =>
-      _http.post(InvestApiPaths.usersServiceGetInfo, request);
+  Future<V1GetInfoResponse> getInfo(V1GetInfoRequest request) => _http.postDto(
+      InvestApiPaths.usersServiceGetInfo, request, V1GetInfoResponse.fromJson);
 
-  /// Typed helper for [getInfo].
-  Future<InvestUserInfo> getInfoTyped(JsonMap request) async =>
-      InvestUserInfo.fromJson(await getInfo(request));
-
-  /// GetMarginAttributes — margin metrics for an account.
-  ///
   /// REST path: [InvestApiPaths.usersServiceGetMarginAttributes]
-  Future<JsonMap> getMarginAttributes(JsonMap request) =>
-      _http.post(InvestApiPaths.usersServiceGetMarginAttributes, request);
+  Future<V1GetMarginAttributesResponse> getMarginAttributes(
+          V1GetMarginAttributesRequest request) =>
+      _http.postDto(InvestApiPaths.usersServiceGetMarginAttributes, request,
+          V1GetMarginAttributesResponse.fromJson);
 
-  /// GetUserTariff — user tariff.
-  ///
   /// REST path: [InvestApiPaths.usersServiceGetUserTariff]
-  Future<JsonMap> getUserTariff(JsonMap request) =>
-      _http.post(InvestApiPaths.usersServiceGetUserTariff, request);
+  Future<V1GetUserTariffResponse> getUserTariff(
+          V1GetUserTariffRequest request) =>
+      _http.postDto(InvestApiPaths.usersServiceGetUserTariff, request,
+          V1GetUserTariffResponse.fromJson);
 }

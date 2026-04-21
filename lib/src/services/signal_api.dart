@@ -1,27 +1,25 @@
-// T-Invest REST API methods (OpenAPI 1.43). Request/response bodies match the official schema.
+// ignore_for_file: public_member_api_docs
+// T-Invest REST (OpenAPI). Request/response: generated types (V1*…, StreamResult*, etc.).
 
 import '../invest_http_client.dart';
-import '../json_types.dart';
 import '../api_paths.dart';
+import '../generated/t_invest.swagger.dart';
 
-/// gRPC service: `tinkoff.public.invest.api.contract.v1.SignalService`.
-///
-/// Each method sends a `POST` with a JSON body and returns parsed JSON.
+/// gRPC: `tinkoff.public.invest.api.contract.v1.SignalService`.
+/// Each method: POST; body from [request] (DTO / JsonMap via [InvestHttpClient.postDto]).
 class InvestSignalApi {
-  /// Creates this API group with a shared HTTP client.
   InvestSignalApi(this._http);
 
   final InvestHttpClient _http;
 
-  /// GetSignals — trading signals.
-  ///
   /// REST path: [InvestApiPaths.signalServiceGetSignals]
-  Future<JsonMap> getSignals(JsonMap request) =>
-      _http.post(InvestApiPaths.signalServiceGetSignals, request);
+  Future<V1GetSignalsResponse> getSignals(V1GetSignalsRequest request) =>
+      _http.postDto(InvestApiPaths.signalServiceGetSignals, request,
+          V1GetSignalsResponse.fromJson);
 
-  /// GetStrategies — strategies.
-  ///
   /// REST path: [InvestApiPaths.signalServiceGetStrategies]
-  Future<JsonMap> getStrategies(JsonMap request) =>
-      _http.post(InvestApiPaths.signalServiceGetStrategies, request);
+  Future<V1GetStrategiesResponse> getStrategies(
+          V1GetStrategiesRequest request) =>
+      _http.postDto(InvestApiPaths.signalServiceGetStrategies, request,
+          V1GetStrategiesResponse.fromJson);
 }

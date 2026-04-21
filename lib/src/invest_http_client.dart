@@ -76,8 +76,50 @@ class InvestHttpClient {
   /// Configuration (token is not logged by the traffic logger).
   InvestConfig get config => _config;
 
+  /// Encodes a request body for JSON: [Map] (including [JsonMap]) is passed
+  /// through; otherwise [toJson] is invoked (e.g. generated `V1*Request` from
+  /// [json_serializable]).
+  static Map<String, dynamic> requestBodyToJsonMap(Object request) {
+    if (request is Map<String, dynamic>) {
+      return request;
+    }
+    if (request is Map) {
+      return Map<String, dynamic>.from(request);
+    }
+    final Object? json = (request as dynamic).toJson() as Object?;
+    if (json is Map<String, dynamic>) {
+      return json;
+    }
+    if (json is Map) {
+      return Map<String, dynamic>.from(json);
+    }
+    throw InvestException(
+      'Request must be JsonMap (Map<String, dynamic>) or a type with toJson() '
+      'returning a Map, got ${request.runtimeType}',
+    );
+  }
+
+  /// Sends `POST` with a typed or map request and decodes the response with [fromJson]
+  /// (e.g. generated `V1*Response.fromJson`). [request] may be a [JsonMap] or any
+  /// DTO that implements `toJson()`.
+  Future<T> postDto<T>(
+    String path,
+    Object request,
+    T Function(Map<String, dynamic> json) fromJson,
+  ) async {
+    return fromJson(await post(path, requestBodyToJsonMap(request)));
+  }
+
+  /// Like [post] but accepts a DTO (or any [Object] with `toJson()`) for the
+  /// body, not only a raw [JsonMap].
+  Future<JsonMap> postRequest(String path, Object request) async {
+    return post(path, requestBodyToJsonMap(request));
+  }
+
   /// Sends `POST` to [path] relative to the base URL (see [InvestApiPaths]).
   ///
+  /// [body] is the raw JSON object. Prefer [postRequest] or [postDto] with a
+  /// generated `V1*Request` from the public API.
   /// Returns the top-level decoded JSON object.
   /// On failure throws [InvestApiException] or [InvestException].
   Future<JsonMap> post(String path, JsonMap body) async {

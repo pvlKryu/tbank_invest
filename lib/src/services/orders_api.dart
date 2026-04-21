@@ -1,72 +1,56 @@
-// T-Invest REST API methods (OpenAPI 1.43). Request/response bodies match the official schema.
+// ignore_for_file: public_member_api_docs
+// T-Invest REST (OpenAPI). Request/response: generated types (V1*…, StreamResult*, etc.).
 
 import '../invest_http_client.dart';
-import '../json_types.dart';
 import '../api_paths.dart';
-import '../models/orders_models.dart';
+import '../generated/t_invest.swagger.dart';
 
-/// gRPC service: `tinkoff.public.invest.api.contract.v1.OrdersService`.
-///
-/// Each method sends a `POST` with a JSON body and returns parsed JSON.
+/// gRPC: `tinkoff.public.invest.api.contract.v1.OrdersService`.
+/// Each method: POST; body from [request] (DTO / JsonMap via [InvestHttpClient.postDto]).
 class InvestOrdersApi {
-  /// Creates this API group with a shared HTTP client.
   InvestOrdersApi(this._http);
 
   final InvestHttpClient _http;
 
-  /// CancelOrder — cancel an order.
-  ///
   /// REST path: [InvestApiPaths.ordersServiceCancelOrder]
-  Future<JsonMap> cancelOrder(JsonMap request) =>
-      _http.post(InvestApiPaths.ordersServiceCancelOrder, request);
+  Future<V1CancelOrderResponse> cancelOrder(V1CancelOrderRequest request) =>
+      _http.postDto(InvestApiPaths.ordersServiceCancelOrder, request,
+          V1CancelOrderResponse.fromJson);
 
-  /// GetMaxLots — max lots available to buy/sell.
-  ///
   /// REST path: [InvestApiPaths.ordersServiceGetMaxLots]
-  Future<JsonMap> getMaxLots(JsonMap request) =>
-      _http.post(InvestApiPaths.ordersServiceGetMaxLots, request);
+  Future<V1GetMaxLotsResponse> getMaxLots(V1GetMaxLotsRequest request) =>
+      _http.postDto(InvestApiPaths.ordersServiceGetMaxLots, request,
+          V1GetMaxLotsResponse.fromJson);
 
-  /// GetOrderPrice — estimated cost for a limit order.
-  ///
   /// REST path: [InvestApiPaths.ordersServiceGetOrderPrice]
-  Future<JsonMap> getOrderPrice(JsonMap request) =>
-      _http.post(InvestApiPaths.ordersServiceGetOrderPrice, request);
+  Future<V1GetOrderPriceResponse> getOrderPrice(
+          V1GetOrderPriceRequest request) =>
+      _http.postDto(InvestApiPaths.ordersServiceGetOrderPrice, request,
+          V1GetOrderPriceResponse.fromJson);
 
-  /// GetOrderState — order state.
-  ///
   /// REST path: [InvestApiPaths.ordersServiceGetOrderState]
-  Future<JsonMap> getOrderState(JsonMap request) =>
-      _http.post(InvestApiPaths.ordersServiceGetOrderState, request);
+  Future<Contractv1OrderState> getOrderState(V1GetOrderStateRequest request) =>
+      _http.postDto(InvestApiPaths.ordersServiceGetOrderState, request,
+          Contractv1OrderState.fromJson);
 
-  /// Typed helper for [getOrderState].
-  Future<InvestOrderState> getOrderStateTyped(JsonMap request) async =>
-      InvestOrderState.fromJson(await getOrderState(request));
-
-  /// GetOrders — active orders for an account.
-  ///
   /// REST path: [InvestApiPaths.ordersServiceGetOrders]
-  Future<JsonMap> getOrders(JsonMap request) =>
-      _http.post(InvestApiPaths.ordersServiceGetOrders, request);
+  Future<V1GetOrdersResponse> getOrders(V1GetOrdersRequest request) =>
+      _http.postDto(InvestApiPaths.ordersServiceGetOrders, request,
+          V1GetOrdersResponse.fromJson);
 
-  /// Typed helper for [getOrders].
-  Future<InvestOrdersResponse> getOrdersTyped(JsonMap request) async =>
-      InvestOrdersResponse.fromJson(await getOrders(request));
-
-  /// PostOrder — place an order.
-  ///
   /// REST path: [InvestApiPaths.ordersServicePostOrder]
-  Future<JsonMap> postOrder(JsonMap request) =>
-      _http.post(InvestApiPaths.ordersServicePostOrder, request);
+  Future<V1PostOrderResponse> postOrder(V1PostOrderRequest request) =>
+      _http.postDto(InvestApiPaths.ordersServicePostOrder, request,
+          V1PostOrderResponse.fromJson);
 
-  /// PostOrderAsync — place an order (async API).
-  ///
   /// REST path: [InvestApiPaths.ordersServicePostOrderAsync]
-  Future<JsonMap> postOrderAsync(JsonMap request) =>
-      _http.post(InvestApiPaths.ordersServicePostOrderAsync, request);
+  Future<V1PostOrderAsyncResponse> postOrderAsync(
+          V1PostOrderAsyncRequest request) =>
+      _http.postDto(InvestApiPaths.ordersServicePostOrderAsync, request,
+          V1PostOrderAsyncResponse.fromJson);
 
-  /// ReplaceOrder — replace an existing order.
-  ///
   /// REST path: [InvestApiPaths.ordersServiceReplaceOrder]
-  Future<JsonMap> replaceOrder(JsonMap request) =>
-      _http.post(InvestApiPaths.ordersServiceReplaceOrder, request);
+  Future<V1PostOrderResponse> replaceOrder(V1ReplaceOrderRequest request) =>
+      _http.postDto(InvestApiPaths.ordersServiceReplaceOrder, request,
+          V1PostOrderResponse.fromJson);
 }

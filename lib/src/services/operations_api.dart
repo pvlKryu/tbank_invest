@@ -1,57 +1,53 @@
-// T-Invest REST API methods (OpenAPI 1.43). Request/response bodies match the official schema.
+// ignore_for_file: public_member_api_docs
+// T-Invest REST (OpenAPI). Request/response: generated types (V1*…, StreamResult*, etc.).
 
 import '../invest_http_client.dart';
-import '../json_types.dart';
 import '../api_paths.dart';
+import '../generated/t_invest.swagger.dart';
 
-/// gRPC service: `tinkoff.public.invest.api.contract.v1.OperationsService`.
-///
-/// Each method sends a `POST` with a JSON body and returns parsed JSON.
+/// gRPC: `tinkoff.public.invest.api.contract.v1.OperationsService`.
+/// Each method: POST; body from [request] (DTO / JsonMap via [InvestHttpClient.postDto]).
 class InvestOperationsApi {
-  /// Creates this API group with a shared HTTP client.
   InvestOperationsApi(this._http);
 
   final InvestHttpClient _http;
 
-  /// GetBrokerReport — broker report.
-  ///
   /// REST path: [InvestApiPaths.operationsServiceGetBrokerReport]
-  Future<JsonMap> getBrokerReport(JsonMap request) =>
-      _http.post(InvestApiPaths.operationsServiceGetBrokerReport, request);
+  Future<V1BrokerReportResponse> getBrokerReport(
+          V1BrokerReportRequest request) =>
+      _http.postDto(InvestApiPaths.operationsServiceGetBrokerReport, request,
+          V1BrokerReportResponse.fromJson);
 
-  /// GetDividendsForeignIssuer — foreign income certificate report.
-  ///
   /// REST path: [InvestApiPaths.operationsServiceGetDividendsForeignIssuer]
-  Future<JsonMap> getDividendsForeignIssuer(JsonMap request) => _http.post(
-      InvestApiPaths.operationsServiceGetDividendsForeignIssuer, request);
+  Future<V1GetDividendsForeignIssuerResponse> getDividendsForeignIssuer(
+          V1GetDividendsForeignIssuerRequest request) =>
+      _http.postDto(InvestApiPaths.operationsServiceGetDividendsForeignIssuer,
+          request, V1GetDividendsForeignIssuerResponse.fromJson);
 
-  /// GetOperations — operations for an account.
-  ///
   /// REST path: [InvestApiPaths.operationsServiceGetOperations]
-  Future<JsonMap> getOperations(JsonMap request) =>
-      _http.post(InvestApiPaths.operationsServiceGetOperations, request);
+  Future<V1OperationsResponse> getOperations(V1OperationsRequest request) =>
+      _http.postDto(InvestApiPaths.operationsServiceGetOperations, request,
+          V1OperationsResponse.fromJson);
 
-  /// GetOperationsByCursor — paginated operations.
-  ///
   /// REST path: [InvestApiPaths.operationsServiceGetOperationsByCursor]
-  Future<JsonMap> getOperationsByCursor(JsonMap request) => _http.post(
-      InvestApiPaths.operationsServiceGetOperationsByCursor, request);
+  Future<V1GetOperationsByCursorResponse> getOperationsByCursor(
+          V1GetOperationsByCursorRequest request) =>
+      _http.postDto(InvestApiPaths.operationsServiceGetOperationsByCursor,
+          request, V1GetOperationsByCursorResponse.fromJson);
 
-  /// GetPortfolio — portfolio for an account.
-  ///
   /// REST path: [InvestApiPaths.operationsServiceGetPortfolio]
-  Future<JsonMap> getPortfolio(JsonMap request) =>
-      _http.post(InvestApiPaths.operationsServiceGetPortfolio, request);
+  Future<V1PortfolioResponse> getPortfolio(V1PortfolioRequest request) =>
+      _http.postDto(InvestApiPaths.operationsServiceGetPortfolio, request,
+          V1PortfolioResponse.fromJson);
 
-  /// GetPositions — positions for an account.
-  ///
   /// REST path: [InvestApiPaths.operationsServiceGetPositions]
-  Future<JsonMap> getPositions(JsonMap request) =>
-      _http.post(InvestApiPaths.operationsServiceGetPositions, request);
+  Future<V1PositionsResponse> getPositions(V1PositionsRequest request) =>
+      _http.postDto(InvestApiPaths.operationsServiceGetPositions, request,
+          V1PositionsResponse.fromJson);
 
-  /// GetWithdrawLimits — available amount for withdrawal.
-  ///
   /// REST path: [InvestApiPaths.operationsServiceGetWithdrawLimits]
-  Future<JsonMap> getWithdrawLimits(JsonMap request) =>
-      _http.post(InvestApiPaths.operationsServiceGetWithdrawLimits, request);
+  Future<V1WithdrawLimitsResponse> getWithdrawLimits(
+          V1WithdrawLimitsRequest request) =>
+      _http.postDto(InvestApiPaths.operationsServiceGetWithdrawLimits, request,
+          V1WithdrawLimitsResponse.fromJson);
 }
