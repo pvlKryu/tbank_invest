@@ -1,5 +1,10 @@
 # tbank_invest
 
+[![pub package](https://img.shields.io/pub/v/tbank_invest.svg?label=pub.dev)](https://pub.dev/packages/tbank_invest)
+[![pub points](https://img.shields.io/pub/points/tbank_invest)](https://pub.dev/packages/tbank_invest/score)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![CI](https://github.com/pvlKryu/tbank_invest/actions/workflows/ci.yml/badge.svg)](https://github.com/pvlKryu/tbank_invest/actions/workflows/ci.yml)
+
 **Languages:** [English](#english) · [Русский](#русский)
 
 Unofficial Dart client for **[T‑Invest (T‑Bank) Invest API](https://developer.tbank.ru/invest/api)** — REST (Dio) + `dart:io` WebSocket helpers. Not an official SDK.
@@ -26,12 +31,14 @@ Dart client for T‑Invest:
 
 - [Platform support](#platform-support)
 - [Features](#features)
+- [Supported API coverage](#supported-api-coverage)
 - [Installation](#installation)
 - [Quick start (REST)](#quick-start-rest)
 - [Configuration](#configuration)
 - [WebSocket](#websocket)
 - [Errors](#errors)
 - [Package layout](#package-layout)
+- [Contributing](#contributing)
 - [Limitations](#limitations)
 - [Example app](#example-app)
 - [License](#license)
@@ -46,6 +53,15 @@ Dart client for T‑Invest:
 | WebSocket | `InvestWebSocket.connect` builds `wss://…` URLs from `InvestConfig` + `InvestApiPaths`. |
 | Helpers | `MoneyValue`, `Quotation`, `InvestApiException` (HTTP status, gRPC code, `x-tracking-id` when present). |
 
+### Supported API coverage
+
+| Service area | Status |
+|--------------|--------|
+| `UsersService`, `InstrumentsService`, `MarketDataService`, `OperationsService`, `OrdersService`, `StopOrdersService`, `SandboxService`, `SignalService` | Implemented as REST service wrappers in `lib/src/services/`. |
+| `MarketDataStreamService`, `OrdersStreamService`, `OperationsStreamService` | Path constants + WebSocket support via `InvestWebSocket`. |
+| Typed DTO coverage for all methods | Partial. Core helpers are typed (`MoneyValue`, `Quotation`), API payloads are mostly `JsonMap`. |
+| Flutter Web/browser target | Not supported in current default import graph (`dart:io`). |
+
 ### Installation
 
 ```yaml
@@ -53,7 +69,7 @@ dependencies:
   tbank_invest: ^0.1.1
 ```
 
-Path dependency during development:
+Path dependency is intended for local development of this package only:
 
 ```yaml
 dependencies:
@@ -166,6 +182,10 @@ example/
   example.dart
 ```
 
+### Contributing
+
+Contributions are welcome. Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) before opening a PR.
+
 ### Limitations
 
 - **No Flutter Web / browser** — default import includes `dart:io` WebSocket; see [Platform support](#platform-support).
@@ -206,12 +226,14 @@ MIT — see [`LICENSE`](LICENSE).
 
 - [Поддержка платформ](#поддержка-платформ)
 - [Возможности](#возможности)
+- [Покрытие API](#покрытие-api)
 - [Установка](#установка)
 - [Быстрый старт (REST)](#быстрый-старт-rest)
 - [Конфигурация](#конфигурация)
 - [WebSocket (стримы)](#websocket-стримы)
 - [Ошибки](#ошибки)
 - [Структура пакета](#структура-пакета)
+- [Как контрибьютить](#как-контрибьютить)
 - [Ограничения](#ограничения)
 - [Пример](#пример)
 - [Лицензия](#лицензия)
@@ -226,6 +248,15 @@ MIT — see [`LICENSE`](LICENSE).
 | WebSocket | `InvestWebSocket.connect` собирает `wss://…` из `InvestConfig` и `InvestApiPaths`. |
 | Утилиты | `MoneyValue`, `Quotation`, `InvestApiException`. |
 
+### Покрытие API
+
+| Область сервиса | Статус |
+|-----------------|--------|
+| `UsersService`, `InstrumentsService`, `MarketDataService`, `OperationsService`, `OrdersService`, `StopOrdersService`, `SandboxService`, `SignalService` | Реализованы как REST-обёртки в `lib/src/services/`. |
+| `MarketDataStreamService`, `OrdersStreamService`, `OperationsStreamService` | Константы путей + поддержка WebSocket через `InvestWebSocket`. |
+| Полная типизация DTO по всем методам | Частично. Типизированы базовые helper-модели (`MoneyValue`, `Quotation`), остальное в основном `JsonMap`. |
+| Flutter Web/браузер | Пока не поддерживается из-за `dart:io` в стандартном импорте. |
+
 ### Установка
 
 ```yaml
@@ -233,7 +264,7 @@ dependencies:
   tbank_invest: ^0.1.1
 ```
 
-Локально из пути:
+Локальная зависимость по пути нужна только при разработке самого пакета:
 
 ```yaml
 dependencies:
@@ -317,6 +348,10 @@ lib/
 example/
   example.dart
 ```
+
+### Как контрибьютить
+
+Перед pull request прочитай [`CONTRIBUTING.md`](CONTRIBUTING.md) и [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
 
 ### Ограничения
 
