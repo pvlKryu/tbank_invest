@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.2.0 (unreleased)
+## 0.2.0
 
 - Docs: refreshed README for pub.dev-first installation and added explicit API coverage tables (EN/RU).
 - Ops: added GitHub Actions CI workflow (`format`, `analyze`, `test`, `publish --dry-run`).
