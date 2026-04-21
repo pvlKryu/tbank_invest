@@ -12,14 +12,16 @@ Future<V1*Response> methodName(V1*Request request)
 
 Типы в **`lib/src/generated/t_invest.swagger.dart`**, реэкспорт в `package:tbank_invest/tbank_invest.dart`. Для редких схем встречаются **не** `V1*`, а например **`Contractv1OrderState`**, **`StreamResultOf*`** — см. сгенерированный код.
 
-Старые вызовы с **`JsonMap`** и `*Typed` **убраны** (релиз **0.6.2**).
+Старые вызовы с **`JsonMap`** в сигнатурах `Invest*Api` и `*Typed` **убраны** (релиз **0.6.2**). Телом и ответом идут **`V1*Request` / `V1*Response`**, кодирование тела в HTTP-слое — DTO с `toJson()` или `JsonMap` (см. `postDto` / `postRequest`).
 
 **Пересборка** `lib/src/services/*_api.dart` после смены спеки: [service-regeneration.ru.md](service-regeneration.ru.md).
 
 ## `InvestHttpClient`
 
-- **`post`** — сырой `JsonMap` (в т.ч. **интеграционные смоки** с телом `{}`).
-- **`postDto`** — низкоуровневый вызов с `fromJson`.
+- **`post`** — тело и ответ как **`JsonMap`** (см. интеграционные **смоки** с `{}`).
+- **`postDto`** — тело: **DTO** или `JsonMap`; ответ декодируется через **`fromJson`** (например `V1GetAccountsResponse.fromJson`).
+- **`postRequest`** — как **тело** у [postDto], ответ **без** типизации, сырой `JsonMap`.
+- **`requestBodyToJsonMap`** — статический помощник.
 - **`close`**
 
 У `TinvestClient` — **`.http`**.

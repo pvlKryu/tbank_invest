@@ -2,9 +2,9 @@
 
 ## REST (0.6.2+)
 
-- Методы **`Invest*Api`** — только **сгенерированные** `V1*Request` / `V1*` (или редкие имена вроде `Contractv1OrderState` из кода).
-- Старые **`getAccountsTyped` и `JsonMap` в сигнатурах** убраны.
-- **`InvestHttpClient.post`** с `Map` — для низкого уровня и **smoke**-тестов.
+- Методы **`Invest*Api`** — **запрос** и **ответ** только сгенерированные: `V1*Request` / `V1*Response` (изредка иные имена, напр. `Contractv1OrderState`).
+- Старые **`JsonMap` в сигнатурах** и `*Typed` убраны; в публичном API сервисов **нет** «ответ как словарь».
+- **`InvestHttpClient`:** `postDto` / `postRequest` — тоже DTO (или `JsonMap`) **на тело**; `post` — только `JsonMap` в обе стороны, **smoke**-тесты.
 
 ## `JsonMap`
 

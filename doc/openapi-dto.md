@@ -36,23 +36,32 @@ The barrel export `package:tbank_invest/tbank_invest.dart` re-exports `src/gener
 
 3. Commit **both** the updated `tool/t_invest.openapi.swagger` and the updated `lib/src/generated/*` in the same version bump, then publish a new package version on pub.dev so consumers do not have to run codegen.
 
-## Decoding a REST call with a generated type
+## Request and response DTOs
 
-Use `TinvestClient`’s `InvestHttpClient` via a service, or the client’s HTTP layer directly, with `postDto`:
+- **Service layer:** `TinvestClient.users.getAccounts(V1GetAccountsRequest(…))` and similar on other `Invest*Api` objects — **request** and **response** are generated types end to end.
+- **HTTP layer (advanced):** the same [request] / [response] types work with `InvestHttpClient.postDto` or `postRequest` if you are not using a service method.
+
+## Example: `postDto` with a DTO (or a map)
 
 ```dart
 import 'package:tbank_invest/tbank_invest.dart';
 
-final body = <String, dynamic>{}; // or V1GetAccountsRequest(...).toJson()
+// Prefer: await client.users.getAccounts(V1GetAccountsRequest());
 
-final response = await client.http.postDto<V1GetAccountsResponse>(
+final fromDto = await client.http.postDto<V1GetAccountsResponse>(
   InvestApiPaths.usersServiceGetAccounts,
-  body,
+  V1GetAccountsRequest(), // or JsonMap, e.g. <String, dynamic>{}
   V1GetAccountsResponse.fromJson,
+);
+
+// Raw response JSON (typed decode is up to you):
+final raw = await client.http.postRequest(
+  InvestApiPaths.usersServiceGetAccounts,
+  V1GetAccountsRequest(),
 );
 ```
 
-You can also use `JsonMap` + manual `V1GetAccountsResponse.fromJson(await raw)` if you keep using the `Future<JsonMap>` helpers on `InvestUsersApi`, etc.
+If you use **`post`** with a `JsonMap` body, the **response** is still a `JsonMap`; run `V1GetAccountsResponse.fromJson(raw)` yourself when you need a typed model.
 
 ## Hand-written models vs generated
 

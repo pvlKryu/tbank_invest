@@ -10,7 +10,7 @@ Each method on `InvestUsersApi`, `InvestInstrumentsApi`, … has the shape:
 Future<V1*Response> methodName(V1*Request request)
 ```
 
-`V1*Request` / `V1*Response` (and a few other generated names, e.g. `Contractv1OrderState` for `getOrderState`, `StreamResultOf…` for REST stream endpoints) are defined in **`lib/src/generated/t_invest.swagger.dart`** and re-exported from `package:tbank_invest/tbank_invest.dart`. Callers use **`request.toJson()`** inside the client via **`InvestHttpClient.postDto`**.
+`V1*Request` / `V1*Response` (and a few other generated names, e.g. `Contractv1OrderState` for `getOrderState`, `StreamResultOf…` for REST stream endpoints) are defined in **`lib/src/generated/t_invest.swagger.dart`** and re-exported from `package:tbank_invest/tbank_invest.dart`. The client passes a **request DTO** (or a raw `JsonMap`) into **`InvestHttpClient.postDto`** / **`postRequest`**, which encode the body (via `toJson()` when needed) and decode the **response** into a `V1*Response` (or other generated type) with `fromJson`.
 
 The old **`JsonMap` + `*Typed` helpers** on the service classes are **removed** as of 0.6.2: use the generated request/response types only.
 
@@ -18,8 +18,10 @@ The old **`JsonMap` + `*Typed` helpers** on the service classes are **removed** 
 
 ## `InvestHttpClient`
 
-- **`post(String path, JsonMap body) → Future<JsonMap>`** — raw map in/out. Used internally and for the package’s [integration smoke tests](https://github.com/pvlKryu/tbank_invest/blob/main/test/all_api_methods_integration_test.dart) with an empty `{}` body.
-- **`postDto<T>(String path, JsonMap body, T fromJson) → Future<T>`** — when you call a path without using `Invest*Api` (advanced).
+- **`post(String path, JsonMap body) → Future<JsonMap>`** — **response** is always a `JsonMap`; **body** is a map only. Used internally and for the package’s [integration smoke tests](https://github.com/pvlKryu/tbank_invest/blob/main/test/all_api_methods_integration_test.dart) with an empty `{}` body.
+- **`postDto<T>(String path, Object request, T Function(Map<String, dynamic> json) fromJson) → Future<T>`** — encodes [request] as JSON (`JsonMap` or DTO with `toJson()`), `POST`s, decodes the **response** with [fromJson] (e.g. `V1GetAccountsResponse.fromJson`). For calls without `Invest*Api` (custom paths, experiments).
+- **`postRequest(String path, Object request) → Future<JsonMap>`** — same **request** encoding as [postDto], but leaves the **response** as a raw `JsonMap` (no typed decode).
+- **`requestBodyToJsonMap(Object request)`** — static helper: `JsonMap` or `toJson()`.
 - **`close({bool force})`** — closes Dio.
 
 `TinvestClient` exposes the same client as **`.http`**.

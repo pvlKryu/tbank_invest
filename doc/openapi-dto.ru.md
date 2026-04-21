@@ -36,23 +36,31 @@
 
 3. В одном релизе коммитить **и** обновлённый `tool/t_invest.openapi.swagger`, **и** `lib/src/generated/*`, чтобы пользователи pub **не** запускали codegen сами.
 
-## Пример: декод ответа в `V1*`
+## Типы на запрос и на ответ
 
-Через `InvestHttpClient.postDto` (доступ к `http` у `TinvestClient` смотрите в актуальной версии пакета):
+- **Сервисы:** `TinvestClient.users.getAccounts(V1GetAccountsRequest(…))` и остальные `Invest*Api` — **запрос** и **ответ** — сгенерированные DTO.
+- **Низкий уровень:** те же DTO (или `JsonMap`) в `postDto` / `postRequest`, если не используете обёртку сервиса.
+
+## Пример: `postDto` с DTO или картой
 
 ```dart
 import 'package:tbank_invest/tbank_invest.dart';
 
-final body = <String, dynamic>{}; // или V1GetAccountsRequest(...).toJson()
+// Предпочтительно: await client.users.getAccounts(V1GetAccountsRequest());
 
-final response = await client.http.postDto<V1GetAccountsResponse>(
+final fromDto = await client.http.postDto<V1GetAccountsResponse>(
   InvestApiPaths.usersServiceGetAccounts,
-  body,
+  V1GetAccountsRequest(), // или JsonMap, например <String, dynamic>{}
   V1GetAccountsResponse.fromJson,
+);
+
+final raw = await client.http.postRequest(
+  InvestApiPaths.usersServiceGetAccounts,
+  V1GetAccountsRequest(), // сырой ответ: JsonMap
 );
 ```
 
-Можно и по-старому: `getAccounts` → `JsonMap` и затем `V1GetAccountsResponse.fromJson(map)`.
+Если вызываете **`post`** с телом-`Map`, **ответ** — `JsonMap`; `V1GetAccountsResponse.fromJson(raw)` — при необходимости.
 
 ## Ручные модели и сгенерированные
 
