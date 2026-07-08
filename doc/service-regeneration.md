@@ -23,8 +23,9 @@ The script:
 
 - After **replacing** `tool/t_invest.openapi.swagger` and running **`dart run build_runner build`**, re-run:
   1) `python3 tool/_generate_api_paths.py` (path constants),
-  2) `python3 tool/_generate_service_dart_types.py` (service wrappers), and
-  3) `python3 tool/_inject_openapi_dartdoc.py` (DTO comments from OpenAPI descriptions).
+  2) `python3 tool/_generate_service_dart_types.py` (service wrappers),
+  3) `python3 tool/_inject_openapi_dartdoc.py` (DTO comments from OpenAPI descriptions),
+  4) `python3 tool/_cleanup_generated_dart.py` (remove unused codegen imports; pub.dev static analysis).
 - Then run **`dart format lib/src/services`** and fix any merge conflicts in git.
 
 **Do not** hand-edit the generated `*_api.dart` files; fix the tool or the spec instead.

@@ -1,5 +1,5 @@
+// ignore_for_file: type=lint
 import 'package:json_annotation/json_annotation.dart';
-import 'package:collection/collection.dart';
 
 /// - PERIOD_TYPE_UNSPECIFIED: Не указан.
 /// - PERIOD_TYPE_QUARTER: Квартальный.

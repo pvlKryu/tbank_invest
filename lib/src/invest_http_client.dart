@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:dio/dio.dart';
 import 'package:dio/io.dart';
+import 'package:meta/meta.dart';
 
 import 'invest_config.dart';
 import 'invest_exception.dart';
@@ -73,6 +74,11 @@ class InvestHttpClient {
     return InvestHttpClient._(dio, config);
   }
 
+  /// Test-only entry point with a preconfigured [dio] (mock adapter, etc.).
+  @visibleForTesting
+  factory InvestHttpClient.testing(Dio dio, InvestConfig config) =>
+      InvestHttpClient._(dio, config);
+
   /// Configuration (token is not logged by the traffic logger).
   InvestConfig get config => _config;
 
@@ -86,12 +92,16 @@ class InvestHttpClient {
     if (request is Map) {
       return Map<String, dynamic>.from(request);
     }
-    final Object? json = (request as dynamic).toJson() as Object?;
-    if (json is Map<String, dynamic>) {
-      return json;
-    }
-    if (json is Map) {
-      return Map<String, dynamic>.from(json);
+    try {
+      final Object? json = (request as dynamic).toJson() as Object?;
+      if (json is Map<String, dynamic>) {
+        return json;
+      }
+      if (json is Map) {
+        return Map<String, dynamic>.from(json);
+      }
+    } on NoSuchMethodError {
+      // Fall through to InvestException below.
     }
     throw InvestException(
       'Request must be JsonMap (Map<String, dynamic>) or a type with toJson() '
@@ -142,10 +152,15 @@ class InvestHttpClient {
       } on DioException catch (e) {
         final mapped = investExceptionFromDio(e);
         final shouldRetry = _config.retryPolicy.shouldRetry(
-          attempt: attempt,
-          error: mapped,
-          idempotent: idempotent,
-        );
+              attempt: attempt,
+              error: mapped,
+              idempotent: idempotent,
+            ) ||
+            _config.retryPolicy.shouldRetry(
+              attempt: attempt,
+              error: e,
+              idempotent: idempotent,
+            );
         if (!shouldRetry) {
           throw mapped;
         }

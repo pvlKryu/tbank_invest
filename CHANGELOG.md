@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.8.0
+
+- **Flutter example:** `example/flutter_app/` — Material UI, sandbox `getAccounts`, token via `--dart-define=TBANK_TOKEN=…`.
+- **Tests:** `test/invest_http_client_test.dart` — `requestBodyToJsonMap`, `post`/`postDto` with mock adapter, retry/idempotency, `investExceptionFromDio`, `InvestRetryPolicy.shouldRetry`.
+- **Fix:** network-level `DioException` retries now work for idempotent paths (policy receives the original `DioException`, not only the mapped `InvestException`).
+- **Fix:** `requestBodyToJsonMap` throws `InvestException` (not `NoSuchMethodError`) for types without `toJson()`.
+- **Test hook:** `InvestHttpClient.testing` (`@visibleForTesting`) for injectable `Dio` in unit tests.
+- **Pub score:** `tool/_cleanup_generated_dart.py` strips unused codegen imports and adds `ignore_for_file` on generated enums/swagger (restores 50/50 static analysis on pub.dev after OpenAPI regen).
+
 ## 0.7.0
 
 - **OpenAPI 1.44:** bundled spec updated from [invest-contracts](https://opensource.tbank.ru/invest/invest-contracts/-/tags/1.44); regenerated DTOs and `Invest*Api` wrappers. New REST methods: `UsersService/PayIn`, `OperationsStreamService/OperationsStream`.

@@ -37,6 +37,7 @@
    python3 tool/_generate_api_paths.py
    python3 tool/_generate_service_dart_types.py
    python3 tool/_inject_openapi_dartdoc.py
+   python3 tool/_cleanup_generated_dart.py
    dart format lib/src/generated lib/src/services lib/src/api_paths.dart
    ```
 

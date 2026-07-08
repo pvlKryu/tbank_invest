@@ -71,7 +71,7 @@ Dart client for T‑Invest:
 
 ```yaml
 dependencies:
-  tbank_invest: ^0.7.0
+  tbank_invest: ^0.8.0
 ```
 
 REST-only import (no WebSocket in the graph):
@@ -242,9 +242,21 @@ Contributions are welcome. Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) and 
 
 ### Example app
 
+**Dart CLI** (from package root):
+
 ```bash
 dart run --define=TBANK_TOKEN=t.xxx example/example.dart
 ```
+
+**Flutter** (`example/flutter_app/`):
+
+```bash
+cd example/flutter_app
+flutter pub get
+flutter run --dart-define=TBANK_TOKEN=t.xxx
+```
+
+See [example/README.md](example/README.md).
 
 ### License
 
@@ -312,7 +324,7 @@ MIT — see [`LICENSE`](LICENSE).
 
 ```yaml
 dependencies:
-  tbank_invest: ^0.7.0
+  tbank_invest: ^0.8.0
 ```
 
 REST-only import (no WebSocket in the graph):
@@ -455,11 +467,21 @@ example/
 
 ### Пример
 
-Из корня пакета:
+**Dart CLI** (из корня пакета):
 
 ```bash
 dart run --define=TBANK_TOKEN=t.xxx example/example.dart
 ```
+
+**Flutter** (`example/flutter_app/`):
+
+```bash
+cd example/flutter_app
+flutter pub get
+flutter run --dart-define=TBANK_TOKEN=t.xxx
+```
+
+См. [example/README.md](example/README.md).
 
 ### Лицензия
 
