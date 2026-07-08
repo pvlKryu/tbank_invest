@@ -7,6 +7,10 @@ Extended documentation for the **tbank_invest** Dart package (T-Invest / T-Bank)
 | **English** | [Structure & exports](structure-and-exports.md) · [Configuration](configuration.md) · [REST & service reference](rest-and-services.md) · [Service `*_api` regeneration (Python)](service-regeneration.md) · [WebSocket & streams](websocket-and-streams.md) · [Exceptions & retry](exceptions-and-retry.md) · [Models & DTOs](models-and-dto.md) · [OpenAPI codegen](openapi-dto.md) · [Platform](platform.md) |
 | **Русский** | [Обзор и экспорт](structure-and-exports.ru.md) · [Конфигурация](configuration.ru.md) · [REST и сервисы](rest-and-services.ru.md) · [Пересборка `*_api` (Python)](service-regeneration.ru.md) · [WebSocket и стримы](websocket-and-streams.ru.md) · [Ошибки и retry](exceptions-and-retry.ru.md) · [Модели и DTO](models-and-dto.ru.md) · [OpenAPI](openapi-dto.ru.md) · [Платформы](platform.ru.md) |
 
+Migration notes are intentionally lightweight and live in the root README:
+- EN: [Migration to 1.0](../README.md#migration-to-10)
+- RU: [Миграция к 1.0](../README.md#ru-migration-to-10)
+
 ## Quick links (official)
 
 - [T-Invest product API](https://developer.tbank.ru/invest/api)

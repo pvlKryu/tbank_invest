@@ -1,3 +1,4 @@
+// ignore_for_file: type=lint, deprecated_member_use, deprecated_member_use_from_same_package
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 part of 't_invest.swagger.dart';

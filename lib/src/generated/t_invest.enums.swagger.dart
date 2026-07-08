@@ -1,4 +1,4 @@
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, deprecated_member_use, deprecated_member_use_from_same_package
 import 'package:json_annotation/json_annotation.dart';
 
 /// - PERIOD_TYPE_UNSPECIFIED: Не указан.

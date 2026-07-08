@@ -15,8 +15,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 ENUMS = ROOT / "lib" / "src" / "generated" / "t_invest.enums.swagger.dart"
 SWAGGER = ROOT / "lib" / "src" / "generated" / "t_invest.swagger.dart"
+SWAGGER_G = ROOT / "lib" / "src" / "generated" / "t_invest.swagger.g.dart"
 
-IGNORE_LINE = "// ignore_for_file: type=lint\n"
+IGNORE_LINE = (
+    "// ignore_for_file: type=lint, deprecated_member_use, "
+    "deprecated_member_use_from_same_package\n"
+)
 
 # Substrings of import lines to drop (codegen emits these even when unused).
 DROP_IMPORT_CONTAINS: dict[Path, tuple[str, ...]] = {
@@ -24,6 +28,7 @@ DROP_IMPORT_CONTAINS: dict[Path, tuple[str, ...]] = {
     SWAGGER: (
         "json_annotation.dart' as json",
     ),
+    SWAGGER_G: (),
 }
 
 

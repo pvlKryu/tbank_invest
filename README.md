@@ -5,7 +5,7 @@
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![CI](https://github.com/pvlKryu/tbank_invest/actions/workflows/ci.yml/badge.svg)](https://github.com/pvlKryu/tbank_invest/actions/workflows/ci.yml)
 
-**Languages:** [English](#english) · [Русский](#русский)
+**Languages:** [English](#english) · [Русский](#russian)
 
 Unofficial Dart client for **[T‑Invest (T‑Bank) Invest API](https://developer.tbank.ru/invest/api)** — REST (Dio) + `dart:io` WebSocket, **OpenAPI code‑generated** request/response models (`V1*` in `lib/src/generated/`) plus hand-written helpers. Not an official SDK.
 
@@ -44,6 +44,7 @@ Dart client for T‑Invest:
 - [Package layout](#package-layout)
 - [Contributing](#contributing)
 - [Limitations](#limitations)
+- [Migration to 1.0](#migration-to-10)
 - [Example app](#example-app)
 - [License](#license)
 
@@ -240,6 +241,18 @@ Contributions are welcome. Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) and 
 - **REST** — `Invest*Api` is **fully DTO-typed**; for raw JSON, [`InvestHttpClient.post`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/InvestHttpClient/post.html), [`postDto`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/InvestHttpClient/postDto.html), [`postRequest`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/InvestHttpClient/postRequest.html). See [docs](doc/README.md), [rest-and-services](doc/rest-and-services.md), [service-regeneration](doc/service-regeneration.md).
 - Quotas and stream rules are enforced by T‑Bank.
 
+### Migration to 1.0
+
+For now, migration guidance stays intentionally short:
+
+- **No gRPC migration in 1.0** — transport remains REST + WebSocket JSON.
+- **Use generated DTOs** (`V1*`, `Contractv1*`, `StreamResultOf*`) in all new REST code.
+- **Legacy hand-written models** in `lib/src/models/*` are deprecated and planned for removal in `1.0.0`; prefer generated types now.
+- **Prefer split imports** for clarity:
+  - `package:tbank_invest/tbank_invest_rest.dart` for REST
+  - `package:tbank_invest/tbank_invest_websocket.dart` for streams
+- Watch `CHANGELOG.md` release notes before upgrading to `1.0.0-rc.1` / `1.0.0`.
+
 ### Example app
 
 **Dart CLI** (from package root):
@@ -264,6 +277,8 @@ MIT — see [`LICENSE`](LICENSE).
 
 ---
 
+<a id="russian"></a>
+
 ## Русский
 
 Неофициальный Dart-клиент для **[API Т‑Инвест (Т‑Банк)](https://developer.tbank.ru/invest/api)**:
@@ -274,7 +289,27 @@ MIT — see [`LICENSE`](LICENSE).
 
 Официальным SDK пакет **не является**; контракты и лимиты — в документации Т‑Банка.
 
-**Flutter Web / браузер:** не поддерживается — основной импорт тянет `dart:io` (см. [Поддержка платформ](#поддержка-платформ)).
+**Flutter Web / браузер:** не поддерживается — основной импорт тянет `dart:io` (см. [Поддержка платформ](#ru-platform-support)).
+
+### Содержание (RU)
+
+- [Поддержка платформ](#ru-platform-support)
+- [Возможности](#ru-features)
+- [Покрытие API](#ru-supported-api-coverage)
+- [Установка](#ru-installation)
+- [Быстрый старт (REST)](#ru-quick-start-rest)
+- [Конфигурация](#ru-configuration)
+- [WebSocket (стримы)](#ru-websocket)
+- [Ошибки](#ru-errors)
+- [Документация (доп.)](#ru-documentation-extra)
+- [Структура пакета](#ru-package-layout)
+- [Как контрибьютить](#ru-contributing)
+- [Ограничения](#ru-limitations)
+- [Миграция к 1.0](#ru-migration-to-10)
+- [Пример](#ru-example-app)
+- [Лицензия](#ru-license)
+
+<a id="ru-platform-support"></a>
 
 ### Поддержка платформ
 
@@ -283,22 +318,7 @@ MIT — see [`LICENSE`](LICENSE).
 | **Flutter** на iOS, Android, macOS, Windows и **Dart CLI** на тех же ОС | Полный сценарий: REST (`TinvestClient`) и `InvestWebSocket`. |
 | **Flutter Web**, **dart2js**, **браузер / JS** | **Сейчас не поддерживается.** Файл `tbank_invest.dart` реэкспортирует `invest_websocket.dart` с `dart:io`, поэтому сборка под веб **не проходит** — страдает не только стрим, но и **любой** `import 'package:tbank_invest/tbank_invest.dart'`. Отдельная точка входа без `dart:io` в этой версии не поставляется. |
 
-### Содержание (RU)
-
-- [Поддержка платформ](#поддержка-платформ)
-- [Возможности](#возможности)
-- [Покрытие API](#покрытие-api)
-- [Установка](#установка)
-- [Быстрый старт (REST)](#быстрый-старт-rest)
-- [Конфигурация](#конфигурация)
-- [WebSocket (стримы)](#websocket-стримы)
-- [Ошибки](#ошибки)
-- [Документация (доп.)](#документация-доп)
-- [Структура пакета](#структура-пакета)
-- [Как контрибьютить](#как-контрибьютить)
-- [Ограничения](#ограничения)
-- [Пример](#пример)
-- [Лицензия](#лицензия)
+<a id="ru-features"></a>
 
 ### Возможности
 
@@ -311,6 +331,8 @@ MIT — see [`LICENSE`](LICENSE).
 | Надёжность | `InvestRetryPolicy` для идемпотентных REST-вызовов, `InvestRateLimitException` с `retryAfter`, `InvestStreamManager` (reconnect + resubscribe + heartbeat). |
 | Утилиты | `MoneyValue`, `Quotation`, `InvestApiException`. |
 
+<a id="ru-supported-api-coverage"></a>
+
 ### Покрытие API
 
 | Область сервиса | Статус |
@@ -319,6 +341,8 @@ MIT — see [`LICENSE`](LICENSE).
 | `MarketDataStreamService`, `OrdersStreamService`, `OperationsStreamService` | Константы путей + поддержка WebSocket через `InvestWebSocket`. |
 | DTO по OpenAPI | **Полный** набор типов; сигнатуры **`Invest*Api` — DTO**; `lib/src/services/*_api.dart` — скрипт `tool/_generate_service_dart_types.py`. |
 | Flutter Web/браузер | Пока не поддерживается из-за `dart:io` в стандартном импорте. |
+
+<a id="ru-installation"></a>
 
 ### Установка
 
@@ -352,6 +376,8 @@ dependencies:
   tbank_invest:
     path: packages/tbank_invest
 ```
+
+<a id="ru-quick-start-rest"></a>
 
 ### Быстрый старт (REST)
 
@@ -389,6 +415,8 @@ dart run --define=TBANK_TOKEN=t.xxx bin/your_app.dart
 const token = String.fromEnvironment('TBANK_TOKEN', defaultValue: '');
 ```
 
+<a id="ru-configuration"></a>
+
 ### Конфигурация
 
 | Поле | Назначение |
@@ -400,6 +428,8 @@ const token = String.fromEnvironment('TBANK_TOKEN', defaultValue: '');
 | `allowInsecureSandboxTls` | Отладочный bypass TLS для REST в `sandbox`. В `production` игнорируется. По умолчанию `false`. |
 | Таймауты | `connectTimeout`, `receiveTimeout`, `sendTimeout`. |
 
+<a id="ru-websocket"></a>
+
 ### WebSocket (стримы)
 
 Те же сегменты пути, что и у REST (`InvestApiPaths`), схема `wss://`, подпротокол `json`, `Authorization: Bearer <token>`. Формат тел сообщений — как в [asyncapi](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/ws/asyncapi.yaml) и [документации WS](https://tinkoff.github.io/investAPI/ws/).
@@ -408,11 +438,15 @@ const token = String.fromEnvironment('TBANK_TOKEN', defaultValue: '');
 
 **Платформы:** для Flutter подходят **iOS, Android, desktop**; **веб** — другой транспорт.
 
+<a id="ru-errors"></a>
+
 ### Ошибки
 
 - `InvestApiException` — тело ошибки API, при необходимости `httpStatusCode`, `grpcCode`, `trackingId`.
 - `InvestDecodeException` — неожиданная форма JSON.
 - `InvestException` — прочие ошибки клиента.
+
+<a id="ru-documentation-extra"></a>
 
 ### Документация (доп.)
 
@@ -430,6 +464,8 @@ const token = String.fromEnvironment('TBANK_TOKEN', defaultValue: '');
 | [doc/service-regeneration.ru.md](doc/service-regeneration.ru.md) | Скрипт `*_api.dart` из OpenAPI |
 
 В `pubspec.yaml` — `documentation:` на каталог `docs` на GitHub.
+
+<a id="ru-package-layout"></a>
 
 ### Структура пакета
 
@@ -455,15 +491,35 @@ example/
   example.dart
 ```
 
+<a id="ru-contributing"></a>
+
 ### Как контрибьютить
 
 Перед pull request прочитай [`CONTRIBUTING.md`](CONTRIBUTING.md) и [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md).
 
+<a id="ru-limitations"></a>
+
 ### Ограничения
 
-- **Нет Flutter Web / браузера** — в дефолтном импорте есть WebSocket на `dart:io`; см. [Поддержка платформ](#поддержка-платформ).
+- **Нет Flutter Web / браузера** — в дефолтном импорте есть WebSocket на `dart:io`; см. [Поддержка платформ](#ru-platform-support).
 - **REST** — `Invest*Api` только DTO; сырой JSON: [`http.post`](https://pub.dev/documentation/tbank_invest/latest/tbank_invest/InvestHttpClient/post.html), `postDto`, `postRequest` ([docs](doc/README.md), [REST](doc/rest-and-services.ru.md)).
 - Лимиты API и правила стримов задаёт Т‑Банк.
+
+<a id="ru-migration-to-10"></a>
+
+### Миграция к 1.0
+
+Пока держим миграцию максимально короткой:
+
+- **Перехода на gRPC в 1.0 не будет** — остаются REST + WebSocket JSON.
+- Для нового REST-кода используй только **сгенерированные DTO** (`V1*`, `Contractv1*`, `StreamResultOf*`).
+- **Legacy-модели** из `lib/src/models/*` уже deprecated и планируются к удалению в `1.0.0`; лучше перейти на `V1*` заранее.
+- Для явного разделения API используй:
+  - `package:tbank_invest/tbank_invest_rest.dart` для REST
+  - `package:tbank_invest/tbank_invest_websocket.dart` для стримов
+- Перед обновлением на `1.0.0-rc.1` / `1.0.0` смотри `CHANGELOG.md`.
+
+<a id="ru-example-app"></a>
 
 ### Пример
 
@@ -482,6 +538,8 @@ flutter run --dart-define=TBANK_TOKEN=t.xxx
 ```
 
 См. [example/README.md](example/README.md).
+
+<a id="ru-license"></a>
 
 ### Лицензия
 
