@@ -31,7 +31,8 @@ void main() {
 
     test('returns decoded JSON object on success', () async {
       adapter = _RecordingAdapter(
-        onFetch: (_) => _jsonResponse(200, <String, dynamic>{'accounts': <dynamic>[]}),
+        onFetch: (_) =>
+            _jsonResponse(200, <String, dynamic>{'accounts': <dynamic>[]}),
       );
       final client = _clientWithAdapter(adapter);
 
