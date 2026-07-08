@@ -15,7 +15,7 @@
 
 ## `InvestStreamManager`
 
-Обёртка над WSS: **`connect` / `close`**, стримы **`rawEvents`** (`JsonMap`), **`events`** (`InvestStreamEvent` — `lastPrice`, `candle`, `orderState` с `InvestOrderState`, и др.), **`states`** (`InvestStreamState`), политика переподключения **`InvestStreamReconnectPolicy`**, таймаут **heartbeat**.
+Обёртка над WSS: **`connect` / `close`**, стримы **`rawEvents`** (`JsonMap`), **`events`** (`InvestStreamEvent` — `lastPrice`, `candle`, `orderState` с `Contractv1OrderState`, и др.), **`states`** (`InvestStreamState`), политика переподключения **`InvestStreamReconnectPolicy`**, таймаут **heartbeat**.
 
 ## REST-«стримы» (не WSS)
 

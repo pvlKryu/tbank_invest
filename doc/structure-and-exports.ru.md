@@ -19,7 +19,7 @@ import 'package:tbank_invest/tbank_invest.dart';
 | **Retry** | `InvestRetryPolicy` | В `InvestConfig`, используется в `InvestHttpClient` для **идемпотентных** `POST`. |
 | **Ошибки** | `InvestException`, `InvestApiException`, `InvestRateLimitException`, `InvestDecodeException` | Сбои и разбор `Dio`. |
 | **JSON** | `JsonMap`, `JsonList` | Типы для динамического JSON. |
-| **Ручные модели** | `MoneyValue`, `Quotation`, `Invest*Response` (legacy), `InvestStreamEvent` | Для стримов и старых парсеров; **REST** с 0.6.2 — через `V1*`. |
+| **Ручные модели** | `MoneyValue`, `Quotation`, `InvestStreamEvent` | Хелперы и стримы; REST — **`V1*`** ([models-and-dto.ru.md](models-and-dto.ru.md)). |
 | **Сгенерированные** | `V1*…`, enums, `Contractv1*`, `StreamResultOf*` | `lib/src/generated/`. |
 | **REST-группы** | `InvestUsersApi`, … | Типизированные DTO-методы. См. [rest-and-services.ru.md](rest-and-services.ru.md), [service-regeneration.ru.md](service-regeneration.ru.md). |
 
@@ -36,13 +36,13 @@ import 'package:tbank_invest/tbank_invest.dart';
 | `invest_retry_policy.dart` | Повторы для REST. |
 | `json_types.dart` | `JsonMap` / `JsonList`. |
 | `tinvest_client.dart` | `TinvestClient`. |
-| `models/` | Ручные DTO и стрим. |
+| `models/` | `MoneyValue`, `Quotation`, стрим-хелперы. |
 | `services/` | Класс `Invest*Api` на группу gRPC-сервиса. |
 | `generated/` | Вывод `swagger_dart_code_generator` — **не править вручную**. |
 
 ## Не в публичном `export`
 
-Внутренние помощники (например `json_readers.dart`) — только для пакета; снаружи — `*Typed` или `V1*`.
+Внутренние детали реализации не экспортируются — снаружи **`V1*`** и перечисленные хелперы.
 
 ## См. также
 

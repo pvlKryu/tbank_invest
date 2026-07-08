@@ -72,7 +72,7 @@ Dart client for T‑Invest:
 
 ```yaml
 dependencies:
-  tbank_invest: ^0.8.0
+  tbank_invest: ^1.0.1
 ```
 
 REST-only import (no WebSocket in the graph):
@@ -243,15 +243,16 @@ Contributions are welcome. Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) and 
 
 ### Migration to 1.0
 
-For now, migration guidance stays intentionally short:
+**1.0.1** is the first stable `1.x` release.
 
-- **No gRPC migration in 1.0** — transport remains REST + WebSocket JSON.
-- **Use generated DTOs** (`V1*`, `Contractv1*`, `StreamResultOf*`) in all new REST code.
-- **Legacy hand-written models** in `lib/src/models/*` are deprecated and planned for removal in `1.0.0`; prefer generated types now.
-- **Prefer split imports** for clarity:
+**Breaking (from 0.8.x):** legacy hand-written REST parsers are **removed** — `InvestAccount`, `InvestAccountsResponse`, `InvestUserInfo`, `InvestInstrumentShort`, `InvestFindInstrumentResponse`, `InvestOrderState`, `InvestOrdersResponse`, `InvestSandboxAccountsResponse`. Use generated **`V1*`** / **`Contractv1*`** types via `Invest*Api` methods. Mapping table: [CHANGELOG.md](CHANGELOG.md#101).
+
+**Still available:** `MoneyValue`, `Quotation`, `InvestStreamEvent`.
+
+- **No gRPC in 1.x** — transport remains REST + WebSocket JSON.
+- **Prefer split imports:**
   - `package:tbank_invest/tbank_invest_rest.dart` for REST
   - `package:tbank_invest/tbank_invest_websocket.dart` for streams
-- Watch `CHANGELOG.md` release notes before upgrading to `1.0.0-rc.1` / `1.0.0`.
 
 ### Example app
 
@@ -348,7 +349,7 @@ MIT — see [`LICENSE`](LICENSE).
 
 ```yaml
 dependencies:
-  tbank_invest: ^0.8.0
+  tbank_invest: ^1.0.1
 ```
 
 REST-only import (no WebSocket in the graph):
@@ -509,15 +510,16 @@ example/
 
 ### Миграция к 1.0
 
-Пока держим миграцию максимально короткой:
+**1.0.1** — первый стабильный релиз ветки `1.x`.
 
-- **Перехода на gRPC в 1.0 не будет** — остаются REST + WebSocket JSON.
-- Для нового REST-кода используй только **сгенерированные DTO** (`V1*`, `Contractv1*`, `StreamResultOf*`).
-- **Legacy-модели** из `lib/src/models/*` уже deprecated и планируются к удалению в `1.0.0`; лучше перейти на `V1*` заранее.
-- Для явного разделения API используй:
+**Breaking (с 0.8.x):** удалены legacy REST-парсеры — `InvestAccount`, `InvestAccountsResponse`, `InvestUserInfo`, `InvestInstrumentShort`, `InvestFindInstrumentResponse`, `InvestOrderState`, `InvestOrdersResponse`, `InvestSandboxAccountsResponse`. Используй **`V1*`** / **`Contractv1*`** через методы `Invest*Api`. Таблица замен: [CHANGELOG.md](CHANGELOG.md#101).
+
+**Остаются:** `MoneyValue`, `Quotation`, `InvestStreamEvent`.
+
+- **gRPC в 1.x не будет** — REST + WebSocket JSON.
+- **Раздельные импорты:**
   - `package:tbank_invest/tbank_invest_rest.dart` для REST
   - `package:tbank_invest/tbank_invest_websocket.dart` для стримов
-- Перед обновлением на `1.0.0-rc.1` / `1.0.0` смотри `CHANGELOG.md`.
 
 <a id="ru-example-app"></a>
 

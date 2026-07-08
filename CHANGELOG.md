@@ -1,5 +1,32 @@
 # Changelog
 
+## 1.0.1
+
+First stable **1.x** release.
+
+### Breaking changes (from 0.8.x)
+
+- **Removed** legacy hand-written REST parsers (deprecated since 0.7.0). Use generated OpenAPI types instead:
+
+  | Removed | Use instead |
+  |---------|-------------|
+  | `InvestAccount` | `V1Account` |
+  | `InvestAccountsResponse` | `V1GetAccountsResponse` |
+  | `InvestUserInfo` | `V1GetInfoResponse` |
+  | `InvestInstrumentShort` | `V1InstrumentShort` |
+  | `InvestFindInstrumentResponse` | `V1FindInstrumentResponse` |
+  | `InvestOrderState` | `V1Order` (in `V1GetOrdersResponse.orders`) or `Contractv1OrderState` for stream/order-state payloads |
+  | `InvestOrdersResponse` | `V1GetOrdersResponse` |
+  | `InvestSandboxAccountsResponse` | `V1GetAccountsResponse` (sandbox) |
+
+- Deleted files: `users_models.dart`, `instruments_models.dart`, `orders_models.dart`, `sandbox_models.dart`, internal `json_readers.dart`.
+
+### Unchanged
+
+- **REST + WebSocket JSON** only (no gRPC).
+- **`MoneyValue`**, **`Quotation`**, **`InvestStreamEvent`** remain for helpers and streams.
+- Entry points: `tbank_invest.dart`, `tbank_invest_rest.dart`, `tbank_invest_websocket.dart`.
+
 ## 0.8.1
 
 - **Docs:** fixed Russian README table of contents on pub.dev (explicit ASCII anchors; Cyrillic heading IDs are broken in pub’s Markdown renderer).

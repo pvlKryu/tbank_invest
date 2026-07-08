@@ -12,7 +12,13 @@
 
 ## Ручные `lib/src/models/`
 
-`MoneyValue`, `Quotation`, `Invest*Response` (парсеры) **остаются** в пакете и в тестах; для **нового** REST кода — **`V1*`**.
+| Файл | Типы |
+|------|------|
+| `money_value.dart` | `MoneyValue` |
+| `quotation.dart` | `Quotation` |
+| `stream_models.dart` | `InvestStreamEvent` (`orderState` → `Contractv1OrderState`) |
+
+Legacy `Invest*Response` удалены в **1.0.1** — для REST только **`V1*`** (см. [CHANGELOG](../CHANGELOG.md#101)).
 
 ## `lib/src/generated/`
 

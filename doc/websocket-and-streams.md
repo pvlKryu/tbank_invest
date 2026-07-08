@@ -20,7 +20,7 @@ High-level wrapper around `InvestWebSocket.connect`:
 - **Parameters:** `config`, `apiPath`, optional `reconnectPolicy` (`InvestStreamReconnectPolicy`), `heartbeatTimeout` (e.g. 30s).
 - **`connect()`** / **`close()`** — lifecycle.
 - **`rawEvents`** — `Stream<JsonMap>` of decoded JSON from the socket.
-- **`events`** — `Stream<InvestStreamEvent>`: categorizes `lastPrice`, `candle`, `orderbook`, `trade`, `ping`, `orderState` (with `InvestOrderState` when possible), `portfolio`, `position`, or `unknown`.
+- **`events`** — `Stream<InvestStreamEvent>`: categorizes `lastPrice`, `candle`, `orderbook`, `trade`, `ping`, `orderState` (with `Contractv1OrderState` when possible), `portfolio`, `position`, or `unknown`.
 - **`states`** — `InvestStreamState`: `disconnected`, `connecting`, `connected`, `reconnecting`, `closing`.
 - **Resubscription:** the manager can remember subscription payloads to resend after reconnect (see implementation for details).
 

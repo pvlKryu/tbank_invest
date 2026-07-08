@@ -15,10 +15,11 @@
 
 | File / types | Use |
 |--------------|-----|
-| `money_value.dart` | `MoneyValue` — not replaced by a different public name; use where convenient. |
+| `money_value.dart` | `MoneyValue` — convenience helper. |
 | `quotation.dart` | `Quotation`. |
-| `users_models.dart`, `instruments_models.dart`, `orders_models.dart`, `sandbox_models.dart` | **Legacy** parsing helpers: still in the package and tested; **new** code should use **`V1*`** for REST. |
-| `stream_models.dart` | `InvestStreamEvent` for `InvestStreamManager.events`. |
+| `stream_models.dart` | `InvestStreamEvent` for `InvestStreamManager.events` (`orderState` → `Contractv1OrderState`). |
+
+Legacy `Invest*Response` hand parsers were **removed in 1.0.1**; use **`V1*`** for REST (see [CHANGELOG](../CHANGELOG.md#101)).
 
 ## Generated OpenAPI DTOs
 
