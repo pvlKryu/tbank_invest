@@ -1,5 +1,5 @@
-// GENERATED from OpenAPI 1.43 — do not edit by hand.
-// Source: https://github.com/RussianInvestments/investAPI/blob/main/src/docs/swagger-ui/openapi.yaml
+// GENERATED from OpenAPI 1.44 — do not edit by hand.
+// Source: https://opensource.tbank.ru/invest/invest-contracts
 
 /// REST path segments appended to [InvestConfig.restBaseUrl].
 abstract final class InvestApiPaths {
@@ -237,6 +237,10 @@ abstract final class InvestApiPaths {
   static const String operationsServiceGetWithdrawLimits =
       '/tinkoff.public.invest.api.contract.v1.OperationsService/GetWithdrawLimits';
 
+  /// `/tinkoff.public.invest.api.contract.v1.OperationsStreamService/OperationsStream`
+  static const String operationsStreamServiceOperationsStream =
+      '/tinkoff.public.invest.api.contract.v1.OperationsStreamService/OperationsStream';
+
   /// `/tinkoff.public.invest.api.contract.v1.OperationsStreamService/PortfolioStream`
   static const String operationsStreamServicePortfolioStream =
       '/tinkoff.public.invest.api.contract.v1.OperationsStreamService/PortfolioStream';
@@ -408,4 +412,8 @@ abstract final class InvestApiPaths {
   /// `/tinkoff.public.invest.api.contract.v1.UsersService/GetUserTariff`
   static const String usersServiceGetUserTariff =
       '/tinkoff.public.invest.api.contract.v1.UsersService/GetUserTariff';
+
+  /// `/tinkoff.public.invest.api.contract.v1.UsersService/PayIn`
+  static const String usersServicePayIn =
+      '/tinkoff.public.invest.api.contract.v1.UsersService/PayIn';
 }

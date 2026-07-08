@@ -1,6 +1,7 @@
-// ignore_for_file: type=lint, deprecated_member_use, deprecated_member_use_from_same_package
+// ignore_for_file: type=lint
 
 import 'package:json_annotation/json_annotation.dart';
+import 'package:json_annotation/json_annotation.dart' as json;
 import 'package:collection/collection.dart';
 import 'dart:convert';
 
@@ -6569,6 +6570,7 @@ class V1Currency {
     this.realExchange,
     this.positionUid,
     this.requiredTests,
+    this.assetUid,
     this.forIisFlag,
     this.forQualInvestorFlag,
     this.weekendFlag,
@@ -6694,6 +6696,10 @@ class V1Currency {
 
   /// Тесты, которые необходимо пройти клиенту, чтобы совершать сделки по инструменту.
   final List<String>? requiredTests;
+  @JsonKey(name: 'assetUid')
+
+  /// Уникальный идентификатор актива.
+  final String? assetUid;
   @JsonKey(name: 'forIisFlag')
 
   /// Признак доступности для ИИС.
@@ -6761,6 +6767,7 @@ extension $V1CurrencyExtension on V1Currency {
       enums.V1RealExchange? realExchange,
       String? positionUid,
       List<String>? requiredTests,
+      String? assetUid,
       bool? forIisFlag,
       bool? forQualInvestorFlag,
       bool? weekendFlag,
@@ -6801,6 +6808,7 @@ extension $V1CurrencyExtension on V1Currency {
         realExchange: realExchange ?? this.realExchange,
         positionUid: positionUid ?? this.positionUid,
         requiredTests: requiredTests ?? this.requiredTests,
+        assetUid: assetUid ?? this.assetUid,
         forIisFlag: forIisFlag ?? this.forIisFlag,
         forQualInvestorFlag: forQualInvestorFlag ?? this.forQualInvestorFlag,
         weekendFlag: weekendFlag ?? this.weekendFlag,
@@ -6842,6 +6850,7 @@ extension $V1CurrencyExtension on V1Currency {
       Wrapped<enums.V1RealExchange?>? realExchange,
       Wrapped<String?>? positionUid,
       Wrapped<List<String>?>? requiredTests,
+      Wrapped<String?>? assetUid,
       Wrapped<bool?>? forIisFlag,
       Wrapped<bool?>? forQualInvestorFlag,
       Wrapped<bool?>? weekendFlag,
@@ -6900,6 +6909,7 @@ extension $V1CurrencyExtension on V1Currency {
             (positionUid != null ? positionUid.value : this.positionUid),
         requiredTests:
             (requiredTests != null ? requiredTests.value : this.requiredTests),
+        assetUid: (assetUid != null ? assetUid.value : this.assetUid),
         forIisFlag: (forIisFlag != null ? forIisFlag.value : this.forIisFlag),
         forQualInvestorFlag: (forQualInvestorFlag != null
             ? forQualInvestorFlag.value
@@ -8199,6 +8209,7 @@ class V1FilterOptionsRequest {
   const V1FilterOptionsRequest({
     this.basicAssetUid,
     this.basicAssetPositionUid,
+    this.basicInstrumentId,
   });
 
   factory V1FilterOptionsRequest.fromJson(Map<String, dynamic> json) =>
@@ -8216,6 +8227,11 @@ class V1FilterOptionsRequest {
 
   /// Идентификатор позиции базового актива опциона.
   final String? basicAssetPositionUid;
+  @JsonKey(name: 'basicInstrumentId')
+
+  /// Идентификатор базового инструмента, принимает значение принимает значения figi, instrument_uid или
+  /// ticker+"_"+classCode.
+  final String? basicInstrumentId;
   static const fromJsonFactory = _$V1FilterOptionsRequestFromJson;
 
   @override
@@ -8224,22 +8240,29 @@ class V1FilterOptionsRequest {
 
 extension $V1FilterOptionsRequestExtension on V1FilterOptionsRequest {
   V1FilterOptionsRequest copyWith(
-      {String? basicAssetUid, String? basicAssetPositionUid}) {
+      {String? basicAssetUid,
+      String? basicAssetPositionUid,
+      String? basicInstrumentId}) {
     return V1FilterOptionsRequest(
         basicAssetUid: basicAssetUid ?? this.basicAssetUid,
         basicAssetPositionUid:
-            basicAssetPositionUid ?? this.basicAssetPositionUid);
+            basicAssetPositionUid ?? this.basicAssetPositionUid,
+        basicInstrumentId: basicInstrumentId ?? this.basicInstrumentId);
   }
 
   V1FilterOptionsRequest copyWithWrapped(
       {Wrapped<String?>? basicAssetUid,
-      Wrapped<String?>? basicAssetPositionUid}) {
+      Wrapped<String?>? basicAssetPositionUid,
+      Wrapped<String?>? basicInstrumentId}) {
     return V1FilterOptionsRequest(
         basicAssetUid:
             (basicAssetUid != null ? basicAssetUid.value : this.basicAssetUid),
         basicAssetPositionUid: (basicAssetPositionUid != null
             ? basicAssetPositionUid.value
-            : this.basicAssetPositionUid));
+            : this.basicAssetPositionUid),
+        basicInstrumentId: (basicInstrumentId != null
+            ? basicInstrumentId.value
+            : this.basicInstrumentId));
   }
 }
 
@@ -15651,6 +15674,184 @@ extension $V1OperationExtension on V1Operation {
 @JsonSerializable(explicitToJson: true)
 
 /// Данные об операции.
+class V1OperationData {
+  const V1OperationData({
+    this.brokerAccountId,
+    this.id,
+    this.parentOperationId,
+    this.name,
+    this.date,
+    this.type,
+    this.state,
+    this.instrumentUid,
+    this.figi,
+    this.instrumentType,
+    this.instrumentKind,
+    this.positionUid,
+    this.ticker,
+    this.classCode,
+    this.payment,
+  });
+
+  factory V1OperationData.fromJson(Map<String, dynamic> json) =>
+      _$V1OperationDataFromJson(json);
+
+  static const toJsonFactory = _$V1OperationDataToJson;
+  Map<String, dynamic> toJson() => _$V1OperationDataToJson(this);
+
+  @JsonKey(name: 'brokerAccountId')
+
+  /// Идентификатор счета.
+  final String? brokerAccountId;
+  @JsonKey(name: 'id')
+
+  /// Номер поручения.
+  final String? id;
+  @JsonKey(name: 'parentOperationId')
+
+  /// Номер родительского поручения.
+  final String? parentOperationId;
+  @JsonKey(name: 'name')
+
+  /// Название инструмента.
+  final String? name;
+  @JsonKey(name: 'date')
+
+  /// Дата.
+  final DateTime? date;
+  @JsonKey(
+    name: 'type',
+    toJson: v1OperationTypeNullableToJson,
+    fromJson: v1OperationTypeNullableFromJson,
+  )
+  final enums.V1OperationType? type;
+  @JsonKey(
+    name: 'state',
+    toJson: v1OperationStateNullableToJson,
+    fromJson: v1OperationStateNullableFromJson,
+  )
+  final enums.V1OperationState? state;
+  @JsonKey(name: 'instrumentUid')
+
+  /// Уникальный идентификатор инструмента.
+  final String? instrumentUid;
+  @JsonKey(name: 'figi')
+
+  /// FIGI-идентификатор инструмента.
+  final String? figi;
+  @JsonKey(name: 'instrumentType')
+
+  /// Тип инструмента.
+  final String? instrumentType;
+  @JsonKey(
+    name: 'instrumentKind',
+    toJson: v1InstrumentTypeNullableToJson,
+    fromJson: v1InstrumentTypeNullableFromJson,
+  )
+  final enums.V1InstrumentType? instrumentKind;
+  @JsonKey(name: 'positionUid')
+
+  /// Идентификатор позиции.
+  final String? positionUid;
+  @JsonKey(name: 'ticker')
+
+  /// Тикер инструмента.
+  final String? ticker;
+  @JsonKey(name: 'classCode')
+
+  /// Класс-код (секция торгов).
+  final String? classCode;
+  @JsonKey(name: 'payment')
+  final V1MoneyValue? payment;
+  static const fromJsonFactory = _$V1OperationDataFromJson;
+
+  @override
+  String toString() => jsonEncode(this);
+}
+
+extension $V1OperationDataExtension on V1OperationData {
+  V1OperationData copyWith(
+      {String? brokerAccountId,
+      String? id,
+      String? parentOperationId,
+      String? name,
+      DateTime? date,
+      enums.V1OperationType? type,
+      enums.V1OperationState? state,
+      String? instrumentUid,
+      String? figi,
+      String? instrumentType,
+      enums.V1InstrumentType? instrumentKind,
+      String? positionUid,
+      String? ticker,
+      String? classCode,
+      V1MoneyValue? payment}) {
+    return V1OperationData(
+        brokerAccountId: brokerAccountId ?? this.brokerAccountId,
+        id: id ?? this.id,
+        parentOperationId: parentOperationId ?? this.parentOperationId,
+        name: name ?? this.name,
+        date: date ?? this.date,
+        type: type ?? this.type,
+        state: state ?? this.state,
+        instrumentUid: instrumentUid ?? this.instrumentUid,
+        figi: figi ?? this.figi,
+        instrumentType: instrumentType ?? this.instrumentType,
+        instrumentKind: instrumentKind ?? this.instrumentKind,
+        positionUid: positionUid ?? this.positionUid,
+        ticker: ticker ?? this.ticker,
+        classCode: classCode ?? this.classCode,
+        payment: payment ?? this.payment);
+  }
+
+  V1OperationData copyWithWrapped(
+      {Wrapped<String?>? brokerAccountId,
+      Wrapped<String?>? id,
+      Wrapped<String?>? parentOperationId,
+      Wrapped<String?>? name,
+      Wrapped<DateTime?>? date,
+      Wrapped<enums.V1OperationType?>? type,
+      Wrapped<enums.V1OperationState?>? state,
+      Wrapped<String?>? instrumentUid,
+      Wrapped<String?>? figi,
+      Wrapped<String?>? instrumentType,
+      Wrapped<enums.V1InstrumentType?>? instrumentKind,
+      Wrapped<String?>? positionUid,
+      Wrapped<String?>? ticker,
+      Wrapped<String?>? classCode,
+      Wrapped<V1MoneyValue?>? payment}) {
+    return V1OperationData(
+        brokerAccountId: (brokerAccountId != null
+            ? brokerAccountId.value
+            : this.brokerAccountId),
+        id: (id != null ? id.value : this.id),
+        parentOperationId: (parentOperationId != null
+            ? parentOperationId.value
+            : this.parentOperationId),
+        name: (name != null ? name.value : this.name),
+        date: (date != null ? date.value : this.date),
+        type: (type != null ? type.value : this.type),
+        state: (state != null ? state.value : this.state),
+        instrumentUid:
+            (instrumentUid != null ? instrumentUid.value : this.instrumentUid),
+        figi: (figi != null ? figi.value : this.figi),
+        instrumentType: (instrumentType != null
+            ? instrumentType.value
+            : this.instrumentType),
+        instrumentKind: (instrumentKind != null
+            ? instrumentKind.value
+            : this.instrumentKind),
+        positionUid:
+            (positionUid != null ? positionUid.value : this.positionUid),
+        ticker: (ticker != null ? ticker.value : this.ticker),
+        classCode: (classCode != null ? classCode.value : this.classCode),
+        payment: (payment != null ? payment.value : this.payment));
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+
+/// Данные об операции.
 class V1OperationItem {
   const V1OperationItem({
     this.cursor,
@@ -16241,6 +16442,171 @@ extension $V1OperationsResponseExtension on V1OperationsResponse {
       {Wrapped<List<V1Operation>?>? operations}) {
     return V1OperationsResponse(
         operations: (operations != null ? operations.value : this.operations));
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+
+/// Запрос установки stream-соединения операций.
+class V1OperationsStreamRequest {
+  const V1OperationsStreamRequest({
+    this.accounts,
+    this.pingSettings,
+  });
+
+  factory V1OperationsStreamRequest.fromJson(Map<String, dynamic> json) =>
+      _$V1OperationsStreamRequestFromJson(json);
+
+  static const toJsonFactory = _$V1OperationsStreamRequestToJson;
+  Map<String, dynamic> toJson() => _$V1OperationsStreamRequestToJson(this);
+
+  @JsonKey(name: 'accounts', defaultValue: <String>[])
+
+  /// Массив идентификаторов счетов пользователя.
+  final List<String>? accounts;
+  @JsonKey(name: 'pingSettings')
+  final V1PingDelaySettings? pingSettings;
+  static const fromJsonFactory = _$V1OperationsStreamRequestFromJson;
+
+  @override
+  String toString() => jsonEncode(this);
+}
+
+extension $V1OperationsStreamRequestExtension on V1OperationsStreamRequest {
+  V1OperationsStreamRequest copyWith(
+      {List<String>? accounts, V1PingDelaySettings? pingSettings}) {
+    return V1OperationsStreamRequest(
+        accounts: accounts ?? this.accounts,
+        pingSettings: pingSettings ?? this.pingSettings);
+  }
+
+  V1OperationsStreamRequest copyWithWrapped(
+      {Wrapped<List<String>?>? accounts,
+      Wrapped<V1PingDelaySettings?>? pingSettings}) {
+    return V1OperationsStreamRequest(
+        accounts: (accounts != null ? accounts.value : this.accounts),
+        pingSettings:
+            (pingSettings != null ? pingSettings.value : this.pingSettings));
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+
+/// Информация по операциям.
+class V1OperationsStreamResponse {
+  const V1OperationsStreamResponse({
+    this.subscriptions,
+    this.operation,
+    this.ping,
+  });
+
+  factory V1OperationsStreamResponse.fromJson(Map<String, dynamic> json) =>
+      _$V1OperationsStreamResponseFromJson(json);
+
+  static const toJsonFactory = _$V1OperationsStreamResponseToJson;
+  Map<String, dynamic> toJson() => _$V1OperationsStreamResponseToJson(this);
+
+  @JsonKey(name: 'subscriptions')
+  final V1OperationsSubscriptionResult? subscriptions;
+  @JsonKey(name: 'operation')
+  final V1OperationData? operation;
+  @JsonKey(name: 'ping')
+  final V1Ping? ping;
+  static const fromJsonFactory = _$V1OperationsStreamResponseFromJson;
+
+  @override
+  String toString() => jsonEncode(this);
+}
+
+extension $V1OperationsStreamResponseExtension on V1OperationsStreamResponse {
+  V1OperationsStreamResponse copyWith(
+      {V1OperationsSubscriptionResult? subscriptions,
+      V1OperationData? operation,
+      V1Ping? ping}) {
+    return V1OperationsStreamResponse(
+        subscriptions: subscriptions ?? this.subscriptions,
+        operation: operation ?? this.operation,
+        ping: ping ?? this.ping);
+  }
+
+  V1OperationsStreamResponse copyWithWrapped(
+      {Wrapped<V1OperationsSubscriptionResult?>? subscriptions,
+      Wrapped<V1OperationData?>? operation,
+      Wrapped<V1Ping?>? ping}) {
+    return V1OperationsStreamResponse(
+        subscriptions:
+            (subscriptions != null ? subscriptions.value : this.subscriptions),
+        operation: (operation != null ? operation.value : this.operation),
+        ping: (ping != null ? ping.value : this.ping));
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+
+/// Объект результата подписки.
+class V1OperationsSubscriptionResult {
+  const V1OperationsSubscriptionResult({
+    this.accounts,
+    this.subscriptionStatus,
+    this.trackingId,
+    this.streamId,
+  });
+
+  factory V1OperationsSubscriptionResult.fromJson(Map<String, dynamic> json) =>
+      _$V1OperationsSubscriptionResultFromJson(json);
+
+  static const toJsonFactory = _$V1OperationsSubscriptionResultToJson;
+  Map<String, dynamic> toJson() => _$V1OperationsSubscriptionResultToJson(this);
+
+  @JsonKey(name: 'accounts', defaultValue: <String>[])
+
+  /// Массив счетов клиента.
+  final List<String>? accounts;
+  @JsonKey(
+    name: 'subscriptionStatus',
+    toJson: v1OperationsAccountSubscriptionStatusNullableToJson,
+    fromJson: v1OperationsAccountSubscriptionStatusNullableFromJson,
+  )
+  final enums.V1OperationsAccountSubscriptionStatus? subscriptionStatus;
+  @JsonKey(name: 'trackingId')
+
+  /// Уникальный идентификатор запроса, подробнее:
+  /// [tracking_id](/invest/intro/developer/protocols/grpc#tracking-id).
+  final String? trackingId;
+  @JsonKey(name: 'streamId')
+  final String? streamId;
+  static const fromJsonFactory = _$V1OperationsSubscriptionResultFromJson;
+
+  @override
+  String toString() => jsonEncode(this);
+}
+
+extension $V1OperationsSubscriptionResultExtension
+    on V1OperationsSubscriptionResult {
+  V1OperationsSubscriptionResult copyWith(
+      {List<String>? accounts,
+      enums.V1OperationsAccountSubscriptionStatus? subscriptionStatus,
+      String? trackingId,
+      String? streamId}) {
+    return V1OperationsSubscriptionResult(
+        accounts: accounts ?? this.accounts,
+        subscriptionStatus: subscriptionStatus ?? this.subscriptionStatus,
+        trackingId: trackingId ?? this.trackingId,
+        streamId: streamId ?? this.streamId);
+  }
+
+  V1OperationsSubscriptionResult copyWithWrapped(
+      {Wrapped<List<String>?>? accounts,
+      Wrapped<enums.V1OperationsAccountSubscriptionStatus?>? subscriptionStatus,
+      Wrapped<String?>? trackingId,
+      Wrapped<String?>? streamId}) {
+    return V1OperationsSubscriptionResult(
+        accounts: (accounts != null ? accounts.value : this.accounts),
+        subscriptionStatus: (subscriptionStatus != null
+            ? subscriptionStatus.value
+            : this.subscriptionStatus),
+        trackingId: (trackingId != null ? trackingId.value : this.trackingId),
+        streamId: (streamId != null ? streamId.value : this.streamId));
   }
 }
 
@@ -17367,6 +17733,7 @@ class V1OrderStateStreamResponseOrderState {
     this.timeInForce,
     this.orderType,
     this.accountId,
+    required this.tradeOrderId,
     this.initialOrderPrice,
     this.orderPrice,
     this.amount,
@@ -17454,6 +17821,10 @@ class V1OrderStateStreamResponseOrderState {
 
   /// Номер счета.
   final String? accountId;
+  @JsonKey(name: 'tradeOrderId')
+
+  /// Идентификатор торгового поручения.
+  final String tradeOrderId;
   @JsonKey(name: 'initialOrderPrice')
   final V1MoneyValue? initialOrderPrice;
   @JsonKey(name: 'orderPrice')
@@ -17526,6 +17897,7 @@ extension $V1OrderStateStreamResponseOrderStateExtension
       enums.V1TimeInForceType? timeInForce,
       enums.V1OrderType? orderType,
       String? accountId,
+      String? tradeOrderId,
       V1MoneyValue? initialOrderPrice,
       V1MoneyValue? orderPrice,
       V1MoneyValue? amount,
@@ -17555,6 +17927,7 @@ extension $V1OrderStateStreamResponseOrderStateExtension
         timeInForce: timeInForce ?? this.timeInForce,
         orderType: orderType ?? this.orderType,
         accountId: accountId ?? this.accountId,
+        tradeOrderId: tradeOrderId ?? this.tradeOrderId,
         initialOrderPrice: initialOrderPrice ?? this.initialOrderPrice,
         orderPrice: orderPrice ?? this.orderPrice,
         amount: amount ?? this.amount,
@@ -17585,6 +17958,7 @@ extension $V1OrderStateStreamResponseOrderStateExtension
       Wrapped<enums.V1TimeInForceType?>? timeInForce,
       Wrapped<enums.V1OrderType?>? orderType,
       Wrapped<String?>? accountId,
+      Wrapped<String>? tradeOrderId,
       Wrapped<V1MoneyValue?>? initialOrderPrice,
       Wrapped<V1MoneyValue?>? orderPrice,
       Wrapped<V1MoneyValue?>? amount,
@@ -17618,6 +17992,8 @@ extension $V1OrderStateStreamResponseOrderStateExtension
             (timeInForce != null ? timeInForce.value : this.timeInForce),
         orderType: (orderType != null ? orderType.value : this.orderType),
         accountId: (accountId != null ? accountId.value : this.accountId),
+        tradeOrderId:
+            (tradeOrderId != null ? tradeOrderId.value : this.tradeOrderId),
         initialOrderPrice: (initialOrderPrice != null
             ? initialOrderPrice.value
             : this.initialOrderPrice),
@@ -17891,6 +18267,74 @@ extension $V1PageResponseExtension on V1PageResponse {
         pageNumber: (pageNumber != null ? pageNumber.value : this.pageNumber),
         totalCount: (totalCount != null ? totalCount.value : this.totalCount));
   }
+}
+
+@JsonSerializable(explicitToJson: true)
+class V1PayInRequest {
+  const V1PayInRequest({
+    required this.fromAccountId,
+    required this.toAccountId,
+    required this.amount,
+  });
+
+  factory V1PayInRequest.fromJson(Map<String, dynamic> json) =>
+      _$V1PayInRequestFromJson(json);
+
+  static const toJsonFactory = _$V1PayInRequestToJson;
+  Map<String, dynamic> toJson() => _$V1PayInRequestToJson(this);
+
+  @JsonKey(name: 'fromAccountId')
+
+  /// Номер счета списания.
+  final String fromAccountId;
+  @JsonKey(name: 'toAccountId')
+
+  /// Номер брокерского счета зачисления.
+  final String toAccountId;
+  @JsonKey(name: 'amount')
+  final V1MoneyValue amount;
+  static const fromJsonFactory = _$V1PayInRequestFromJson;
+
+  @override
+  String toString() => jsonEncode(this);
+}
+
+extension $V1PayInRequestExtension on V1PayInRequest {
+  V1PayInRequest copyWith(
+      {String? fromAccountId, String? toAccountId, V1MoneyValue? amount}) {
+    return V1PayInRequest(
+        fromAccountId: fromAccountId ?? this.fromAccountId,
+        toAccountId: toAccountId ?? this.toAccountId,
+        amount: amount ?? this.amount);
+  }
+
+  V1PayInRequest copyWithWrapped(
+      {Wrapped<String>? fromAccountId,
+      Wrapped<String>? toAccountId,
+      Wrapped<V1MoneyValue>? amount}) {
+    return V1PayInRequest(
+        fromAccountId:
+            (fromAccountId != null ? fromAccountId.value : this.fromAccountId),
+        toAccountId:
+            (toAccountId != null ? toAccountId.value : this.toAccountId),
+        amount: (amount != null ? amount.value : this.amount));
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class V1PayInResponse {
+  const V1PayInResponse();
+
+  factory V1PayInResponse.fromJson(Map<String, dynamic> json) =>
+      _$V1PayInResponseFromJson(json);
+
+  static const toJsonFactory = _$V1PayInResponseToJson;
+  Map<String, dynamic> toJson() => _$V1PayInResponseToJson(this);
+
+  static const fromJsonFactory = _$V1PayInResponseFromJson;
+
+  @override
+  String toString() => jsonEncode(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -24219,6 +24663,49 @@ extension $StreamResultOfV1MarketDataResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
+class StreamResultOfV1OperationsStreamResponse {
+  const StreamResultOfV1OperationsStreamResponse({
+    this.result,
+    this.error,
+  });
+
+  factory StreamResultOfV1OperationsStreamResponse.fromJson(
+          Map<String, dynamic> json) =>
+      _$StreamResultOfV1OperationsStreamResponseFromJson(json);
+
+  static const toJsonFactory = _$StreamResultOfV1OperationsStreamResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$StreamResultOfV1OperationsStreamResponseToJson(this);
+
+  @JsonKey(name: 'result')
+  final V1OperationsStreamResponse? result;
+  @JsonKey(name: 'error')
+  final RpcStatus? error;
+  static const fromJsonFactory =
+      _$StreamResultOfV1OperationsStreamResponseFromJson;
+
+  @override
+  String toString() => jsonEncode(this);
+}
+
+extension $StreamResultOfV1OperationsStreamResponseExtension
+    on StreamResultOfV1OperationsStreamResponse {
+  StreamResultOfV1OperationsStreamResponse copyWith(
+      {V1OperationsStreamResponse? result, RpcStatus? error}) {
+    return StreamResultOfV1OperationsStreamResponse(
+        result: result ?? this.result, error: error ?? this.error);
+  }
+
+  StreamResultOfV1OperationsStreamResponse copyWithWrapped(
+      {Wrapped<V1OperationsStreamResponse?>? result,
+      Wrapped<RpcStatus?>? error}) {
+    return StreamResultOfV1OperationsStreamResponse(
+        result: (result != null ? result.value : this.result),
+        error: (error != null ? error.value : this.error));
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class StreamResultOfV1PortfolioStreamResponse {
   const StreamResultOfV1PortfolioStreamResponse({
     this.result,
@@ -26799,6 +27286,89 @@ List<enums.V1OperationType>? v1OperationTypeNullableListFromJson(
 
   return v1OperationType
       .map((e) => v1OperationTypeFromJson(e.toString()))
+      .toList();
+}
+
+String? v1OperationsAccountSubscriptionStatusNullableToJson(
+    enums.V1OperationsAccountSubscriptionStatus?
+        v1OperationsAccountSubscriptionStatus) {
+  return v1OperationsAccountSubscriptionStatus?.value;
+}
+
+String? v1OperationsAccountSubscriptionStatusToJson(
+    enums.V1OperationsAccountSubscriptionStatus
+        v1OperationsAccountSubscriptionStatus) {
+  return v1OperationsAccountSubscriptionStatus.value;
+}
+
+enums.V1OperationsAccountSubscriptionStatus
+    v1OperationsAccountSubscriptionStatusFromJson(
+  Object? v1OperationsAccountSubscriptionStatus, [
+  enums.V1OperationsAccountSubscriptionStatus? defaultValue,
+]) {
+  return enums.V1OperationsAccountSubscriptionStatus.values.firstWhereOrNull(
+          (e) => e.value == v1OperationsAccountSubscriptionStatus) ??
+      defaultValue ??
+      enums.V1OperationsAccountSubscriptionStatus.swaggerGeneratedUnknown;
+}
+
+enums.V1OperationsAccountSubscriptionStatus?
+    v1OperationsAccountSubscriptionStatusNullableFromJson(
+  Object? v1OperationsAccountSubscriptionStatus, [
+  enums.V1OperationsAccountSubscriptionStatus? defaultValue,
+]) {
+  if (v1OperationsAccountSubscriptionStatus == null) {
+    return null;
+  }
+  return enums.V1OperationsAccountSubscriptionStatus.values.firstWhereOrNull(
+          (e) => e.value == v1OperationsAccountSubscriptionStatus) ??
+      defaultValue;
+}
+
+String v1OperationsAccountSubscriptionStatusExplodedListToJson(
+    List<enums.V1OperationsAccountSubscriptionStatus>?
+        v1OperationsAccountSubscriptionStatus) {
+  return v1OperationsAccountSubscriptionStatus
+          ?.map((e) => e.value!)
+          .join(',') ??
+      '';
+}
+
+List<String> v1OperationsAccountSubscriptionStatusListToJson(
+    List<enums.V1OperationsAccountSubscriptionStatus>?
+        v1OperationsAccountSubscriptionStatus) {
+  if (v1OperationsAccountSubscriptionStatus == null) {
+    return [];
+  }
+
+  return v1OperationsAccountSubscriptionStatus.map((e) => e.value!).toList();
+}
+
+List<enums.V1OperationsAccountSubscriptionStatus>
+    v1OperationsAccountSubscriptionStatusListFromJson(
+  List? v1OperationsAccountSubscriptionStatus, [
+  List<enums.V1OperationsAccountSubscriptionStatus>? defaultValue,
+]) {
+  if (v1OperationsAccountSubscriptionStatus == null) {
+    return defaultValue ?? [];
+  }
+
+  return v1OperationsAccountSubscriptionStatus
+      .map((e) => v1OperationsAccountSubscriptionStatusFromJson(e.toString()))
+      .toList();
+}
+
+List<enums.V1OperationsAccountSubscriptionStatus>?
+    v1OperationsAccountSubscriptionStatusNullableListFromJson(
+  List? v1OperationsAccountSubscriptionStatus, [
+  List<enums.V1OperationsAccountSubscriptionStatus>? defaultValue,
+]) {
+  if (v1OperationsAccountSubscriptionStatus == null) {
+    return defaultValue;
+  }
+
+  return v1OperationsAccountSubscriptionStatus
+      .map((e) => v1OperationsAccountSubscriptionStatusFromJson(e.toString()))
       .toList();
 }
 

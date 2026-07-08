@@ -3,6 +3,7 @@
 import '../json_types.dart';
 import 'json_readers.dart';
 
+@Deprecated('Use V1InstrumentShort from generated OpenAPI DTOs instead.')
 class InvestInstrumentShort {
   const InvestInstrumentShort({
     this.figi,
@@ -54,6 +55,7 @@ class InvestInstrumentShort {
   final bool? forQualInvestorFlag;
 }
 
+@Deprecated('Use V1FindInstrumentResponse from generated OpenAPI DTOs instead.')
 class InvestFindInstrumentResponse {
   const InvestFindInstrumentResponse({required this.instruments});
 

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.7.0
+
+- **OpenAPI 1.44:** bundled spec updated from [invest-contracts](https://opensource.tbank.ru/invest/invest-contracts/-/tags/1.44); regenerated DTOs and `Invest*Api` wrappers. New REST methods: `UsersService/PayIn`, `OperationsStreamService/OperationsStream`.
+- **Entry points:** `package:tbank_invest/tbank_invest_rest.dart` (REST only) and `package:tbank_invest/tbank_invest_websocket.dart` (WSS + `InvestStreamManager`). The default `tbank_invest.dart` re-exports both for backward compatibility.
+- **Codegen pipeline:** added `tool/_generate_api_paths.py` for `lib/src/api_paths.dart` (run after spec refresh).
+- **Hand-written models:** `InvestAccountsResponse`, `InvestFindInstrumentResponse`, `InvestOrdersResponse`, and related helpers are **deprecated** in favour of generated `V1*` types (removed in 1.0.0).
+- **CI:** optional scheduled sandbox integration smoke workflow (requires `TBANK_SANDBOX_TOKEN` secret).
+- **Docs:** README install examples use `^0.7.0`; OpenAPI bundle source points to T-Bank `invest-contracts`.
+
 ## 0.6.4
 
 - **Pub points improvements:** generated DTO files now include injected dartdoc comments from OpenAPI `description` metadata, raising documentation coverage in `pana`.

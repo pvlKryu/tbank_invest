@@ -12,6 +12,12 @@ class InvestOperationsStreamApi {
 
   final InvestHttpClient _http;
 
+  /// REST path: [InvestApiPaths.operationsStreamServiceOperationsStream]
+  Future<StreamResultOfV1OperationsStreamResponse> operationsStream(
+          V1OperationsStreamRequest request) =>
+      _http.postDto(InvestApiPaths.operationsStreamServiceOperationsStream,
+          request, StreamResultOfV1OperationsStreamResponse.fromJson);
+
   /// REST path: [InvestApiPaths.operationsStreamServicePortfolioStream]
   Future<StreamResultOfV1PortfolioStreamResponse> portfolioStream(
           V1PortfolioStreamRequest request) =>

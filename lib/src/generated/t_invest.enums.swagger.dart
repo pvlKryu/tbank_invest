@@ -1,4 +1,5 @@
 import 'package:json_annotation/json_annotation.dart';
+import 'package:collection/collection.dart';
 
 /// - PERIOD_TYPE_UNSPECIFIED: Не указан.
 /// - PERIOD_TYPE_QUARTER: Квартальный.
@@ -913,6 +914,9 @@ enum V1OperationState {
 /// - OPERATION_TYPE_OVER_INCOME: Доход от оверанайта.
 /// - OPERATION_TYPE_OPTION_EXPIRATION: Экспирация опциона.
 /// - OPERATION_TYPE_FUTURE_EXPIRATION: Экспирация фьючерса.
+/// - OPERATION_TYPE_OTHER_FEE: Прочие комиссии; - OPERATION_TYPE_OTHER: Операция по счету; -
+/// OPERATION_TYPE_DFA_REDEMPTION: погашение ЦФА-токена; - OPERATION_TYPE_PRIMARY_ORDER: отмена заявки на
+/// первичное размещение по ЦФА;
 enum V1OperationType {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
@@ -1046,11 +1050,45 @@ enum V1OperationType {
   @JsonValue('OPERATION_TYPE_OPTION_EXPIRATION')
   operationTypeOptionExpiration('OPERATION_TYPE_OPTION_EXPIRATION'),
   @JsonValue('OPERATION_TYPE_FUTURE_EXPIRATION')
-  operationTypeFutureExpiration('OPERATION_TYPE_FUTURE_EXPIRATION');
+  operationTypeFutureExpiration('OPERATION_TYPE_FUTURE_EXPIRATION'),
+  @JsonValue('OPERATION_TYPE_OTHER_FEE')
+  operationTypeOtherFee('OPERATION_TYPE_OTHER_FEE'),
+  @JsonValue('OPERATION_TYPE_OTHER')
+  operationTypeOther('OPERATION_TYPE_OTHER'),
+  @JsonValue('OPERATION_TYPE_DFA_REDEMPTION')
+  operationTypeDfaRedemption('OPERATION_TYPE_DFA_REDEMPTION'),
+  @JsonValue('OPERATION_TYPE_PRIMARY_ORDER')
+  operationTypePrimaryOrder('OPERATION_TYPE_PRIMARY_ORDER');
 
   final String? value;
 
   const V1OperationType(this.value);
+}
+
+/// Результат подписки.
+/// - OPERATIONS_SUBSCRIPTION_STATUS_UNSPECIFIED: Тип не определен.
+/// - OPERATIONS_SUBSCRIPTION_STATUS_SUCCESS: Успешно.
+/// - OPERATIONS_SUBSCRIPTION_STATUS_ACCOUNT_NOT_FOUND: Счет не найден или недостаточно прав.
+/// - OPERATIONS_SUBSCRIPTION_STATUS_INTERNAL_ERROR: Произошла ошибка.
+enum V1OperationsAccountSubscriptionStatus {
+  @JsonValue(null)
+  swaggerGeneratedUnknown(null),
+
+  @JsonValue('OPERATIONS_SUBSCRIPTION_STATUS_UNSPECIFIED')
+  operationsSubscriptionStatusUnspecified(
+      'OPERATIONS_SUBSCRIPTION_STATUS_UNSPECIFIED'),
+  @JsonValue('OPERATIONS_SUBSCRIPTION_STATUS_SUCCESS')
+  operationsSubscriptionStatusSuccess('OPERATIONS_SUBSCRIPTION_STATUS_SUCCESS'),
+  @JsonValue('OPERATIONS_SUBSCRIPTION_STATUS_ACCOUNT_NOT_FOUND')
+  operationsSubscriptionStatusAccountNotFound(
+      'OPERATIONS_SUBSCRIPTION_STATUS_ACCOUNT_NOT_FOUND'),
+  @JsonValue('OPERATIONS_SUBSCRIPTION_STATUS_INTERNAL_ERROR')
+  operationsSubscriptionStatusInternalError(
+      'OPERATIONS_SUBSCRIPTION_STATUS_INTERNAL_ERROR');
+
+  final String? value;
+
+  const V1OperationsAccountSubscriptionStatus(this.value);
 }
 
 /// Тип опциона по направлению сделки.

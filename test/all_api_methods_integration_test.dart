@@ -100,6 +100,9 @@ List<_ApiCase> _productionCases() => <_ApiCase>[
       _ApiCase('users.getUserTariff', (c) {
         return c.http.post(InvestApiPaths.usersServiceGetUserTariff, {});
       }),
+      _ApiCase('users.payIn', (c) {
+        return c.http.post(InvestApiPaths.usersServicePayIn, {});
+      }),
       _ApiCase('orders.cancelOrder', (c) {
         return c.http.post(InvestApiPaths.ordersServiceCancelOrder, {});
       }),
@@ -162,6 +165,10 @@ List<_ApiCase> _productionCases() => <_ApiCase>[
       _ApiCase('operationsStream.positionsStream', (c) {
         return c.http
             .post(InvestApiPaths.operationsStreamServicePositionsStream, {});
+      }),
+      _ApiCase('operationsStream.operationsStream', (c) {
+        return c.http
+            .post(InvestApiPaths.operationsStreamServiceOperationsStream, {});
       }),
       _ApiCase('marketData.getCandles', (c) {
         return c.http.post(InvestApiPaths.marketDataServiceGetCandles, {});

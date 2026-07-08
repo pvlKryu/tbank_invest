@@ -16,8 +16,9 @@ python3 tool/_inject_openapi_dartdoc.py
 `Future<Ответ> имя(Запрос request) => postDto(…)`.
 
 **Когда запускать:** после обновления `tool/t_invest.openapi.swagger` и `build_runner` — если в спеке сменились пути или схемы REST-методов, запусти:
-1) `python3 tool/_generate_service_dart_types.py` (обёртки сервисов),
-2) `python3 tool/_inject_openapi_dartdoc.py` (комментарии DTO из OpenAPI `description`).
+1) `python3 tool/_generate_api_paths.py` (константы путей),
+2) `python3 tool/_generate_service_dart_types.py` (обёртки сервисов),
+3) `python3 tool/_inject_openapi_dartdoc.py` (комментарии DTO из OpenAPI `description`).
 Затем `dart format lib/src/services`.
 
 **Вручную** эти `*_api.dart` не править.

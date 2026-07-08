@@ -23,15 +23,21 @@ Generated DTOs are available at `package:tbank_invest/src/generated/t_invest.swa
 1. Refresh the spec (if the upstream contract changed), then overwrite `tool/t_invest.openapi.swagger`:
 
    ```bash
-   npx @redocly/cli bundle \
-     "https://raw.githubusercontent.com/RussianInvestments/investAPI/main/src/docs/swagger-ui/openapi.yaml" \
-     -o tool/t_invest.openapi.swagger
+   curl -sL "https://opensource.tbank.ru/invest/invest-contracts/-/raw/1.44/src/docs/swagger-ui/openapi.yaml" \
+     -o /tmp/t_invest_openapi.yaml
+   npx @redocly/cli bundle /tmp/t_invest_openapi.yaml -o tool/t_invest.openapi.swagger
    ```
+
+   Replace `1.44` with the target tag from [invest-contracts](https://opensource.tbank.ru/invest/invest-contracts/-/tags).
 
 2. Regenerate code:
 
    ```bash
    dart run build_runner build --delete-conflicting-outputs
+   python3 tool/_generate_api_paths.py
+   python3 tool/_generate_service_dart_types.py
+   python3 tool/_inject_openapi_dartdoc.py
+   dart format lib/src/generated lib/src/services lib/src/api_paths.dart
    ```
 
 3. Commit **both** the updated `tool/t_invest.openapi.swagger` and the updated `lib/src/generated/*` in the same version bump, then publish a new package version on pub.dev so consumers do not have to run codegen.

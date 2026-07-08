@@ -37,8 +37,8 @@ void main() {
       expect(m2.nano, 500000000);
     });
 
-    test('InvestAccountsResponse parses accounts list', () {
-      final response = InvestAccountsResponse.fromJson({
+    test('V1GetAccountsResponse parses accounts list', () {
+      final response = V1GetAccountsResponse.fromJson({
         'accounts': [
           {
             'id': 'acc-1',
@@ -50,12 +50,12 @@ void main() {
       });
 
       expect(response.accounts, hasLength(1));
-      expect(response.accounts.first.id, 'acc-1');
-      expect(response.accounts.first.name, 'Sandbox');
+      expect(response.accounts!.first.id, 'acc-1');
+      expect(response.accounts!.first.name, 'Sandbox');
     });
 
-    test('InvestFindInstrumentResponse parses instruments', () {
-      final response = InvestFindInstrumentResponse.fromJson({
+    test('V1FindInstrumentResponse parses instruments', () {
+      final response = V1FindInstrumentResponse.fromJson({
         'instruments': [
           {
             'figi': 'BBG000B9XRY4',
@@ -68,16 +68,16 @@ void main() {
       });
 
       expect(response.instruments, hasLength(1));
-      expect(response.instruments.first.ticker, 'AAPL');
-      expect(response.instruments.first.apiTradeAvailableFlag, isTrue);
+      expect(response.instruments!.first.ticker, 'AAPL');
+      expect(response.instruments!.first.apiTradeAvailableFlag, isTrue);
     });
 
-    test('InvestOrdersResponse parses order payload', () {
-      final response = InvestOrdersResponse.fromJson({
+    test('V1GetOrdersResponse parses order payload', () {
+      final response = V1GetOrdersResponse.fromJson({
         'orders': [
           {
             'orderId': 'ord-1',
-            'lotsRequested': 2,
+            'lotsRequested': '2',
             'direction': 'ORDER_DIRECTION_BUY',
             'initialOrderPrice': {
               'currency': 'rub',
@@ -89,9 +89,9 @@ void main() {
       });
 
       expect(response.orders, hasLength(1));
-      expect(response.orders.first.orderId, 'ord-1');
-      expect(response.orders.first.lotsRequested, 2);
-      expect(response.orders.first.initialOrderPrice?.units, '100');
+      expect(response.orders!.first.orderId, 'ord-1');
+      expect(response.orders!.first.lotsRequested, '2');
+      expect(response.orders!.first.initialOrderPrice?.units, '100');
     });
   });
 }

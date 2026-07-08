@@ -4,6 +4,7 @@ import '../json_types.dart';
 import 'json_readers.dart';
 import 'money_value.dart';
 
+@Deprecated('Use V1OrderState from generated OpenAPI DTOs instead.')
 class InvestOrderState {
   const InvestOrderState({
     this.orderId,
@@ -52,6 +53,7 @@ class InvestOrderState {
   final String? currency;
 }
 
+@Deprecated('Use V1GetOrdersResponse from generated OpenAPI DTOs instead.')
 class InvestOrdersResponse {
   const InvestOrdersResponse({required this.orders});
 

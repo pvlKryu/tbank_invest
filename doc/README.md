@@ -10,7 +10,7 @@ Extended documentation for the **tbank_invest** Dart package (T-Invest / T-Bank)
 ## Quick links (official)
 
 - [T-Invest product API](https://developer.tbank.ru/invest/api)
-- [Upstream OpenAPI (YAML)](https://raw.githubusercontent.com/RussianInvestments/investAPI/main/src/docs/swagger-ui/openapi.yaml)
+- [Upstream OpenAPI (YAML)](https://opensource.tbank.ru/invest/invest-contracts/-/raw/1.44/src/docs/swagger-ui/openapi.yaml) (tag [1.44](https://opensource.tbank.ru/invest/invest-contracts/-/tags/1.44); archived [GitHub mirror](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/swagger-ui/openapi.yaml) is 1.43)
 - [WebSocket asyncapi](https://github.com/RussianInvestments/investAPI/blob/main/src/docs/ws/asyncapi.yaml)
 - [Package on pub.dev](https://pub.dev/packages/tbank_invest)
 - [Repository](https://github.com/pvlKryu/tbank_invest) — `pubspec` field `documentation` may point here under `doc/`

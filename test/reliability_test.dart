@@ -65,14 +65,14 @@ void main() {
       final event = InvestStreamEvent.fromJson({
         'orderState': {
           'orderId': 'ord-1',
-          'lotsRequested': 3,
+          'lotsRequested': '3',
           'direction': 'ORDER_DIRECTION_BUY',
         },
       });
 
       expect(event.type, InvestStreamEventType.orderState);
       expect(event.orderState?.orderId, 'ord-1');
-      expect(event.orderState?.lotsRequested, 3);
+      expect(event.orderState?.lotsRequested, '3');
     });
 
     test('parses lastPrice as typed stream event', () {

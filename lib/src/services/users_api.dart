@@ -44,4 +44,8 @@ class InvestUsersApi {
           V1GetUserTariffRequest request) =>
       _http.postDto(InvestApiPaths.usersServiceGetUserTariff, request,
           V1GetUserTariffResponse.fromJson);
+
+  /// REST path: [InvestApiPaths.usersServicePayIn]
+  Future<V1PayInResponse> payIn(V1PayInRequest request) => _http.postDto(
+      InvestApiPaths.usersServicePayIn, request, V1PayInResponse.fromJson);
 }

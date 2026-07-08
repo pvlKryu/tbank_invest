@@ -4,6 +4,7 @@ import '../json_types.dart';
 import 'json_readers.dart';
 import 'users_models.dart';
 
+@Deprecated('Use V1GetAccountsResponse from generated OpenAPI DTOs instead.')
 class InvestSandboxAccountsResponse {
   const InvestSandboxAccountsResponse({required this.accounts});
 

@@ -1,5 +1,4 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package
 
 part of 't_invest.swagger.dart';
 
@@ -2115,6 +2114,7 @@ V1Currency _$V1CurrencyFromJson(Map<String, dynamic> json) => V1Currency(
               ?.map((e) => e as String)
               .toList() ??
           [],
+      assetUid: json['assetUid'] as String?,
       forIisFlag: json['forIisFlag'] as bool?,
       forQualInvestorFlag: json['forQualInvestorFlag'] as bool?,
       weekendFlag: json['weekendFlag'] as bool?,
@@ -2168,6 +2168,7 @@ Map<String, dynamic> _$V1CurrencyToJson(V1Currency instance) =>
       'realExchange': v1RealExchangeNullableToJson(instance.realExchange),
       'positionUid': instance.positionUid,
       'requiredTests': instance.requiredTests,
+      'assetUid': instance.assetUid,
       'forIisFlag': instance.forIisFlag,
       'forQualInvestorFlag': instance.forQualInvestorFlag,
       'weekendFlag': instance.weekendFlag,
@@ -2588,6 +2589,7 @@ V1FilterOptionsRequest _$V1FilterOptionsRequestFromJson(
     V1FilterOptionsRequest(
       basicAssetUid: json['basicAssetUid'] as String?,
       basicAssetPositionUid: json['basicAssetPositionUid'] as String?,
+      basicInstrumentId: json['basicInstrumentId'] as String?,
     );
 
 Map<String, dynamic> _$V1FilterOptionsRequestToJson(
@@ -2595,6 +2597,7 @@ Map<String, dynamic> _$V1FilterOptionsRequestToJson(
     <String, dynamic>{
       'basicAssetUid': instance.basicAssetUid,
       'basicAssetPositionUid': instance.basicAssetPositionUid,
+      'basicInstrumentId': instance.basicInstrumentId,
     };
 
 V1FindInstrumentRequest _$V1FindInstrumentRequestFromJson(
@@ -5105,6 +5108,47 @@ Map<String, dynamic> _$V1OperationToJson(V1Operation instance) =>
           instance.childOperations?.map((e) => e.toJson()).toList(),
     };
 
+V1OperationData _$V1OperationDataFromJson(Map<String, dynamic> json) =>
+    V1OperationData(
+      brokerAccountId: json['brokerAccountId'] as String?,
+      id: json['id'] as String?,
+      parentOperationId: json['parentOperationId'] as String?,
+      name: json['name'] as String?,
+      date:
+          json['date'] == null ? null : DateTime.parse(json['date'] as String),
+      type: v1OperationTypeNullableFromJson(json['type']),
+      state: v1OperationStateNullableFromJson(json['state']),
+      instrumentUid: json['instrumentUid'] as String?,
+      figi: json['figi'] as String?,
+      instrumentType: json['instrumentType'] as String?,
+      instrumentKind: v1InstrumentTypeNullableFromJson(json['instrumentKind']),
+      positionUid: json['positionUid'] as String?,
+      ticker: json['ticker'] as String?,
+      classCode: json['classCode'] as String?,
+      payment: json['payment'] == null
+          ? null
+          : V1MoneyValue.fromJson(json['payment'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$V1OperationDataToJson(V1OperationData instance) =>
+    <String, dynamic>{
+      'brokerAccountId': instance.brokerAccountId,
+      'id': instance.id,
+      'parentOperationId': instance.parentOperationId,
+      'name': instance.name,
+      'date': instance.date?.toIso8601String(),
+      'type': v1OperationTypeNullableToJson(instance.type),
+      'state': v1OperationStateNullableToJson(instance.state),
+      'instrumentUid': instance.instrumentUid,
+      'figi': instance.figi,
+      'instrumentType': instance.instrumentType,
+      'instrumentKind': v1InstrumentTypeNullableToJson(instance.instrumentKind),
+      'positionUid': instance.positionUid,
+      'ticker': instance.ticker,
+      'classCode': instance.classCode,
+      'payment': instance.payment?.toJson(),
+    };
+
 V1OperationItem _$V1OperationItemFromJson(Map<String, dynamic> json) =>
     V1OperationItem(
       cursor: json['cursor'] as String?,
@@ -5294,6 +5338,72 @@ Map<String, dynamic> _$V1OperationsResponseToJson(
         V1OperationsResponse instance) =>
     <String, dynamic>{
       'operations': instance.operations?.map((e) => e.toJson()).toList(),
+    };
+
+V1OperationsStreamRequest _$V1OperationsStreamRequestFromJson(
+        Map<String, dynamic> json) =>
+    V1OperationsStreamRequest(
+      accounts: (json['accounts'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      pingSettings: json['pingSettings'] == null
+          ? null
+          : V1PingDelaySettings.fromJson(
+              json['pingSettings'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$V1OperationsStreamRequestToJson(
+        V1OperationsStreamRequest instance) =>
+    <String, dynamic>{
+      'accounts': instance.accounts,
+      'pingSettings': instance.pingSettings?.toJson(),
+    };
+
+V1OperationsStreamResponse _$V1OperationsStreamResponseFromJson(
+        Map<String, dynamic> json) =>
+    V1OperationsStreamResponse(
+      subscriptions: json['subscriptions'] == null
+          ? null
+          : V1OperationsSubscriptionResult.fromJson(
+              json['subscriptions'] as Map<String, dynamic>),
+      operation: json['operation'] == null
+          ? null
+          : V1OperationData.fromJson(json['operation'] as Map<String, dynamic>),
+      ping: json['ping'] == null
+          ? null
+          : V1Ping.fromJson(json['ping'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$V1OperationsStreamResponseToJson(
+        V1OperationsStreamResponse instance) =>
+    <String, dynamic>{
+      'subscriptions': instance.subscriptions?.toJson(),
+      'operation': instance.operation?.toJson(),
+      'ping': instance.ping?.toJson(),
+    };
+
+V1OperationsSubscriptionResult _$V1OperationsSubscriptionResultFromJson(
+        Map<String, dynamic> json) =>
+    V1OperationsSubscriptionResult(
+      accounts: (json['accounts'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      subscriptionStatus: v1OperationsAccountSubscriptionStatusNullableFromJson(
+          json['subscriptionStatus']),
+      trackingId: json['trackingId'] as String?,
+      streamId: json['streamId'] as String?,
+    );
+
+Map<String, dynamic> _$V1OperationsSubscriptionResultToJson(
+        V1OperationsSubscriptionResult instance) =>
+    <String, dynamic>{
+      'accounts': instance.accounts,
+      'subscriptionStatus': v1OperationsAccountSubscriptionStatusNullableToJson(
+          instance.subscriptionStatus),
+      'trackingId': instance.trackingId,
+      'streamId': instance.streamId,
     };
 
 V1Option _$V1OptionFromJson(Map<String, dynamic> json) => V1Option(
@@ -5652,6 +5762,7 @@ V1OrderStateStreamResponseOrderState
           timeInForce: v1TimeInForceTypeNullableFromJson(json['timeInForce']),
           orderType: v1OrderTypeNullableFromJson(json['orderType']),
           accountId: json['accountId'] as String?,
+          tradeOrderId: json['tradeOrderId'] as String,
           initialOrderPrice: json['initialOrderPrice'] == null
               ? null
               : V1MoneyValue.fromJson(
@@ -5703,6 +5814,7 @@ Map<String, dynamic> _$V1OrderStateStreamResponseOrderStateToJson(
       'timeInForce': v1TimeInForceTypeNullableToJson(instance.timeInForce),
       'orderType': v1OrderTypeNullableToJson(instance.orderType),
       'accountId': instance.accountId,
+      'tradeOrderId': instance.tradeOrderId,
       'initialOrderPrice': instance.initialOrderPrice?.toJson(),
       'orderPrice': instance.orderPrice?.toJson(),
       'amount': instance.amount?.toJson(),
@@ -5789,6 +5901,26 @@ Map<String, dynamic> _$V1PageResponseToJson(V1PageResponse instance) =>
       'pageNumber': instance.pageNumber,
       'totalCount': instance.totalCount,
     };
+
+V1PayInRequest _$V1PayInRequestFromJson(Map<String, dynamic> json) =>
+    V1PayInRequest(
+      fromAccountId: json['fromAccountId'] as String,
+      toAccountId: json['toAccountId'] as String,
+      amount: V1MoneyValue.fromJson(json['amount'] as Map<String, dynamic>),
+    );
+
+Map<String, dynamic> _$V1PayInRequestToJson(V1PayInRequest instance) =>
+    <String, dynamic>{
+      'fromAccountId': instance.fromAccountId,
+      'toAccountId': instance.toAccountId,
+      'amount': instance.amount.toJson(),
+    };
+
+V1PayInResponse _$V1PayInResponseFromJson(Map<String, dynamic> json) =>
+    V1PayInResponse();
+
+Map<String, dynamic> _$V1PayInResponseToJson(V1PayInResponse instance) =>
+    <String, dynamic>{};
 
 V1Ping _$V1PingFromJson(Map<String, dynamic> json) => V1Ping(
       time:
@@ -7838,6 +7970,26 @@ StreamResultOfV1MarketDataResponse _$StreamResultOfV1MarketDataResponseFromJson(
 
 Map<String, dynamic> _$StreamResultOfV1MarketDataResponseToJson(
         StreamResultOfV1MarketDataResponse instance) =>
+    <String, dynamic>{
+      'result': instance.result?.toJson(),
+      'error': instance.error?.toJson(),
+    };
+
+StreamResultOfV1OperationsStreamResponse
+    _$StreamResultOfV1OperationsStreamResponseFromJson(
+            Map<String, dynamic> json) =>
+        StreamResultOfV1OperationsStreamResponse(
+          result: json['result'] == null
+              ? null
+              : V1OperationsStreamResponse.fromJson(
+                  json['result'] as Map<String, dynamic>),
+          error: json['error'] == null
+              ? null
+              : RpcStatus.fromJson(json['error'] as Map<String, dynamic>),
+        );
+
+Map<String, dynamic> _$StreamResultOfV1OperationsStreamResponseToJson(
+        StreamResultOfV1OperationsStreamResponse instance) =>
     <String, dynamic>{
       'result': instance.result?.toJson(),
       'error': instance.error?.toJson(),

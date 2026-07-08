@@ -3,6 +3,7 @@
 import '../json_types.dart';
 import 'json_readers.dart';
 
+@Deprecated('Use V1Account from generated OpenAPI DTOs instead.')
 class InvestAccount {
   const InvestAccount({
     this.id,
@@ -33,6 +34,7 @@ class InvestAccount {
   final String? accessLevel;
 }
 
+@Deprecated('Use V1GetAccountsResponse from generated OpenAPI DTOs instead.')
 class InvestAccountsResponse {
   const InvestAccountsResponse({required this.accounts});
 
@@ -46,6 +48,7 @@ class InvestAccountsResponse {
   final List<InvestAccount> accounts;
 }
 
+@Deprecated('Use V1GetInfoResponse from generated OpenAPI DTOs instead.')
 class InvestUserInfo {
   const InvestUserInfo({
     this.premStatus,

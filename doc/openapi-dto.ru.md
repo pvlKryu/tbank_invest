@@ -23,15 +23,21 @@
 1. При обновлении контракта — пересобрать `tool/t_invest.openapi.swagger`:
 
    ```bash
-   npx @redocly/cli bundle \
-     "https://raw.githubusercontent.com/RussianInvestments/investAPI/main/src/docs/swagger-ui/openapi.yaml" \
-     -o tool/t_invest.openapi.swagger
+   curl -sL "https://opensource.tbank.ru/invest/invest-contracts/-/raw/1.44/src/docs/swagger-ui/openapi.yaml" \
+     -o /tmp/t_invest_openapi.yaml
+   npx @redocly/cli bundle /tmp/t_invest_openapi.yaml -o tool/t_invest.openapi.swagger
    ```
+
+   Тег `1.44` замените на нужный из [invest-contracts](https://opensource.tbank.ru/invest/invest-contracts/-/tags).
 
 2. Сгенерировать код:
 
    ```bash
    dart run build_runner build --delete-conflicting-outputs
+   python3 tool/_generate_api_paths.py
+   python3 tool/_generate_service_dart_types.py
+   python3 tool/_inject_openapi_dartdoc.py
+   dart format lib/src/generated lib/src/services lib/src/api_paths.dart
    ```
 
 3. В одном релизе коммитить **и** обновлённый `tool/t_invest.openapi.swagger`, **и** `lib/src/generated/*`, чтобы пользователи pub **не** запускали codegen сами.

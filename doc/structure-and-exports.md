@@ -8,6 +8,14 @@ import 'package:tbank_invest/tbank_invest.dart';
 
 ## What is in the root export
 
+`tbank_invest.dart` re-exports everything. Smaller imports:
+
+| Import | Use when |
+|--------|----------|
+| `package:tbank_invest/tbank_invest.dart` | Full client (REST + WebSocket); default. |
+| `package:tbank_invest/tbank_invest_rest.dart` | REST only — no `InvestWebSocket` / `InvestStreamManager` in the graph. |
+| `package:tbank_invest/tbank_invest_websocket.dart` | WSS helpers + stream models (needs `dart:io`). |
+
 | Area | Exports (examples) | Role |
 |------|-------------------|------|
 | **Entry** | `TinvestClient` | One facade: config + HTTP + all REST service groups. |

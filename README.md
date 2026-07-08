@@ -71,7 +71,25 @@ Dart client for T‑Invest:
 
 ```yaml
 dependencies:
-  tbank_invest: ^0.6.2
+  tbank_invest: ^0.7.0
+```
+
+REST-only import (no WebSocket in the graph):
+
+```dart
+import 'package:tbank_invest/tbank_invest_rest.dart';
+```
+
+WebSocket streams (requires `dart:io`):
+
+```dart
+import 'package:tbank_invest/tbank_invest_websocket.dart';
+```
+
+Full barrel (default, backward compatible):
+
+```dart
+import 'package:tbank_invest/tbank_invest.dart';
 ```
 
 Path dependency is intended for local development of this package only:
@@ -294,7 +312,25 @@ MIT — see [`LICENSE`](LICENSE).
 
 ```yaml
 dependencies:
-  tbank_invest: ^0.6.2
+  tbank_invest: ^0.7.0
+```
+
+REST-only import (no WebSocket in the graph):
+
+```dart
+import 'package:tbank_invest/tbank_invest_rest.dart';
+```
+
+WebSocket streams (requires `dart:io`):
+
+```dart
+import 'package:tbank_invest/tbank_invest_websocket.dart';
+```
+
+Full barrel (default, backward compatible):
+
+```dart
+import 'package:tbank_invest/tbank_invest.dart';
 ```
 
 Локальная зависимость по пути нужна только при разработке самого пакета:

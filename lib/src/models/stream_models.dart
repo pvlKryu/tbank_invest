@@ -1,7 +1,7 @@
 // ignore_for_file: public_member_api_docs
 
+import '../generated/t_invest.swagger.dart';
 import '../json_types.dart';
-import 'orders_models.dart';
 
 enum InvestStreamEventType {
   lastPrice,
@@ -56,7 +56,7 @@ class InvestStreamEvent {
         raw: json,
         orderState: order == null
             ? null
-            : InvestOrderState.fromJson(Map<String, dynamic>.from(order)),
+            : Contractv1OrderState.fromJson(Map<String, dynamic>.from(order)),
       );
     }
     if (json.containsKey('portfolio')) {
@@ -73,7 +73,7 @@ class InvestStreamEvent {
   final JsonMap raw;
   final JsonMap? lastPrice;
   final JsonMap? candle;
-  final InvestOrderState? orderState;
+  final Contractv1OrderState? orderState;
 }
 
 JsonMap? _asMap(Object? value) {
