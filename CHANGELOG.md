@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.8.1
+
+- **Docs:** fixed Russian README table of contents on pub.dev (explicit ASCII anchors; Cyrillic heading IDs are broken in pub’s Markdown renderer).
+- **Docs:** short **Migration to 1.0** sections (EN/RU) in the root README; links from [doc/README.md](doc/README.md).
+- **Pub score:** `tool/_cleanup_generated_dart.py` now adds `ignore_for_file` on `t_invest.swagger.g.dart` and ignores generated `deprecated_member_use` hints.
+
 ## 0.8.0
 
 - **Flutter example:** `example/flutter_app/` — Material UI, sandbox `getAccounts`, token via `--dart-define=TBANK_TOKEN=…`.
